@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - APEX Consulting</title>
+    <meta name="description" content="APEX Consulting insights on strategy, digital, AI, and operating models. Explore research, playbooks, and thought leadership.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 nav-default" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold">A</div>
+                    <span class="font-bold text-lg text-blue-900">APEX</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <button type="button" data-home-toggle class="text-gray-700 hover:text-blue-900">Home</button>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-900">About</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-900">Services</a>
+                    <a href="industries.html" class="text-gray-700 hover:text-blue-900">Industries</a>
+                    <a href="insights.html" class="text-blue-900 font-semibold">Insights</a>
+                    <a href="user-dashboard.html" class="text-gray-700 hover:text-blue-900">Dashboard</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
+                </div>
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="login.html" class="px-4 py-2 text-blue-900 hover:text-blue-700">Login</a>
+                    <a href="contact.html" class="btn btn-primary">Talk to an Expert</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-900">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden border-t bg-white">
+            <div class="px-4 py-3 space-y-2">
+                <button type="button" data-home-toggle class="block text-base font-medium text-gray-700 text-left w-full">Home</button>
+                <a href="about.html" class="block text-base font-medium text-gray-700">About</a>
+                <a href="services.html" class="block text-base font-medium text-gray-700">Services</a>
+                <a href="industries.html" class="block text-base font-medium text-gray-700">Industries</a>
+                <a href="insights.html" class="block text-base font-medium text-blue-900">Insights</a>
+                <a href="user-dashboard.html" class="block text-base font-medium text-gray-700">Dashboard</a>
+                <a href="contact.html" class="block text-base font-medium text-gray-700">Contact</a>
+                <div class="pt-2 border-t">
+                    <a href="login.html" class="block w-full text-center py-2 text-blue-900 font-semibold">Login</a>
+                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary">Talk to an Expert</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white pt-28 md:pt-32 pb-20">
+            <div class="absolute inset-0 bg-blob opacity-30"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <span class="text-sm uppercase tracking-widest text-blue-100">Insights</span>
+                        <h1 class="text-4xl md:text-5xl font-bold leading-tight">Research, playbooks, and perspectives from the field</h1>
+                        <p class="text-lg text-blue-50 max-w-3xl">Practical guidance from engagements across industries—focused on what works, what doesn't, and how to move faster.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#articles" class="btn btn-white">Browse Articles</a>
+                            <a href="contact.html" class="btn btn-secondary">Request a briefing</a>
+                        </div>
+                    </div>
+                    <div class="card p-8 glass">
+                        <h3 class="text-xl font-bold mb-4 text-gray-900">Featured Topics</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li>• AI readiness and responsible deployment</li>
+                            <li>• Operating model redesign for digital businesses</li>
+                            <li>• Cloud modernization and cost governance</li>
+                            <li>• Experience-led growth and product strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles -->
+        <section id="articles" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="section-subtitle">LATEST</span>
+                    <h2 class="section-title">Fresh Thinking</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="card p-6 flex flex-col">
+                        <p class="text-sm text-blue-900 font-semibold mb-2">DIGITAL & AI · DEC 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Building AI products with trust and speed</h3>
+                        <p class="text-gray-600 flex-1">A blueprint for AI product teams: governance, data quality, model ops, and experience safeguards.</p>
+                        <a href="#" class="mt-4 text-blue-900 font-semibold inline-flex items-center">Read more <i class="fas fa-arrow-right ml-2"></i></a>
+                    </article>
+                    <article class="card p-6 flex flex-col">
+                        <p class="text-sm text-blue-900 font-semibold mb-2">OPERATIONS · NOV 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Designing resilient supply chains</h3>
+                        <p class="text-gray-600 flex-1">Practical steps to de-risk suppliers, instrument networks, and build scenario-ready playbooks.</p>
+                        <a href="#" class="mt-4 text-blue-900 font-semibold inline-flex items-center">Read more <i class="fas fa-arrow-right ml-2"></i></a>
+                    </article>
+                    <article class="card p-6 flex flex-col">
+                        <p class="text-sm text-blue-900 font-semibold mb-2">CUSTOMER · OCT 2025</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Experience-led growth in regulated markets</h3>
+                        <p class="text-gray-600 flex-1">How to ship compliant, differentiated experiences with strong controls and rapid iteration.</p>
+                        <a href="#" class="mt-4 text-blue-900 font-semibold inline-flex items-center">Read more <i class="fas fa-arrow-right ml-2"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource CTA -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-4">
+                    <span class="section-subtitle">DEEP DIVES</span>
+                    <h3 class="text-3xl font-bold text-gray-900">Get a custom briefing for your leadership team</h3>
+                    <p class="text-gray-700">Tell us your priorities; we will curate relevant case studies, metrics, and a 90-day action plan.</p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn btn-primary">Request briefing</a>
+                        <a href="user-dashboard.html" class="btn btn-secondary">Client dashboard</a>
+                    </div>
+                </div>
+                <div class="card p-8">
+                    <h4 class="text-lg font-bold text-gray-900 mb-4">What you receive</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• Three sector-matched case studies</li>
+                        <li>• A focused risks-and-dependencies view</li>
+                        <li>• A draft KPI stack and reporting cadence</li>
+                        <li>• Talent and capability recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+                <h3 class="text-3xl font-bold">Stay ahead with monthly insights</h3>
+                <p class="text-blue-100">One concise email with the best of our thinking on strategy, technology, and delivery.</p>
+                <form class="mt-4 grid md:grid-cols-[2fr_1fr] gap-3 max-w-2xl mx-auto">
+                    <input type="email" required placeholder="Your work email" class="input">
+                    <button class="btn btn-white w-full" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-10 h-10 bg-white text-blue-900 rounded-lg flex items-center justify-center font-bold">A</div>
+                    <span class="font-bold text-lg">APEX Consulting</span>
+                </div>
+                <p class="text-sm text-gray-400">Strategy, digital, and delivery partners for modern enterprises.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-3">Company</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="about.html" class="hover:text-white">About</a></li>
+                    <li><a href="services.html" class="hover:text-white">Services</a></li>
+                    <li><a href="industries.html" class="hover:text-white">Industries</a></li>
+                    <li><a href="insights.html" class="hover:text-white">Insights</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-3">Resources</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="user-dashboard.html" class="hover:text-white">Client Dashboard</a></li>
+                    <li><a href="login.html" class="hover:text-white">Login</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-3">Newsletter</h4>
+                <p class="text-sm text-gray-400 mb-3">Monthly insights on strategy, technology, and delivery.</p>
+                <form class="space-y-2">
+                    <input type="email" placeholder="Email address" class="input">
+                    <button class="btn btn-primary w-full" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-8 text-center text-xs text-gray-500">© 2025 APEX Consulting. All rights reserved.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
