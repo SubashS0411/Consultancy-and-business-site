@@ -1,19 +1,50 @@
 /* Base Styles */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --ink: #0b1224;
+    --navy: #102347;
+    --royal: #1f3e8a;
+    --electric: #2563eb;
+    --ice: #f7f9fc;
+    --sand: #f8f5ef;
+    --cloud: #eef2fb;
+    --accent: #f3a952;
+    --mint: #4fd1c5;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     @apply text-gray-800 leading-relaxed;
+    background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08), transparent 25%),
+                radial-gradient(circle at 80% 0%, rgba(15, 23, 42, 0.12), transparent 28%),
+                #ffffff;
 }
 
 html, body {
     overflow-x: hidden;
 }
 
+[data-fade-in] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-fade-in].visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/* Home landing spacing */
+.home-page main > section:not(.hero-premium) {
+    padding-block: clamp(4rem, 5vw, 6rem);
 }
 
 /* Custom Container */
@@ -27,8 +58,38 @@ img {
 }
 
 .nav-default {
-    background: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(120deg, #0b1224 0%, #1a3570 45%, #0b1224 100%);
+    color: #eaf0ff;
     transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.nav-default a,
+.nav-default button {
+    color: #eaf0ff;
+}
+
+.nav-default a:hover,
+.nav-default button:hover {
+    color: #c7d2fe;
+}
+
+.nav-default #mobile-menu,
+.nav-default .mobile-menu-panel {
+    background: #ffffff;
+}
+
+.nav-default #mobile-menu a,
+.nav-default #mobile-menu button,
+.nav-default .mobile-menu-panel a,
+.nav-default .mobile-menu-panel button {
+    color: #0f172a !important;
+}
+
+.nav-default #mobile-menu a:hover,
+.nav-default #mobile-menu button:hover,
+.nav-default .mobile-menu-panel a:hover,
+.nav-default .mobile-menu-panel button:hover {
+    color: #1e3a8a !important;
 }
 
 .nav-alt {
@@ -100,14 +161,14 @@ img {
 }
 
 .btn-primary {
-    @apply bg-blue-900 text-white;
-    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.2);
+    color: #fff;
+    background: linear-gradient(135deg, var(--royal), var(--electric));
+    box-shadow: 0 14px 36px rgba(31, 62, 138, 0.28);
 }
 
 .btn-primary:hover {
-    @apply bg-blue-800;
     transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.35);
+    box-shadow: 0 18px 44px rgba(37, 99, 235, 0.32);
 }
 
 .btn-primary:active {
@@ -140,15 +201,15 @@ img {
 .card {
     @apply bg-white rounded-xl overflow-hidden;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.06);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(30, 58, 138, 0.2);
-    border-color: rgba(30, 58, 138, 0.3);
+    box-shadow: 0 22px 54px rgba(31, 62, 138, 0.2);
+    border-color: rgba(37, 99, 235, 0.25);
 }
 
 .card-gradient {
@@ -157,16 +218,59 @@ img {
 
 /* Glass effect */
 .glass {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
 }
 
 .glass-light {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+/* Elevated defaults for headings and neutrals */
+h1, h2, h3 {
+    color: var(--ink);
+}
+
+.bg-gray-50 { background-color: #f7f9fc !important; }
+.bg-gray-100 { background-color: #eef2fb !important; }
+.bg-white/90 { background-color: rgba(255, 255, 255, 0.9) !important; }
+
+/* Premium Surfaces */
+.bg-ink { background: var(--ink); color: #eaf0ff; }
+.bg-ice { background: var(--ice); }
+.bg-sand { background: var(--sand); }
+.text-ink { color: var(--ink); }
+.section-divider {
+    position: relative;
+}
+.section-divider::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(31, 62, 138, 0.15), transparent);
+}
+
+.hero-premium {
+    background: radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.22), transparent 28%),
+                radial-gradient(circle at 80% 0%, rgba(37, 99, 235, 0.2), transparent 32%),
+                linear-gradient(120deg, #0b1224 0%, #122a52 50%, #0b1224 100%);
+}
+
+.hero-premium .glass {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(37, 99, 235, 0.12);
+}
+
+.tag-pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest;
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--royal);
+    letter-spacing: 0.08em;
 }
 
 /* Animations */

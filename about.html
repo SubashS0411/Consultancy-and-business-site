@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
@@ -27,13 +29,16 @@
                     <a href="user-dashboard.html" class="text-gray-700 hover:text-blue-900">Dashboard</a>
                     <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
                 </div>
-                <div class="hidden md:flex items-center gap-3">
-                    <a href="login.html" class="px-4 py-2 text-blue-900 hover:text-blue-700">Login</a>
-                    <a href="contact.html" class="btn btn-primary">Talk to an Expert</a>
+                <div class="flex items-center gap-3">
+                    <button id="lang-toggle" class="px-3 py-1 text-sm border rounded hover:bg-gray-100">LTR / RTL</button>
+                    <div class="hidden md:flex items-center gap-3">
+                        <a href="login.html" class="px-4 py-2 text-blue-900 hover:text-blue-700">Login</a>
+                        <a href="contact.html" class="btn btn-primary">Talk to an Expert</a>
+                    </div>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-900">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
-                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-900">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden border-t bg-white">
@@ -68,21 +73,21 @@
                     </div>
                 </div>
                 <div class="mt-12 lg:mt-0 animate-slide-in-right">
-                    <div class="glass rounded-2xl p-8 shadow-elevation space-y-6">
+                    <div class="glass rounded-2xl p-8 shadow-elevation space-y-6 text-white">
                         <div class="flex items-center gap-4">
                             <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-2xl">🏆</div>
                             <div>
                                 <p class="text-sm text-blue-100">Client Confidence</p>
-                                <p class="text-2xl font-bold">98% satisfaction</p>
+                                <p class="text-2xl font-bold text-white">98% satisfaction</p>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 text-center">
                             <div class="p-4 rounded-xl bg-white/10">
-                                <p class="text-3xl font-bold">15+</p>
+                                <p class="text-3xl font-bold text-white">15+</p>
                                 <p class="text-sm text-blue-100">Years delivering impact</p>
                             </div>
                             <div class="p-4 rounded-xl bg-white/10">
-                                <p class="text-3xl font-bold">500+</p>
+                                <p class="text-3xl font-bold text-white">500+</p>
                                 <p class="text-sm text-blue-100">Programs launched</p>
                             </div>
                         </div>

@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
-<body class="font-sans antialiased text-gray-800">
+<body class="font-sans antialiased text-gray-800 home-page">
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,21 +49,22 @@
                     <a href="contact.html" class="text-gray-600 hover:text-blue-900 transition">Contact</a>
                 </div>
                 
-                <!-- Right side - Search, Login, CTA -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <button class="text-gray-600 hover:text-blue-900 transition">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <a href="login.html" class="px-4 py-2 text-blue-900 hover:text-blue-700 transition">Login</a>
-                    <!-- <a href="user-dashboard.html" class="px-4 py-2 text-blue-900 hover:text-blue-700 transition">Dashboard</a> -->
-                    <a href="contact.html" class="bg-blue-900 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition">Get Started</a>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button type="button" id="mobile-menu-button" class="text-gray-600 hover:text-blue-900">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
+                <!-- Right side - shared lang + desktop actions + mobile menu -->
+                <div class="flex items-center gap-3">
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border rounded text-gray-700 hover:text-blue-900 hover:border-blue-900 transition">EN</button>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-blue-900 transition">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <a href="login.html" class="px-4 py-2 text-blue-900 hover:text-blue-700 transition">Login</a>
+                        <!-- <a href="user-dashboard.html" class="px-4 py-2 text-blue-900 hover:text-blue-700 transition">Dashboard</a> -->
+                        <a href="contact.html" class="bg-blue-900 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition">Get Started</a>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" id="mobile-menu-button" class="text-gray-600 hover:text-blue-900">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,7 +99,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white pt-32 pb-20 md:pt-40 md:pb-32">
+    <section class="relative hero-premium text-white pt-32 pb-20 md:pt-40 md:pb-32" data-fade-in>
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute inset-0 bg-black/40"></div>
             <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920" alt="Business meeting" class="w-full h-full object-cover">
@@ -106,7 +107,7 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <div class="text-center lg:text-left">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Transform Your Business with Strategic Excellence</h1>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">Transform Your Business with Strategic Excellence</h1>
                     <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto lg:mx-0">We help forward-thinking organizations navigate complex challenges and achieve sustainable growth through innovative consulting solutions.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="contact.html" class="btn btn-white animate-scale-in">Get Started</a>
@@ -114,8 +115,8 @@
                     </div>
                 </div>
                 <div class="mt-12 lg:mt-0">
-                    <div class="glass rounded-xl p-6 shadow-xl animate-slide-in-right">
-                        <h3 class="text-xl font-semibold mb-4">Schedule a Free Consultation</h3>
+                    <div class="glass rounded-xl p-6 shadow-xl animate-slide-in-right text-white">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Schedule a Free Consultation</h3>
                         <form class="space-y-4">
                             <div>
                                 <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 placeholder-blue-100 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-700 input-underline">
@@ -137,11 +138,11 @@
     </section>
 
     <!-- Playbooks & Accelerators -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-ice" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <span class="text-blue-900 font-semibold text-lg">ACCELERATORS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Ready-to-deploy playbooks that ship outcomes fast</h2>
+                <span class="tag-pill">Accelerators</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-ink mt-4">Ready-to-deploy playbooks that ship outcomes fast</h2>
                 <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Battle-tested blueprints with templates, automation starters, and KPI packs so your team moves from alignment to action in weeks.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -186,12 +187,12 @@
     </section>
 
     <!-- Latest Insights -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
                 <div>
-                    <span class="text-blue-900 font-semibold text-lg">INSIGHTS</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Fresh thinking from the field</h2>
+                    <span class="tag-pill">Insights</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-ink mt-3">Fresh thinking from the field</h2>
                     <p class="text-gray-600 mt-3">Short, practical takes you can plug into planning, delivery, and steering forums.</p>
                 </div>
                 <a href="insights.html" class="btn btn-secondary">View all insights</a>
@@ -220,7 +221,7 @@
     </section>
 
     <!-- Trust Indicators -->
-    <section class="py-12 bg-gray-50">
+    <section class="py-12 bg-sand" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="p-6">
@@ -244,7 +245,7 @@
     </section>
 
     <!-- Core Services -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-ice" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-blue-900 font-semibold text-lg">OUR SERVICES</span>
@@ -318,13 +319,13 @@
     </section>
 
     <!-- Why Choose Us -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-ink text-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <div class="mb-12 lg:mb-0">
-                    <span class="text-blue-900 font-semibold text-lg">WHY CHOOSE US</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-6">Your Trusted Partner for Business Success</h2>
-                    <p class="text-gray-600 mb-8 text-lg">With over 15 years of experience, we've helped businesses of all sizes achieve their strategic objectives and drive sustainable growth.</p>
+                    <span class="text-blue-100 font-semibold text-lg">WHY CHOOSE US</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">Your Trusted Partner for Business Success</h2>
+                    <p class="text-blue-100/90 mb-8 text-lg">With over 15 years of experience, we've helped businesses of all sizes achieve their strategic objectives and drive sustainable growth.</p>
                     
                     <div class="space-y-6">
                         <div class="flex">
@@ -334,8 +335,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-gray-900">Expert Team</h3>
-                                <p class="mt-1 text-gray-600">Our consultants bring deep industry expertise and a track record of delivering exceptional results.</p>
+                                <h3 class="text-lg font-semibold text-white">Expert Team</h3>
+                                <p class="mt-1 text-blue-100">Our consultants bring deep industry expertise and a track record of delivering exceptional results.</p>
                             </div>
                         </div>
                         
@@ -346,8 +347,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-gray-900">Proven Methodology</h3>
-                                <p class="mt-1 text-gray-600">We follow a structured approach that ensures consistent, measurable results for our clients.</p>
+                                <h3 class="text-lg font-semibold text-white">Proven Methodology</h3>
+                                <p class="mt-1 text-blue-100">We follow a structured approach that ensures consistent, measurable results for our clients.</p>
                             </div>
                         </div>
                         
@@ -358,8 +359,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-gray-900">Results-Driven</h3>
-                                <p class="mt-1 text-gray-600">We focus on delivering tangible business outcomes and measurable ROI for every engagement.</p>
+                                <h3 class="text-lg font-semibold text-white">Results-Driven</h3>
+                                <p class="mt-1 text-blue-100">We focus on delivering tangible business outcomes and measurable ROI for every engagement.</p>
                             </div>
                         </div>
                     </div>
@@ -387,7 +388,7 @@
     </section>
 
     <!-- Case Studies -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-blue-900 font-semibold text-lg">CASE STUDIES</span>
@@ -464,7 +465,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-ice" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-blue-900 font-semibold text-lg">TESTIMONIALS</span>
@@ -540,7 +541,7 @@
     </section>
 
     <!-- Industries -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-blue-900 font-semibold text-lg">INDUSTRIES</span>
@@ -607,7 +608,7 @@
     </section>
 
     <!-- Client Logos -->
-    <section class="py-12 bg-gray-50">
+    <section class="py-12 bg-sand" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h3 class="text-lg font-medium text-gray-600">TRUSTED BY LEADING ORGANIZATIONS</h3>
@@ -637,7 +638,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+    <section class="py-20 bg-gradient-to-br from-[#0b1224] via-[#1a3570] to-[#0b1224] text-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
             <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">Schedule a free consultation with our experts to discuss how we can help you achieve your business goals.</p>
