@@ -1,68 +1,146 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APEX Consulting - Alternative Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        gold: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
-        .fade-in { animation: fadeIn 0.8s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        [data-fade-in] { opacity: 0; }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        [data-fade-in] {
+            opacity: 0;
+        }
     </style>
 </head>
-<body class="bg-gray-50 home-page">
+
+<body class="bg-gray-50 home-page text-slate-800">
     <!-- Navigation -->
-    <nav id="navbar" class="bg-white shadow-sm fixed top-0 w-full z-50 nav-default">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                    <span class="font-bold text-lg text-blue-900">APEX</span>
+                    <div
+                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
+                        A</div>
+                    <span class="font-bold text-lg text-white tracking-wide">APEX</span>
                 </div>
-                <div class="hidden md:flex gap-8">
-                    <button type="button" data-home-toggle class="text-gray-700 hover:text-blue-900">Home</button>
-                    <a href="about.html" class="text-gray-700 hover:text-blue-900">About</a>
-                    <a href="services.html" class="text-gray-700 hover:text-blue-900">Services</a>
-                    <a href="industries.html" class="text-gray-700 hover:text-blue-900">Industries</a>
-                    <a href="insights.html" class="text-gray-700 hover:text-blue-900">Insights</a>
-                    <a href="user-dashboard.html" class="text-gray-700 hover:text-blue-900">Dashboard</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex gap-8 items-center">
+                    <button type="button" data-home-toggle
+                        class="font-medium text-white hover:text-gold transition">Home</button>
+                    <a href="about.html" class="text-white hover:text-gold transition">About</a>
+                    <a href="services.html" class="text-white hover:text-gold transition">Services</a>
+                    <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
+                    <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
+                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
                 </div>
+                <!-- Right Side -->
                 <div class="flex gap-4 items-center">
-                    <button id="lang-toggle" class="px-3 py-1 text-sm border rounded">EN</button>
-                    <a href="user-dashboard.html" class="hidden md:inline px-4 py-2 text-blue-900 font-semibold hover:text-blue-700">Dashboard</a>
-                    <a href="login.html" class="hidden md:inline px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800">Login</a>
-                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-blue-900"><i class="fas fa-bars"></i></button>
+                    <button id="lang-toggle"
+                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-gold hover:border-gold transition"><i
+                            class="fas fa-globe"></i></button>
+                    <a href="user-dashboard.html"
+                        class="hidden md:inline px-4 py-2 font-medium text-white hover:text-gold transition">Dashboard</a>
+                    <a href="login.html"
+                        class="hidden md:inline btn btn-primary px-5 py-2 rounded-full shadow-lg hover:shadow-gold/20 transition">Login</a>
+                    <button type="button" id="mobile-menu-button"
+                        class="md:hidden text-2xl text-gray-300 hover:text-white"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
         </div>
+        <!-- Mobile Menu -->
         <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-4 py-3 space-y-2 bg-white shadow border-t">
-                <button type="button" data-home-toggle class="w-full text-left px-3 py-2 font-medium text-blue-900">Home</button>
-                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">About</a>
-                <a href="services.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Services</a>
-                <a href="industries.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Industries</a>
-                <a href="insights.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Insights</a>
-                <a href="user-dashboard.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Dashboard</a>
-                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Contact</a>
-                <a href="login.html" class="block px-3 py-2 text-blue-900 font-semibold">Login</a>
+            <div class="px-4 py-3 space-y-2 border-t border-slate-700">
+                <button type="button" data-home-toggle
+                    class="w-full text-left px-3 py-2 font-medium text-gray-300 hover:text-gold block">Home</button>
+                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-gold">About</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Insights</a>
+                <a href="user-dashboard.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Dashboard</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Contact</a>
+                <div class="pt-4 mt-2 border-t border-slate-700">
+                    <a href="login.html" class="block w-full text-center btn btn-primary py-2 rounded-md">Login</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="relative hero-premium text-white pt-28 pb-24 overflow-hidden" data-fade-in>
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.12),transparent_32%)]"></div>
+        <div
+            class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.14),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.12),transparent_32%)]">
+        </div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-semibold uppercase tracking-[0.18em]">Premium Advisory</div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Strategy, execution, and value clarity — in one partner</h1>
-                <p class="text-lg text-blue-100/90 max-w-2xl">Embedded squads, executive steering, and a transformation office that ships outcomes fast while keeping risk visible.</p>
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-semibold uppercase tracking-[0.18em]">
+                    Premium Advisory</div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Strategy, execution, and value
+                    clarity — in one partner</h1>
+                <p class="text-lg text-blue-100/90 max-w-2xl">Embedded squads, executive steering, and a transformation
+                    office that ships outcomes fast while keeping risk visible.</p>
                 <div class="flex flex-wrap gap-4">
                     <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
                     <a href="services.html" class="btn btn-white">View Services</a>
@@ -89,16 +167,23 @@
             <div class="glass rounded-2xl p-8 shadow-2xl border border-white/30">
                 <div class="flex items-center justify-between mb-6">
                     <div>
-                        <p class="text-sm text-blue-900 font-semibold">Schedule</p>
-                        <p class="text-lg font-semibold text-ink">Free strategy session</p>
+                        <p class="text-sm text-blue-200 font-semibold mb-1">Schedule</p>
+                        <p class="text-2xl font-bold text-white">Free strategy session</p>
                     </div>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-900 text-xs font-semibold">15+ Years</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-100 border border-blue-400/30 text-xs font-semibold backdrop-blur-sm">15+
+                        Years</span>
                 </div>
                 <div class="space-y-4">
-                    <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-white border border-blue-100 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg bg-white border border-blue-100 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 rounded-lg bg-white border border-blue-100 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    <button class="w-full px-4 py-3 rounded-lg bg-blue-900 text-white font-semibold shadow hover:bg-blue-800 transition">Book Free Session</button>
+                    <input type="text" placeholder="Your Name"
+                        class="w-full px-4 py-3 rounded-lg bg-white border border-blue-100 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <input type="email" placeholder="Email Address"
+                        class="w-full px-4 py-3 rounded-lg bg-white border border-blue-100 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <input type="tel" placeholder="Phone Number"
+                        class="w-full px-4 py-3 rounded-lg bg-white border border-blue-100 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <button
+                        class="w-full px-4 py-3 rounded-lg bg-blue-900 text-white font-semibold shadow hover:bg-blue-800 transition">Book
+                        Free Session</button>
                 </div>
             </div>
         </div>
@@ -110,15 +195,18 @@
             <div class="text-center mb-14">
                 <span class="tag-pill">Approach</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-ink mt-4">From discovery to scale with one playbook</h2>
-                <p class="text-gray-600 mt-3 max-w-3xl mx-auto">We pair embedded squads with an executive steering layer so every sprint ladders up to value, risk, and readiness.</p>
+                <p class="text-gray-600 mt-3 max-w-3xl mx-auto">We pair embedded squads with an executive steering layer
+                    so every sprint ladders up to value, risk, and readiness.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
                 <article class="card p-6 space-y-3">
                     <div class="flex items-center gap-3">
-                        <span class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 font-bold">1</span>
+                        <span
+                            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 font-bold">1</span>
                         <h3 class="text-xl font-bold text-ink">Discover & Align</h3>
                     </div>
-                    <p class="text-gray-600">Intent mapping, KPI stack, and risk register built in week one to anchor funding and scope.</p>
+                    <p class="text-gray-600">Intent mapping, KPI stack, and risk register built in week one to anchor
+                        funding and scope.</p>
                     <ul class="text-sm text-gray-700 space-y-1">
                         <li>• Outcomes, guardrails, success metrics</li>
                         <li>• Operating model and squads defined</li>
@@ -127,10 +215,12 @@
                 </article>
                 <article class="card p-6 space-y-3">
                     <div class="flex items-center gap-3">
-                        <span class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 font-bold">2</span>
+                        <span
+                            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 font-bold">2</span>
                         <h3 class="text-xl font-bold text-ink">Build & Prove</h3>
                     </div>
-                    <p class="text-gray-600">Embedded squads ship increments with weekly demos, telemetry, and stakeholder readouts.</p>
+                    <p class="text-gray-600">Embedded squads ship increments with weekly demos, telemetry, and
+                        stakeholder readouts.</p>
                     <ul class="text-sm text-gray-700 space-y-1">
                         <li>• Experience, data, and platform lanes</li>
                         <li>• Runbooks for incidents and change</li>
@@ -139,10 +229,12 @@
                 </article>
                 <article class="card p-6 space-y-3">
                     <div class="flex items-center gap-3">
-                        <span class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 font-bold">3</span>
+                        <span
+                            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 font-bold">3</span>
                         <h3 class="text-xl font-bold text-ink">Scale & Transfer</h3>
                     </div>
-                    <p class="text-gray-600">Transformation office, playbooks, and capability build to keep momentum after go-live.</p>
+                    <p class="text-gray-600">Transformation office, playbooks, and capability build to keep momentum
+                        after go-live.</p>
                     <ul class="text-sm text-gray-700 space-y-1">
                         <li>• Governance cadence and dashboards</li>
                         <li>• Benefits tracking and risk burn-down</li>
@@ -160,7 +252,8 @@
                 <div>
                     <span class="tag-pill">Signature offers</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-ink mt-4">Programs that ship measurable value</h2>
-                    <p class="text-gray-600 mt-3">Pre-built accelerators with KPI packs, governance, and enablement to de-risk delivery.</p>
+                    <p class="text-gray-600 mt-3">Pre-built accelerators with KPI packs, governance, and enablement to
+                        de-risk delivery.</p>
                 </div>
                 <a href="services.html" class="btn btn-secondary">View all services</a>
             </div>
@@ -168,7 +261,8 @@
                 <article class="card p-6 space-y-3">
                     <p class="text-sm font-semibold text-blue-900">AI DELIVERY</p>
                     <h3 class="text-xl font-bold text-ink">AI MVP Sprint</h3>
-                    <p class="text-gray-600">4-week path to ship an AI-enabled feature with risk controls and UX patterns.</p>
+                    <p class="text-gray-600">4-week path to ship an AI-enabled feature with risk controls and UX
+                        patterns.</p>
                     <ul class="text-sm text-gray-700 space-y-1">
                         <li>• Prompt kit, eval harness, governance</li>
                         <li>• Data readiness checklist</li>
@@ -178,7 +272,8 @@
                 <article class="card p-6 space-y-3">
                     <p class="text-sm font-semibold text-blue-900">OPERATING MODEL</p>
                     <h3 class="text-xl font-bold text-ink">Operating Model Reset</h3>
-                    <p class="text-gray-600">Re-align to product lines with funding, rituals, and accountability to ship faster.</p>
+                    <p class="text-gray-600">Re-align to product lines with funding, rituals, and accountability to ship
+                        faster.</p>
                     <ul class="text-sm text-gray-700 space-y-1">
                         <li>• Portfolio governance & OKRs</li>
                         <li>• Talent plan and change story</li>
@@ -188,7 +283,8 @@
                 <article class="card p-6 space-y-3">
                     <p class="text-sm font-semibold text-blue-900">RESILIENCE</p>
                     <h3 class="text-xl font-bold text-ink">Supply Chain Command</h3>
-                    <p class="text-gray-600">Control tower toolkit with stress tests, ETA alerts, and value tracking.</p>
+                    <p class="text-gray-600">Control tower toolkit with stress tests, ETA alerts, and value tracking.
+                    </p>
                     <ul class="text-sm text-gray-700 space-y-1">
                         <li>• Scenario buffers and play calls</li>
                         <li>• Inventory heatmaps and alerts</li>
@@ -210,25 +306,30 @@
             <div class="space-y-4">
                 <details class="card p-5">
                     <summary class="font-semibold text-ink cursor-pointer">How fast can we start?</summary>
-                    <p class="text-gray-600 mt-2">Discovery begins within a week; most squads launch inside 3 weeks with aligned scope and success metrics.</p>
+                    <p class="text-gray-600 mt-2">Discovery begins within a week; most squads launch inside 3 weeks with
+                        aligned scope and success metrics.</p>
                 </details>
                 <details class="card p-5">
                     <summary class="font-semibold text-ink cursor-pointer">Do you work with internal teams?</summary>
-                    <p class="text-gray-600 mt-2">Yes—our squads embed with your leads, co-own KPIs, and transfer playbooks so teams keep momentum post-engagement.</p>
+                    <p class="text-gray-600 mt-2">Yes—our squads embed with your leads, co-own KPIs, and transfer
+                        playbooks so teams keep momentum post-engagement.</p>
                 </details>
                 <details class="card p-5">
                     <summary class="font-semibold text-ink cursor-pointer">How do you track value?</summary>
-                    <p class="text-gray-600 mt-2">We define a KPI stack, baseline it, and report weekly with variance bands, risks, and unblockers, all visible in your dashboard.</p>
+                    <p class="text-gray-600 mt-2">We define a KPI stack, baseline it, and report weekly with variance
+                        bands, risks, and unblockers, all visible in your dashboard.</p>
                 </details>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-16 bg-gradient-to-br from-[#0b1224] via-[#1a3570] to-[#0b1224] text-white text-center" data-fade-in>
+    <section class="py-16 bg-gradient-to-br from-[#0b1224] via-[#1a3570] to-[#0b1224] text-white text-center"
+        data-fade-in>
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to move from plan to proof?</h2>
-            <p class="text-lg text-blue-100 mb-6">Pick a starting point—strategy sprint or embedded squad—and we’ll design the first 6 weeks together.</p>
+            <p class="text-lg text-blue-100 mb-6">Pick a starting point—strategy sprint or embedded squad—and we’ll
+                design the first 6 weeks together.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="contact.html" class="btn btn-white">Talk to an expert</a>
                 <a href="user-dashboard.html" class="btn btn-secondary text-white border-white">See client dashboard</a>
@@ -241,54 +342,60 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <h3 class="text-xl font-bold">APEX Consulting</h3>
-                <p class="text-sm text-slate-300">Helping businesses achieve sustainable growth through innovative consulting solutions and strategic expertise.</p>
-                <div class="flex gap-3 text-slate-400">
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
+                <p class="text-sm text-white/90">Helping businesses achieve sustainable growth through innovative
+                    consulting solutions and strategic expertise.</p>
+                <div class="flex gap-3 text-white">
+                    <i class="fab fa-linkedin-in hover:text-gold cursor-pointer transition"></i>
+                    <i class="fab fa-twitter hover:text-gold cursor-pointer transition"></i>
+                    <i class="fab fa-facebook-f hover:text-gold cursor-pointer transition"></i>
+                    <i class="fab fa-instagram hover:text-gold cursor-pointer transition"></i>
                 </div>
             </div>
             <div>
                 <h4 class="font-semibold mb-3">Services</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
-                    <li><a href="services.html#strategy" class="hover:text-white">Strategy Consulting</a></li>
-                    <li><a href="services.html#digital" class="hover:text-white">Digital Transformation</a></li>
-                    <li><a href="services.html#operations" class="hover:text-white">Operations Excellence</a></li>
-                    <li><a href="services.html#financial" class="hover:text-white">Financial Advisory</a></li>
-                    <li><a href="services.html#risk" class="hover:text-white">Risk Management</a></li>
-                    <li><a href="services.html#change" class="hover:text-white">Change Management</a></li>
+                <ul class="space-y-2 text-sm text-white">
+                    <li><a href="services.html#strategy" class="hover:text-gold transition">Strategy Consulting</a></li>
+                    <li><a href="services.html#digital" class="hover:text-gold transition">Digital Transformation</a>
+                    </li>
+                    <li><a href="services.html#operations" class="hover:text-gold transition">Operations Excellence</a>
+                    </li>
+                    <li><a href="services.html#financial" class="hover:text-gold transition">Financial Advisory</a></li>
+                    <li><a href="services.html#risk" class="hover:text-gold transition">Risk Management</a></li>
+                    <li><a href="services.html#change" class="hover:text-gold transition">Change Management</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-semibold mb-3">Company</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
-                    <li><a href="about.html" class="hover:text-white">About Us</a></li>
-                    <li><a href="#" class="hover:text-white">Our Team</a></li>
-                    <li><a href="#" class="hover:text-white">Careers</a></li>
-                    <li><a href="#" class="hover:text-white">Case Studies</a></li>
-                    <li><a href="#" class="hover:text-white">Partners</a></li>
-                    <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+                <ul class="space-y-2 text-sm text-white">
+                    <li><a href="about.html" class="hover:text-gold transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Our Team</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Careers</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Case Studies</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Partners</a></li>
+                    <li><a href="contact.html" class="hover:text-gold transition">Contact Us</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-semibold mb-3">Resources</h4>
-                <ul class="space-y-2 text-sm text-slate-300 mb-4">
-                    <li><a href="#" class="hover:text-white">Blog & Insights</a></li>
-                    <li><a href="#" class="hover:text-white">Whitepapers</a></li>
-                    <li><a href="#" class="hover:text-white">Webinars</a></li>
-                    <li><a href="#" class="hover:text-white">FAQ</a></li>
-                    <li><a href="#" class="hover:text-white">Support</a></li>
+                <ul class="space-y-2 text-sm text-white mb-4">
+                    <li><a href="#" class="hover:text-gold transition">Blog & Insights</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Whitepapers</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Webinars</a></li>
+                    <li><a href="#" class="hover:text-gold transition">FAQ</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Support</a></li>
                 </ul>
                 <div class="flex">
-                    <input type="email" placeholder="Your email" class="px-3 py-2 w-full rounded-l-md text-slate-900 focus:outline-none">
+                    <input type="email" placeholder="Your email"
+                        class="px-3 py-2 w-full rounded-l-md text-slate-900 focus:outline-none">
                     <button class="bg-blue-900 px-4 rounded-r-md"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
         </div>
-        <div class="border-t border-slate-800 mt-10 pt-6 text-center text-sm text-slate-400">© 2024 APEX Consulting. All rights reserved.</div>
+        <div class="border-t border-slate-800 mt-10 pt-6 text-center text-sm text-slate-400">© 2024 APEX Consulting. All
+            rights reserved.</div>
     </footer>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

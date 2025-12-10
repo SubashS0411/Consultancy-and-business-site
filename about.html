@@ -1,58 +1,114 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - APEX Consulting</title>
-    <meta name="description" content="Learn about APEX Consulting's mission, leadership, values, and the impact we deliver for clients worldwide.">
+    <meta name="description"
+        content="Learn about APEX Consulting's mission, leadership, values, and the impact we deliver for clients worldwide.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        gold: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
+
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 nav-default" id="navbar">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                    <span class="font-bold text-lg text-blue-900">APEX</span>
+                    <div
+                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
+                        A</div>
+                    <span class="font-bold text-lg text-white tracking-wide">APEX</span>
                 </div>
                 <div class="hidden md:flex items-center gap-8">
-                    <button type="button" data-home-toggle class="text-gray-700 hover:text-blue-900">Home</button>
-                    <a href="about.html" class="text-blue-900 font-semibold">About</a>
-                    <a href="services.html" class="text-gray-700 hover:text-blue-900">Services</a>
-                    <a href="industries.html" class="text-gray-700 hover:text-blue-900">Industries</a>
-                    <a href="insights.html" class="text-gray-700 hover:text-blue-900">Insights</a>
-                    <a href="user-dashboard.html" class="text-gray-700 hover:text-blue-900">Dashboard</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-blue-900">Contact</a>
+                    <button type="button" data-home-toggle
+                        class="font-medium text-white hover:text-gold transition">Home</button>
+                    <a href="about.html" class="text-gold font-semibold">About</a>
+                    <a href="services.html" class="text-white hover:text-gold transition">Services</a>
+                    <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
+                    <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
+                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle" class="px-3 py-1 text-sm border rounded hover:bg-gray-100">LTR / RTL</button>
+                    <button id="lang-toggle"
+                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition"><i
+                            class="fas fa-globe"></i></button>
                     <div class="hidden md:flex items-center gap-3">
-                        <a href="login.html" class="px-4 py-2 text-blue-900 hover:text-blue-700">Login</a>
-                        <a href="contact.html" class="btn btn-primary">Talk to an Expert</a>
+                        <a href="login.html" class="px-4 py-2 text-white hover:text-gold transition">Login</a>
+                        <a href="contact.html"
+                            class="btn btn-primary text-white rounded-md shadow-lg hover:shadow-gold/20 transition">Talk
+                            to an Expert</a>
                     </div>
-                    <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-900">
+                    <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t bg-white">
+        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-700">
             <div class="px-4 py-3 space-y-2">
-                <button type="button" data-home-toggle class="block text-base font-medium text-gray-700 text-left w-full">Home</button>
-                <a href="about.html" class="block text-base font-medium text-blue-900">About</a>
-                <a href="services.html" class="block text-base font-medium text-gray-700">Services</a>
-                <a href="industries.html" class="block text-base font-medium text-gray-700">Industries</a>
-                <a href="insights.html" class="block text-base font-medium text-gray-700">Insights</a>
-                <a href="user-dashboard.html" class="block text-base font-medium text-gray-700">Dashboard</a>
-                <a href="contact.html" class="block text-base font-medium text-gray-700">Contact</a>
-                <div class="pt-2 border-t">
-                    <a href="login.html" class="block w-full text-center py-2 text-blue-900 font-semibold">Login</a>
-                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary">Talk to an Expert</a>
+                <button type="button" data-home-toggle
+                    class="block text-base font-medium text-gray-300 hover:text-gold text-left w-full">Home</button>
+                <a href="about.html" class="block text-base font-medium text-gold">About</a>
+                <a href="services.html" class="block text-base font-medium text-gray-300 hover:text-gold">Services</a>
+                <a href="industries.html"
+                    class="block text-base font-medium text-gray-300 hover:text-gold">Industries</a>
+                <a href="insights.html" class="block text-base font-medium text-gray-300 hover:text-gold">Insights</a>
+                <a href="user-dashboard.html"
+                    class="block text-base font-medium text-gray-300 hover:text-gold">Dashboard</a>
+                <a href="contact.html" class="block text-base font-medium text-gray-300 hover:text-gold">Contact</a>
+                <div class="pt-4 mt-2 border-t border-slate-700">
+                    <a href="login.html"
+                        class="block w-full text-center py-2 text-gray-300 font-semibold hover:text-white">Login</a>
+                    <a href="contact.html"
+                        class="block w-full text-center mt-2 btn btn-primary text-white rounded-md">Talk to an
+                        Expert</a>
                 </div>
             </div>
         </div>
@@ -60,13 +116,18 @@
 
     <main class="relative">
         <!-- Hero -->
-        <section class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-24 pt-28 md:pt-32">
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-24 pt-28 md:pt-32">
             <div class="absolute inset-0 bg-blob opacity-30"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <div class="space-y-6 animate-fade-in">
                     <span class="text-sm uppercase tracking-widest text-blue-100">Who We Are</span>
-                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Decades of Strategic Leadership, Delivered with Precision</h1>
-                    <p class="text-lg text-blue-50 max-w-2xl">APEX Consulting blends seasoned industry leaders, data-driven methods, and modern delivery to help organizations make bold moves with confidence.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Decades of Strategic Leadership, Delivered
+                        with Precision</h1>
+                    <p class="text-lg text-blue-50 max-w-2xl">APEX Consulting blends seasoned industry leaders,
+                        data-driven methods, and modern delivery to help organizations make bold moves with confidence.
+                    </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="contact.html" class="btn btn-white">Book a Strategy Call</a>
                         <a href="services.html" class="btn btn-secondary">Explore Services</a>
@@ -75,7 +136,8 @@
                 <div class="mt-12 lg:mt-0 animate-slide-in-right">
                     <div class="glass rounded-2xl p-8 shadow-elevation space-y-6 text-white">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-2xl">🏆</div>
+                            <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-2xl">🏆
+                            </div>
                             <div>
                                 <p class="text-sm text-blue-100">Client Confidence</p>
                                 <p class="text-2xl font-bold text-white">98% satisfaction</p>
@@ -91,7 +153,8 @@
                                 <p class="text-sm text-blue-100">Programs launched</p>
                             </div>
                         </div>
-                        <p class="text-sm text-blue-100">Our teams blend boardroom experience with digital-native execution to accelerate outcomes.</p>
+                        <p class="text-sm text-blue-100">Our teams blend boardroom experience with digital-native
+                            execution to accelerate outcomes.</p>
                     </div>
                 </div>
             </div>
@@ -103,16 +166,19 @@
                 <div class="text-center mb-16">
                     <span class="section-subtitle">OUR PURPOSE</span>
                     <h2 class="section-title">Mission, Vision, and Values</h2>
-                    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">We exist to help leaders move from complexity to clarity, activating strategies that scale with precision and speed.</p>
+                    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">We exist to help leaders move from complexity to
+                        clarity, activating strategies that scale with precision and speed.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="card p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Mission</h3>
-                        <p class="text-gray-600">Empower organizations to outperform their markets through data-led strategy, operational excellence, and human-centered design.</p>
+                        <p class="text-gray-600">Empower organizations to outperform their markets through data-led
+                            strategy, operational excellence, and human-centered design.</p>
                     </div>
                     <div class="card p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Vision</h3>
-                        <p class="text-gray-600">Be the most trusted partner for leaders navigating transformation, known for decisive action and measurable outcomes.</p>
+                        <p class="text-gray-600">Be the most trusted partner for leaders navigating transformation,
+                            known for decisive action and measurable outcomes.</p>
                     </div>
                     <div class="card p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Values</h3>
@@ -160,22 +226,28 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="card p-6 text-center">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="CEO" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="CEO"
+                            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
                         <h3 class="text-xl font-bold text-gray-900">Avery Smith</h3>
                         <p class="text-blue-900 font-semibold mb-2">Chief Executive Officer</p>
-                        <p class="text-gray-600 text-sm">Former Fortune 100 exec; leads enterprise-wide transformation programs.</p>
+                        <p class="text-gray-600 text-sm">Former Fortune 100 exec; leads enterprise-wide transformation
+                            programs.</p>
                     </div>
                     <div class="card p-6 text-center">
-                        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400" alt="COO" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400" alt="COO"
+                            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
                         <h3 class="text-xl font-bold text-gray-900">Jordan Lee</h3>
                         <p class="text-blue-900 font-semibold mb-2">Chief Operating Officer</p>
-                        <p class="text-gray-600 text-sm">Operational excellence leader scaling digital factories and agile teams.</p>
+                        <p class="text-gray-600 text-sm">Operational excellence leader scaling digital factories and
+                            agile teams.</p>
                     </div>
                     <div class="card p-6 text-center">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400" alt="CTO" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400" alt="CTO"
+                            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
                         <h3 class="text-xl font-bold text-gray-900">Morgan Patel</h3>
                         <p class="text-blue-900 font-semibold mb-2">Chief Technology Officer</p>
-                        <p class="text-gray-600 text-sm">Cloud, data, and AI specialist enabling intelligent, scalable platforms.</p>
+                        <p class="text-gray-600 text-sm">Cloud, data, and AI specialist enabling intelligent, scalable
+                            platforms.</p>
                     </div>
                 </div>
             </div>
@@ -193,7 +265,8 @@
                         <div>
                             <p class="text-sm text-blue-900 font-semibold">2010</p>
                             <h3 class="text-xl font-bold">Founded in New York</h3>
-                            <p class="text-gray-600">Launched with a focus on strategy and operations for mid-market leaders.</p>
+                            <p class="text-gray-600">Launched with a focus on strategy and operations for mid-market
+                                leaders.</p>
                         </div>
                         <span class="badge bg-blue-900 text-white">Launch</span>
                     </div>
@@ -201,7 +274,8 @@
                         <div>
                             <p class="text-sm text-blue-900 font-semibold">2015</p>
                             <h3 class="text-xl font-bold">Digital Practice Established</h3>
-                            <p class="text-gray-600">Built cloud, data, and experience design teams to modernize client platforms.</p>
+                            <p class="text-gray-600">Built cloud, data, and experience design teams to modernize client
+                                platforms.</p>
                         </div>
                         <span class="badge bg-blue-100 text-blue-900">Growth</span>
                     </div>
@@ -209,7 +283,8 @@
                         <div>
                             <p class="text-sm text-blue-900 font-semibold">2020</p>
                             <h3 class="text-xl font-bold">Global Delivery Hubs</h3>
-                            <p class="text-gray-600">Expanded to EMEA and APAC with hybrid teams supporting 24/7 delivery.</p>
+                            <p class="text-gray-600">Expanded to EMEA and APAC with hybrid teams supporting 24/7
+                                delivery.</p>
                         </div>
                         <span class="badge bg-blue-900 text-white">Scale</span>
                     </div>
@@ -217,7 +292,8 @@
                         <div>
                             <p class="text-sm text-blue-900 font-semibold">2024</p>
                             <h3 class="text-xl font-bold">AI & Automation Lab</h3>
-                            <p class="text-gray-600">Launched accelerators for AI-enabled operations, reducing time-to-value by 40%.</p>
+                            <p class="text-gray-600">Launched accelerators for AI-enabled operations, reducing
+                                time-to-value by 40%.</p>
                         </div>
                         <span class="badge bg-blue-100 text-blue-900">Innovation</span>
                     </div>
@@ -231,7 +307,8 @@
                 <div class="grid lg:grid-cols-2 gap-10 items-center">
                     <div class="space-y-6">
                         <span class="section-subtitle">OUR CULTURE</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">High-performing teams that deliver with empathy and rigor</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">High-performing teams that deliver with
+                            empathy and rigor</h2>
                         <ul class="space-y-3 text-gray-700">
                             <li>✔ Hybrid global squads with design, engineering, and strategy.</li>
                             <li>✔ Playbooks for discovery-to-launch in under 12 weeks.</li>
@@ -257,10 +334,12 @@
 
         <!-- CTA -->
         <section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div
+                class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div>
                     <h3 class="text-3xl font-bold mb-2">Ready to accelerate your next move?</h3>
-                    <p class="text-blue-100">Our senior team will respond within one business day with a plan to help.</p>
+                    <p class="text-blue-100">Our senior team will respond within one business day with a plan to help.
+                    </p>
                 </div>
                 <div class="flex gap-3">
                     <a href="contact.html" class="btn btn-white">Start a Project</a>
@@ -274,7 +353,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
             <div>
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="w-10 h-10 bg-white text-blue-900 rounded-lg flex items-center justify-center font-bold">A</div>
+                    <div class="w-10 h-10 bg-white text-blue-900 rounded-lg flex items-center justify-center font-bold">
+                        A</div>
                     <span class="font-bold text-lg">APEX Consulting</span>
                 </div>
                 <p class="text-sm text-gray-400">Strategy, digital, and delivery partners for modern enterprises.</p>
@@ -310,4 +390,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

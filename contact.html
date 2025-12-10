@@ -1,58 +1,137 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - APEX Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        gold: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
-        * { scroll-behavior: smooth; }
-        .fade-in { animation: fadeIn 0.8s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        [data-fade-in] { opacity: 0; }
+        * {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        [data-fade-in] {
+            opacity: 0;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav id="navbar" class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 nav-default">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                    <span class="font-bold text-lg text-blue-900">APEX</span>
+                    <div
+                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
+                        A</div>
+                    <span class="font-bold text-lg text-white tracking-wide">APEX</span>
                 </div>
-                <div class="hidden md:flex gap-8">
-                    <button type="button" data-home-toggle class="text-gray-700 hover:text-blue-900">Home</button>
-                    <a href="about.html" class="text-gray-700 hover:text-blue-900">About</a>
-                    <a href="services.html" class="text-gray-700 hover:text-blue-900">Services</a>
-                    <a href="industries.html" class="text-gray-700 hover:text-blue-900">Industries</a>
-                    <a href="insights.html" class="text-gray-700 hover:text-blue-900">Insights</a>
-                    <a href="user-dashboard.html" class="text-gray-700 hover:text-blue-900">Dashboard</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 font-semibold text-blue-900">Contact</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <button type="button" data-home-toggle
+                        class="font-medium text-white hover:text-gold transition">Home</button>
+                    <a href="about.html" class="text-white hover:text-gold transition">About</a>
+                    <a href="services.html" class="text-white hover:text-gold transition">Services</a>
+                    <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
+                    <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
+                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <a href="contact.html" class="text-gold font-semibold">Contact</a>
                 </div>
-                <div class="flex gap-4 items-center">
-                    <button id="lang-toggle" class="px-3 py-1 text-sm border rounded hover:bg-gray-100">LTR / RTL</button>
-                    <a href="user-dashboard.html" class="hidden md:inline px-4 py-2 text-blue-900 font-semibold hover:text-blue-700">Dashboard</a>
-                    <a href="login.html" class="hidden md:inline px-4 py-2 border border-blue-900 text-blue-900 rounded hover:bg-blue-50">Login</a>
-                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-gray-700 hover:text-blue-900"><i class="fas fa-bars"></i></button>
+                <div class="flex items-center gap-3">
+                    <button id="lang-toggle"
+                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition"><i
+                            class="fas fa-globe"></i></button>
+                    <div class="hidden md:flex items-center gap-3">
+                        <a href="login.html" class="px-4 py-2 text-white hover:text-gold transition">Login</a>
+                        <a href="contact.html"
+                            class="btn btn-primary text-white rounded-md shadow-lg hover:shadow-gold/20 transition">Talk
+                            to an Expert</a>
+                    </div>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t bg-white">
+        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-700">
             <div class="px-4 py-3 space-y-2">
-                <button type="button" data-home-toggle class="block text-base font-medium text-gray-700 text-left w-full">Home</button>
-                <a href="about.html" class="block text-base font-medium text-gray-700">About</a>
-                <a href="services.html" class="block text-base font-medium text-gray-700">Services</a>
-                <a href="industries.html" class="block text-base font-medium text-gray-700">Industries</a>
-                <a href="insights.html" class="block text-base font-medium text-gray-700">Insights</a>
-                <a href="user-dashboard.html" class="block text-base font-medium text-gray-700">Dashboard</a>
-                <a href="contact.html" class="block text-base font-medium text-blue-900">Contact</a>
-                <div class="pt-2 border-t">
-                    <a href="login.html" class="block w-full text-center py-2 text-blue-900 font-semibold">Login</a>
+                <button type="button" data-home-toggle
+                    class="block text-base font-medium text-gray-300 hover:text-gold text-left w-full">Home</button>
+                <a href="about.html" class="block text-base font-medium text-gray-300 hover:text-gold">About</a>
+                <a href="services.html" class="block text-base font-medium text-gray-300 hover:text-gold">Services</a>
+                <a href="industries.html"
+                    class="block text-base font-medium text-gray-300 hover:text-gold">Industries</a>
+                <a href="insights.html" class="block text-base font-medium text-gray-300 hover:text-gold">Insights</a>
+                <a href="user-dashboard.html"
+                    class="block text-base font-medium text-gray-300 hover:text-gold">Dashboard</a>
+                <a href="contact.html" class="block text-base font-medium text-gold">Contact</a>
+                <div class="pt-4 mt-2 border-t border-slate-700">
+                    <a href="login.html"
+                        class="block w-full text-center py-2 text-gray-300 font-semibold hover:text-white">Login</a>
+                    <a href="contact.html"
+                        class="block w-full text-center mt-2 btn btn-primary text-white rounded-md">Talk to an
+                        Expert</a>
                 </div>
             </div>
         </div>
@@ -74,7 +153,8 @@
                     <div class="text-4xl mb-3">📅</div>
                     <h3 class="font-bold text-blue-900 mb-2">Schedule Call</h3>
                     <p class="text-sm text-gray-600 mb-4">Book a meeting at your convenience</p>
-                    <button onclick="openModal('schedule-modal')" class="text-blue-900 font-semibold hover:text-blue-700">Schedule</button>
+                    <button onclick="openModal('schedule-modal')"
+                        class="text-blue-900 font-semibold hover:text-blue-700">Schedule</button>
                 </div>
                 <div data-fade-in class="text-center p-6 bg-gray-50 rounded-lg">
                     <div class="text-4xl mb-3">📞</div>
@@ -92,7 +172,8 @@
                     <div class="text-4xl mb-3">📍</div>
                     <h3 class="font-bold text-blue-900 mb-2">Visit Office</h3>
                     <p class="text-sm text-gray-600">123 Business Ave, NYC</p>
-                    <button onclick="openModal('office-modal')" class="text-blue-900 font-semibold hover:text-blue-700">Get Directions</button>
+                    <button onclick="openModal('office-modal')"
+                        class="text-blue-900 font-semibold hover:text-blue-700">Get Directions</button>
                 </div>
             </div>
         </div>
@@ -106,38 +187,49 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">First Name *</label>
-                        <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="John">
+                        <input type="text" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                            placeholder="John">
                         <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name *</label>
-                        <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="Doe">
+                        <input type="text" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                            placeholder="Doe">
                         <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Company Name *</label>
-                    <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="Your Company">
+                    <input type="text" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                        placeholder="Your Company">
                     <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
-                    <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="your@email.com">
+                    <input type="email" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                        placeholder="your@email.com">
                     <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
-                    <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="+1 (555) 000-0000">
+                    <input type="tel" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                        placeholder="+1 (555) 000-0000">
                     <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Company Size *</label>
-                        <select required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
+                        <select required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
                             <option value="">Select size</option>
                             <option value="1-10">1-10 employees</option>
                             <option value="11-50">11-50 employees</option>
@@ -148,7 +240,8 @@
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Industry *</label>
-                        <select required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
+                        <select required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
                             <option value="">Select industry</option>
                             <option value="finance">Finance</option>
                             <option value="healthcare">Healthcare</option>
@@ -163,20 +256,27 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Service Interest *</label>
                     <div class="space-y-2">
-                        <label class="flex items-center"><input type="checkbox" class="mr-3"> Strategy Consulting</label>
-                        <label class="flex items-center"><input type="checkbox" class="mr-3"> Digital Transformation</label>
-                        <label class="flex items-center"><input type="checkbox" class="mr-3"> Operations Excellence</label>
+                        <label class="flex items-center"><input type="checkbox" class="mr-3"> Strategy
+                            Consulting</label>
+                        <label class="flex items-center"><input type="checkbox" class="mr-3"> Digital
+                            Transformation</label>
+                        <label class="flex items-center"><input type="checkbox" class="mr-3"> Operations
+                            Excellence</label>
                         <label class="flex items-center"><input type="checkbox" class="mr-3"> Financial Advisory</label>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
-                    <textarea required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 h-32" placeholder="Tell us about your needs..."></textarea>
+                    <textarea required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 h-32"
+                        placeholder="Tell us about your needs..."></textarea>
                     <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                 </div>
 
-                <button type="submit" class="w-full px-6 py-3 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition">Send Message</button>
+                <button type="submit"
+                    class="w-full px-6 py-3 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition">Send
+                    Message</button>
             </form>
         </div>
     </section>
@@ -230,14 +330,18 @@
                 <p class="text-gray-600 mb-4">Choose a time that works best for you</p>
                 <div class="space-y-3">
                     <label class="flex items-center"><input type="radio" name="time" class="mr-3"> Today 2:00 PM</label>
-                    <label class="flex items-center"><input type="radio" name="time" class="mr-3"> Tomorrow 10:00 AM</label>
-                    <label class="flex items-center"><input type="radio" name="time" class="mr-3"> Tomorrow 3:00 PM</label>
+                    <label class="flex items-center"><input type="radio" name="time" class="mr-3"> Tomorrow 10:00
+                        AM</label>
+                    <label class="flex items-center"><input type="radio" name="time" class="mr-3"> Tomorrow 3:00
+                        PM</label>
                 </div>
-                <button onclick="closeModal('schedule-modal')" class="mt-6 w-full px-4 py-2 bg-blue-900 text-white rounded font-bold hover:bg-blue-800">Confirm</button>
+                <button onclick="closeModal('schedule-modal')"
+                    class="mt-6 w-full px-4 py-2 bg-blue-900 text-white rounded font-bold hover:bg-blue-800">Confirm</button>
             </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

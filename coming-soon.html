@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - APEX Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        gold: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
@@ -12,19 +52,36 @@
             background: linear-gradient(135deg, #1e3a8a 0%, #0c4a6e 100%);
             background-attachment: fixed;
         }
-        .fade-in { animation: fadeIn 1s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
+
 <body class="min-h-screen flex flex-col items-center justify-center px-4 text-white">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-black/30 backdrop-blur nav-default z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-blue-900 font-bold">A</div>
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-blue-900 font-bold">A
+                </div>
                 <span class="font-bold text-lg">APEX</span>
             </div>
-            <button type="button" data-home-toggle class="px-4 py-2 bg-white text-blue-900 rounded font-bold hover:bg-gray-100">Back Home</button>
+            <button type="button" data-home-toggle
+                class="px-4 py-2 bg-white text-blue-900 rounded font-bold hover:bg-gray-100">Back Home</button>
         </div>
     </nav>
 
@@ -37,7 +94,9 @@
 
         <!-- Logo -->
         <div class="fade-in flex justify-center mb-6">
-            <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-blue-900 font-bold text-3xl">A</div>
+            <div
+                class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-blue-900 font-bold text-3xl">
+                A</div>
         </div>
 
         <!-- Title -->
@@ -69,8 +128,11 @@
             <h2 class="text-2xl font-bold mb-4">Be the First to Know</h2>
             <p class="opacity-90 mb-6">Get early access and exclusive updates about our new platform</p>
             <form onsubmit="handleEmailSignup(event)" class="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white text-gray-900">
-                <button type="submit" class="px-8 py-3 bg-white text-blue-900 font-bold rounded-lg hover:bg-gray-100 transition whitespace-nowrap">Notify Me</button>
+                <input type="email" placeholder="Enter your email" required
+                    class="flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white text-gray-900">
+                <button type="submit"
+                    class="px-8 py-3 bg-white text-blue-900 font-bold rounded-lg hover:bg-gray-100 transition whitespace-nowrap">Notify
+                    Me</button>
             </form>
             <p class="text-xs opacity-75 mt-3">We'll never spam. Privacy policy included.</p>
         </div>
@@ -125,7 +187,8 @@
     <!-- Footer -->
     <footer class="fixed bottom-0 w-full bg-black/30 backdrop-blur border-t border-white/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-sm opacity-75">
-            <p>&copy; 2024 APEX Consulting. <a href="#" class="hover:opacity-100">Privacy</a> • <a href="#" class="hover:opacity-100">Terms</a></p>
+            <p>&copy; 2024 APEX Consulting. <a href="#" class="hover:opacity-100">Privacy</a> • <a href="#"
+                    class="hover:opacity-100">Terms</a></p>
         </div>
     </footer>
 
@@ -143,7 +206,7 @@
 
         function updateCountdown() {
             const targetDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).getTime();
-            
+
             setInterval(() => {
                 const now = new Date().getTime();
                 const distance = targetDate - now;
@@ -169,4 +232,5 @@
     </script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

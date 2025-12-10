@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - APEX Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        gold: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
+
 <body class="bg-gray-50 text-gray-900">
     <!-- Navigation with Back to Home -->
     <nav id="navbar" class="nav-default fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold">A</div>
+                    <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold">
+                        A</div>
                     <span class="font-bold text-lg text-blue-900">APEX</span>
                 </div>
                 <div class="hidden md:flex items-center gap-6">
@@ -36,97 +78,122 @@
         </div>
         <div id="mobile-menu" class="md:hidden hidden border-t bg-white">
             <div class="px-4 py-3 space-y-2">
-                <button type="button" data-home-toggle class="block text-base font-medium text-gray-700 text-left w-full">Home</button>
+                <button type="button" data-home-toggle
+                    class="block text-base font-medium text-gray-700 text-left w-full">Home</button>
                 <a href="about.html" class="block text-base font-medium text-gray-700">About</a>
                 <a href="services.html" class="block text-base font-medium text-gray-700">Services</a>
                 <a href="contact.html" class="block text-base font-medium text-gray-700">Contact</a>
                 <a href="user-dashboard.html" class="block text-base font-medium text-gray-700">Dashboard</a>
                 <div class="pt-2 border-t">
-                    <button type="button" data-home-toggle class="block w-full text-center py-2 text-blue-900 font-semibold">← Back to Home</button>
+                    <button type="button" data-home-toggle
+                        class="block w-full text-center py-2 text-blue-900 font-semibold">← Back to Home</button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main class="pt-32 pb-24 bg-slate-50" style="background: radial-gradient(circle at 5% 10%, rgba(37,99,235,0.08), transparent 30%), radial-gradient(circle at 90% 20%, rgba(15,23,42,0.08), transparent 28%), linear-gradient(180deg, #f7f9fc 0%, #ffffff 55%, #f8f5ef 100%);">
-    <div class="flex flex-col md:flex-row md:min-h-[calc(100vh-7rem)] max-w-7xl mx-auto shadow-elevation rounded-3xl overflow-hidden bg-white/85 backdrop-blur-lg border border-white/60 gap-10 md:gap-0">
-        <!-- Left Side - Form -->
-        <div class="w-full md:w-5/12 flex flex-col justify-center px-8 sm:px-14 lg:px-16 py-16 bg-white/95">
-            <div class="max-w-md space-y-10 animate-fade-in">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-blue-900 rounded-xl flex items-center justify-center text-white font-bold">A</div>
-                    <span class="font-bold text-xl text-blue-900">APEX</span>
-                </div>
-
-                <button type="button" data-home-toggle class="btn btn-secondary w-full transition-all duration-300 ease-out transform hover:-translate-y-0.5">← Back to Home</button>
-
-                <div class="space-y-2">
-                    <h1 class="text-4xl font-bold text-ink">Welcome Back</h1>
-                    <p class="text-slate-600">Log in to access your dashboard</p>
-                </div>
-
-                <form data-form-type="Login" class="space-y-6">
-                    <div class="space-y-3">
-                        <label class="block text-sm font-semibold text-slate-700">Email or Username *</label>
-                        <input type="text" required class="w-full px-5 py-3.5 border border-slate-200 rounded-lg bg-white/90 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900 shadow-sm focus:shadow-lg transition-all duration-300" placeholder="your@email.com">
-                        <span class="error-message hidden text-red-500 text-sm"></span>
+    <main class="pt-32 pb-24 bg-slate-50"
+        style="background: radial-gradient(circle at 5% 10%, rgba(37,99,235,0.08), transparent 30%), radial-gradient(circle at 90% 20%, rgba(15,23,42,0.08), transparent 28%), linear-gradient(180deg, #f7f9fc 0%, #ffffff 55%, #f8f5ef 100%);">
+        <div
+            class="flex flex-col md:flex-row md:min-h-[calc(100vh-7rem)] max-w-7xl mx-auto shadow-elevation rounded-3xl overflow-hidden bg-white/85 backdrop-blur-lg border border-white/60 gap-10 md:gap-0">
+            <!-- Left Side - Form -->
+            <div class="w-full md:w-5/12 flex flex-col justify-center px-8 sm:px-14 lg:px-16 py-16 bg-white/95">
+                <div class="max-w-md space-y-10 animate-fade-in">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-blue-900 rounded-xl flex items-center justify-center text-white font-bold">
+                            A</div>
+                        <span class="font-bold text-xl text-blue-900">APEX</span>
                     </div>
 
-                    <div class="space-y-3">
-                        <label class="block text-sm font-semibold text-slate-700">Password *</label>
-                        <div class="relative">
-                            <input type="password" required class="w-full px-5 py-3.5 border border-slate-200 rounded-lg bg-white/90 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900 shadow-sm focus:shadow-lg transition-all duration-300" placeholder="••••••••">
-                            <button type="button" class="absolute right-3 top-3 text-slate-500 password-toggle transition-colors duration-200 hover:text-blue-900">👁️</button>
+                    <button type="button" data-home-toggle
+                        class="btn btn-secondary w-full transition-all duration-300 ease-out transform hover:-translate-y-0.5">←
+                        Back to Home</button>
+
+                    <div class="space-y-2">
+                        <h1 class="text-4xl font-bold text-ink">Welcome Back</h1>
+                        <p class="text-slate-600">Log in to access your dashboard</p>
+                    </div>
+
+                    <form data-form-type="Login" class="space-y-6">
+                        <div class="space-y-3">
+                            <label class="block text-sm font-semibold text-slate-700">Email or Username *</label>
+                            <input type="text" required
+                                class="w-full px-5 py-3.5 border border-slate-200 rounded-lg bg-white/90 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900 shadow-sm focus:shadow-lg transition-all duration-300"
+                                placeholder="your@email.com">
+                            <span class="error-message hidden text-red-500 text-sm"></span>
                         </div>
-                        <span class="error-message hidden text-red-500 text-sm"></span>
+
+                        <div class="space-y-3">
+                            <label class="block text-sm font-semibold text-slate-700">Password *</label>
+                            <div class="relative">
+                                <input type="password" required
+                                    class="w-full px-5 py-3.5 border border-slate-200 rounded-lg bg-white/90 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900 shadow-sm focus:shadow-lg transition-all duration-300"
+                                    placeholder="••••••••">
+                                <button type="button"
+                                    class="absolute right-3 top-3 text-slate-500 password-toggle transition-colors duration-200 hover:text-blue-900">👁️</button>
+                            </div>
+                            <span class="error-message hidden text-red-500 text-sm"></span>
+                        </div>
+
+                        <div class="flex items-center justify-between text-sm">
+                            <label class="flex items-center gap-2 text-slate-700">
+                                <input type="checkbox" class="accent-blue-900"> Remember me
+                            </label>
+                            <a href="#forgot" onclick="openModal('forgot-modal')"
+                                class="text-blue-900 hover:text-blue-700 font-semibold transition-colors duration-200">Forgot
+                                password?</a>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full px-5 py-3.5 bg-blue-900 text-white font-bold rounded-lg transition-all duration-300 ease-out transform hover:-translate-y-0.5 hover:bg-blue-800 shadow-lg shadow-blue-900/20">Sign
+                            In</button>
+                    </form>
+
+                    <div class="my-6 flex items-center gap-4 text-sm text-slate-500">
+                        <div class="flex-1 border-t"></div>
+                        <span>or continue with</span>
+                        <div class="flex-1 border-t"></div>
                     </div>
 
-                    <div class="flex items-center justify-between text-sm">
-                        <label class="flex items-center gap-2 text-slate-700">
-                            <input type="checkbox" class="accent-blue-900"> Remember me
-                        </label>
-                        <a href="#forgot" onclick="openModal('forgot-modal')" class="text-blue-900 hover:text-blue-700 font-semibold transition-colors duration-200">Forgot password?</a>
+                    <div class="grid gap-4">
+                        <button
+                            class="w-full px-4 py-3.5 border border-slate-200 rounded-lg bg-white/85 hover:bg-blue-50 font-semibold text-slate-800 flex items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md">
+                            <span class="text-lg">🔵</span> <span>Continue with Google</span>
+                        </button>
+                        <button
+                            class="w-full px-4 py-3.5 border border-slate-200 rounded-lg bg-white/85 hover:bg-blue-50 font-semibold text-slate-800 flex items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md">
+                            <span class="text-lg">🔴</span> <span>Continue with Microsoft</span>
+                        </button>
+                        <button
+                            class="w-full px-4 py-3.5 border border-slate-200 rounded-lg bg-white/85 hover:bg-blue-50 font-semibold text-slate-800 flex items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md">
+                            <span class="text-lg">💼</span> <span>Continue with LinkedIn</span>
+                        </button>
                     </div>
 
-                    <button type="submit" class="w-full px-5 py-3.5 bg-blue-900 text-white font-bold rounded-lg transition-all duration-300 ease-out transform hover:-translate-y-0.5 hover:bg-blue-800 shadow-lg shadow-blue-900/20">Sign In</button>
-                </form>
-
-                <div class="my-6 flex items-center gap-4 text-sm text-slate-500">
-                    <div class="flex-1 border-t"></div>
-                    <span>or continue with</span>
-                    <div class="flex-1 border-t"></div>
+                    <p class="text-center text-slate-600 text-sm">
+                        Don't have an account? <a href="#" onclick="openModal('request-modal')"
+                            class="text-blue-900 hover:text-blue-700 font-semibold transition-colors duration-200">Request
+                            Access</a>
+                    </p>
                 </div>
+            </div>
 
-                <div class="grid gap-4">
-                    <button class="w-full px-4 py-3.5 border border-slate-200 rounded-lg bg-white/85 hover:bg-blue-50 font-semibold text-slate-800 flex items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md">
-                        <span class="text-lg">🔵</span> <span>Continue with Google</span>
-                    </button>
-                    <button class="w-full px-4 py-3.5 border border-slate-200 rounded-lg bg-white/85 hover:bg-blue-50 font-semibold text-slate-800 flex items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md">
-                        <span class="text-lg">🔴</span> <span>Continue with Microsoft</span>
-                    </button>
-                    <button class="w-full px-4 py-3.5 border border-slate-200 rounded-lg bg-white/85 hover:bg-blue-50 font-semibold text-slate-800 flex items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md">
-                        <span class="text-lg">💼</span> <span>Continue with LinkedIn</span>
-                    </button>
+            <!-- Right Side - Image -->
+            <div
+                class="hidden md:flex w-7/12 bg-gradient-to-br from-[#0b1224] via-[#132a54] to-[#1f3e8a] flex-col justify-center items-center text-white px-12 py-20 relative overflow-hidden">
+                <div class="absolute inset-0 bg-blob opacity-15"></div>
+                <div class="absolute -left-10 -bottom-10 w-60 h-60 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute -right-10 -top-10 w-64 h-64 bg-blue-300/15 rounded-full blur-3xl"></div>
+                <div class="relative z-10 text-center space-y-6 animate-slide-in-right">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200" alt="Dashboard"
+                        class="rounded-2xl shadow-2xl opacity-95 mb-6 transition-all duration-500 ease-out hover:shadow-3xl hover:-translate-y-1">
+                    <h2 class="text-4xl font-bold text-white">Transforming Businesses, Delivering Results</h2>
+                    <p class="text-lg text-blue-100 max-w-xl mx-auto">Access your project dashboard and collaborate with
+                        our consulting team</p>
                 </div>
-
-                <p class="text-center text-slate-600 text-sm">
-                    Don't have an account? <a href="#" onclick="openModal('request-modal')" class="text-blue-900 hover:text-blue-700 font-semibold transition-colors duration-200">Request Access</a>
-                </p>
             </div>
         </div>
-
-        <!-- Right Side - Image -->
-        <div class="hidden md:flex w-7/12 bg-gradient-to-br from-[#0b1224] via-[#132a54] to-[#1f3e8a] flex-col justify-center items-center text-white px-12 py-20 relative overflow-hidden">
-            <div class="absolute inset-0 bg-blob opacity-15"></div>
-            <div class="absolute -left-10 -bottom-10 w-60 h-60 bg-white/10 rounded-full blur-3xl"></div>
-            <div class="absolute -right-10 -top-10 w-64 h-64 bg-blue-300/15 rounded-full blur-3xl"></div>
-            <div class="relative z-10 text-center space-y-6 animate-slide-in-right">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200" alt="Dashboard" class="rounded-2xl shadow-2xl opacity-95 mb-6 transition-all duration-500 ease-out hover:shadow-3xl hover:-translate-y-1">
-                <h2 class="text-4xl font-bold text-white">Transforming Businesses, Delivering Results</h2>
-                <p class="text-lg text-blue-100 max-w-xl mx-auto">Access your project dashboard and collaborate with our consulting team</p>
-            </div>
-        </div>
-    </div>
 
     </main>
 
@@ -138,9 +205,13 @@
                 <button class="modal-close text-2xl text-gray-500 hover:text-gray-700">×</button>
             </div>
             <div class="p-6">
-                <p class="text-gray-600 mb-4">Enter your email address and we'll send you a link to reset your password</p>
-                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 mb-4" placeholder="your@email.com">
-                <button class="w-full px-4 py-3 bg-blue-900 text-white rounded font-bold hover:bg-blue-800">Send Reset Link</button>
+                <p class="text-gray-600 mb-4">Enter your email address and we'll send you a link to reset your password
+                </p>
+                <input type="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 mb-4"
+                    placeholder="your@email.com">
+                <button class="w-full px-4 py-3 bg-blue-900 text-white rounded font-bold hover:bg-blue-800">Send Reset
+                    Link</button>
             </div>
         </div>
     </div>
@@ -153,16 +224,24 @@
                 <button class="modal-close text-2xl text-gray-500 hover:text-gray-700">×</button>
             </div>
             <div class="p-6 space-y-4">
-                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="Full Name">
-                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="Email">
-                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900" placeholder="Company">
-                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
+                <input type="text"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                    placeholder="Full Name">
+                <input type="email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                    placeholder="Email">
+                <input type="text"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                    placeholder="Company">
+                <select
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
                     <option value="">Select Role</option>
                     <option value="client">Client</option>
                     <option value="consultant">Consultant</option>
                     <option value="partner">Partner</option>
                 </select>
-                <button class="w-full px-4 py-3 bg-blue-900 text-white rounded font-bold hover:bg-blue-800">Submit Request</button>
+                <button class="w-full px-4 py-3 bg-blue-900 text-white rounded font-bold hover:bg-blue-800">Submit
+                    Request</button>
             </div>
         </div>
     </div>
@@ -176,7 +255,7 @@
                 e.preventDefault();
                 const email = form.querySelector('input[type="text"]').value;
                 const password = form.querySelector('input[type="password"]').value;
-                
+
                 if (email === 'client@company.com' && password === 'client123') {
                     window.location.href = 'user-dashboard.html';
                 } else if (email === 'consultant@firm.com' && password === 'consultant123') {
@@ -188,4 +267,5 @@
         });
     </script>
 </body>
+
 </html>
