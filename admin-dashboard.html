@@ -47,229 +47,419 @@
     </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <style>
+        /* Admin Dashboard animations */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-left { animation: slideInLeft 0.5s ease-out forwards; }
+        .animate-slide-up { animation: slideInUp 0.6s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.5s ease-out forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .chart-container { transition: all 0.3s ease; }
+        .chart-container:hover { transform: scale(1.01); }
+        .sidebar-link { transition: all 0.3s ease; }
+        .sidebar-link:hover { transform: translateX(5px); }
+        .gradient-blue { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+        .gradient-green { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+        .gradient-purple { background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%); }
+        .gradient-orange { background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%); }
+        .gradient-pink { background: linear-gradient(135deg, #db2777 0%, #f472b6 100%); }
+        .table-row { transition: all 0.2s ease; }
+        .table-row:hover { background: #f8fafc; transform: scale(1.005); }
+    </style>
 </head>
 
-<body class="bg-gray-100">
-    <div class="flex h-screen">
+<body class="bg-gray-50">
+    <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
-        <aside class="w-64 bg-blue-900 text-white p-6 flex flex-col">
-            <div class="flex items-center gap-2 mb-12">
-                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-blue-900 font-bold">A
+        <aside class="w-72 bg-gradient-to-b from-blue-900 via-blue-800 to-indigo-900 text-white flex flex-col animate-slide-left">
+            <div class="p-6">
+                <div class="flex items-center gap-3 mb-10">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-blue-900 font-bold text-xl shadow-lg">A</div>
+                    <div>
+                        <span class="font-bold text-xl">APEX</span>
+                        <p class="text-blue-200 text-xs">Admin Portal</p>
+                    </div>
                 </div>
-                <span class="font-bold text-lg">APEX</span>
+
+                <nav class="space-y-1">
+                    <a href="#dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-white font-semibold">
+                        <i class="fas fa-th-large w-5"></i> Dashboard
+                    </a>
+                    <a href="#projects" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-project-diagram w-5"></i> Projects
+                    </a>
+                    <a href="#clients" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-users w-5"></i> Clients
+                    </a>
+                    <a href="#team" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-user-tie w-5"></i> Team
+                    </a>
+                    <a href="#calendar" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-calendar-alt w-5"></i> Calendar
+                    </a>
+                    <a href="#reports" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-chart-bar w-5"></i> Reports
+                    </a>
+                    <a href="#documents" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-folder-open w-5"></i> Documents
+                    </a>
+                    <a href="#billing" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-credit-card w-5"></i> Billing
+                    </a>
+                    <a href="#settings" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
+                        <i class="fas fa-cog w-5"></i> Settings
+                    </a>
+                </nav>
             </div>
 
-            <nav class="flex-1 space-y-2">
-                <a href="#dashboard" class="block px-4 py-3 rounded-lg bg-blue-800 font-semibold">🏠 Dashboard</a>
-                <a href="#projects" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">📋 Projects</a>
-                <a href="#clients" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">👥 Clients</a>
-                <a href="#team" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">👨‍💼 Team</a>
-                <a href="#calendar" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">📅 Calendar</a>
-                <a href="#reports" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">📊 Reports</a>
-                <a href="#documents" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">📁 Documents</a>
-                <a href="#billing" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">💰 Billing</a>
-                <a href="#settings" class="block px-4 py-3 rounded-lg hover:bg-blue-800 transition">⚙️ Settings</a>
-            </nav>
-
-            <div class="border-t border-blue-800 pt-4">
-                <button onclick="window.location.href='login.html'"
-                    class="w-full px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Logout</button>
+            <div class="mt-auto p-6">
+                <div class="bg-white/10 rounded-2xl p-4 mb-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white/30">
+                        <div>
+                            <p class="font-semibold text-sm">Alex Johnson</p>
+                            <p class="text-xs text-blue-200">Senior Consultant</p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="window.location.href='login.html'" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-500/80 hover:bg-red-500 rounded-xl transition font-semibold">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
             </div>
         </aside>
 
         <!-- Main Content -->
-        <div class="flex-1 flex flex-col">
+        <div class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Header -->
-            <header class="bg-white shadow-sm p-6">
+            <header class="bg-white shadow-sm px-8 py-4 animate-fade-in">
                 <div class="flex justify-between items-center">
-                    <h1 class="text-3xl font-bold text-blue-900">Dashboard</h1>
-                    <div class="flex items-center gap-6">
-                        <button id="lang-toggle" class="px-3 py-1 text-sm border rounded"><i
-                                class="fas fa-globe"></i></button>
-                        <button class="relative">
-                            <span class="text-2xl">🔔</span>
-                            <span
-                                class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
-                        </button>
-                        <button class="relative">
-                            <span class="text-2xl">💬</span>
-                            <span
-                                class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">5</span>
-                        </button>
-                        <div class="flex items-center gap-3 border-l pl-6">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100" alt="Profile"
-                                class="w-10 h-10 rounded-full">
-                            <div>
-                                <p class="font-semibold text-gray-800">Alex Johnson</p>
-                                <p class="text-xs text-gray-500">Senior Consultant</p>
-                            </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-blue-900">Dashboard Overview</h1>
+                        <p class="text-gray-500 text-sm">Welcome back, Alex! Here's what's happening.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Search..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 w-64">
+                            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         </div>
+                        <button class="relative p-2 hover:bg-gray-100 rounded-xl transition">
+                            <i class="fas fa-bell text-gray-600 text-lg"></i>
+                            <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                        </button>
+                        <button class="relative p-2 hover:bg-gray-100 rounded-xl transition">
+                            <i class="fas fa-envelope text-gray-600 text-lg"></i>
+                            <span class="absolute -top-1 -right-1 w-5 h-5 bg-blue-500 text-white text-xs rounded-full flex items-center justify-center">5</span>
+                        </button>
                     </div>
                 </div>
             </header>
 
             <!-- Dashboard Content -->
-            <div class="flex-1 overflow-auto p-6">
+            <div class="flex-1 overflow-auto p-8">
                 <!-- KPI Cards -->
-                <div class="grid md:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-gray-600 text-sm">Active Projects</p>
-                                <p class="text-3xl font-bold text-blue-900">12</p>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 gradient-blue rounded-2xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-project-diagram text-white text-2xl"></i>
                             </div>
-                            <span class="text-2xl">📊</span>
+                            <span class="flex items-center text-green-500 text-sm font-semibold bg-green-50 px-2 py-1 rounded-full">
+                                <i class="fas fa-arrow-up mr-1"></i> 25%
+                            </span>
                         </div>
-                        <p class="text-green-600 text-sm mt-2">↑ 3 from last month</p>
+                        <h3 class="text-4xl font-bold text-gray-800 mb-1">12</h3>
+                        <p class="text-gray-500">Active Projects</p>
+                        <div class="mt-3 flex items-center text-sm text-gray-400">
+                            <i class="fas fa-calendar-alt mr-1"></i> This Month
+                        </div>
                     </div>
 
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-gray-600 text-sm">Total Clients</p>
-                                <p class="text-3xl font-bold text-blue-900">45</p>
+                    <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 gradient-green rounded-2xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-users text-white text-2xl"></i>
                             </div>
-                            <span class="text-2xl">👥</span>
+                            <span class="flex items-center text-green-500 text-sm font-semibold bg-green-50 px-2 py-1 rounded-full">
+                                <i class="fas fa-arrow-up mr-1"></i> 12%
+                            </span>
                         </div>
-                        <p class="text-green-600 text-sm mt-2">↑ 5 new clients</p>
+                        <h3 class="text-4xl font-bold text-gray-800 mb-1">45</h3>
+                        <p class="text-gray-500">Total Clients</p>
+                        <div class="mt-3 flex items-center text-sm text-gray-400">
+                            <i class="fas fa-user-plus mr-1"></i> 5 new this month
+                        </div>
                     </div>
 
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-gray-600 text-sm">Revenue (Month)</p>
-                                <p class="text-3xl font-bold text-blue-900">$125K</p>
+                    <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-300">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 gradient-purple rounded-2xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-dollar-sign text-white text-2xl"></i>
                             </div>
-                            <span class="text-2xl">💰</span>
+                            <span class="flex items-center text-green-500 text-sm font-semibold bg-green-50 px-2 py-1 rounded-full">
+                                <i class="fas fa-arrow-up mr-1"></i> 18%
+                            </span>
                         </div>
-                        <p class="text-green-600 text-sm mt-2">↑ 12% growth</p>
+                        <h3 class="text-4xl font-bold text-gray-800 mb-1">$125K</h3>
+                        <p class="text-gray-500">Monthly Revenue</p>
+                        <div class="mt-3 flex items-center text-sm text-gray-400">
+                            <i class="fas fa-chart-line mr-1"></i> +$18K vs last month
+                        </div>
                     </div>
 
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-gray-600 text-sm">Team Utilization</p>
-                                <p class="text-3xl font-bold text-blue-900">87%</p>
+                    <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-400">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 gradient-orange rounded-2xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-chart-pie text-white text-2xl"></i>
                             </div>
-                            <span class="text-2xl">📈</span>
+                            <span class="flex items-center text-blue-500 text-sm font-semibold bg-blue-50 px-2 py-1 rounded-full">
+                                <i class="fas fa-check mr-1"></i> Optimal
+                            </span>
                         </div>
-                        <p class="text-blue-600 text-sm mt-2">Optimal level</p>
+                        <h3 class="text-4xl font-bold text-gray-800 mb-1">87%</h3>
+                        <p class="text-gray-500">Team Utilization</p>
+                        <div class="mt-3 flex items-center text-sm text-gray-400">
+                            <i class="fas fa-users mr-1"></i> 18 team members
+                        </div>
                     </div>
                 </div>
 
-                <!-- Charts and Tables -->
+                <!-- Charts Row -->
                 <div class="grid lg:grid-cols-2 gap-6 mb-8">
                     <!-- Revenue Chart -->
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="font-bold text-lg text-gray-800 mb-4">Revenue Trend</h3>
-                        <img src="https://via.placeholder.com/400x250/f0f0f0/999999?text=Revenue+Chart" alt="Chart"
-                            class="w-full">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 chart-container animate-scale-in">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Revenue Analytics</h3>
+                                <p class="text-gray-500 text-sm">Monthly revenue breakdown</p>
+                            </div>
+                            <select class="text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option>Last 6 months</option>
+                                <option>Last year</option>
+                                <option>All time</option>
+                            </select>
+                        </div>
+                        <div class="h-72">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
                     </div>
 
-                    <!-- Project Distribution -->
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="font-bold text-lg text-gray-800 mb-4">Project Status</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-700">In Progress</span>
-                                <div class="w-1/2 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 70%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600">7</span>
+                    <!-- Client Distribution -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 chart-container animate-scale-in delay-200">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Client Distribution</h3>
+                                <p class="text-gray-500 text-sm">By industry sector</p>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-700">Planning</span>
-                                <div class="w-1/2 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 50%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600">5</span>
+                            <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="h-72">
+                            <canvas id="clientChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Charts Row -->
+                <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                    <!-- Project Status -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 chart-container animate-slide-up">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Project Status</h3>
+                        <p class="text-gray-500 text-sm mb-4">Current breakdown</p>
+                        <div class="h-56">
+                            <canvas id="projectStatusChart"></canvas>
+                        </div>
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                                <span class="text-xs text-gray-600">In Progress (7)</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-700">On Hold</span>
-                                <div class="w-1/2 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-red-600 h-2 rounded-full" style="width: 20%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600">2</span>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="text-xs text-gray-600">Planning (5)</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-700">Completed</span>
-                                <div class="w-1/2 bg-gray-200 rounded-full h-2">
-                                    <div class="bg-green-600 h-2 rounded-full" style="width: 90%"></div>
-                                </div>
-                                <span class="text-sm text-gray-600">9</span>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                <span class="text-xs text-gray-600">Completed (9)</span>
                             </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="text-xs text-gray-600">On Hold (2)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Performance -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 chart-container animate-slide-up delay-100">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Team Performance</h3>
+                        <p class="text-gray-500 text-sm mb-4">Weekly productivity</p>
+                        <div class="h-56">
+                            <canvas id="teamChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Satisfaction Score -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 chart-container animate-slide-up delay-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Client Satisfaction</h3>
+                        <p class="text-gray-500 text-sm mb-4">Average NPS score</p>
+                        <div class="h-56">
+                            <canvas id="satisfactionChart"></canvas>
                         </div>
                     </div>
                 </div>
 
                 <!-- Active Projects Table -->
-                <div class="bg-white rounded-lg shadow overflow-hidden">
-                    <div class="p-6 border-b">
-                        <h3 class="font-bold text-lg text-gray-800">Active Projects</h3>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-up">
+                    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Active Projects</h3>
+                            <p class="text-gray-500 text-sm">Manage and track all ongoing projects</p>
+                        </div>
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition flex items-center gap-2">
+                            <i class="fas fa-plus"></i> New Project
+                        </button>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full">
-                            <thead class="bg-gray-50 border-b">
+                            <thead class="bg-gray-50 border-b border-gray-100">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Project</th>
-                                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Client</th>
-                                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
-                                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Progress</th>
-                                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Deadline</th>
-                                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Project</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Client</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Team</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Status</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Progress</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Deadline</th>
+                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b hover:bg-gray-50">
-                                    <td class="px-6 py-4 font-semibold text-gray-900">Digital Transformation</td>
-                                    <td class="px-6 py-4 text-gray-700">TechCorp Inc</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">In
-                                            Progress</span></td>
+                                <tr class="table-row border-b border-gray-50">
                                     <td class="px-6 py-4">
-                                        <div class="w-24 bg-gray-200 rounded-full h-2">
-                                            <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-xl gradient-blue flex items-center justify-center">
+                                                <i class="fas fa-laptop-code text-white"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-gray-800">Digital Transformation</p>
+                                                <p class="text-xs text-gray-500">Cloud Migration</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-700">TechCorp Inc</td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex -space-x-2">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/1.jpg" alt="">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/3.jpg" alt="">
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">In Progress</span></td>
+                                    <td class="px-6 py-4">
+                                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full" style="width: 65%"></div>
                                         </div>
                                         <span class="text-xs text-gray-600">65%</span>
                                     </td>
-                                    <td class="px-6 py-4 text-gray-700">Dec 30, 2024</td>
-                                    <td class="px-6 py-4"><button
-                                            class="text-blue-600 hover:text-blue-800 font-semibold">View</button></td>
-                                </tr>
-                                <tr class="border-b hover:bg-gray-50">
-                                    <td class="px-6 py-4 font-semibold text-gray-900">Financial Advisory</td>
-                                    <td class="px-6 py-4 text-gray-700">Finance Ltd</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Planning</span>
-                                    </td>
+                                    <td class="px-6 py-4 text-gray-700 text-sm">Dec 30, 2024</td>
                                     <td class="px-6 py-4">
-                                        <div class="w-24 bg-gray-200 rounded-full h-2">
-                                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 30%"></div>
+                                        <button class="p-2 hover:bg-gray-100 rounded-lg transition"><i class="fas fa-eye text-blue-600"></i></button>
+                                        <button class="p-2 hover:bg-gray-100 rounded-lg transition"><i class="fas fa-edit text-gray-600"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="table-row border-b border-gray-50">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-xl gradient-green flex items-center justify-center">
+                                                <i class="fas fa-chart-line text-white"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-gray-800">Financial Advisory</p>
+                                                <p class="text-xs text-gray-500">Strategic Planning</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-700">Finance Ltd</td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex -space-x-2">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/4.jpg" alt="">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/5.jpg" alt="">
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold">Planning</span></td>
+                                    <td class="px-6 py-4">
+                                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                                            <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 h-2 rounded-full" style="width: 30%"></div>
                                         </div>
                                         <span class="text-xs text-gray-600">30%</span>
                                     </td>
-                                    <td class="px-6 py-4 text-gray-700">Jan 15, 2025</td>
-                                    <td class="px-6 py-4"><button
-                                            class="text-blue-600 hover:text-blue-800 font-semibold">View</button></td>
-                                </tr>
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-6 py-4 font-semibold text-gray-900">Operations Excellence</td>
-                                    <td class="px-6 py-4 text-gray-700">Manufacturing Co</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Completed</span>
-                                    </td>
+                                    <td class="px-6 py-4 text-gray-700 text-sm">Jan 15, 2025</td>
                                     <td class="px-6 py-4">
-                                        <div class="w-24 bg-gray-200 rounded-full h-2">
-                                            <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                                        <button class="p-2 hover:bg-gray-100 rounded-lg transition"><i class="fas fa-eye text-blue-600"></i></button>
+                                        <button class="p-2 hover:bg-gray-100 rounded-lg transition"><i class="fas fa-edit text-gray-600"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-xl gradient-purple flex items-center justify-center">
+                                                <i class="fas fa-cogs text-white"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-gray-800">Operations Excellence</p>
+                                                <p class="text-xs text-gray-500">Process Optimization</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-700">Manufacturing Co</td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex -space-x-2">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/6.jpg" alt="">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/7.jpg" alt="">
+                                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/8.jpg" alt="">
+                                            <span class="w-8 h-8 rounded-full border-2 border-white bg-gray-200 text-gray-600 text-xs flex items-center justify-center font-semibold">+2</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Completed</span></td>
+                                    <td class="px-6 py-4">
+                                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                                            <div class="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full" style="width: 100%"></div>
                                         </div>
                                         <span class="text-xs text-gray-600">100%</span>
                                     </td>
-                                    <td class="px-6 py-4 text-gray-700">Dec 15, 2024</td>
-                                    <td class="px-6 py-4"><button
-                                            class="text-blue-600 hover:text-blue-800 font-semibold">View</button></td>
+                                    <td class="px-6 py-4 text-gray-700 text-sm">Dec 15, 2024</td>
+                                    <td class="px-6 py-4">
+                                        <button class="p-2 hover:bg-gray-100 rounded-lg transition"><i class="fas fa-eye text-blue-600"></i></button>
+                                        <button class="p-2 hover:bg-gray-100 rounded-lg transition"><i class="fas fa-edit text-gray-600"></i></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -280,6 +470,227 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Revenue Chart (Area/Line)
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueGradient = revenueCtx.createLinearGradient(0, 0, 0, 300);
+            revenueGradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
+            revenueGradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [85000, 92000, 98000, 105000, 115000, 125000],
+                        borderColor: '#3b82f6',
+                        backgroundColor: revenueGradient,
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 10
+                    }, {
+                        label: 'Target',
+                        data: [80000, 88000, 95000, 100000, 110000, 120000],
+                        borderColor: '#10b981',
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        borderDash: [5, 5],
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { usePointStyle: true, padding: 20 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + context.raw.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: false,
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value/1000 + 'K';
+                                }
+                            }
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Client Distribution (Doughnut)
+            new Chart(document.getElementById('clientChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Technology', 'Healthcare', 'Finance', 'Manufacturing', 'Retail'],
+                    datasets: [{
+                        data: [30, 20, 25, 15, 10],
+                        backgroundColor: ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444'],
+                        borderWidth: 0,
+                        hoverOffset: 15
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 2000,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { usePointStyle: true, padding: 15 }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+
+            // Project Status (Pie)
+            new Chart(document.getElementById('projectStatusChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['In Progress', 'Planning', 'Completed', 'On Hold'],
+                    datasets: [{
+                        data: [7, 5, 9, 2],
+                        backgroundColor: ['#3b82f6', '#f59e0b', '#10b981', '#ef4444'],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 1500,
+                        easing: 'easeOutBounce'
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Team Performance (Bar)
+            new Chart(document.getElementById('teamChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                    datasets: [{
+                        label: 'Tasks Completed',
+                        data: [24, 28, 32, 26, 30],
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }, {
+                        label: 'Hours Logged',
+                        data: [45, 52, 48, 50, 46],
+                        backgroundColor: '#10b981',
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { usePointStyle: true, padding: 15 }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Satisfaction Score (Gauge-like Doughnut)
+            new Chart(document.getElementById('satisfactionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Score', 'Remaining'],
+                    datasets: [{
+                        data: [87, 13],
+                        backgroundColor: ['#10b981', '#e5e7eb'],
+                        borderWidth: 0,
+                        circumference: 270,
+                        rotation: 225
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        animateRotate: true,
+                        duration: 2000,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    },
+                    cutout: '75%'
+                },
+                plugins: [{
+                    id: 'centerText',
+                    afterDraw: function(chart) {
+                        const ctx = chart.ctx;
+                        ctx.save();
+                        const centerX = chart.width / 2;
+                        const centerY = chart.height / 2 + 20;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.font = 'bold 36px Inter';
+                        ctx.fillStyle = '#10b981';
+                        ctx.fillText('87', centerX, centerY);
+                        ctx.font = '14px Inter';
+                        ctx.fillStyle = '#6b7280';
+                        ctx.fillText('NPS Score', centerX, centerY + 25);
+                        ctx.restore();
+                    }
+                }]
+            });
+        });
+    </script>
 </body>
 
 </html>

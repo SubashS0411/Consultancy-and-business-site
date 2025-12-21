@@ -74,51 +74,79 @@
 
 <body class="bg-gray-50 home-page text-slate-800">
     <!-- Navigation -->
-    <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
-                        A</div>
+                    <div class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">A</div>
                     <span class="font-bold text-lg text-white tracking-wide">APEX</span>
                 </div>
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex gap-8 items-center">
-                    <button type="button" data-home-toggle
-                        class="font-medium text-white hover:text-gold transition">Home</button>
+                    <div class="nav-dropdown">
+                        <button class="text-gold font-semibold flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="index.html">Home Version 1</a>
+                                <a href="index2.html" class="!bg-blue-900 !text-white">Home Version 2</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="about.html" class="text-white hover:text-gold transition">About</a>
                     <a href="services.html" class="text-white hover:text-gold transition">Services</a>
                     <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
                     <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="admin-dashboard.html">Admin Dashboard</a>
+                                <a href="user-dashboard.html">User Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
                 </div>
                 <!-- Right Side -->
                 <div class="flex gap-4 items-center">
-                    <button id="lang-toggle"
-                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-gold hover:border-gold transition"><i
-                            class="fas fa-globe"></i></button>
-                    <a href="user-dashboard.html"
-                        class="hidden md:inline px-4 py-2 font-medium text-white hover:text-gold transition">Dashboard</a>
-                    <a href="login.html"
-                        class="hidden md:inline btn btn-primary px-5 py-2 rounded-full shadow-lg hover:shadow-gold/20 transition">Login</a>
-                    <button type="button" id="mobile-menu-button"
-                        class="md:hidden text-2xl text-gray-300 hover:text-white"><i class="fas fa-bars"></i></button>
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-gold hover:border-gold transition"><i class="fas fa-globe"></i></button>
+                    <a href="login.html" class="hidden md:inline px-4 py-2 text-white hover:text-gold transition">Login</a>
+                    <a href="signup.html" class="hidden md:inline signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
+                        <i class="fas fa-user-plus"></i>
+                    </a>
+                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-gray-300 hover:text-white"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu -->
         <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-4 py-3 space-y-2 border-t border-slate-700">
-                <button type="button" data-home-toggle
-                    class="w-full text-left px-3 py-2 font-medium text-gray-300 hover:text-gold block">Home</button>
+            <div class="px-4 py-3 space-y-2 border-t border-slate-700 bg-slate-900">
+                <div class="px-3 py-2">
+                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gold" onclick="toggleMobileDropdown('home-mobile-dropdown')">
+                        Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="home-mobile-dropdown">
+                        <a href="index.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Home Version 1</a>
+                        <a href="index2.html" class="block py-2 text-sm text-gold font-semibold">Home Version 2</a>
+                    </div>
+                </div>
                 <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-gold">About</a>
                 <a href="services.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Services</a>
                 <a href="industries.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Industries</a>
                 <a href="insights.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Insights</a>
-                <a href="user-dashboard.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Dashboard</a>
+                <div class="px-3 py-2">
+                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gray-300 hover:text-gold" onclick="toggleMobileDropdown('dashboard-mobile-dropdown')">
+                        Dashboard <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="dashboard-mobile-dropdown">
+                        <a href="admin-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Admin Dashboard</a>
+                        <a href="user-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">User Dashboard</a>
+                    </div>
+                </div>
                 <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-gold">Contact</a>
                 <div class="pt-4 mt-2 border-t border-slate-700">
                     <a href="login.html" class="block w-full text-center btn btn-primary py-2 rounded-md">Login</a>

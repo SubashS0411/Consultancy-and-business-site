@@ -55,60 +55,106 @@
 
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
-                        A</div>
-                    <span class="font-bold text-lg text-white tracking-wide">APEX</span>
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-white">APEX</a>
                 </div>
-                <div class="hidden md:flex items-center gap-8">
-                    <button type="button" data-home-toggle
-                        class="font-medium text-white hover:text-gold transition">Home</button>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="index.html">Home Version 1</a>
+                                <a href="index2.html">Home Version 2</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="about.html" class="text-white hover:text-gold transition">About</a>
-                    <a href="services.html" class="text-gold font-semibold">Services</a>
+                    <div class="nav-dropdown">
+                        <button class="text-gold font-semibold flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="services.html#strategy">Strategy Consulting</a>
+                                <a href="services.html#digital">Digital Transformation</a>
+                                <a href="services.html#operations">Operations Excellence</a>
+                                <a href="services.html#financial">Financial Advisory</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
                     <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="admin-dashboard.html">Admin Dashboard</a>
+                                <a href="user-dashboard.html">User Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
                 </div>
+
+                <!-- Right side -->
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle"
-                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition"><i
-                            class="fas fa-globe"></i></button>
-                    <div class="hidden md:flex items-center gap-3">
-                        <a href="login.html" class="px-4 py-2 text-white hover:text-gold transition">Login</a>
-                        <a href="contact.html"
-                            class="btn btn-primary text-white rounded-md shadow-lg hover:shadow-gold/20 transition">Talk
-                            to an Expert</a>
-                    </div>
-                    <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition">
+                        <i class="fas fa-globe"></i>
                     </button>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
+                        <a href="signup.html" class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-700">
-            <div class="px-4 py-3 space-y-2">
-                <button type="button" data-home-toggle
-                    class="block text-base font-medium text-gray-300 hover:text-gold text-left w-full">Home</button>
-                <a href="about.html" class="block text-base font-medium text-gray-300 hover:text-gold">About</a>
-                <a href="services.html" class="block text-base font-medium text-gold">Services</a>
-                <a href="industries.html"
-                    class="block text-base font-medium text-gray-300 hover:text-gold">Industries</a>
-                <a href="insights.html" class="block text-base font-medium text-gray-300 hover:text-gold">Insights</a>
-                <a href="user-dashboard.html"
-                    class="block text-base font-medium text-gray-300 hover:text-gold">Dashboard</a>
-                <a href="contact.html" class="block text-base font-medium text-gray-300 hover:text-gold">Contact</a>
-                <div class="pt-4 mt-2 border-t border-slate-700">
-                    <a href="login.html"
-                        class="block w-full text-center py-2 text-gray-300 font-semibold hover:text-white">Login</a>
-                    <a href="contact.html"
-                        class="block w-full text-center mt-2 btn btn-primary text-white rounded-md">Talk to an
-                        Expert</a>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div>
+                    <button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
+                        Home <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="home-dropdown" class="hidden pl-4">
+                        <a href="index.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 1</a>
+                        <a href="index2.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium hover:text-gold">About</a>
+                <a href="services.html" class="block px-3 py-2 text-base font-medium text-gold">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Insights</a>
+                <div>
+                    <button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
+                        Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="dashboard-dropdown" class="hidden pl-4">
+                        <a href="admin-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">Admin Dashboard</a>
+                        <a href="user-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">User Dashboard</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Contact</a>
+                <div class="pt-4 border-t border-slate-700 mt-2">
+                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium hover:text-gold">Login</a>
+                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
                 </div>
             </div>
         </div>
@@ -149,61 +195,61 @@
         <!-- Services Grid -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 scroll-fade-up">
                     <span class="section-subtitle">CAPABILITIES</span>
                     <h2 class="section-title">What We Deliver</h2>
                     <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Integrated teams covering strategy, design,
                         engineering, data, and change management so you get outcomes, not just slide decks.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
                             <i class="fas fa-chess-knight"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Corporate & Growth Strategy</h3>
                         <p class="text-gray-600">Market entry, portfolio strategy, pricing, and M&A value creation
                             grounded in data.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
                             <i class="fas fa-microchip"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Digital & AI Transformation</h3>
                         <p class="text-gray-600">Cloud modernization, AI/ML accelerators, and digital products that
                             scale reliably.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
                             <i class="fas fa-cogs"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Operating Model & Org Design</h3>
                         <p class="text-gray-600">Agile operating models, governance redesign, and talent strategies for
                             growth.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.4s">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
                             <i class="fas fa-warehouse"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Operations & Supply Chain</h3>
                         <p class="text-gray-600">Network optimization, automation, and resilience across critical supply
                             chains.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.5s">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Risk, Cyber, & Compliance</h3>
                         <p class="text-gray-600">Enterprise risk frameworks, cyber posture uplift, and regulatory
                             readiness.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.6s">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
                             <i class="fas fa-people-carry"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Change & Enablement</h3>
@@ -217,28 +263,28 @@
         <!-- Approach -->
         <section class="py-16 bg-gray-50">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12 scroll-fade-up">
                     <span class="section-subtitle">DELIVERY PLAYBOOK</span>
                     <h2 class="section-title">How We Partner</h2>
                 </div>
                 <div class="grid md:grid-cols-4 gap-6">
-                    <div class="card p-5 text-center">
+                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                         <p class="text-blue-900 font-bold text-xl mb-2">01</p>
                         <h4 class="font-semibold mb-2">Diagnose</h4>
                         <p class="text-gray-600 text-sm">Rapid discovery, stakeholder alignment, and value hypothesis.
                         </p>
                     </div>
-                    <div class="card p-5 text-center">
+                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                         <p class="text-blue-900 font-bold text-xl mb-2">02</p>
                         <h4 class="font-semibold mb-2">Design</h4>
                         <p class="text-gray-600 text-sm">Blueprint operating model, tech stack, and rollout plan.</p>
                     </div>
-                    <div class="card p-5 text-center">
+                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                         <p class="text-blue-900 font-bold text-xl mb-2">03</p>
                         <h4 class="font-semibold mb-2">Deliver</h4>
                         <p class="text-gray-600 text-sm">Cross-functional squads execute with weekly outcomes.</p>
                     </div>
-                    <div class="card p-5 text-center">
+                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.4s">
                         <p class="text-blue-900 font-bold text-xl mb-2">04</p>
                         <h4 class="font-semibold mb-2">Scale</h4>
                         <p class="text-gray-600 text-sm">Capabilities transferred; governance and KPIs locked in.</p>
@@ -250,12 +296,12 @@
         <!-- Packages -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12 scroll-fade-up">
                     <span class="section-subtitle">ENGAGEMENT MODELS</span>
                     <h2 class="section-title">Choose the Model That Fits</h2>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card p-8">
+                    <div class="card p-8 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                         <p class="text-sm text-blue-900 font-semibold mb-2">ADVISORY</p>
                         <h3 class="text-2xl font-bold mb-4">Executive Advisory</h3>
                         <p class="text-gray-600 mb-6">C-suite guidance, strategic reviews, and targeted interventions.
@@ -265,9 +311,9 @@
                             <li>• KPI and value tracking</li>
                             <li>• Deal and portfolio reviews</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-secondary w-full">Schedule Intro</a>
+                        <a href="contact.html" class="btn btn-secondary w-full hover-lift">Schedule Intro</a>
                     </div>
-                    <div class="card p-8 border-2 border-blue-900">
+                    <div class="card p-8 border-2 border-blue-900 scroll-fade-up hover-lift hover-shine" style="animation-delay: 0.2s">
                         <p class="text-sm text-blue-900 font-semibold mb-2">SQUADS</p>
                         <h3 class="text-2xl font-bold mb-4">Embedded Squads</h3>
                         <p class="text-gray-600 mb-6">Cross-functional teams (strategy, design, engineering, data) for
@@ -277,9 +323,9 @@
                             <li>• Weekly executive readouts</li>
                             <li>• Shared OKRs and dashboards</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-primary w-full">Launch a Squad</a>
+                        <a href="contact.html" class="btn btn-primary w-full hover-lift">Launch a Squad</a>
                     </div>
-                    <div class="card p-8">
+                    <div class="card p-8 scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                         <p class="text-sm text-blue-900 font-semibold mb-2">TRANSFORMATION</p>
                         <h3 class="text-2xl font-bold mb-4">Program Leadership</h3>
                         <p class="text-gray-600 mb-6">End-to-end PMO, change management, and capability building.</p>
@@ -288,7 +334,7 @@
                             <li>• Risk and dependency management</li>
                             <li>• Embedded coaching and enablement</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-secondary w-full">Design a Program</a>
+                        <a href="contact.html" class="btn btn-secondary w-full hover-lift">Design a Program</a>
                     </div>
                 </div>
             </div>

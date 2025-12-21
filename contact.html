@@ -78,60 +78,106 @@
 
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
-                        A</div>
-                    <span class="font-bold text-lg text-white tracking-wide">APEX</span>
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-white">APEX</a>
                 </div>
-                <div class="hidden md:flex items-center gap-8">
-                    <button type="button" data-home-toggle
-                        class="font-medium text-white hover:text-gold transition">Home</button>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="index.html">Home Version 1</a>
+                                <a href="index2.html">Home Version 2</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="about.html" class="text-white hover:text-gold transition">About</a>
-                    <a href="services.html" class="text-white hover:text-gold transition">Services</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="services.html#strategy">Strategy Consulting</a>
+                                <a href="services.html#digital">Digital Transformation</a>
+                                <a href="services.html#operations">Operations Excellence</a>
+                                <a href="services.html#financial">Financial Advisory</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
                     <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="admin-dashboard.html">Admin Dashboard</a>
+                                <a href="user-dashboard.html">User Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="contact.html" class="text-gold font-semibold">Contact</a>
                 </div>
+
+                <!-- Right side -->
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle"
-                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition"><i
-                            class="fas fa-globe"></i></button>
-                    <div class="hidden md:flex items-center gap-3">
-                        <a href="login.html" class="px-4 py-2 text-white hover:text-gold transition">Login</a>
-                        <a href="contact.html"
-                            class="btn btn-primary text-white rounded-md shadow-lg hover:shadow-gold/20 transition">Talk
-                            to an Expert</a>
-                    </div>
-                    <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition">
+                        <i class="fas fa-globe"></i>
                     </button>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
+                        <a href="signup.html" class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-700">
-            <div class="px-4 py-3 space-y-2">
-                <button type="button" data-home-toggle
-                    class="block text-base font-medium text-gray-300 hover:text-gold text-left w-full">Home</button>
-                <a href="about.html" class="block text-base font-medium text-gray-300 hover:text-gold">About</a>
-                <a href="services.html" class="block text-base font-medium text-gray-300 hover:text-gold">Services</a>
-                <a href="industries.html"
-                    class="block text-base font-medium text-gray-300 hover:text-gold">Industries</a>
-                <a href="insights.html" class="block text-base font-medium text-gray-300 hover:text-gold">Insights</a>
-                <a href="user-dashboard.html"
-                    class="block text-base font-medium text-gray-300 hover:text-gold">Dashboard</a>
-                <a href="contact.html" class="block text-base font-medium text-gold">Contact</a>
-                <div class="pt-4 mt-2 border-t border-slate-700">
-                    <a href="login.html"
-                        class="block w-full text-center py-2 text-gray-300 font-semibold hover:text-white">Login</a>
-                    <a href="contact.html"
-                        class="block w-full text-center mt-2 btn btn-primary text-white rounded-md">Talk to an
-                        Expert</a>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div>
+                    <button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
+                        Home <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="home-dropdown" class="hidden pl-4">
+                        <a href="index.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 1</a>
+                        <a href="index2.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium hover:text-gold">About</a>
+                <a href="services.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Insights</a>
+                <div>
+                    <button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
+                        Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="dashboard-dropdown" class="hidden pl-4">
+                        <a href="admin-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">Admin Dashboard</a>
+                        <a href="user-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">User Dashboard</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gold">Contact</a>
+                <div class="pt-4 border-t border-slate-700 mt-2">
+                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium hover:text-gold">Login</a>
+                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
                 </div>
             </div>
         </div>
@@ -139,7 +185,7 @@
 
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white pt-24 md:pt-28 pb-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-fade-up">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
             <p class="text-lg opacity-90">Let's discuss how we can help transform your business</p>
         </div>
@@ -149,31 +195,31 @@
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
-                <div data-fade-in class="text-center p-6 bg-gray-50 rounded-lg">
+                <div class="text-center p-6 bg-gray-50 rounded-lg scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                     <div class="text-4xl mb-3">📅</div>
                     <h3 class="font-bold text-blue-900 mb-2">Schedule Call</h3>
                     <p class="text-sm text-gray-600 mb-4">Book a meeting at your convenience</p>
                     <button onclick="openModal('schedule-modal')"
-                        class="text-blue-900 font-semibold hover:text-blue-700">Schedule</button>
+                        class="text-blue-900 font-semibold hover:text-blue-700 transition">Schedule</button>
                 </div>
-                <div data-fade-in class="text-center p-6 bg-gray-50 rounded-lg">
+                <div class="text-center p-6 bg-gray-50 rounded-lg scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                     <div class="text-4xl mb-3">📞</div>
                     <h3 class="font-bold text-blue-900 mb-2">Call Us</h3>
                     <p class="text-sm text-gray-600">+1 (555) 123-4567</p>
                     <p class="text-sm text-gray-600">Mon-Fri: 9am-6pm EST</p>
                 </div>
-                <div data-fade-in class="text-center p-6 bg-gray-50 rounded-lg">
+                <div class="text-center p-6 bg-gray-50 rounded-lg scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                     <div class="text-4xl mb-3">✉️</div>
                     <h3 class="font-bold text-blue-900 mb-2">Email Us</h3>
                     <p class="text-sm text-gray-600">contact@apexconsulting.com</p>
                     <p class="text-sm text-gray-600">Response: 2-4 hours</p>
                 </div>
-                <div data-fade-in class="text-center p-6 bg-gray-50 rounded-lg">
+                <div class="text-center p-6 bg-gray-50 rounded-lg scroll-fade-up hover-lift" style="animation-delay: 0.4s">
                     <div class="text-4xl mb-3">📍</div>
                     <h3 class="font-bold text-blue-900 mb-2">Visit Office</h3>
                     <p class="text-sm text-gray-600">123 Business Ave, NYC</p>
                     <button onclick="openModal('office-modal')"
-                        class="text-blue-900 font-semibold hover:text-blue-700">Get Directions</button>
+                        class="text-blue-900 font-semibold hover:text-blue-700 transition">Get Directions</button>
                 </div>
             </div>
         </div>
@@ -182,20 +228,20 @@
     <!-- Contact Form -->
     <section class="py-16 bg-gray-50">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Send us a Message</h2>
-            <form data-form-type="Contact" class="bg-white rounded-lg shadow-lg p-8 space-y-6">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center scroll-fade-up">Send us a Message</h2>
+            <form data-form-type="Contact" class="bg-white rounded-lg shadow-lg p-8 space-y-6 scroll-fade-up hover-lift">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">First Name *</label>
                         <input type="text" required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
                             placeholder="John">
                         <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name *</label>
                         <input type="text" required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
                             placeholder="Doe">
                         <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                     </div>
@@ -204,7 +250,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Company Name *</label>
                     <input type="text" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
                         placeholder="Your Company">
                     <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                 </div>
@@ -212,7 +258,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
                     <input type="email" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
                         placeholder="your@email.com">
                     <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                 </div>
@@ -220,7 +266,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
                     <input type="tel" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition"
                         placeholder="+1 (555) 000-0000">
                     <span class="error-message hidden text-red-500 text-sm mt-1"></span>
                 </div>
@@ -229,7 +275,7 @@
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Company Size *</label>
                         <select required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
                             <option value="">Select size</option>
                             <option value="1-10">1-10 employees</option>
                             <option value="11-50">11-50 employees</option>
@@ -241,7 +287,7 @@
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Industry *</label>
                         <select required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
                             <option value="">Select industry</option>
                             <option value="finance">Finance</option>
                             <option value="healthcare">Healthcare</option>
@@ -278,6 +324,113 @@
                     class="w-full px-6 py-3 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 transition">Send
                     Message</button>
             </form>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Find Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Visit our headquarters in the heart of New York City. We're conveniently located in Midtown Manhattan.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Map -->
+                <div class="lg:col-span-2 scroll-fade-up">
+                    <div class="bg-gray-100 rounded-2xl overflow-hidden shadow-xl h-96 relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878428698!3d40.74076794379132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle%20NYC!5e0!3m2!1sen!2sus!4v1641488271547!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            class="absolute inset-0">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Office Info -->
+                <div class="scroll-fade-up" style="animation-delay: 0.2s">
+                    <div class="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 text-white h-full">
+                        <h3 class="text-2xl font-bold mb-6">Our Headquarters</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-gold-400 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Address</h4>
+                                    <p class="text-blue-200 text-sm">123 Business Avenue<br>Suite 500<br>New York, NY 10001</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clock text-gold-400 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Business Hours</h4>
+                                    <p class="text-blue-200 text-sm">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-subway text-gold-400 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Getting Here</h4>
+                                    <p class="text-blue-200 text-sm">Subway: Lines 1, 2, 3 to Penn Station<br>Bus: M34, M20<br>Parking available nearby</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://maps.google.com/?q=123+Business+Avenue,+New+York,+NY+10001" 
+                           target="_blank" 
+                           class="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-gold-500 hover:bg-gold-400 text-blue-900 font-bold rounded-xl transition-all duration-300 hover:shadow-lg">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Global Offices -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-blue-900 text-center mb-8 scroll-fade-up">Global Offices</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-50 rounded-xl p-6 text-center hover-lift scroll-fade-up" style="animation-delay: 0.1s">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🇺🇸</span>
+                        </div>
+                        <h4 class="font-bold text-blue-900 mb-1">New York</h4>
+                        <p class="text-sm text-gray-500">Headquarters</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 text-center hover-lift scroll-fade-up" style="animation-delay: 0.2s">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🇬🇧</span>
+                        </div>
+                        <h4 class="font-bold text-blue-900 mb-1">London</h4>
+                        <p class="text-sm text-gray-500">European HQ</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 text-center hover-lift scroll-fade-up" style="animation-delay: 0.3s">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🇸🇬</span>
+                        </div>
+                        <h4 class="font-bold text-blue-900 mb-1">Singapore</h4>
+                        <p class="text-sm text-gray-500">Asia Pacific</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 text-center hover-lift scroll-fade-up" style="animation-delay: 0.4s">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🇦🇪</span>
+                        </div>
+                        <h4 class="font-bold text-blue-900 mb-1">Dubai</h4>
+                        <p class="text-sm text-gray-500">Middle East</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -55,59 +55,106 @@
 
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
-                        A</div>
-                    <span class="font-bold text-lg text-white tracking-wide">APEX</span>
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-white">APEX</a>
                 </div>
-                <div class="hidden md:flex items-center gap-8">
-                    <button type="button" data-home-toggle
-                        class="font-medium text-white hover:text-gold transition">Home</button>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="index.html">Home Version 1</a>
+                                <a href="index2.html">Home Version 2</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="about.html" class="text-white hover:text-gold transition">About</a>
-                    <a href="services.html" class="text-white hover:text-gold transition">Services</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="services.html#strategy">Strategy Consulting</a>
+                                <a href="services.html#digital">Digital Transformation</a>
+                                <a href="services.html#operations">Operations Excellence</a>
+                                <a href="services.html#financial">Financial Advisory</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="industries.html" class="text-gold font-semibold">Industries</a>
                     <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="admin-dashboard.html">Admin Dashboard</a>
+                                <a href="user-dashboard.html">User Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
                 </div>
+
+                <!-- Right side -->
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle"
-                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition"><i
-                            class="fas fa-globe"></i></button>
-                    <div class="hidden md:flex items-center gap-3">
-                        <a href="login.html" class="px-4 py-2 text-white hover:text-gold transition">Login</a>
-                        <a href="contact.html"
-                            class="btn btn-primary text-white rounded-md shadow-lg hover:shadow-gold/20 transition">Talk
-                            to an Expert</a>
-                    </div>
-                    <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition">
+                        <i class="fas fa-globe"></i>
                     </button>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
+                        <a href="signup.html" class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-700">
-            <div class="px-4 py-3 space-y-2">
-                <button type="button" data-home-toggle
-                    class="block text-base font-medium text-gray-300 hover:text-gold text-left w-full">Home</button>
-                <a href="about.html" class="block text-base font-medium text-gray-300 hover:text-gold">About</a>
-                <a href="services.html" class="block text-base font-medium text-gray-300 hover:text-gold">Services</a>
-                <a href="industries.html" class="block text-base font-medium text-gold">Industries</a>
-                <a href="insights.html" class="block text-base font-medium text-gray-300 hover:text-gold">Insights</a>
-                <a href="user-dashboard.html"
-                    class="block text-base font-medium text-gray-300 hover:text-gold">Dashboard</a>
-                <a href="contact.html" class="block text-base font-medium text-gray-300 hover:text-gold">Contact</a>
-                <div class="pt-4 mt-2 border-t border-slate-700">
-                    <a href="login.html"
-                        class="block w-full text-center py-2 text-gray-300 font-semibold hover:text-white">Login</a>
-                    <a href="contact.html"
-                        class="block w-full text-center mt-2 btn btn-primary text-white rounded-md">Talk to an
-                        Expert</a>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div>
+                    <button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
+                        Home <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="home-dropdown" class="hidden pl-4">
+                        <a href="index.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 1</a>
+                        <a href="index2.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium hover:text-gold">About</a>
+                <a href="services.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-base font-medium text-gold">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Insights</a>
+                <div>
+                    <button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
+                        Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="dashboard-dropdown" class="hidden pl-4">
+                        <a href="admin-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">Admin Dashboard</a>
+                        <a href="user-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">User Dashboard</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Contact</a>
+                <div class="pt-4 border-t border-slate-700 mt-2">
+                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium hover:text-gold">Login</a>
+                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
                 </div>
             </div>
         </div>
@@ -120,7 +167,7 @@
             <div class="absolute inset-0 bg-blob opacity-30"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid lg:grid-cols-2 gap-10 items-center">
-                    <div class="space-y-6">
+                    <div class="space-y-6 scroll-fade-left">
                         <span class="text-sm uppercase tracking-widest text-blue-100">Industries</span>
                         <h1 class="text-4xl md:text-5xl font-bold leading-tight">Sector-specific expertise with global
                             execution</h1>
@@ -128,27 +175,27 @@
                             squads to deliver outcomes that respect the realities of each sector—regulation, risk, and
                             pace.</p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="contact.html" class="btn btn-white">Talk to an Industry Lead</a>
-                            <a href="insights.html" class="btn btn-secondary">View Case Insights</a>
+                            <a href="contact.html" class="btn btn-white hover-lift">Talk to an Industry Lead</a>
+                            <a href="insights.html" class="btn btn-secondary hover-lift">View Case Insights</a>
                         </div>
                     </div>
-                    <div class="card p-8 glass">
+                    <div class="card p-8 glass scroll-fade-right">
                         <h3 class="text-xl font-bold mb-4 text-gray-900">Coverage at a glance</h3>
                         <div class="grid grid-cols-2 gap-4 text-gray-700">
-                            <div>
-                                <p class="text-3xl font-bold text-blue-900">12</p>
+                            <div class="scroll-fade-up" style="animation-delay: 0.1s">
+                                <p class="text-3xl font-bold text-blue-900"><span class="counter" data-count="12">0</span></p>
                                 <p class="text-sm">Core industries</p>
                             </div>
-                            <div>
-                                <p class="text-3xl font-bold text-blue-900">35+</p>
+                            <div class="scroll-fade-up" style="animation-delay: 0.2s">
+                                <p class="text-3xl font-bold text-blue-900"><span class="counter" data-count="35">0</span>+</p>
                                 <p class="text-sm">Country deployments</p>
                             </div>
-                            <div>
-                                <p class="text-3xl font-bold text-blue-900">200+</p>
+                            <div class="scroll-fade-up" style="animation-delay: 0.3s">
+                                <p class="text-3xl font-bold text-blue-900"><span class="counter" data-count="200">0</span>+</p>
                                 <p class="text-sm">Specialists & SMEs</p>
                             </div>
-                            <div>
-                                <p class="text-3xl font-bold text-blue-900">$2B</p>
+                            <div class="scroll-fade-up" style="animation-delay: 0.4s">
+                                <p class="text-3xl font-bold text-blue-900">$<span class="counter" data-count="2">0</span>B</p>
                                 <p class="text-sm">Value delivered</p>
                             </div>
                         </div>
@@ -160,19 +207,19 @@
         <!-- Industry Grid -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 scroll-fade-up">
                     <span class="section-subtitle">SECTORS</span>
                     <h2 class="section-title">Where We Create Impact</h2>
                     <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Each sector team blends regulatory knowledge,
                         product expertise, and delivery discipline to move fast without breaking rules.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Technology</h3>
                         <p class="text-gray-600">Cloud-native scale, platform modernization, product growth, and
                             AI-enabled services.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Financial Services</h3>
                         <p class="text-gray-600">Digital banking, risk and compliance, core replacement, and customer
                             experience.</p>
@@ -192,7 +239,7 @@
                         <p class="text-gray-600">Omnichannel experience, personalization, and margin uplift through
                             automation.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.8s">
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Energy & Utilities</h3>
                         <p class="text-gray-600">Grid modernization, asset performance, and transition to sustainable
                             portfolios.</p>
@@ -204,24 +251,24 @@
         <!-- Case Highlights -->
         <section class="py-16 bg-gray-50">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12 scroll-fade-up">
                     <span class="section-subtitle">RESULTS</span>
                     <h2 class="section-title">Representative Wins</h2>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                         <p class="text-sm text-blue-900 font-semibold mb-2">FINANCIAL SERVICES</p>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Digital Core Launch</h3>
                         <p class="text-gray-600">Stood up a new digital bank in 9 months; 1M customers onboarded with
                             NPS 65.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                         <p class="text-sm text-blue-900 font-semibold mb-2">MANUFACTURING</p>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Smart Factory Uplift</h3>
                         <p class="text-gray-600">IoT retrofit and predictive maintenance reduced downtime by 27% across
                             4 plants.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                         <p class="text-sm text-blue-900 font-semibold mb-2">HEALTHCARE</p>
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Care Journey Redesign</h3>
                         <p class="text-gray-600">Digitized patient intake and triage, cutting wait times by 40% and
@@ -234,15 +281,15 @@
         <!-- CTA -->
         <section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
             <div
-                class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 scroll-fade-up">
                 <div>
                     <h3 class="text-3xl font-bold mb-2">Need a sector specialist on your next initiative?</h3>
                     <p class="text-blue-100">We will assemble the right experts, validate the value case, and start
                         within weeks.</p>
                 </div>
                 <div class="flex gap-3">
-                    <a href="contact.html" class="btn btn-white">Book a Call</a>
-                    <a href="user-dashboard.html" class="btn btn-secondary">Client Dashboard</a>
+                    <a href="contact.html" class="btn btn-white hover-lift">Book a Call</a>
+                    <a href="user-dashboard.html" class="btn btn-secondary hover-lift">Client Dashboard</a>
                 </div>
             </div>
         </section>

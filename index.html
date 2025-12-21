@@ -72,32 +72,44 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <button type="button" data-home-toggle
-                        class="font-medium text-white hover:text-gold transition">Home</button>
+                    <div class="nav-dropdown">
+                        <button class="text-gold font-semibold flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="index.html">Home Version 1</a>
+                                <a href="index2.html">Home Version 2</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="about.html" class="text-white hover:text-gold transition">About</a>
-                    <div class="relative group">
+                    <div class="nav-dropdown">
                         <button class="text-white hover:text-gold transition flex items-center">
                             Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </button>
-                        <div
-                            class="absolute hidden group-hover:block mt-2 w-48 bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1 z-50">
-                            <a href="services.html#strategy"
-                                class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-800 hover:text-gold">Strategy
-                                Consulting</a>
-                            <a href="services.html#digital"
-                                class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-800 hover:text-gold">Digital
-                                Transformation</a>
-                            <a href="services.html#operations"
-                                class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-800 hover:text-gold">Operations
-                                Excellence</a>
-                            <a href="services.html#financial"
-                                class="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-800 hover:text-gold">Financial
-                                Advisory</a>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="services.html#strategy">Strategy Consulting</a>
+                                <a href="services.html#digital">Digital Transformation</a>
+                                <a href="services.html#operations">Operations Excellence</a>
+                                <a href="services.html#financial">Financial Advisory</a>
+                            </div>
                         </div>
                     </div>
                     <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
                     <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="admin-dashboard.html">Admin Dashboard</a>
+                                <a href="user-dashboard.html">User Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
                 </div>
 
@@ -111,9 +123,10 @@
                             <i class="fas fa-search"></i>
                         </button>
                         <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
-                        <a href="contact.html"
-                            class="btn btn-primary text-white px-6 py-2 rounded-md hover:shadow-lg transition">Get
-                            Started</a>
+                        <a href="signup.html"
+                            class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
                     </div>
                     <div class="md:hidden flex items-center">
                         <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
@@ -126,39 +139,33 @@
 
         <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button type="button" data-home-toggle
-                    class="block w-full text-left px-3 py-2 text-base font-medium hover:text-gold">Home</button>
-                <a href="about.html" class="block px-3 py-2 text-base font-medium hover:text-gold">About</a>
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-900">
                 <div class="px-3 py-2">
-                    <button
-                        class="flex items-center justify-between w-full text-left text-base font-medium hover:text-gold"
-                        id="services-dropdown-button">
-                        Services
-                        <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gold" onclick="toggleMobileDropdown('home-mobile-dropdown')">
+                        Home <i class="fas fa-chevron-down text-xs ml-1"></i>
                     </button>
-                    <div class="hidden mt-2 pl-4 space-y-2" id="services-dropdown">
-                        <a href="services.html#strategy"
-                            class="block py-2 text-sm text-gray-400 hover:text-gold">Strategy Consulting</a>
-                        <a href="services.html#digital" class="block py-2 text-sm text-gray-400 hover:text-gold">Digital
-                            Transformation</a>
-                        <a href="services.html#operations"
-                            class="block py-2 text-sm text-gray-400 hover:text-gold">Operations Excellence</a>
-                        <a href="services.html#financial"
-                            class="block py-2 text-sm text-gray-400 hover:text-gold">Financial Advisory</a>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="home-mobile-dropdown">
+                        <a href="index.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Home Version 1</a>
+                        <a href="index2.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Home Version 2</a>
                     </div>
                 </div>
-                <a href="industries.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Industries</a>
-                <a href="insights.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Insights</a>
-                <a href="user-dashboard.html"
-                    class="block px-3 py-2 text-base font-medium hover:text-gold">Dashboard</a>
-                <a href="contact.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Contact</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">About</a>
+                <a href="services.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Insights</a>
+                <div class="px-3 py-2">
+                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gray-300 hover:text-gold" onclick="toggleMobileDropdown('dashboard-mobile-dropdown')">
+                        Dashboard <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="dashboard-mobile-dropdown">
+                        <a href="admin-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Admin Dashboard</a>
+                        <a href="user-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">User Dashboard</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Contact</a>
                 <div class="pt-4 border-t border-slate-700 mt-2">
-                    <a href="login.html"
-                        class="block w-full text-center px-4 py-2 font-medium hover:text-gold">Login</a>
-                    <a href="contact.html"
-                        class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get
-                        Started</a>
+                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium text-gray-300 hover:text-gold">Login</a>
+                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
                 </div>
             </div>
         </div>
@@ -214,7 +221,7 @@
     <!-- Playbooks & Accelerators -->
     <section class="py-20 bg-ice" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14">
+            <div class="text-center mb-14 scroll-fade-up">
                 <span class="tag-pill">Accelerators</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-ink mt-4">Ready-to-deploy playbooks that ship outcomes
                     fast</h2>
@@ -222,10 +229,10 @@
                     starters, and KPI packs so your team moves from alignment to action in weeks.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card p-6 h-full flex flex-col">
+                <div class="card p-6 h-full flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                     <div class="flex items-center gap-3 mb-4">
                         <span
-                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900"><i
+                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 animate-icon-bounce"><i
                                 class="fas fa-rocket"></i></span>
                         <h3 class="text-xl font-bold text-gray-900">AI MVP Sprint</h3>
                     </div>
@@ -237,10 +244,10 @@
                         <li>• Pilot success metrics in 30 days</li>
                     </ul>
                 </div>
-                <div class="card p-6 h-full flex flex-col">
+                <div class="card p-6 h-full flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                     <div class="flex items-center gap-3 mb-4">
                         <span
-                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900"><i
+                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 animate-icon-bounce"><i
                                 class="fas fa-sitemap"></i></span>
                         <h3 class="text-xl font-bold text-gray-900">Operating Model Reset</h3>
                     </div>
@@ -252,10 +259,10 @@
                         <li>• Change narrative and comms kit</li>
                     </ul>
                 </div>
-                <div class="card p-6 h-full flex flex-col">
+                <div class="card p-6 h-full flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                     <div class="flex items-center gap-3 mb-4">
                         <span
-                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900"><i
+                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 animate-icon-bounce"><i
                                 class="fas fa-warehouse"></i></span>
                         <h3 class="text-xl font-bold text-gray-900">Supply Chain Command</h3>
                     </div>
@@ -274,38 +281,38 @@
     <!-- Latest Insights -->
     <section class="py-20 bg-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 scroll-fade-up">
                 <div>
                     <span class="tag-pill">Insights</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-ink mt-3">Fresh thinking from the field</h2>
                     <p class="text-gray-600 mt-3">Short, practical takes you can plug into planning, delivery, and
                         steering forums.</p>
                 </div>
-                <a href="insights.html" class="btn btn-secondary">View all insights</a>
+                <a href="insights.html" class="btn btn-secondary hover-lift">View all insights</a>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <article class="card p-6 flex flex-col">
+                <article class="card p-6 flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                     <p class="text-sm text-blue-900 font-semibold mb-2">DIGITAL • PLAYBOOK</p>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Designing AI copilots with guardrails</h3>
                     <p class="text-gray-600 flex-1">Patterns for intent capture, escalation, and evaluation so copilots
                         stay safe and useful.</p>
-                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center">Read more
+                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center hover:text-gold transition">Read more
                         <i class="fas fa-arrow-right ml-2"></i></a>
                 </article>
-                <article class="card p-6 flex flex-col">
+                <article class="card p-6 flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                     <p class="text-sm text-blue-900 font-semibold mb-2">OPERATIONS • METRICS</p>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Cost-to-serve dashboard that sticks</h3>
                     <p class="text-gray-600 flex-1">A lean KPI stack with leading indicators, variance bands, and play
                         calls per exception.</p>
-                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center">Read more
+                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center hover:text-gold transition">Read more
                         <i class="fas fa-arrow-right ml-2"></i></a>
                 </article>
-                <article class="card p-6 flex flex-col">
+                <article class="card p-6 flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                     <p class="text-sm text-blue-900 font-semibold mb-2">PEOPLE • CHANGE</p>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Change rooms: execs + squads</h3>
                     <p class="text-gray-600 flex-1">A bi-weekly cadence that pairs leadership decisions with
                         on-the-ground unblockers.</p>
-                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center">Read more
+                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center hover:text-gold transition">Read more
                         <i class="fas fa-arrow-right ml-2"></i></a>
                 </article>
             </div>
@@ -316,23 +323,23 @@
     <section class="py-12 bg-sand" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-6">
-                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-target="15">0</span>+
+                <div class="p-6 scroll-fade-up" style="animation-delay: 0.1s">
+                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-count="15">0</span>+
                     </div>
                     <p class="text-gray-600">Years Experience</p>
                 </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-target="500">0</span>+
+                <div class="p-6 scroll-fade-up" style="animation-delay: 0.2s">
+                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-count="500">0</span>+
                     </div>
                     <p class="text-gray-600">Clients Served</p>
                 </div>
-                <div class="p-6">
+                <div class="p-6 scroll-fade-up" style="animation-delay: 0.3s">
                     <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter"
-                            data-target="1000">0</span>+</div>
+                            data-count="1000">0</span>+</div>
                     <p class="text-gray-600">Projects Completed</p>
                 </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-target="98">0</span>%
+                <div class="p-6 scroll-fade-up" style="animation-delay: 0.4s">
+                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-count="98">0</span>%
                     </div>
                     <p class="text-gray-600">Success Rate</p>
                 </div>
@@ -343,7 +350,7 @@
     <!-- Core Services -->
     <section class="py-20 bg-ice" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 scroll-fade-up">
                 <span class="text-blue-900 font-semibold text-lg">OUR SERVICES</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Comprehensive Business Solutions</h2>
                 <div class="w-20 h-1 bg-blue-900 mx-auto mt-4"></div>
@@ -351,7 +358,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="card stagger-item animate-fade-in">
+                <div class="card stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                     <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800"
                             alt="Strategy Consulting"
@@ -359,7 +366,7 @@
                     </div>
                     <div class="p-6">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 icon-bounce">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 animate-icon-bounce">
                             <i class="fas fa-chess-king text-blue-900 text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Strategy Consulting</h3>
@@ -374,7 +381,7 @@
                 </div>
 
                 <!-- Service 2 -->
-                <div class="card stagger-item animate-fade-in">
+                <div class="card stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                     <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800"
                             alt="Digital Transformation"
@@ -382,7 +389,7 @@
                     </div>
                     <div class="p-6">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 icon-bounce">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 animate-icon-bounce">
                             <i class="fas fa-laptop-code text-blue-900 text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Digital Transformation</h3>
@@ -397,7 +404,7 @@
                 </div>
 
                 <!-- Service 3 -->
-                <div class="card stagger-item animate-fade-in">
+                <div class="card stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                     <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
                             alt="Operations Excellence"
@@ -405,7 +412,7 @@
                     </div>
                     <div class="p-6">
                         <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 icon-bounce">
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 animate-icon-bounce">
                             <i class="fas fa-cogs text-blue-900 text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Operations Excellence</h3>
@@ -420,9 +427,9 @@
                 </div>
             </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-12 scroll-fade-up">
                 <a href="services.html"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 transition-colors duration-300">
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 transition-colors duration-300 hover-lift">
                     View All Services
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -434,7 +441,7 @@
     <section class="py-20 bg-ink text-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-                <div class="mb-12 lg:mb-0">
+                <div class="mb-12 lg:mb-0 scroll-fade-left">
                     <span class="text-blue-100 font-semibold text-lg">WHY CHOOSE US</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">Your Trusted Partner for Business
                         Success</h2>
@@ -442,10 +449,10 @@
                         of all sizes achieve their strategic objectives and drive sustainable growth.</p>
 
                     <div class="space-y-6">
-                        <div class="flex">
+                        <div class="flex scroll-fade-up" style="animation-delay: 0.1s">
                             <div class="flex-shrink-0">
                                 <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900">
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900 animate-icon-bounce">
                                     <i class="fas fa-users text-xl"></i>
                                 </div>
                             </div>
@@ -456,10 +463,10 @@
                             </div>
                         </div>
 
-                        <div class="flex">
+                        <div class="flex scroll-fade-up" style="animation-delay: 0.2s">
                             <div class="flex-shrink-0">
                                 <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900">
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900 animate-icon-bounce">
                                     <i class="fas fa-project-diagram text-xl"></i>
                                 </div>
                             </div>
@@ -470,10 +477,10 @@
                             </div>
                         </div>
 
-                        <div class="flex">
+                        <div class="flex scroll-fade-up" style="animation-delay: 0.3s">
                             <div class="flex-shrink-0">
                                 <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900">
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900 animate-icon-bounce">
                                     <i class="fas fa-chart-line text-xl"></i>
                                 </div>
                             </div>
@@ -486,8 +493,8 @@
                     </div>
                 </div>
 
-                <div class="relative">
-                    <div class="relative z-10 rounded-xl overflow-hidden shadow-xl">
+                <div class="relative scroll-fade-right">
+                    <div class="relative z-10 rounded-xl overflow-hidden shadow-xl hover-lift">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000"
                             alt="Our team in action" class="w-full h-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -497,9 +504,9 @@
                         </div>
                     </div>
 
-                    <div class="absolute -bottom-6 -right-6 bg-blue-900 text-white p-6 rounded-xl shadow-lg z-0 w-3/4">
+                    <div class="absolute -bottom-6 -right-6 bg-blue-900 text-white p-6 rounded-xl shadow-lg z-0 w-3/4 hover-lift">
                         <div class="flex items-center">
-                            <div class="text-4xl font-bold mr-4">15+</div>
+                            <div class="text-4xl font-bold mr-4"><span class="counter" data-count="15">0</span>+</div>
                             <div class="text-sm">Years of <br>Experience</div>
                         </div>
                     </div>
@@ -511,7 +518,7 @@
     <!-- Case Studies -->
     <section class="py-20 bg-white" data-fade-in>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 scroll-fade-up">
                 <span class="text-blue-900 font-semibold text-lg">CASE STUDIES</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Success Stories</h2>
                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Discover how we've helped businesses overcome challenges
@@ -520,7 +527,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Case Study 1 -->
-                <div class="card group stagger-item animate-fade-in">
+                <div class="card group stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.1s">
                     <div class="h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600" alt="Case Study 1"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -544,7 +551,7 @@
                 </div>
 
                 <!-- Case Study 2 -->
-                <div class="card group stagger-item animate-fade-in">
+                <div class="card group stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.2s">
                     <div class="h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600" alt="Case Study 2"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -568,7 +575,7 @@
                 </div>
 
                 <!-- Case Study 3 -->
-                <div class="card group stagger-item animate-fade-in">
+                <div class="card group stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.3s">
                     <div class="h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600" alt="Case Study 3"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">

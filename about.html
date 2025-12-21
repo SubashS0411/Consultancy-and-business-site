@@ -55,60 +55,94 @@
 
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
-                        A</div>
-                    <span class="font-bold text-lg text-white tracking-wide">APEX</span>
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-white">APEX</a>
                 </div>
-                <div class="hidden md:flex items-center gap-8">
-                    <button type="button" data-home-toggle
-                        class="font-medium text-white hover:text-gold transition">Home</button>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="index.html">Home Version 1</a>
+                                <a href="index2.html">Home Version 2</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="about.html" class="text-gold font-semibold">About</a>
                     <a href="services.html" class="text-white hover:text-gold transition">Services</a>
                     <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
                     <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <a href="user-dashboard.html" class="text-white hover:text-gold transition">Dashboard</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold transition flex items-center">
+                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="admin-dashboard.html">Admin Dashboard</a>
+                                <a href="user-dashboard.html">User Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
                 </div>
+
+                <!-- Right side -->
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle"
-                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition"><i
-                            class="fas fa-globe"></i></button>
-                    <div class="hidden md:flex items-center gap-3">
-                        <a href="login.html" class="px-4 py-2 text-white hover:text-gold transition">Login</a>
-                        <a href="contact.html"
-                            class="btn btn-primary text-white rounded-md shadow-lg hover:shadow-gold/20 transition">Talk
-                            to an Expert</a>
-                    </div>
-                    <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition">
+                        <i class="fas fa-globe"></i>
                     </button>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
+                        <a href="signup.html" class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-700">
-            <div class="px-4 py-3 space-y-2">
-                <button type="button" data-home-toggle
-                    class="block text-base font-medium text-gray-300 hover:text-gold text-left w-full">Home</button>
-                <a href="about.html" class="block text-base font-medium text-gold">About</a>
-                <a href="services.html" class="block text-base font-medium text-gray-300 hover:text-gold">Services</a>
-                <a href="industries.html"
-                    class="block text-base font-medium text-gray-300 hover:text-gold">Industries</a>
-                <a href="insights.html" class="block text-base font-medium text-gray-300 hover:text-gold">Insights</a>
-                <a href="user-dashboard.html"
-                    class="block text-base font-medium text-gray-300 hover:text-gold">Dashboard</a>
-                <a href="contact.html" class="block text-base font-medium text-gray-300 hover:text-gold">Contact</a>
-                <div class="pt-4 mt-2 border-t border-slate-700">
-                    <a href="login.html"
-                        class="block w-full text-center py-2 text-gray-300 font-semibold hover:text-white">Login</a>
-                    <a href="contact.html"
-                        class="block w-full text-center mt-2 btn btn-primary text-white rounded-md">Talk to an
-                        Expert</a>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-900">
+                <div class="px-3 py-2">
+                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gray-300 hover:text-gold" onclick="toggleMobileDropdown('home-mobile-dropdown')">
+                        Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="home-mobile-dropdown">
+                        <a href="index.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Home Version 1</a>
+                        <a href="index2.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Home Version 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gold">About</a>
+                <a href="services.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Insights</a>
+                <div class="px-3 py-2">
+                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gray-300 hover:text-gold" onclick="toggleMobileDropdown('dashboard-mobile-dropdown')">
+                        Dashboard <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="dashboard-mobile-dropdown">
+                        <a href="admin-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Admin Dashboard</a>
+                        <a href="user-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">User Dashboard</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Contact</a>
+                <div class="pt-4 border-t border-slate-700 mt-2">
+                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium text-gray-300 hover:text-gold">Login</a>
+                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
                 </div>
             </div>
         </div>
@@ -119,37 +153,38 @@
         <section
             class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-24 pt-28 md:pt-32">
             <div class="absolute inset-0 bg-blob opacity-30"></div>
+            <div class="absolute inset-0 bg-dots opacity-10"></div>
             <div
                 class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-                <div class="space-y-6 animate-fade-in">
-                    <span class="text-sm uppercase tracking-widest text-blue-100">Who We Are</span>
-                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Decades of Strategic Leadership, Delivered
+                <div class="space-y-6 scroll-fade-up">
+                    <span class="inline-block px-4 py-1 bg-white/10 rounded-full text-sm uppercase tracking-widest text-blue-100 animate-pulse-custom">Who We Are</span>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight" data-text-reveal>Decades of Strategic Leadership, Delivered
                         with Precision</h1>
                     <p class="text-lg text-blue-50 max-w-2xl">APEX Consulting blends seasoned industry leaders,
                         data-driven methods, and modern delivery to help organizations make bold moves with confidence.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="contact.html" class="btn btn-white">Book a Strategy Call</a>
-                        <a href="services.html" class="btn btn-secondary">Explore Services</a>
+                        <a href="contact.html" class="btn btn-white hover-lift" data-magnetic>Book a Strategy Call</a>
+                        <a href="services.html" class="btn btn-secondary hover-lift">Explore Services</a>
                     </div>
                 </div>
-                <div class="mt-12 lg:mt-0 animate-slide-in-right">
-                    <div class="glass rounded-2xl p-8 shadow-elevation space-y-6 text-white">
+                <div class="mt-12 lg:mt-0 scroll-fade-left">
+                    <div class="glass rounded-2xl p-8 shadow-elevation space-y-6 text-white hover-lift">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-2xl">🏆
+                            <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-2xl animate-heartbeat">🏆
                             </div>
                             <div>
                                 <p class="text-sm text-blue-100">Client Confidence</p>
-                                <p class="text-2xl font-bold text-white">98% satisfaction</p>
+                                <p class="text-2xl font-bold text-white"><span data-count="98" data-suffix="%">0</span> satisfaction</p>
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-4 text-center">
-                            <div class="p-4 rounded-xl bg-white/10">
-                                <p class="text-3xl font-bold text-white">15+</p>
+                        <div class="grid grid-cols-2 gap-4 text-center" data-stagger="0.1">
+                            <div class="p-4 rounded-xl bg-white/10 hover-scale">
+                                <p class="text-3xl font-bold text-white"><span data-count="15" data-suffix="+">0</span></p>
                                 <p class="text-sm text-blue-100">Years delivering impact</p>
                             </div>
-                            <div class="p-4 rounded-xl bg-white/10">
-                                <p class="text-3xl font-bold text-white">500+</p>
+                            <div class="p-4 rounded-xl bg-white/10 hover-scale">
+                                <p class="text-3xl font-bold text-white"><span data-count="500" data-suffix="+">0</span></p>
                                 <p class="text-sm text-blue-100">Programs launched</p>
                             </div>
                         </div>
@@ -163,24 +198,33 @@
         <!-- Mission / Vision / Values -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <span class="section-subtitle">OUR PURPOSE</span>
+                <div class="text-center mb-16 scroll-fade-up">
+                    <span class="section-subtitle text-gradient-gold">OUR PURPOSE</span>
                     <h2 class="section-title">Mission, Vision, and Values</h2>
                     <p class="mt-4 text-gray-600 max-w-3xl mx-auto">We exist to help leaders move from complexity to
                         clarity, activating strategies that scale with precision and speed.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card p-6">
+                <div class="grid md:grid-cols-3 gap-8" data-stagger="0.15">
+                    <div class="card p-6 hover-lift scroll-fade-up">
+                        <div class="feature-icon mb-4">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Mission</h3>
                         <p class="text-gray-600">Empower organizations to outperform their markets through data-led
                             strategy, operational excellence, and human-centered design.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 hover-lift scroll-fade-up">
+                        <div class="feature-icon mb-4">
+                            <i class="fas fa-eye"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Vision</h3>
                         <p class="text-gray-600">Be the most trusted partner for leaders navigating transformation,
                             known for decisive action and measurable outcomes.</p>
                     </div>
-                    <div class="card p-6">
+                    <div class="card p-6 hover-lift scroll-fade-up">
+                        <div class="feature-icon mb-4">
+                            <i class="fas fa-heart"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Values</h3>
                         <ul class="text-gray-600 space-y-2">
                             <li>• Integrity in every decision</li>
@@ -193,25 +237,70 @@
             </div>
         </section>
 
+        <!-- Why Choose Us - NEW SECTION -->
+        <section class="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 scroll-fade-up">
+                    <span class="inline-block px-4 py-1 bg-gold/20 rounded-full text-gold text-sm uppercase tracking-widest mb-4">Why APEX</span>
+                    <h2 class="text-3xl md:text-4xl font-bold">What Sets Us Apart</h2>
+                    <p class="mt-4 text-blue-100 max-w-3xl mx-auto">We combine deep expertise with agile execution to deliver transformative results.</p>
+                </div>
+                <div class="grid md:grid-cols-4 gap-6" data-stagger="0.1">
+                    <div class="text-center p-6 rounded-xl bg-white/5 hover-lift scroll-fade-up">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/20 flex items-center justify-center text-3xl animate-float">🎯</div>
+                        <h3 class="font-bold text-lg mb-2">Results-Driven</h3>
+                        <p class="text-blue-100 text-sm">Every engagement tied to measurable business outcomes</p>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-white/5 hover-lift scroll-fade-up">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/20 flex items-center justify-center text-3xl animate-float">⚡</div>
+                        <h3 class="font-bold text-lg mb-2">Fast Delivery</h3>
+                        <p class="text-blue-100 text-sm">From strategy to execution in weeks, not months</p>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-white/5 hover-lift scroll-fade-up">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/20 flex items-center justify-center text-3xl animate-float">🤝</div>
+                        <h3 class="font-bold text-lg mb-2">True Partnership</h3>
+                        <p class="text-blue-100 text-sm">We embed with your teams to transfer knowledge</p>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-white/5 hover-lift scroll-fade-up">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/20 flex items-center justify-center text-3xl animate-float">🌍</div>
+                        <h3 class="font-bold text-lg mb-2">Global Reach</h3>
+                        <p class="text-blue-100 text-sm">Teams across 32 countries with local expertise</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Impact Metrics -->
         <section class="py-16 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-4 gap-6 text-center">
-                    <div class="card p-6">
-                        <p class="text-4xl font-bold text-blue-900 mb-2">$2.4B</p>
+                <div class="grid md:grid-cols-4 gap-6 text-center" data-stagger="0.1">
+                    <div class="card p-6 hover-lift scroll-fade-up">
+                        <p class="text-4xl font-bold text-gradient-blue mb-2">$<span data-count="2" data-suffix=".4B">0</span></p>
                         <p class="text-gray-600">Value created for clients in the last 24 months</p>
+                        <div class="mt-3 progress-bar" data-progress="85">
+                            <div class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
                     </div>
-                    <div class="card p-6">
-                        <p class="text-4xl font-bold text-blue-900 mb-2">32</p>
+                    <div class="card p-6 hover-lift scroll-fade-up">
+                        <p class="text-4xl font-bold text-gradient-blue mb-2"><span data-count="32">0</span></p>
                         <p class="text-gray-600">Countries supported with on-the-ground teams</p>
+                        <div class="mt-3 progress-bar" data-progress="70">
+                            <div class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
                     </div>
-                    <div class="card p-6">
-                        <p class="text-4xl font-bold text-blue-900 mb-2">140%</p>
+                    <div class="card p-6 hover-lift scroll-fade-up">
+                        <p class="text-4xl font-bold text-gradient-blue mb-2"><span data-count="140" data-suffix="%">0</span></p>
                         <p class="text-gray-600">Average ROI on transformation programs</p>
+                        <div class="mt-3 progress-bar" data-progress="95">
+                            <div class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
                     </div>
-                    <div class="card p-6">
-                        <p class="text-4xl font-bold text-blue-900 mb-2">4.9/5</p>
+                    <div class="card p-6 hover-lift scroll-fade-up">
+                        <p class="text-4xl font-bold text-gradient-blue mb-2"><span data-count="4" data-suffix=".9/5">0</span></p>
                         <p class="text-gray-600">Client partnership rating across industries</p>
+                        <div class="mt-3 progress-bar" data-progress="98">
+                            <div class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -220,34 +309,76 @@
         <!-- Leadership -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="section-subtitle">LEADERSHIP</span>
+                <div class="text-center mb-12 scroll-fade-up">
+                    <span class="section-subtitle text-gradient-gold">LEADERSHIP</span>
                     <h2 class="section-title">Meet the Team Guiding Every Engagement</h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card p-6 text-center">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="CEO"
-                            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                <div class="grid md:grid-cols-3 gap-8" data-stagger="0.15">
+                    <div class="card p-6 text-center hover-lift scroll-fade-up group">
+                        <div class="relative overflow-hidden rounded-full w-24 h-24 mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" alt="CEO"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900">Avery Smith</h3>
-                        <p class="text-blue-900 font-semibold mb-2">Chief Executive Officer</p>
+                        <p class="text-gradient-gold font-semibold mb-2">Chief Executive Officer</p>
                         <p class="text-gray-600 text-sm">Former Fortune 100 exec; leads enterprise-wide transformation
                             programs.</p>
+                        <div class="mt-4 flex justify-center gap-3">
+                            <a href="#" class="text-gray-400 hover:text-blue-900 transition"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-blue-900 transition"><i class="fab fa-twitter"></i></a>
+                        </div>
                     </div>
-                    <div class="card p-6 text-center">
-                        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400" alt="COO"
-                            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                    <div class="card p-6 text-center hover-lift scroll-fade-up group">
+                        <div class="relative overflow-hidden rounded-full w-24 h-24 mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400" alt="COO"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900">Jordan Lee</h3>
-                        <p class="text-blue-900 font-semibold mb-2">Chief Operating Officer</p>
+                        <p class="text-gradient-gold font-semibold mb-2">Chief Operating Officer</p>
                         <p class="text-gray-600 text-sm">Operational excellence leader scaling digital factories and
                             agile teams.</p>
+                        <div class="mt-4 flex justify-center gap-3">
+                            <a href="#" class="text-gray-400 hover:text-blue-900 transition"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-blue-900 transition"><i class="fab fa-twitter"></i></a>
+                        </div>
                     </div>
-                    <div class="card p-6 text-center">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400" alt="CTO"
-                            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                    <div class="card p-6 text-center hover-lift scroll-fade-up group">
+                        <div class="relative overflow-hidden rounded-full w-24 h-24 mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400" alt="CTO"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900">Morgan Patel</h3>
-                        <p class="text-blue-900 font-semibold mb-2">Chief Technology Officer</p>
+                        <p class="text-gradient-gold font-semibold mb-2">Chief Technology Officer</p>
                         <p class="text-gray-600 text-sm">Cloud, data, and AI specialist enabling intelligent, scalable
                             platforms.</p>
+                        <div class="mt-4 flex justify-center gap-3">
+                            <a href="#" class="text-gray-400 hover:text-blue-900 transition"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-blue-900 transition"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Team Members - NEW -->
+                <div class="grid md:grid-cols-4 gap-6 mt-12" data-stagger="0.1">
+                    <div class="card p-4 text-center hover-lift scroll-fade-up">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Team" class="w-16 h-16 rounded-full mx-auto mb-3 object-cover">
+                        <h4 class="font-bold text-gray-900">David Chen</h4>
+                        <p class="text-sm text-gray-500">Head of Strategy</p>
+                    </div>
+                    <div class="card p-4 text-center hover-lift scroll-fade-up">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400" alt="Team" class="w-16 h-16 rounded-full mx-auto mb-3 object-cover">
+                        <h4 class="font-bold text-gray-900">Sarah Williams</h4>
+                        <p class="text-sm text-gray-500">Head of Digital</p>
+                    </div>
+                    <div class="card p-4 text-center hover-lift scroll-fade-up">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" alt="Team" class="w-16 h-16 rounded-full mx-auto mb-3 object-cover">
+                        <h4 class="font-bold text-gray-900">Michael Brown</h4>
+                        <p class="text-sm text-gray-500">Head of Operations</p>
+                    </div>
+                    <div class="card p-4 text-center hover-lift scroll-fade-up">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400" alt="Team" class="w-16 h-16 rounded-full mx-auto mb-3 object-cover">
+                        <h4 class="font-bold text-gray-900">Emily Davis</h4>
+                        <p class="text-sm text-gray-500">Head of Finance</p>
                     </div>
                 </div>
             </div>
@@ -256,77 +387,159 @@
         <!-- Timeline -->
         <section class="py-16 bg-gray-50">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="section-subtitle">OUR JOURNEY</span>
+                <div class="text-center mb-12 scroll-fade-up">
+                    <span class="section-subtitle text-gradient-gold">OUR JOURNEY</span>
                     <h2 class="section-title">Milestones That Shape Us</h2>
                 </div>
-                <div class="space-y-6">
-                    <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                            <p class="text-sm text-blue-900 font-semibold">2010</p>
-                            <h3 class="text-xl font-bold">Founded in New York</h3>
-                            <p class="text-gray-600">Launched with a focus on strategy and operations for mid-market
-                                leaders.</p>
+                <div class="timeline space-y-6">
+                    <div class="timeline-item scroll-fade-right">
+                        <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between hover-lift">
+                            <div>
+                                <p class="text-sm text-gradient-gold font-semibold">2010</p>
+                                <h3 class="text-xl font-bold">Founded in New York</h3>
+                                <p class="text-gray-600">Launched with a focus on strategy and operations for mid-market
+                                    leaders.</p>
+                            </div>
+                            <span class="badge bg-blue-900 text-white mt-2 md:mt-0">Launch</span>
                         </div>
-                        <span class="badge bg-blue-900 text-white">Launch</span>
                     </div>
-                    <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                            <p class="text-sm text-blue-900 font-semibold">2015</p>
-                            <h3 class="text-xl font-bold">Digital Practice Established</h3>
-                            <p class="text-gray-600">Built cloud, data, and experience design teams to modernize client
-                                platforms.</p>
+                    <div class="timeline-item scroll-fade-right">
+                        <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between hover-lift">
+                            <div>
+                                <p class="text-sm text-gradient-gold font-semibold">2015</p>
+                                <h3 class="text-xl font-bold">Digital Practice Established</h3>
+                                <p class="text-gray-600">Built cloud, data, and experience design teams to modernize client
+                                    platforms.</p>
+                            </div>
+                            <span class="badge bg-blue-100 text-blue-900 mt-2 md:mt-0">Growth</span>
                         </div>
-                        <span class="badge bg-blue-100 text-blue-900">Growth</span>
                     </div>
-                    <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                            <p class="text-sm text-blue-900 font-semibold">2020</p>
-                            <h3 class="text-xl font-bold">Global Delivery Hubs</h3>
-                            <p class="text-gray-600">Expanded to EMEA and APAC with hybrid teams supporting 24/7
-                                delivery.</p>
+                    <div class="timeline-item scroll-fade-right">
+                        <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between hover-lift">
+                            <div>
+                                <p class="text-sm text-gradient-gold font-semibold">2020</p>
+                                <h3 class="text-xl font-bold">Global Delivery Hubs</h3>
+                                <p class="text-gray-600">Expanded to EMEA and APAC with hybrid teams supporting 24/7
+                                    delivery.</p>
+                            </div>
+                            <span class="badge bg-blue-900 text-white mt-2 md:mt-0">Scale</span>
                         </div>
-                        <span class="badge bg-blue-900 text-white">Scale</span>
                     </div>
-                    <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                            <p class="text-sm text-blue-900 font-semibold">2024</p>
-                            <h3 class="text-xl font-bold">AI & Automation Lab</h3>
-                            <p class="text-gray-600">Launched accelerators for AI-enabled operations, reducing
-                                time-to-value by 40%.</p>
+                    <div class="timeline-item scroll-fade-right">
+                        <div class="card p-6 flex flex-col md:flex-row md:items-center md:justify-between hover-lift">
+                            <div>
+                                <p class="text-sm text-gradient-gold font-semibold">2024</p>
+                                <h3 class="text-xl font-bold">AI & Automation Lab</h3>
+                                <p class="text-gray-600">Launched accelerators for AI-enabled operations, reducing
+                                    time-to-value by 40%.</p>
+                            </div>
+                            <span class="badge bg-blue-100 text-blue-900 mt-2 md:mt-0">Innovation</span>
                         </div>
-                        <span class="badge bg-blue-100 text-blue-900">Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials - NEW SECTION -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 scroll-fade-up">
+                    <span class="section-subtitle text-gradient-gold">TESTIMONIALS</span>
+                    <h2 class="section-title">What Our Clients Say</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8" data-stagger="0.15">
+                    <div class="testimonial-card hover-lift scroll-fade-up">
+                        <p class="text-gray-600 mb-6">"APEX transformed our digital infrastructure in just 6 months. Their team's expertise and commitment to our success exceeded all expectations."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Client" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <p class="font-bold text-gray-900">James Mitchell</p>
+                                <p class="text-sm text-gray-500">CEO, TechStart Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card hover-lift scroll-fade-up">
+                        <p class="text-gray-600 mb-6">"The strategic roadmap APEX delivered helped us achieve 200% revenue growth. They truly understand enterprise transformation."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100" alt="Client" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <p class="font-bold text-gray-900">Lisa Anderson</p>
+                                <p class="text-sm text-gray-500">CFO, Global Finance Corp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card hover-lift scroll-fade-up">
+                        <p class="text-gray-600 mb-6">"Working with APEX felt like having an extension of our own team. Their hands-on approach and deep expertise made all the difference."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Client" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <p class="font-bold text-gray-900">Robert Kim</p>
+                                <p class="text-sm text-gray-500">CTO, Innovation Labs</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Culture -->
-        <section class="py-20 bg-white">
+        <section class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-10 items-center">
-                    <div class="space-y-6">
-                        <span class="section-subtitle">OUR CULTURE</span>
+                    <div class="space-y-6 scroll-fade-right">
+                        <span class="section-subtitle text-gradient-gold">OUR CULTURE</span>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900">High-performing teams that deliver with
                             empathy and rigor</h2>
                         <ul class="space-y-3 text-gray-700">
-                            <li>✔ Hybrid global squads with design, engineering, and strategy.</li>
-                            <li>✔ Playbooks for discovery-to-launch in under 12 weeks.</li>
-                            <li>✔ Ongoing enablement for client teams to sustain momentum.</li>
+                            <li class="flex items-start gap-3"><span class="text-gold">✔</span> Hybrid global squads with design, engineering, and strategy.</li>
+                            <li class="flex items-start gap-3"><span class="text-gold">✔</span> Playbooks for discovery-to-launch in under 12 weeks.</li>
+                            <li class="flex items-start gap-3"><span class="text-gold">✔</span> Ongoing enablement for client teams to sustain momentum.</li>
                         </ul>
                         <div class="flex gap-4">
-                            <a href="contact.html" class="btn btn-primary">Meet the Team</a>
-                            <a href="insights.html" class="btn btn-secondary">View Insights</a>
+                            <a href="contact.html" class="btn btn-primary hover-lift" data-magnetic>Meet the Team</a>
+                            <a href="insights.html" class="btn btn-secondary hover-lift">View Insights</a>
                         </div>
                     </div>
-                    <div class="card p-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+                    <div class="card p-8 bg-gradient-to-br from-blue-50 to-indigo-50 hover-lift scroll-fade-left">
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Client-first delivery principles</h3>
                         <ul class="space-y-3 text-gray-700">
-                            <li>• Co-create roadmaps with clear value hypotheses.</li>
-                            <li>• Pilot fast, scale what works, retire what doesn't.</li>
-                            <li>• Measure outcomes weekly; steer with data.</li>
-                            <li>• Communicate transparently with executive stakeholders.</li>
+                            <li class="flex items-start gap-3"><span class="text-blue-900">•</span> Co-create roadmaps with clear value hypotheses.</li>
+                            <li class="flex items-start gap-3"><span class="text-blue-900">•</span> Pilot fast, scale what works, retire what doesn't.</li>
+                            <li class="flex items-start gap-3"><span class="text-blue-900">•</span> Measure outcomes weekly; steer with data.</li>
+                            <li class="flex items-start gap-3"><span class="text-blue-900">•</span> Communicate transparently with executive stakeholders.</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards & Recognition - NEW SECTION -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 scroll-fade-up">
+                    <span class="section-subtitle text-gradient-gold">RECOGNITION</span>
+                    <h2 class="section-title">Awards & Achievements</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6" data-stagger="0.1">
+                    <div class="text-center p-6 border border-gray-200 rounded-xl hover-lift scroll-fade-up">
+                        <div class="text-4xl mb-3">🏆</div>
+                        <h4 class="font-bold text-gray-900">Best Consulting Firm</h4>
+                        <p class="text-sm text-gray-500">2024 Industry Awards</p>
+                    </div>
+                    <div class="text-center p-6 border border-gray-200 rounded-xl hover-lift scroll-fade-up">
+                        <div class="text-4xl mb-3">⭐</div>
+                        <h4 class="font-bold text-gray-900">Top 10 Innovators</h4>
+                        <p class="text-sm text-gray-500">Forbes List 2023</p>
+                    </div>
+                    <div class="text-center p-6 border border-gray-200 rounded-xl hover-lift scroll-fade-up">
+                        <div class="text-4xl mb-3">🎖️</div>
+                        <h4 class="font-bold text-gray-900">Excellence Award</h4>
+                        <p class="text-sm text-gray-500">Digital Transformation</p>
+                    </div>
+                    <div class="text-center p-6 border border-gray-200 rounded-xl hover-lift scroll-fade-up">
+                        <div class="text-4xl mb-3">🌟</div>
+                        <h4 class="font-bold text-gray-900">Best Workplace</h4>
+                        <p class="text-sm text-gray-500">Great Place to Work 2024</p>
                     </div>
                 </div>
             </div>
@@ -336,14 +549,14 @@
         <section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
             <div
                 class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                <div>
+                <div class="scroll-fade-right">
                     <h3 class="text-3xl font-bold mb-2">Ready to accelerate your next move?</h3>
                     <p class="text-blue-100">Our senior team will respond within one business day with a plan to help.
                     </p>
                 </div>
-                <div class="flex gap-3">
-                    <a href="contact.html" class="btn btn-white">Start a Project</a>
-                    <a href="user-dashboard.html" class="btn btn-secondary">View Client Portal</a>
+                <div class="flex gap-3 scroll-fade-left">
+                    <a href="contact.html" class="btn btn-white hover-lift" data-magnetic>Start a Project</a>
+                    <a href="user-dashboard.html" class="btn btn-secondary hover-lift">View Client Portal</a>
                 </div>
             </div>
         </section>

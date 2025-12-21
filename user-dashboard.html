@@ -47,257 +47,678 @@
     </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <style>
+        /* Dashboard specific animations */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slideInUp 0.6s ease-out forwards; }
+        .animate-fade-scale { animation: fadeInScale 0.5s ease-out forwards; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .chart-container { 
+            position: relative; 
+            transition: all 0.3s ease;
+        }
+        .chart-container:hover { transform: scale(1.02); }
+        .progress-animate { transition: width 1.5s ease-in-out; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .gradient-blue { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+        .gradient-green { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+        .gradient-purple { background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%); }
+        .gradient-orange { background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%); }
+    </style>
 </head>
 
-<body class="bg-gray-100">
-    <!-- Top Header -->
-    <header class="bg-white shadow-sm fixed top-0 w-full z-30 nav-default">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center gap-3 md:gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-bold">A
+<body class="bg-gray-50">
+    <!-- Navigation Header -->
+    <nav class="fixed w-full z-50 bg-white shadow-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-900">APEX</a>
                 </div>
-                <span class="font-bold text-lg text-blue-900">APEX</span>
-            </div>
-            <div class="flex items-center gap-4 md:gap-6 ml-auto flex-wrap">
-                <button id="lang-toggle" class="px-3 py-1 text-sm border rounded"><i class="fas fa-globe"></i></button>
-                <button class="relative text-xl">🔔</button>
-                <div class="flex items-center gap-3 border-l pl-4 md:pl-6">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Profile"
-                        class="w-10 h-10 rounded-full">
-                    <div class="text-sm">
-                        <p class="font-semibold text-gray-800">Sarah Thompson</p>
-                        <p class="text-gray-500">TechCorp Inc</p>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="nav-dropdown">
+                        <button class="text-gray-700 hover:text-blue-900 transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="index.html">Home Version 1</a>
+                                <a href="index2.html">Home Version 2</a>
+                            </div>
+                        </div>
                     </div>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-900 transition">About</a>
+                    <a href="services.html" class="text-gray-700 hover:text-blue-900 transition">Services</a>
+                    <a href="industries.html" class="text-gray-700 hover:text-blue-900 transition">Industries</a>
+                    <a href="insights.html" class="text-gray-700 hover:text-blue-900 transition">Insights</a>
+                    <div class="nav-dropdown">
+                        <button class="text-gold-600 font-semibold flex items-center">
+                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <div>
+                                <a href="admin-dashboard.html">Admin Dashboard</a>
+                                <a href="user-dashboard.html" class="!bg-blue-900 !text-white">User Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 transition">Contact</a>
                 </div>
-                <button onclick="window.location.href='login.html'"
-                    class="px-4 py-2 text-red-600 hover:text-red-800 font-semibold">Logout</button>
+
+                <!-- Right side -->
+                <div class="flex items-center gap-4">
+                    <button class="relative text-gray-600 hover:text-blue-900">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Profile" class="w-10 h-10 rounded-full border-2 border-blue-200">
+                        <div class="hidden md:block text-sm">
+                            <p class="font-semibold text-gray-800">Sarah Thompson</p>
+                            <p class="text-gray-500 text-xs">TechCorp Inc</p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='login.html'" class="text-red-600 hover:text-red-800 font-medium text-sm">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-6 pt-28 pb-8">
-        <!-- Welcome Section -->
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-blue-900 mb-2">Welcome back, Sarah</h1>
-            <p class="text-gray-600">Here's an overview of your projects and activities</p>
-        </div>
+    <div class="pt-20 pb-8 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Welcome Header -->
+            <div class="mb-8 animate-slide-up">
+                <h1 class="text-3xl md:text-4xl font-bold text-blue-900 mb-2">Welcome back, Sarah! 👋</h1>
+                <p class="text-gray-600">Here's what's happening with your projects today.</p>
+            </div>
 
-        <!-- Quick Stats -->
-        <div class="grid md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-lg shadow p-6">
-                <div class="text-sm text-gray-600 mb-2">Active Projects</div>
-                <div class="text-3xl font-bold text-blue-900">3</div>
-            </div>
-            <div class="bg-white rounded-lg shadow p-6">
-                <div class="text-sm text-gray-600 mb-2">Upcoming Deliverables</div>
-                <div class="text-3xl font-bold text-blue-900">5</div>
-            </div>
-            <div class="bg-white rounded-lg shadow p-6">
-                <div class="text-sm text-gray-600 mb-2">Hours Invested</div>
-                <div class="text-3xl font-bold text-blue-900">245</div>
-            </div>
-            <div class="bg-white rounded-lg shadow p-6">
-                <div class="text-sm text-gray-600 mb-2">Team Members</div>
-                <div class="text-3xl font-bold text-blue-900">6</div>
-            </div>
-        </div>
-
-        <!-- My Projects -->
-        <div class="bg-white rounded-lg shadow mb-8">
-            <div class="p-6 border-b">
-                <h2 class="text-2xl font-bold text-gray-800">My Projects</h2>
-            </div>
-            <div class="p-6">
-                <!-- Project Cards -->
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Project 1 -->
-                    <div class="border rounded-lg p-6 hover:shadow-lg transition">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-bold text-lg text-blue-900">Digital Transformation Initiative</h3>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Active</span>
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+                <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 gradient-blue rounded-xl flex items-center justify-center">
+                            <i class="fas fa-project-diagram text-white text-xl"></i>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4">Cloud migration and modernization of legacy systems</p>
-                        <div class="mb-3">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="text-gray-700">Progress</span>
-                                <span class="font-semibold text-blue-900">65%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">Next deadline: Jan 15, 2025</p>
-                        <button class="px-4 py-2 bg-blue-900 text-white rounded font-semibold hover:bg-blue-800">View
-                            Details</button>
+                        <span class="text-green-500 text-sm font-semibold flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i> 12%
+                        </span>
                     </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-1">3</h3>
+                    <p class="text-gray-500 text-sm">Active Projects</p>
+                </div>
 
-                    <!-- Project 2 -->
-                    <div class="border rounded-lg p-6 hover:shadow-lg transition">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-bold text-lg text-blue-900">Operations Optimization</h3>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Planning</span>
+                <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 gradient-green rounded-xl flex items-center justify-center">
+                            <i class="fas fa-tasks text-white text-xl"></i>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4">Process improvement and efficiency enhancement</p>
-                        <div class="mb-3">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="text-gray-700">Progress</span>
-                                <span class="font-semibold text-blue-900">30%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-yellow-600 h-2 rounded-full" style="width: 30%"></div>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">Next deadline: Feb 28, 2025</p>
-                        <button class="px-4 py-2 bg-blue-900 text-white rounded font-semibold hover:bg-blue-800">View
-                            Details</button>
+                        <span class="text-green-500 text-sm font-semibold flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i> 8%
+                        </span>
                     </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-1">12</h3>
+                    <p class="text-gray-500 text-sm">Tasks Completed</p>
+                </div>
 
-                    <!-- Project 3 -->
-                    <div class="border rounded-lg p-6 hover:shadow-lg transition">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-bold text-lg text-blue-900">Strategic Planning</h3>
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">In Review</span>
+                <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 gradient-purple rounded-xl flex items-center justify-center">
+                            <i class="fas fa-clock text-white text-xl"></i>
                         </div>
-                        <p class="text-gray-600 text-sm mb-4">3-year roadmap and growth strategy development</p>
-                        <div class="mb-3">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="text-gray-700">Progress</span>
-                                <span class="font-semibold text-blue-900">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-green-600 h-2 rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">Expected completion: Jan 30, 2025</p>
-                        <button class="px-4 py-2 bg-blue-900 text-white rounded font-semibold hover:bg-blue-800">View
-                            Details</button>
+                        <span class="text-blue-500 text-sm font-semibold flex items-center">
+                            <i class="fas fa-minus mr-1"></i> 0%
+                        </span>
                     </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-1">245</h3>
+                    <p class="text-gray-500 text-sm">Hours Invested</p>
+                </div>
+
+                <div class="stat-card bg-white rounded-2xl p-6 shadow-lg animate-slide-up delay-400">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 gradient-orange rounded-xl flex items-center justify-center">
+                            <i class="fas fa-users text-white text-xl"></i>
+                        </div>
+                        <span class="text-green-500 text-sm font-semibold flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i> 2
+                        </span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-1">8</h3>
+                    <p class="text-gray-500 text-sm">Team Members</p>
                 </div>
             </div>
-        </div>
 
-        <!-- Upcoming Milestones -->
-        <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Milestones -->
-            <div class="lg:col-span-2 bg-white rounded-lg shadow p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Upcoming Milestones</h2>
-                <div class="space-y-4">
-                    <div class="flex gap-4 pb-4 border-b">
-                        <div class="text-center">
-                            <div
-                                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">
-                                ✓</div>
-                        </div>
+            <!-- Charts Row -->
+            <div class="grid lg:grid-cols-2 gap-6 mb-8">
+                <!-- Revenue Chart -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 animate-fade-scale">
+                    <div class="flex items-center justify-between mb-6">
                         <div>
-                            <p class="font-semibold text-gray-800">Phase 1: Assessment Complete</p>
-                            <p class="text-sm text-gray-600">Digital Transformation - Due Jan 5</p>
+                            <h3 class="text-xl font-bold text-gray-800">Project Progress</h3>
+                            <p class="text-gray-500 text-sm">Monthly overview</p>
                         </div>
+                        <select class="text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>Last 6 months</option>
+                            <option>Last year</option>
+                            <option>All time</option>
+                        </select>
                     </div>
-                    <div class="flex gap-4 pb-4 border-b">
-                        <div class="text-center">
-                            <div
-                                class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center font-bold text-yellow-600">
-                                2</div>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-800">Phase 2: Design & Planning</p>
-                            <p class="text-sm text-gray-600">Digital Transformation - Due Jan 15</p>
-                        </div>
+                    <div class="chart-container h-72">
+                        <canvas id="progressChart"></canvas>
                     </div>
-                    <div class="flex gap-4 pb-4 border-b">
-                        <div class="text-center">
-                            <div
-                                class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-600">
-                                3</div>
-                        </div>
+                </div>
+
+                <!-- Performance Chart -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 animate-fade-scale delay-200">
+                    <div class="flex items-center justify-between mb-6">
                         <div>
-                            <p class="font-semibold text-gray-800">Review & Approval</p>
-                            <p class="text-sm text-gray-600">Strategic Planning - Due Jan 30</p>
+                            <h3 class="text-xl font-bold text-gray-800">Budget Allocation</h3>
+                            <p class="text-gray-500 text-sm">By project category</p>
                         </div>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                            View Details <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="text-center">
-                            <div
-                                class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-600">
-                                4</div>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-800">Implementation Kickoff</p>
-                            <p class="text-sm text-gray-600">Operations Optimization - Due Feb 1</p>
-                        </div>
+                    <div class="chart-container h-72">
+                        <canvas id="budgetChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- Recent Documents -->
-            <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-xl font-bold text-gray-800 mb-4">Recent Documents</h2>
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3 pb-3 border-b hover:bg-gray-50 p-2 rounded">
-                        <span class="text-2xl">📊</span>
-                        <div class="flex-1">
-                            <p class="font-semibold text-sm text-gray-800">Project Report Q4</p>
-                            <p class="text-xs text-gray-500">Dec 20, 2024</p>
-                        </div>
-                        <button class="text-blue-600 hover:text-blue-800">⬇</button>
+            <!-- Second Charts Row -->
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                <!-- Task Completion Donut -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 animate-fade-scale">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Task Status</h3>
+                    <p class="text-gray-500 text-sm mb-4">Current sprint breakdown</p>
+                    <div class="chart-container h-56">
+                        <canvas id="taskChart"></canvas>
                     </div>
-                    <div class="flex items-center gap-3 pb-3 border-b hover:bg-gray-50 p-2 rounded">
-                        <span class="text-2xl">📋</span>
-                        <div class="flex-1">
-                            <p class="font-semibold text-sm text-gray-800">Strategy Document</p>
-                            <p class="text-xs text-gray-500">Dec 15, 2024</p>
+                    <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+                        <div>
+                            <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-1"></span>
+                            <span class="text-xs text-gray-600">Done (12)</span>
                         </div>
-                        <button class="text-blue-600 hover:text-blue-800">⬇</button>
-                    </div>
-                    <div class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded">
-                        <span class="text-2xl">📈</span>
-                        <div class="flex-1">
-                            <p class="font-semibold text-sm text-gray-800">KPI Dashboard</p>
-                            <p class="text-xs text-gray-500">Dec 10, 2024</p>
+                        <div>
+                            <span class="inline-block w-3 h-3 rounded-full bg-blue-500 mr-1"></span>
+                            <span class="text-xs text-gray-600">Progress (8)</span>
                         </div>
-                        <button class="text-blue-600 hover:text-blue-800">⬇</button>
+                        <div>
+                            <span class="inline-block w-3 h-3 rounded-full bg-gray-300 mr-1"></span>
+                            <span class="text-xs text-gray-600">Pending (5)</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Meetings & Support -->
-        <div class="grid lg:grid-cols-2 gap-8 mt-8">
-            <!-- Upcoming Meetings -->
-            <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Upcoming Meetings</h2>
-                <div class="space-y-3">
-                    <div class="border rounded-lg p-4">
-                        <p class="font-semibold text-gray-800">Weekly Check-in with Consultant</p>
-                        <p class="text-sm text-gray-600">Jan 2, 2025 • 2:00 PM EST</p>
-                        <button class="mt-3 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700">Join
-                            Meeting</button>
+                <!-- Weekly Activity -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 animate-fade-scale delay-100">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Weekly Activity</h3>
+                    <p class="text-gray-500 text-sm mb-4">Hours logged per day</p>
+                    <div class="chart-container h-56">
+                        <canvas id="activityChart"></canvas>
                     </div>
-                    <div class="border rounded-lg p-4">
-                        <p class="font-semibold text-gray-800">Project Review & Feedback</p>
-                        <p class="text-sm text-gray-600">Jan 5, 2025 • 10:00 AM EST</p>
-                        <button class="mt-3 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700">Join
-                            Meeting</button>
+                </div>
+
+                <!-- Performance Radar -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 animate-fade-scale delay-200">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Performance Metrics</h3>
+                    <p class="text-gray-500 text-sm mb-4">Overall project health</p>
+                    <div class="chart-container h-56">
+                        <canvas id="performanceChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- Need Help? -->
-            <div class="bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg shadow p-6 text-white">
-                <h2 class="text-2xl font-bold mb-4">Need Help?</h2>
-                <p class="mb-6">Have questions about your projects or need support? Our team is here to help.</p>
-                <button onclick="window.location.href='contact.html'"
-                    class="w-full px-4 py-2 bg-white text-blue-900 rounded font-bold hover:bg-gray-100 transition">Contact
-                    Support</button>
-                <p class="text-sm mt-4 opacity-90">Average response time: 2-4 hours</p>
+            <!-- Projects & Activity Section -->
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                <!-- Active Projects -->
+                <div class="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 animate-slide-up">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">Active Projects</h3>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All</a>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- Project 1 -->
+                        <div class="border border-gray-100 rounded-xl p-5 hover:shadow-md transition-all duration-300 hover:border-blue-200">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Digital Transformation Initiative</h4>
+                                    <p class="text-gray-500 text-sm">Cloud migration and modernization</p>
+                                </div>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Active</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Progress</span>
+                                    <span class="font-semibold text-blue-900">65%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full progress-animate" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/1.jpg" alt="">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/3.jpg" alt="">
+                                </div>
+                                <span class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-1"></i> Due: Jan 15, 2025</span>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="border border-gray-100 rounded-xl p-5 hover:shadow-md transition-all duration-300 hover:border-yellow-200">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Operations Optimization</h4>
+                                    <p class="text-gray-500 text-sm">Process improvement initiative</p>
+                                </div>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold">Planning</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Progress</span>
+                                    <span class="font-semibold text-yellow-600">30%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                    <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 h-2 rounded-full progress-animate" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/4.jpg" alt="">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/5.jpg" alt="">
+                                </div>
+                                <span class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-1"></i> Due: Feb 28, 2025</span>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="border border-gray-100 rounded-xl p-5 hover:shadow-md transition-all duration-300 hover:border-green-200">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Strategic Planning</h4>
+                                    <p class="text-gray-500 text-sm">3-year roadmap development</p>
+                                </div>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">In Review</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Progress</span>
+                                    <span class="font-semibold text-green-600">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                    <div class="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full progress-animate" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/6.jpg" alt="">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/7.jpg" alt="">
+                                    <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/8.jpg" alt="">
+                                    <span class="w-8 h-8 rounded-full border-2 border-white bg-blue-100 text-blue-600 text-xs flex items-center justify-center font-semibold">+2</span>
+                                </div>
+                                <span class="text-sm text-gray-500"><i class="fas fa-calendar-alt mr-1"></i> Due: Jan 30, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 animate-slide-up delay-200">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-800 font-medium">Phase 1 Completed</p>
+                                <p class="text-xs text-gray-500">Digital Transformation</p>
+                                <p class="text-xs text-gray-400 mt-1">2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-800 font-medium">New document uploaded</p>
+                                <p class="text-xs text-gray-500">Q4 Report.pdf</p>
+                                <p class="text-xs text-gray-400 mt-1">5 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-comment text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-800 font-medium">New comment</p>
+                                <p class="text-xs text-gray-500">From John on Strategic Planning</p>
+                                <p class="text-xs text-gray-400 mt-1">Yesterday</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-calendar text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-800 font-medium">Meeting scheduled</p>
+                                <p class="text-xs text-gray-500">Project Review - Jan 5</p>
+                                <p class="text-xs text-gray-400 mt-1">2 days ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-exclamation text-red-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-800 font-medium">Deadline approaching</p>
+                                <p class="text-xs text-gray-500">Operations Optimization</p>
+                                <p class="text-xs text-gray-400 mt-1">3 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="grid lg:grid-cols-2 gap-6">
+                <!-- Upcoming Meetings -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Upcoming Meetings</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-900">02</div>
+                                <div class="text-xs text-blue-600">JAN</div>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-semibold text-gray-800">Weekly Check-in</p>
+                                <p class="text-sm text-gray-500">2:00 PM - 3:00 PM EST</p>
+                            </div>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+                                Join
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-xl">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-900">05</div>
+                                <div class="text-xs text-green-600">JAN</div>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-semibold text-gray-800">Project Review</p>
+                                <p class="text-sm text-gray-500">10:00 AM - 11:30 AM EST</p>
+                            </div>
+                            <button class="px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
+                                Join
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Need Help Card -->
+                <div class="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 rounded-2xl shadow-lg p-8 text-white animate-slide-up delay-200 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-headset text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Need Help?</h3>
+                        <p class="text-blue-100 mb-6">Our support team is available 24/7 to assist you with any questions.</p>
+                        <div class="flex gap-3">
+                            <button onclick="window.location.href='contact.html'" class="px-6 py-3 bg-white text-blue-900 rounded-xl font-semibold hover:bg-blue-50 transition">
+                                Contact Support
+                            </button>
+                            <button class="px-6 py-3 border border-white/30 rounded-xl font-semibold hover:bg-white/10 transition">
+                                View FAQ
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Initialize Charts with animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Progress Chart (Line)
+            const progressCtx = document.getElementById('progressChart').getContext('2d');
+            const progressGradient = progressCtx.createLinearGradient(0, 0, 0, 300);
+            progressGradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)');
+            progressGradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+            new Chart(progressCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Completed Tasks',
+                        data: [12, 19, 25, 32, 45, 52],
+                        borderColor: '#3b82f6',
+                        backgroundColor: progressGradient,
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 8
+                    }, {
+                        label: 'Milestones',
+                        data: [8, 15, 20, 28, 35, 42],
+                        borderColor: '#10b981',
+                        backgroundColor: 'transparent',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        borderDash: [5, 5],
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { usePointStyle: true, padding: 20 }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Budget Chart (Doughnut)
+            new Chart(document.getElementById('budgetChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Digital Transform', 'Operations', 'Strategy', 'Marketing'],
+                    datasets: [{
+                        data: [35, 25, 25, 15],
+                        backgroundColor: ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b'],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 2000,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { usePointStyle: true, padding: 15 }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            // Task Status Chart (Pie)
+            new Chart(document.getElementById('taskChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['Completed', 'In Progress', 'Pending'],
+                    datasets: [{
+                        data: [12, 8, 5],
+                        backgroundColor: ['#10b981', '#3b82f6', '#d1d5db'],
+                        borderWidth: 0,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 1500,
+                        easing: 'easeOutBounce'
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Activity Chart (Bar)
+            new Chart(document.getElementById('activityChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Hours',
+                        data: [8, 7, 9, 6, 8, 4, 2],
+                        backgroundColor: ['#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', '#93c5fd', '#93c5fd'],
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, max: 12, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Performance Chart (Radar)
+            new Chart(document.getElementById('performanceChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Timeline', 'Budget', 'Quality', 'Team', 'Risk'],
+                    datasets: [{
+                        label: 'Current',
+                        data: [85, 90, 78, 92, 88],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: '#3b82f6',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#3b82f6',
+                        pointRadius: 4
+                    }, {
+                        label: 'Target',
+                        data: [90, 85, 85, 90, 85],
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderColor: '#10b981',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointBackgroundColor: '#10b981',
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeInOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { usePointStyle: true, padding: 15 }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { stepSize: 25, display: false },
+                            grid: { color: 'rgba(0,0,0,0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // Animate progress bars on scroll
+            const progressBars = document.querySelectorAll('.progress-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.style.width;
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            progressBars.forEach(bar => observer.observe(bar));
+        });
+    </script>
 </body>
 
 </html>
