@@ -1,5 +1,5 @@
 /**
- * APEX Consulting Website - Main JavaScript
+ * Everest Consultancy Website - Main JavaScript
  * Comprehensive interactive functionality for all pages
  */
 
@@ -145,9 +145,8 @@ class Navigation {
     const toggles = document.querySelectorAll('[data-home-toggle]');
     if (!toggles.length) return;
 
-    const onAltHome = window.location.pathname.toLowerCase().includes('index2');
-    const target = onAltHome ? 'index.html' : 'index2.html';
-    const label = onAltHome ? 'Home V1' : 'Home V2';
+    const target = 'index.html';
+    const label = '← Back to Home';
 
     toggles.forEach(btn => {
       btn.textContent = label;

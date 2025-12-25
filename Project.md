@@ -717,7 +717,7 @@ Create a comprehensive, modern consulting and business solutions website with 9 
 ## Shared Components
 
 ### Navigation Bar (All Pages Except Login/404/Coming Soon)
-- Company logo (left) - text logo: "APEX Consulting" or use: `https://via.placeholder.com/150x40/1e3a8a/ffffff?text=APEX+Consulting`
+- Company logo (left) - text logo: "Everest Consultancy" or use: `https://via.placeholder.com/150x40/1e3a8a/ffffff?text=Everest+Consultancy`
 - Menu items:
   - Home
   - About
@@ -769,7 +769,7 @@ Create a comprehensive, modern consulting and business solutions website with 9 
 - Newsletter Signup (email input + button)
 
 **Bottom Bar:**
-- Copyright © 2024 APEX Consulting. All rights reserved.
+- Copyright © 2024 Everest Consultancy. All rights reserved.
 - Privacy Policy (#)
 - Terms of Service (#)
 - Cookie Policy (#)

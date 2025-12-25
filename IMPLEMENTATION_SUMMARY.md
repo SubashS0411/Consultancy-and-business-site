@@ -1,4 +1,4 @@
-# APEX Consulting Website - Implementation Complete ✓
+# Everest Consultancy Website - Implementation Complete ✓
 
 ## 📊 Project Summary
 
@@ -469,4 +469,4 @@ The website is ready for deployment and use.
 
 ---
 
-**© 2024 APEX Consulting. All rights reserved.**
+**© 2024 Everest Consultancy. All rights reserved.**

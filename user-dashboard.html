@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Dashboard - APEX Consulting</title>
+    <title>Client Dashboard - Everest Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -88,17 +88,70 @@
         .gradient-green { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
         .gradient-purple { background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%); }
         .gradient-orange { background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%); }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
     </style>
 </head>
 
 <body class="bg-gray-50">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="toggleMobileMenu()"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-900 via-blue-800 to-indigo-900 z-50 md:hidden">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-8">
+                <span class="text-white font-bold text-xl">Menu</span>
+                <button onclick="toggleMobileMenu()" class="p-2 hover:bg-white/10 rounded-lg transition">
+                    <i class="fas fa-times text-white text-xl"></i>
+                </button>
+            </div>
+            <nav class="space-y-2">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                    <i class="fas fa-home w-5"></i> <span>Home</span>
+                </a>
+                <a href="about.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                    <i class="fas fa-info-circle w-5"></i> <span>About</span>
+                </a>
+                <a href="services.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                    <i class="fas fa-cogs w-5"></i> <span>Services</span>
+                </a>
+                <a href="industries.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                    <i class="fas fa-building w-5"></i> <span>Industries</span>
+                </a>
+                <a href="insights.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                    <i class="fas fa-lightbulb w-5"></i> <span>Insights</span>
+                </a>
+                <a href="admin-dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                    <i class="fas fa-user-shield w-5"></i> <span>Admin Dashboard</span>
+                </a>
+                <a href="user-dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-gold-400 font-semibold">
+                    <i class="fas fa-tachometer-alt w-5"></i> <span>User Dashboard</span>
+                </a>
+                <a href="contact.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                    <i class="fas fa-envelope w-5"></i> <span>Contact</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
     <!-- Navigation Header -->
     <nav class="fixed w-full z-50 bg-white shadow-md transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-blue-900">APEX</a>
+                <!-- Mobile Menu Button + Logo -->
+                <div class="flex items-center gap-3">
+                    <button class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-gray-600 text-xl"></i>
+                    </button>
+                    <a href="index.html" class="text-xl md:text-2xl font-bold text-blue-900">Everest Consultancy</a>
                 </div>
 
                 <!-- Desktop Navigation -->
@@ -133,20 +186,24 @@
                 </div>
 
                 <!-- Right side -->
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 md:gap-4">
+                    <!-- RTL/LTR Toggle -->
+                    <button id="lang-toggle" class="p-2 hover:bg-gray-100 rounded-xl transition border border-gray-200" onclick="toggleRTL()" title="Toggle RTL/LTR">
+                        <i class="fas fa-globe text-gray-600"></i>
+                    </button>
                     <button class="relative text-gray-600 hover:text-blue-900">
                         <i class="fas fa-bell text-lg"></i>
                         <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
                     </button>
-                    <div class="flex items-center gap-3">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Profile" class="w-10 h-10 rounded-full border-2 border-blue-200">
+                    <div class="flex items-center gap-2 md:gap-3">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Profile" class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-blue-200">
                         <div class="hidden md:block text-sm">
                             <p class="font-semibold text-gray-800">Sarah Thompson</p>
                             <p class="text-gray-500 text-xs">TechCorp Inc</p>
                         </div>
                     </div>
-                    <button onclick="window.location.href='login.html'" class="text-red-600 hover:text-red-800 font-medium text-sm">
-                        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                    <button onclick="window.location.href='login.html'" class="text-red-600 hover:text-red-800 font-medium text-sm hidden sm:block">
+                        <i class="fas fa-sign-out-alt mr-1"></i> <span class="hidden md:inline">Logout</span>
                     </button>
                 </div>
             </div>
@@ -718,6 +775,40 @@
 
             progressBars.forEach(bar => observer.observe(bar));
         });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobile-menu-overlay');
+            const menu = document.getElementById('mobile-menu');
+            if (overlay.classList.contains('hidden')) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    menu.classList.add('open');
+                }, 10);
+            } else {
+                menu.classList.remove('open');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // RTL/LTR Toggle
+        function toggleRTL() {
+            const html = document.documentElement;
+            if (html.dir === 'rtl') {
+                html.dir = 'ltr';
+                localStorage.setItem('dir', 'ltr');
+            } else {
+                html.dir = 'rtl';
+                localStorage.setItem('dir', 'rtl');
+            }
+        }
+
+        // Check saved direction preference
+        if (localStorage.getItem('dir') === 'rtl') {
+            document.documentElement.dir = 'rtl';
+        }
     </script>
 </body>
 

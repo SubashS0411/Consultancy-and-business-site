@@ -63,6 +63,31 @@ img {
     padding-block: clamp(4rem, 5vw, 6rem);
 }
 
+.client-logo-pill {
+    width: 100%;
+    max-width: 180px;
+    height: 3.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    background: #fff;
+    color: #475569;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+    transition: all 0.3s ease;
+}
+
+.client-logo-pill:hover {
+    color: #0f172a;
+    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
 /* Custom Container */
 .container {
     max-width: 80rem;
@@ -129,10 +154,10 @@ img {
 
 /* Dropdown menu inner container */
 .nav-dropdown-menu > div {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(150deg, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.95));
+    border: 1px solid rgba(226, 232, 240, 0.15);
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 45px rgba(2, 6, 23, 0.45);
     overflow: hidden;
 }
 
@@ -146,11 +171,12 @@ img {
 /* Dropdown links */
 .nav-dropdown-menu a {
     display: block;
-    padding: 0.75rem 1rem;
-    color: #374151;
+    padding: 0.85rem 1.1rem;
+    color: #e2e8f0;
     font-size: 0.875rem;
-    transition: all 0.15s ease;
-    border-bottom: 1px solid #f3f4f6;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.08);
 }
 
 .nav-dropdown-menu a:last-child {
@@ -158,9 +184,9 @@ img {
 }
 
 .nav-dropdown-menu a:hover {
-    background: linear-gradient(90deg, #1e3a8a 0%, #1e40af 100%);
-    color: white;
-    padding-left: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #facc15;
+    padding-left: 1.35rem;
 }
 
 /* Dropdown icon rotation */
@@ -369,6 +395,22 @@ img {
     color: #1e3a8a;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(30, 58, 138, 0.15);
+}
+
+/* Light variant for dark backgrounds */
+.btn-secondary-light {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-light:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
 .btn-white {

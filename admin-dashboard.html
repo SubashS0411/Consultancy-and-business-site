@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - APEX Consulting</title>
+    <title>Admin Dashboard - Everest Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -94,49 +94,70 @@
         .gradient-pink { background: linear-gradient(135deg, #db2777 0%, #f472b6 100%); }
         .table-row { transition: all 0.2s ease; }
         .table-row:hover { background: #f8fafc; transform: scale(1.005); }
+        
+        /* Mobile Responsive Sidebar */
+        @media (max-width: 1024px) {
+            .sidebar-desktop { display: none; }
+            .sidebar-mobile-overlay { display: block; }
+        }
+        @media (min-width: 1025px) {
+            .sidebar-mobile-overlay { display: none !important; }
+            .sidebar-desktop { display: flex; }
+        }
+        .sidebar-mobile {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .sidebar-mobile.open {
+            transform: translateX(0);
+        }
     </style>
 </head>
 
 <body class="bg-gray-50">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-sidebar-overlay" class="sidebar-mobile-overlay fixed inset-0 bg-black/50 z-40 hidden" onclick="toggleMobileSidebar()"></div>
+    
     <div class="flex h-screen overflow-hidden">
-        <!-- Sidebar -->
-        <aside class="w-72 bg-gradient-to-b from-blue-900 via-blue-800 to-indigo-900 text-white flex flex-col animate-slide-left">
+        <!-- Sidebar (Desktop) -->
+        <aside class="sidebar-desktop w-72 bg-gradient-to-b from-blue-900 via-blue-800 to-indigo-900 text-white flex-col animate-slide-left hidden lg:flex">
+            <!-- Same content as mobile but for desktop -->
             <div class="p-6">
                 <div class="flex items-center gap-3 mb-10">
-                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-blue-900 font-bold text-xl shadow-lg">A</div>
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-blue-900 font-bold text-xl shadow-lg">E</div>
                     <div>
-                        <span class="font-bold text-xl">APEX</span>
+                        <span class="font-bold text-xl text-white">Everest Consultancy</span>
                         <p class="text-blue-200 text-xs">Admin Portal</p>
                     </div>
                 </div>
 
                 <nav class="space-y-1">
                     <a href="#dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-white font-semibold">
-                        <i class="fas fa-th-large w-5"></i> Dashboard
+                        <i class="fas fa-th-large w-5"></i> <span class="text-white">Dashboard</span>
                     </a>
-                    <a href="#projects" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-project-diagram w-5"></i> Projects
+                    <a href="#projects" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-project-diagram w-5"></i> <span class="text-white">Projects</span>
                     </a>
-                    <a href="#clients" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-users w-5"></i> Clients
+                    <a href="#clients" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-users w-5"></i> <span class="text-white">Clients</span>
                     </a>
-                    <a href="#team" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-user-tie w-5"></i> Team
+                    <a href="#team" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-user-tie w-5"></i> <span class="text-white">Team</span>
                     </a>
-                    <a href="#calendar" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-calendar-alt w-5"></i> Calendar
+                    <a href="#calendar" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-calendar-alt w-5"></i> <span class="text-white">Calendar</span>
                     </a>
-                    <a href="#reports" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-chart-bar w-5"></i> Reports
+                    <a href="#reports" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-chart-bar w-5"></i> <span class="text-white">Reports</span>
                     </a>
-                    <a href="#documents" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-folder-open w-5"></i> Documents
+                    <a href="#documents" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-folder-open w-5"></i> <span class="text-white">Documents</span>
                     </a>
-                    <a href="#billing" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-credit-card w-5"></i> Billing
+                    <a href="#billing" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-credit-card w-5"></i> <span class="text-white">Billing</span>
                     </a>
-                    <a href="#settings" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-blue-100">
-                        <i class="fas fa-cog w-5"></i> Settings
+                    <a href="#settings" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 text-white">
+                        <i class="fas fa-cog w-5"></i> <span class="text-white">Settings</span>
                     </a>
                 </nav>
             </div>
@@ -146,7 +167,70 @@
                     <div class="flex items-center gap-3 mb-3">
                         <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white/30">
                         <div>
-                            <p class="font-semibold text-sm">Alex Johnson</p>
+                            <p class="font-semibold text-sm text-white">Alex Johnson</p>
+                            <p class="text-xs text-blue-200">Senior Consultant</p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="window.location.href='login.html'" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-500/80 hover:bg-red-500 rounded-xl transition font-semibold text-white">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Sidebar (Mobile) -->
+        <aside id="mobile-sidebar" class="sidebar-mobile fixed inset-y-0 left-0 w-72 bg-gradient-to-b from-blue-900 via-blue-800 to-indigo-900 text-white flex flex-col z-50 lg:hidden">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-10">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-blue-900 font-bold text-xl shadow-lg">E</div>
+                        <div>
+                            <span class="font-bold text-xl text-white">Everest Consultancy</span>
+                            <p class="text-blue-200 text-xs">Admin Portal</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleMobileSidebar()" class="p-2 hover:bg-white/10 rounded-lg transition">
+                        <i class="fas fa-times text-white text-xl"></i>
+                    </button>
+                </div>
+
+                <nav class="space-y-1">
+                    <a href="#dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 font-semibold">
+                        <i class="fas fa-th-large w-5 text-white"></i> <span class="text-white">Dashboard</span>
+                    </a>
+                    <a href="#projects" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-project-diagram w-5 text-white"></i> <span class="text-white">Projects</span>
+                    </a>
+                    <a href="#clients" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-users w-5 text-white"></i> <span class="text-white">Clients</span>
+                    </a>
+                    <a href="#team" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-user-tie w-5 text-white"></i> <span class="text-white">Team</span>
+                    </a>
+                    <a href="#calendar" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-calendar-alt w-5 text-white"></i> <span class="text-white">Calendar</span>
+                    </a>
+                    <a href="#reports" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-chart-bar w-5 text-white"></i> <span class="text-white">Reports</span>
+                    </a>
+                    <a href="#documents" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-folder-open w-5 text-white"></i> <span class="text-white">Documents</span>
+                    </a>
+                    <a href="#billing" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-credit-card w-5 text-white"></i> <span class="text-white">Billing</span>
+                    </a>
+                    <a href="#settings" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10">
+                        <i class="fas fa-cog w-5 text-white"></i> <span class="text-white">Settings</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="mt-auto p-6">
+                <div class="bg-white/10 rounded-2xl p-4 mb-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white/30">
+                        <div>
+                            <p class="font-semibold text-sm text-white">Alex Johnson</p>
                             <p class="text-xs text-blue-200">Senior Consultant</p>
                         </div>
                     </div>
@@ -160,22 +244,32 @@
         <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Header -->
-            <header class="bg-white shadow-sm px-8 py-4 animate-fade-in">
+            <header class="bg-white shadow-sm px-4 lg:px-8 py-4 animate-fade-in">
                 <div class="flex justify-between items-center">
-                    <div>
-                        <h1 class="text-2xl font-bold text-blue-900">Dashboard Overview</h1>
-                        <p class="text-gray-500 text-sm">Welcome back, Alex! Here's what's happening.</p>
-                    </div>
                     <div class="flex items-center gap-4">
-                        <div class="relative">
-                            <input type="text" placeholder="Search..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 w-64">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-gray-100 rounded-xl transition" onclick="toggleMobileSidebar()">
+                            <i class="fas fa-bars text-gray-600 text-xl"></i>
+                        </button>
+                        <div>
+                            <h1 class="text-xl lg:text-2xl font-bold text-blue-900">Dashboard Overview</h1>
+                            <p class="text-gray-500 text-sm hidden sm:block">Welcome back, Alex! Here's what's happening.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 lg:gap-4">
+                        <!-- RTL/LTR Toggle -->
+                        <button id="lang-toggle" class="p-2 hover:bg-gray-100 rounded-xl transition border border-gray-200" onclick="toggleRTL()" title="Toggle RTL/LTR">
+                            <i class="fas fa-globe text-gray-600"></i>
+                        </button>
+                        <div class="relative hidden md:block">
+                            <input type="text" placeholder="Search..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 w-48 lg:w-64">
                             <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         </div>
                         <button class="relative p-2 hover:bg-gray-100 rounded-xl transition">
                             <i class="fas fa-bell text-gray-600 text-lg"></i>
                             <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
                         </button>
-                        <button class="relative p-2 hover:bg-gray-100 rounded-xl transition">
+                        <button class="relative p-2 hover:bg-gray-100 rounded-xl transition hidden sm:block">
                             <i class="fas fa-envelope text-gray-600 text-lg"></i>
                             <span class="absolute -top-1 -right-1 w-5 h-5 bg-blue-500 text-white text-xs rounded-full flex items-center justify-center">5</span>
                         </button>
@@ -690,6 +784,40 @@
                 }]
             });
         });
+
+        // Mobile Sidebar Toggle
+        function toggleMobileSidebar() {
+            const overlay = document.getElementById('mobile-sidebar-overlay');
+            const sidebar = document.getElementById('mobile-sidebar');
+            if (overlay.classList.contains('hidden')) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    sidebar.classList.remove('-translate-x-full');
+                }, 10);
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // RTL/LTR Toggle
+        function toggleRTL() {
+            const html = document.documentElement;
+            if (html.dir === 'rtl') {
+                html.dir = 'ltr';
+                localStorage.setItem('dir', 'ltr');
+            } else {
+                html.dir = 'rtl';
+                localStorage.setItem('dir', 'rtl');
+            }
+        }
+
+        // Check saved direction preference
+        if (localStorage.getItem('dir') === 'rtl') {
+            document.documentElement.dir = 'rtl';
+        }
     </script>
 </body>
 

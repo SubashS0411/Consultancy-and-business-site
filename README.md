@@ -1,4 +1,4 @@
-APEX Consulting - Complete Website Implementation
+Everest Consultancy - Complete Website Implementation
 ================================================
 
 ## Project Overview
@@ -489,8 +489,8 @@ Consultancy/
 ## Contact & Support
 For questions about this website:
 - Contact Page: contact.html
-- Email: contact@apexconsulting.com
+- Email: contact@everestconsultancy.com
 - Phone: +1 (555) 123-4567
 
 ---
-© 2024 APEX Consulting. All rights reserved.
+© 2024 Everest Consultancy. All rights reserved.
