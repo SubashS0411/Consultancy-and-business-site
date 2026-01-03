@@ -1,242 +1,410 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Everest Consultancy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        blue: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
-                        gold: { 400: '#facc15', 500: '#eab308' }
-                    }
-                }
-            }
-        }
-    </script>
+    <meta name="description" content="Admin dashboard for Everest Consultancy. Manage clients, projects, team members, and analytics.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <style>
-        .stat-card { transition: all 0.3s ease; }
-        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .sidebar-link { transition: all 0.3s ease; }
-        .sidebar-link:hover { background: rgba(99, 102, 241, 0.1); }
-        .sidebar-link.active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; }
-        .glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.8); }
-    </style>
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
-<body class="bg-gradient-to-br from-slate-100 via-slate-50 to-indigo-50 min-h-screen">
-    <!-- Global Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                        <span class="text-white font-bold text-xl">E</span>
-                    </div>
-                    <span class="font-bold text-xl text-white">Everest</span>
-                </div>
-                <div class="hidden md:flex gap-8 items-center">
-                    <div class="nav-dropdown">
-                        <button class="text-gold-400 font-semibold flex items-center">Home <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
-                        <div class="nav-dropdown-menu"><div><a href="index.html" class="!bg-blue-600/20 !text-blue-400">Home Version 1</a><a href="index2.html">Home Version 2</a></div></div>
-                    </div>
-                    <a href="about.html" class="text-white hover:text-gold-400 transition">About</a>
-                    <a href="services.html" class="text-white hover:text-gold-400 transition">Services</a>
-                    <a href="industries.html" class="text-white hover:text-gold-400 transition">Industries</a>
-                    <a href="insights.html" class="text-white hover:text-gold-400 transition">Insights</a>
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold-400 transition flex items-center">Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
-                        <div class="nav-dropdown-menu"><div><a href="admin-dashboard.html" class="!bg-blue-600/20 !text-blue-400">Admin Dashboard</a><a href="user-dashboard.html">User Dashboard</a></div></div>
-                    </div>
-                    <a href="contact.html" class="text-white hover:text-gold-400 transition">Contact</a>
-                </div>
-                <div class="flex gap-4 items-center">
-                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-white/20 rounded-lg text-white/80 hover:bg-white/10 transition"><i class="fas fa-globe"></i></button>
-                    <a href="login.html" class="hidden md:inline px-4 py-2 text-white hover:text-gold-400 transition">Login</a>
-                    <a href="signup.html" class="hidden md:inline px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all">Sign Up</a>
-                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-4 pt-2 pb-4 space-y-2 bg-slate-900/95 backdrop-blur-lg border-t border-white/10">
-                <div><button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gold-400 font-semibold">Home <i class="fas fa-chevron-down text-xs"></i></button><div id="home-dropdown" class="hidden pl-4"><a href="index.html" class="block px-3 py-2 text-sm text-blue-400">Home Version 1</a><a href="index2.html" class="block px-3 py-2 text-sm text-gray-300 hover:text-gold-400">Home Version 2</a></div></div>
-                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">About</a>
-                <a href="services.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Services</a>
-                <a href="industries.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Industries</a>
-                <a href="insights.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Insights</a>
-                <div><button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Dashboard <i class="fas fa-chevron-down text-xs"></i></button><div id="dashboard-dropdown" class="hidden pl-4"><a href="admin-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Admin Dashboard</a><a href="user-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">User Dashboard</a></div></div>
-                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Contact</a>
-                <div class="pt-4 border-t border-white/10 space-y-2">
-                    <a href="login.html" class="block text-center px-4 py-2 text-gray-300">Login</a>
-                    <a href="signup.html" class="block text-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold">Sign Up</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="flex flex-col lg:flex-row min-h-screen pt-28">
+<body>
+    <div class="dashboard-layout">
         <!-- Sidebar -->
-        <aside class="w-full lg:w-72 flex flex-col bg-slate-900 text-white p-6">
-            <div class="flex items-center gap-3 mb-10">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg"><span class="font-bold text-xl">E</span></div>
-                <span class="font-bold text-xl">Everest Admin</span>
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="nav-logo-icon">E</div>
+                    <span>Everest</span>
+                </a>
+                <button class="sidebar-close" aria-label="Close sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <nav class="space-y-2 flex-1">
-                <a href="#" class="sidebar-link active flex items-center gap-3 px-4 py-3 rounded-xl"><i class="fas fa-th-large w-5"></i> Dashboard</a>
-                <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white"><i class="fas fa-users w-5"></i> Users</a>
-                <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white"><i class="fas fa-folder w-5"></i> Projects</a>
-                <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white"><i class="fas fa-chart-bar w-5"></i> Analytics</a>
-                <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white"><i class="fas fa-file-alt w-5"></i> Reports</a>
-                <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white"><i class="fas fa-cog w-5"></i> Settings</a>
+            
+            <nav class="sidebar-nav">
+                <div class="sidebar-section">
+                    <h4 class="sidebar-section-title">Main</h4>
+                    <a href="#" class="sidebar-link active">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-users"></i>
+                        <span>Clients</span>
+                    </a>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-folder-open"></i>
+                        <span>Projects</span>
+                    </a>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Team</span>
+                    </a>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h4 class="sidebar-section-title">Management</h4>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>Invoices</span>
+                    </a>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h4 class="sidebar-section-title">Settings</h4>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                </div>
             </nav>
-            <div class="pt-6 border-t border-white/10">
-                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition"><i class="fas fa-arrow-left w-5"></i> Back to Website</a>
-                <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:text-red-300 transition"><i class="fas fa-sign-out-alt w-5"></i> Logout</a>
+            
+            <div class="sidebar-footer">
+                <a href="login.html" class="sidebar-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
             </div>
         </aside>
-
+        
         <!-- Main Content -->
-        <main class="flex-1 w-full overflow-auto">
-            <!-- Header -->
-            <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/50 px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900">Admin Dashboard</h1>
-                        <p class="text-slate-500 text-sm">Welcome back, Administrator</p>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <button class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition relative">
-                            <i class="fas fa-bell"></i>
-                            <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">3</span>
-                        </button>
-                        <a href="login.html" class="px-4 py-2 rounded-xl border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition">Logout</a>
-                        <div class="flex items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" class="w-10 h-10 rounded-xl object-cover">
-                            <div class="hidden sm:block"><p class="font-semibold text-slate-900 text-sm">John Admin</p><p class="text-slate-500 text-xs">Super Admin</p></div>
-                        </div>
+        <main class="dashboard-main">
+            <!-- Top Bar -->
+            <header class="dashboard-header">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search clients, projects...">
+                </div>
+                
+                <div class="header-actions">
+                    <button class="header-action-btn" aria-label="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="header-action-btn" aria-label="Messages">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                    <div class="header-user">
+                        <div class="user-avatar">AD</div>
+                        <span class="user-name">Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
             </header>
-
-            <div class="p-6">
+            
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="dashboard-welcome" data-animate>
+                    <div>
+                        <h1 class="dashboard-title">Welcome back, Admin</h1>
+                        <p class="dashboard-subtitle">Here's what's happening with your business today.</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> New Project
+                    </a>
+                </div>
+                
                 <!-- Stats Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="stat-card glass-card rounded-2xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center"><i class="fas fa-users text-white"></i></div>
-                            <span class="text-emerald-500 text-sm font-semibold">+12%</span>
+                <div class="dashboard-stats" data-animate>
+                    <div class="dashboard-stat-card">
+                        <div class="stat-card-icon blue">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <p class="text-3xl font-bold text-slate-900">2,547</p>
-                        <p class="text-slate-500 text-sm">Total Users</p>
+                        <div class="stat-card-content">
+                            <h3 class="stat-card-value">248<sup>+</sup></h3>
+                            <p class="stat-card-label">Total Clients</p>
+                            <span class="stat-card-trend positive">
+                                <i class="fas fa-arrow-up"></i> 12<sup>%</sup> from last month
+                            </span>
+                        </div>
                     </div>
-                    <div class="stat-card glass-card rounded-2xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center"><i class="fas fa-dollar-sign text-white"></i></div>
-                            <span class="text-emerald-500 text-sm font-semibold">+8.5%</span>
+                    
+                    <div class="dashboard-stat-card">
+                        <div class="stat-card-icon green">
+                            <i class="fas fa-folder-open"></i>
                         </div>
-                        <p class="text-3xl font-bold text-slate-900">$845K</p>
-                        <p class="text-slate-500 text-sm">Total Revenue</p>
+                        <div class="stat-card-content">
+                            <h3 class="stat-card-value">56<sup>+</sup></h3>
+                            <p class="stat-card-label">Active Projects</p>
+                            <span class="stat-card-trend positive">
+                                <i class="fas fa-arrow-up"></i> 8<sup>%</sup> from last month
+                            </span>
+                        </div>
                     </div>
-                    <div class="stat-card glass-card rounded-2xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center"><i class="fas fa-folder text-white"></i></div>
-                            <span class="text-emerald-500 text-sm font-semibold">+23</span>
+                    
+                    <div class="dashboard-stat-card">
+                        <div class="stat-card-icon purple">
+                            <i class="fas fa-dollar-sign"></i>
                         </div>
-                        <p class="text-3xl font-bold text-slate-900">156</p>
-                        <p class="text-slate-500 text-sm">Active Projects</p>
+                        <div class="stat-card-content">
+                            <h3 class="stat-card-value">$2.4M<sup>+</sup></h3>
+                            <p class="stat-card-label">Revenue YTD</p>
+                            <span class="stat-card-trend positive">
+                                <i class="fas fa-arrow-up"></i> 24<sup>%</sup> from last year
+                            </span>
+                        </div>
                     </div>
-                    <div class="stat-card glass-card rounded-2xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center"><i class="fas fa-check-circle text-white"></i></div>
-                            <span class="text-emerald-500 text-sm font-semibold">98%</span>
+                    
+                    <div class="dashboard-stat-card">
+                        <div class="stat-card-icon orange">
+                            <i class="fas fa-user-tie"></i>
                         </div>
-                        <p class="text-3xl font-bold text-slate-900">489</p>
-                        <p class="text-slate-500 text-sm">Completed Tasks</p>
+                        <div class="stat-card-content">
+                            <h3 class="stat-card-value">42<sup>+</sup></h3>
+                            <p class="stat-card-label">Team Members</p>
+                            <span class="stat-card-trend neutral">
+                                <i class="fas fa-minus"></i> Same as last month
+                            </span>
+                        </div>
                     </div>
                 </div>
-
+                
                 <!-- Charts Section -->
-                <div class="grid lg:grid-cols-3 gap-6 mb-8">
-                    <div class="lg:col-span-2 glass-card rounded-2xl p-6">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-lg font-bold text-slate-900">Revenue Overview</h3>
-                            <select class="px-4 py-2 rounded-xl bg-slate-100 border-0 text-sm text-slate-600"><option>Last 7 Days</option><option>Last 30 Days</option><option>Last Year</option></select>
+                <div class="dashboard-charts">
+                    <div class="dashboard-card chart-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Revenue Overview</h2>
+                            <div class="chart-period-selector">
+                                <button class="period-btn active">Monthly</button>
+                                <button class="period-btn">Quarterly</button>
+                                <button class="period-btn">Yearly</button>
+                            </div>
                         </div>
-                        <canvas id="revenueChart" height="120"></canvas>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
                     </div>
-                    <div class="glass-card rounded-2xl p-6">
-                        <h3 class="text-lg font-bold text-slate-900 mb-6">Project Status</h3>
-                        <canvas id="projectChart" height="200"></canvas>
-                        <div class="mt-6 space-y-3">
-                            <div class="flex items-center justify-between"><span class="flex items-center gap-2 text-sm text-slate-600"><span class="w-3 h-3 rounded-full bg-indigo-500"></span>In Progress</span><span class="font-semibold">45</span></div>
-                            <div class="flex items-center justify-between"><span class="flex items-center gap-2 text-sm text-slate-600"><span class="w-3 h-3 rounded-full bg-emerald-500"></span>Completed</span><span class="font-semibold">89</span></div>
-                            <div class="flex items-center justify-between"><span class="flex items-center gap-2 text-sm text-slate-600"><span class="w-3 h-3 rounded-full bg-amber-500"></span>Pending</span><span class="font-semibold">22</span></div>
+                    
+                    <div class="dashboard-card chart-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Project Distribution</h2>
+                        </div>
+                        <div class="chart-container chart-container-doughnut">
+                            <canvas id="projectsChart"></canvas>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-color" style="background:#0d9488;"></span> Strategy</div>
+                            <div class="legend-item"><span class="legend-color" style="background:#7c3aed;"></span> Digital</div>
+                            <div class="legend-item"><span class="legend-color" style="background:#f97316;"></span> Operations</div>
+                            <div class="legend-item"><span class="legend-color" style="background:#06b6d4;"></span> Finance</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Recent Activity & Users -->
-                <div class="grid lg:grid-cols-2 gap-6">
-                    <div class="glass-card rounded-2xl p-6">
-                        <h3 class="text-lg font-bold text-slate-900 mb-6">Recent Activity</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
-                                <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center"><i class="fas fa-user-plus text-indigo-600"></i></div>
-                                <div class="flex-1"><p class="text-sm font-semibold text-slate-900">New user registered</p><p class="text-xs text-slate-500">Sarah Mitchell joined the platform</p></div>
-                                <span class="text-xs text-slate-400">2m ago</span>
+                
+                <!-- Additional Charts Row -->
+                <div class="dashboard-charts">
+                    <div class="dashboard-card chart-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Team Performance</h2>
+                            <div class="chart-period-selector">
+                                <button class="period-btn active">This Month</button>
+                                <button class="period-btn">Last Month</button>
                             </div>
-                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center"><i class="fas fa-check text-emerald-600"></i></div>
-                                <div class="flex-1"><p class="text-sm font-semibold text-slate-900">Project completed</p><p class="text-xs text-slate-500">Digital Transformation - TechCorp</p></div>
-                                <span class="text-xs text-slate-400">1h ago</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="teamPerformanceChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card chart-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Client Acquisition</h2>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="clientAcquisitionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Third Row of Charts -->
+                <div class="dashboard-charts">
+                    <div class="dashboard-card chart-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Regional Performance</h2>
+                        </div>
+                        <div class="chart-container chart-container-polar">
+                            <canvas id="regionalChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card chart-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Monthly Targets</h2>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="targetsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Recent Projects -->
+                    <div class="dashboard-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Recent Projects</h2>
+                            <a href="#" class="card-link">View All</a>
+                        </div>
+                        <div class="project-list">
+                            <div class="project-item">
+                                <div class="project-info">
+                                    <h4>Digital Transformation - TechCorp</h4>
+                                    <p>Due: Feb 15, 2026</p>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%;"></div>
+                                    </div>
+                                    <span>75%</span>
+                                </div>
+                                <span class="project-status active">Active</span>
                             </div>
-                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
-                                <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center"><i class="fas fa-file-invoice-dollar text-purple-600"></i></div>
-                                <div class="flex-1"><p class="text-sm font-semibold text-slate-900">Invoice paid</p><p class="text-xs text-slate-500">$25,000 received from GlobalBank</p></div>
-                                <span class="text-xs text-slate-400">3h ago</span>
+                            <div class="project-item">
+                                <div class="project-info">
+                                    <h4>Strategy Review - GlobalBank</h4>
+                                    <p>Due: Mar 1, 2026</p>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%;"></div>
+                                    </div>
+                                    <span>45%</span>
+                                </div>
+                                <span class="project-status active">Active</span>
                             </div>
-                            <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 transition">
-                                <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center"><i class="fas fa-comment text-amber-600"></i></div>
-                                <div class="flex-1"><p class="text-sm font-semibold text-slate-900">New feedback</p><p class="text-xs text-slate-500">5-star review from RetailMax</p></div>
-                                <span class="text-xs text-slate-400">5h ago</span>
+                            <div class="project-item">
+                                <div class="project-info">
+                                    <h4>Operations Audit - MedHealth</h4>
+                                    <p>Due: Jan 30, 2026</p>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 90%;"></div>
+                                    </div>
+                                    <span>90%</span>
+                                </div>
+                                <span class="project-status review">In Review</span>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-info">
+                                    <h4>Market Analysis - RetailPro</h4>
+                                    <p>Due: Apr 10, 2026</p>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 20%;"></div>
+                                    </div>
+                                    <span>20%</span>
+                                </div>
+                                <span class="project-status active">Active</span>
                             </div>
                         </div>
                     </div>
-                    <div class="glass-card rounded-2xl p-6">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-lg font-bold text-slate-900">Top Clients</h3>
-                            <a href="#" class="text-indigo-600 text-sm font-semibold hover:underline">View All</a>
+                    
+                    <!-- Team Activity -->
+                    <div class="dashboard-card" data-animate>
+                        <div class="card-header">
+                            <h2 class="card-title">Team Activity</h2>
+                            <a href="#" class="card-link">View All</a>
                         </div>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" class="w-12 h-12 rounded-xl object-cover">
-                                <div class="flex-1"><p class="font-semibold text-slate-900">TechCorp Industries</p><p class="text-sm text-slate-500">Enterprise Client</p></div>
-                                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-xs font-semibold">$120K</span>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-avatar">JD</div>
+                                <div class="activity-content">
+                                    <p><strong>John Davis</strong> completed milestone for TechCorp project</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" class="w-12 h-12 rounded-xl object-cover">
-                                <div class="flex-1"><p class="font-semibold text-slate-900">GlobalBank Ltd</p><p class="text-sm text-slate-500">Financial Services</p></div>
-                                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-xs font-semibold">$95K</span>
+                            <div class="activity-item">
+                                <div class="activity-avatar">SM</div>
+                                <div class="activity-content">
+                                    <p><strong>Sarah Miller</strong> uploaded new report for GlobalBank</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100" class="w-12 h-12 rounded-xl object-cover">
-                                <div class="flex-1"><p class="font-semibold text-slate-900">RetailMax Group</p><p class="text-sm text-slate-500">Retail & E-commerce</p></div>
-                                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-xs font-semibold">$78K</span>
+                            <div class="activity-item">
+                                <div class="activity-avatar">MC</div>
+                                <div class="activity-content">
+                                    <p><strong>Mike Chen</strong> scheduled meeting with MedHealth team</p>
+                                    <span class="activity-time">6 hours ago</span>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-12 h-12 rounded-xl object-cover">
-                                <div class="flex-1"><p class="font-semibold text-slate-900">HealthPlus Corp</p><p class="text-sm text-slate-500">Healthcare</p></div>
-                                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-xs font-semibold">$65K</span>
+                            <div class="activity-item">
+                                <div class="activity-avatar">AW</div>
+                                <div class="activity-content">
+                                    <p><strong>Anna Wilson</strong> closed deal with RetailPro</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">RK</div>
+                                <div class="activity-content">
+                                    <p><strong>Robert Kim</strong> updated client requirements</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Tasks -->
+                <div class="dashboard-card" data-animate>
+                    <div class="card-header">
+                        <h2 class="card-title">Upcoming Tasks</h2>
+                        <a href="#" class="card-link">View Calendar</a>
+                    </div>
+                    <div class="tasks-grid">
+                        <div class="task-item">
+                            <div class="task-date">
+                                <span class="task-day">22</span>
+                                <span class="task-month">Jan</span>
+                            </div>
+                            <div class="task-content">
+                                <h4>Client Presentation - TechCorp</h4>
+                                <p><i class="fas fa-clock"></i> 10:00 AM - 11:30 AM</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Virtual Meeting</p>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-date">
+                                <span class="task-day">24</span>
+                                <span class="task-month">Jan</span>
+                            </div>
+                            <div class="task-content">
+                                <h4>Strategy Workshop</h4>
+                                <p><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Conference Room A</p>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-date">
+                                <span class="task-day">28</span>
+                                <span class="task-month">Jan</span>
+                            </div>
+                            <div class="task-content">
+                                <h4>Quarterly Review Meeting</h4>
+                                <p><i class="fas fa-clock"></i> 9:00 AM - 12:00 PM</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Board Room</p>
                             </div>
                         </div>
                     </div>
@@ -245,36 +413,217 @@
         </main>
     </div>
 
+    <script src="js/main.js"></script>
     <script>
         // Revenue Chart
-        new Chart(document.getElementById('revenueChart'), {
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
-                    label: 'Revenue',
-                    data: [65, 78, 90, 81, 96, 105, 125],
-                    borderColor: '#6366f1',
-                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    label: 'Revenue ($K)',
+                    data: [150, 180, 220, 190, 280, 310, 290, 340, 380, 420, 450, 480],
+                    borderColor: '#0d9488',
+                    backgroundColor: 'rgba(13, 148, 136, 0.1)',
                     fill: true,
                     tension: 0.4,
-                    borderWidth: 3
+                    pointRadius: 4,
+                    pointBackgroundColor: '#0d9488',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }, {
+                    label: 'Target ($K)',
+                    data: [140, 160, 200, 180, 250, 280, 260, 300, 350, 400, 430, 460],
+                    borderColor: '#f97316',
+                    backgroundColor: 'transparent',
+                    borderDash: [5, 5],
+                    tension: 0.4,
+                    pointRadius: 0
                 }]
             },
-            options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { grid: { display: false } } } }
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true, padding: 20 } }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                    x: { grid: { display: false } }
+                }
+            }
         });
 
-        // Project Chart
-        new Chart(document.getElementById('projectChart'), {
+        // Projects Distribution Chart
+        const projectsCtx = document.getElementById('projectsChart').getContext('2d');
+        new Chart(projectsCtx, {
             type: 'doughnut',
             data: {
-                labels: ['In Progress', 'Completed', 'Pending'],
-                datasets: [{ data: [45, 89, 22], backgroundColor: ['#6366f1', '#10b981', '#f59e0b'], borderWidth: 0 }]
+                labels: ['Strategy', 'Digital', 'Operations', 'Finance'],
+                datasets: [{
+                    data: [35, 28, 22, 15],
+                    backgroundColor: ['#0d9488', '#7c3aed', '#f97316', '#06b6d4'],
+                    borderWidth: 0,
+                    cutout: '70%'
+                }]
             },
-            options: { responsive: true, plugins: { legend: { display: false } }, cutout: '70%' }
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // Team Performance Chart - Bar Chart
+        const teamCtx = document.getElementById('teamPerformanceChart').getContext('2d');
+        new Chart(teamCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Strategy Team', 'Digital Team', 'Operations', 'Finance', 'Analytics'],
+                datasets: [{
+                    label: 'Projects Completed',
+                    data: [12, 15, 8, 10, 14],
+                    backgroundColor: 'rgba(13, 148, 136, 0.8)',
+                    borderColor: '#0d9488',
+                    borderWidth: 2,
+                    borderRadius: 6
+                }, {
+                    label: 'Projects In Progress',
+                    data: [5, 8, 4, 6, 7],
+                    backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                    borderColor: '#f97316',
+                    borderWidth: 2,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true, padding: 15 } }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Client Acquisition Chart - Stacked Area Chart
+        const clientCtx = document.getElementById('clientAcquisitionChart').getContext('2d');
+        const clientGradient1 = clientCtx.createLinearGradient(0, 0, 0, 200);
+        clientGradient1.addColorStop(0, 'rgba(124, 58, 237, 0.5)');
+        clientGradient1.addColorStop(1, 'rgba(124, 58, 237, 0)');
+        const clientGradient2 = clientCtx.createLinearGradient(0, 0, 0, 200);
+        clientGradient2.addColorStop(0, 'rgba(6, 182, 212, 0.5)');
+        clientGradient2.addColorStop(1, 'rgba(6, 182, 212, 0)');
+        
+        new Chart(clientCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Enterprise',
+                    data: [8, 12, 15, 18, 22, 28],
+                    borderColor: '#7c3aed',
+                    backgroundColor: clientGradient1,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#7c3aed'
+                }, {
+                    label: 'SMB',
+                    data: [15, 18, 22, 28, 32, 40],
+                    borderColor: '#06b6d4',
+                    backgroundColor: clientGradient2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#06b6d4'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true, padding: 15 } }
+                },
+                scales: {
+                    y: { beginAtZero: true, stacked: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Regional Performance - Polar Area Chart
+        const regionalCtx = document.getElementById('regionalChart').getContext('2d');
+        new Chart(regionalCtx, {
+            type: 'polarArea',
+            data: {
+                labels: ['North America', 'Europe', 'Asia Pacific', 'Latin America', 'Middle East'],
+                datasets: [{
+                    data: [45, 35, 28, 15, 12],
+                    backgroundColor: [
+                        'rgba(13, 148, 136, 0.8)',
+                        'rgba(124, 58, 237, 0.8)',
+                        'rgba(249, 115, 22, 0.8)',
+                        'rgba(6, 182, 212, 0.8)',
+                        'rgba(16, 185, 129, 0.8)'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right', labels: { usePointStyle: true, padding: 12, font: { size: 11 } } }
+                },
+                scales: {
+                    r: { ticks: { display: false }, grid: { color: 'rgba(0,0,0,0.05)' } }
+                }
+            }
+        });
+
+        // Monthly Targets - Gauge-like Horizontal Bar
+        const targetsCtx = document.getElementById('targetsChart').getContext('2d');
+        new Chart(targetsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Revenue', 'New Clients', 'Projects', 'NPS Score', 'Retention'],
+                datasets: [{
+                    label: 'Achieved',
+                    data: [92, 85, 78, 95, 88],
+                    backgroundColor: [
+                        'rgba(13, 148, 136, 0.9)',
+                        'rgba(124, 58, 237, 0.9)',
+                        'rgba(249, 115, 22, 0.9)',
+                        'rgba(16, 185, 129, 0.9)',
+                        'rgba(6, 182, 212, 0.9)'
+                    ],
+                    borderRadius: 8,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { 
+                        beginAtZero: true, 
+                        max: 100,
+                        grid: { color: 'rgba(0,0,0,0.05)' },
+                        ticks: { callback: function(value) { return value + '%'; } }
+                    },
+                    y: { grid: { display: false } }
+                }
+            }
         });
     </script>
-    <script src="js/main.js"></script>
 </body>
-
 </html>

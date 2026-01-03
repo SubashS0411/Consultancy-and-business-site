@@ -1,136 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Everest Consultancy</title>
-    <meta name="description" content="Access your Everest Consultancy account.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        blue: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
-                        gold: { 400: '#facc15', 500: '#eab308' }
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Login to your Everest Consultancy account to access your dashboard and manage your projects.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <style>
-        @keyframes gradient-sweep { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .professional-bg { background: linear-gradient(135deg, #030712, #0f172a 45%, #112842 80%, #1d4ed8); background-size: 200% 200%; animation: gradient-sweep 18s ease infinite; }
-        .accent-panel { position: relative; background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 60%), linear-gradient(160deg, #1d4ed8, #0f172a); overflow: hidden; }
-        .accent-panel::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(120deg, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 220px; opacity: 0.15; }
-        .accent-panel-content { position: relative; z-index: 1; }
-        .form-card { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; box-shadow: 0 25px 60px rgba(2, 6, 23, 0.45); }
-        .input-glow:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); border-color: rgba(96, 165, 250, 0.8); }
-        .btn-gradient { background: linear-gradient(135deg, #2563eb, #7c3aed); box-shadow: 0 15px 40px rgba(37, 99, 235, 0.35); }
-        .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 20px 45px rgba(37, 99, 235, 0.45); }
-        .back-home { position: absolute; top: 1.5rem; left: 1.5rem; z-index: 20; }
-        .back-home a { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1rem; border-radius: 9999px; background: rgba(15, 23, 42, 0.75); color: #e2e8f0; border: 1px solid rgba(148, 163, 184, 0.3); font-weight: 500; }
-        .back-home a:hover { background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.6); }
-    </style>
 </head>
+<body>
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-to-home">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back to Home</span>
+    </a>
 
-<body class="min-h-screen professional-bg overflow-hidden relative text-white">
-    <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle at 10% 20%, rgba(59,130,246,0.25), transparent 45%), radial-gradient(circle at 90% 10%, rgba(147, 51, 234, 0.25), transparent 40%), radial-gradient(circle at 50% 80%, rgba(8,145,178,0.25), transparent 35%);"></div>
-
-    <div class="back-home">
-        <a href="index.html"><i class="fas fa-arrow-left text-sm"></i> Back to Home</a>
-    </div>
-
-    <div class="relative z-10 min-h-screen grid lg:grid-cols-2">
-        <div class="accent-panel hidden lg:flex flex-col justify-between p-12 xl:p-16 text-white/90">
-            <div class="accent-panel-content">
-                <div class="flex items-center gap-3 mb-12">
-                    <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur">
-                        <span class="text-white font-bold text-2xl">E</span>
-                    </div>
-                    <span class="font-bold text-2xl">Everest</span>
+    <div class="auth-page auth-page-login">
+        <div class="auth-container">
+            <div class="auth-card" data-animate>
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">
+                        <div class="nav-logo-icon">E</div>
+                        <span>Everest</span>
+                    </a>
+                    <h1 class="auth-title">Welcome Back</h1>
+                    <p class="auth-subtitle">Sign in to your account to continue</p>
                 </div>
-                <div class="space-y-6">
-                    <p class="text-lg text-white/80 max-w-md">Secure access to your engagement hub, real-time analytics, and collaboration tools.</p>
-                    <div class="space-y-4">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center"><i class="fas fa-chart-line"></i></div>
-                            <div>
-                                <h3 class="font-semibold text-white">Live Dashboards</h3>
-                                <p class="text-white/70 text-sm">Monitor KPIs and deliverables without leaving the workspace.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center"><i class="fas fa-users"></i></div>
-                            <div>
-                                <h3 class="font-semibold text-white">Expert Collaboration</h3>
-                                <p class="text-white/70 text-sm">Chat directly with your engagement team anytime.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center"><i class="fas fa-shield-alt"></i></div>
-                            <div>
-                                <h3 class="font-semibold text-white">Enterprise Security</h3>
-                                <p class="text-white/70 text-sm">SOC 2 compliant architecture with MFA-ready workflows.</p>
-                            </div>
+                
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="accent-panel-content">
-                <p class="text-sm text-white/70">Need help? <a class="text-white font-semibold" href="contact.html">Contact support</a></p>
-            </div>
-        </div>
-
-        <div class="flex items-center justify-center py-16 px-6 sm:px-10 bg-black/10">
-            <div class="form-card w-full max-w-md p-8 md:p-10">
-                <div class="lg:hidden flex items-center gap-3 mb-8">
-                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center"><span class="font-bold text-xl">E</span></div>
-                    <span class="font-bold text-xl">Everest</span>
-                </div>
-                <div class="mb-8 text-center">
-                    <p class="text-sm uppercase tracking-[0.3em] text-blue-200">Client Portal</p>
-                    <h1 class="text-3xl font-bold mt-3">Welcome Back</h1>
-                    <p class="text-white/60">Sign in to continue</p>
-                </div>
-                <form class="space-y-5">
-                    <div>
-                        <label class="block text-sm font-medium text-white mb-2">Email Address</label>
-                        <div class="relative">
-                            <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
-                            <input type="email" class="input-glow w-full pl-12 pr-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none transition-all" placeholder="you@company.com">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-white mb-2">Password</label>
-                        <div class="relative">
-                            <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
-                            <input type="password" id="password" class="input-glow w-full pl-12 pr-12 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none transition-all" placeholder="••••••••">
-                            <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80 transition">
-                                <i class="fas fa-eye" id="eye-icon"></i>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="••••••••" required>
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between text-white/70">
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" class="w-4 h-4 rounded bg-white/5 border-white/30 text-blue-500 focus:ring-blue-500 focus:ring-offset-0">
-                            <span class="text-sm">Remember me</span>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" name="remember">
+                            <span class="checkbox-label">Remember me</span>
                         </label>
-                        <a href="#" class="text-sm text-blue-200 hover:text-white">Forgot password?</a>
+                        <a href="#" class="form-link">Forgot password?</a>
                     </div>
-                    <button type="submit" class="btn-gradient w-full py-4 rounded-xl text-white font-semibold text-lg transition-all duration-300">Sign In</button>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                        Sign In <i class="fas fa-arrow-right"></i>
+                    </button>
                 </form>
-                <p class="text-center text-white/70 mt-8">
-                    Don't have an account? <a href="signup.html" class="text-blue-200 font-semibold hover:text-white">Sign up free</a>
+                
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-btn">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button class="social-btn">
+                        <i class="fab fa-microsoft"></i>
+                        Microsoft
+                    </button>
+                </div>
+                
+                <p class="auth-footer">
+                    Don't have an account? <a href="signup.html">Create one</a>
                 </p>
-                <div class="mt-8 border-t border-white/10 pt-6 text-sm text-white/60">
-                    <div class="flex items-center justify-between">
-                        <span>Enterprise security enabled</span>
-                        <i class="fas fa-shield-alt text-blue-300"></i>
+            </div>
+            
+            <div class="auth-sidebar" style="background-image: linear-gradient(135deg, rgba(20, 184, 166, 0.9), rgba(13, 148, 136, 0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80');">
+                <div class="auth-sidebar-content">
+                    <h2 class="auth-sidebar-title">Transform Your Business</h2>
+                    <p class="auth-sidebar-text">
+                        Access your personalized dashboard, track project progress, and collaborate with our experts.
+                    </p>
+                    <div class="auth-features">
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Real-time project tracking</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Direct communication with consultants</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Access to exclusive insights</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Document management & sharing</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -138,19 +111,5 @@
     </div>
 
     <script src="js/main.js"></script>
-    <script>
-        function togglePassword() {
-            const pwd = document.getElementById('password');
-            const icon = document.getElementById('eye-icon');
-            if (pwd.type === 'password') {
-                pwd.type = 'text';
-                icon.classList.replace('fa-eye', 'fa-eye-slash');
-            } else {
-                pwd.type = 'password';
-                icon.classList.replace('fa-eye-slash', 'fa-eye');
-            }
-        }
-    </script>
 </body>
-
 </html>

@@ -1,191 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - Everest Consultancy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        blue: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
-                        gold: { 400: '#facc15', 500: '#eab308' }
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Something exciting is coming soon. Stay tuned for updates from Everest Consultancy.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <style>
-        @keyframes gradient-flow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.4); } 50% { box-shadow: 0 0 60px rgba(99, 102, 241, 0.6); } }
-        @keyframes spin-slow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .gradient-animate { background-size: 200% 200%; animation: gradient-flow 6s ease infinite; }
-        .float { animation: float 5s ease-in-out infinite; }
-        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-        .spin-slow { animation: spin-slow 20s linear infinite; }
-        .countdown-box { backdrop-filter: blur(20px); background: rgba(255,255,255,0.05); }
-    </style>
 </head>
-
-<body class="min-h-screen bg-slate-950 text-white overflow-hidden">
-    <nav id="navbar" class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                        <span class="text-white font-bold text-xl">E</span>
-                    </div>
-                    <span class="font-bold text-xl text-white">Everest</span>
+<body>
+    <div class="coming-soon-page" style="background-image: linear-gradient(135deg, rgba(20, 184, 166, 0.95), rgba(13, 148, 136, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="coming-soon-container" data-animate>
+            <a href="index.html" class="coming-soon-logo">
+                <div class="nav-logo-icon">E</div>
+                <span>Everest</span>
+            </a>
+            
+            <h1 class="coming-soon-title">Something Amazing is Coming</h1>
+            <p class="coming-soon-text">
+                We're working hard to bring you something special. 
+                Subscribe to be the first to know when we launch.
+            </p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Days</span>
                 </div>
-                <div class="hidden md:flex gap-8 items-center">
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold-400 transition flex items-center">Home <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
-                        <div class="nav-dropdown-menu"><div><a href="index.html">Home Version 1</a><a href="index2.html">Home Version 2</a></div></div>
-                    </div>
-                    <a href="about.html" class="text-white hover:text-gold-400 transition">About</a>
-                    <a href="services.html" class="text-white hover:text-gold-400 transition">Services</a>
-                    <a href="industries.html" class="text-white hover:text-gold-400 transition">Industries</a>
-                    <a href="insights.html" class="text-white hover:text-gold-400 transition">Insights</a>
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold-400 transition flex items-center">Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
-                        <div class="nav-dropdown-menu"><div><a href="admin-dashboard.html">Admin Dashboard</a><a href="user-dashboard.html">User Dashboard</a></div></div>
-                    </div>
-                    <a href="contact.html" class="text-white hover:text-gold-400 transition">Contact</a>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
                 </div>
-                <div class="flex gap-4 items-center">
-                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-white/20 rounded-lg text-white/80 hover:bg-white/10 transition"><i class="fas fa-globe"></i></button>
-                    <a href="login.html" class="hidden md:inline px-4 py-2 text-white hover:text-gold-400 transition">Login</a>
-                    <a href="signup.html" class="hidden md:inline px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all">Sign Up</a>
-                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
                 </div>
-            </div>
-        </div>
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-4 pt-2 pb-4 space-y-2 bg-slate-900/95 backdrop-blur-lg border-t border-white/10">
-                <div><button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Home <i class="fas fa-chevron-down text-xs"></i></button><div id="home-dropdown" class="hidden pl-4"><a href="index.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Home Version 1</a><a href="index2.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Home Version 2</a></div></div>
-                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">About</a>
-                <a href="services.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Services</a>
-                <a href="industries.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Industries</a>
-                <a href="insights.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Insights</a>
-                <div><button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Dashboard <i class="fas fa-chevron-down text-xs"></i></button><div id="dashboard-dropdown" class="hidden pl-4"><a href="admin-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Admin Dashboard</a><a href="user-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">User Dashboard</a></div></div>
-                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Contact</a>
-                <div class="pt-4 border-t border-white/10 space-y-2"><a href="login.html" class="block text-center px-4 py-2 text-gray-300">Login</a><a href="signup.html" class="block text-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold">Sign Up</a></div>
-            </div>
-        </div>
-    </nav>
-    <div class="min-h-screen flex flex-col items-center justify-center px-6 relative pt-20">
-        <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/50 to-slate-950"></div>
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-1/4 left-1/3 w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[150px]"></div>
-            <div class="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-[150px]"></div>
-        </div>
-
-        <!-- Orbit Ring -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full spin-slow">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-indigo-500"></div>
-        </div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full spin-slow" style="animation-direction: reverse; animation-duration: 30s;">
-            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3 h-3 rounded-full bg-purple-500"></div>
-        </div>
-
-        <!-- Content -->
-        <div class="relative z-10 text-center max-w-3xl">
-
-
-            <!-- Heading -->
-            <div class="float">
-                <span class="inline-block px-6 py-2 rounded-full bg-white/10 border border-white/20 text-indigo-300 text-sm font-semibold mb-8">LAUNCHING SOON</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-6">
-                Something<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 gradient-animate">Extraordinary</span><br>
-                is Coming
-            </h1>
-            <p class="text-slate-400 text-xl max-w-xl mx-auto mb-12">We're working on something amazing. Be the first to know when we launch our new platform.</p>
-
-            <!-- Countdown -->
-            <div class="grid grid-cols-4 gap-4 md:gap-6 max-w-lg mx-auto mb-12">
-                <div class="countdown-box rounded-2xl border border-white/10 p-4 md:p-6">
-                    <div class="text-3xl md:text-5xl font-black text-white" id="days">30</div>
-                    <div class="text-slate-500 text-sm mt-1">Days</div>
-                </div>
-                <div class="countdown-box rounded-2xl border border-white/10 p-4 md:p-6">
-                    <div class="text-3xl md:text-5xl font-black text-white" id="hours">12</div>
-                    <div class="text-slate-500 text-sm mt-1">Hours</div>
-                </div>
-                <div class="countdown-box rounded-2xl border border-white/10 p-4 md:p-6">
-                    <div class="text-3xl md:text-5xl font-black text-white" id="minutes">45</div>
-                    <div class="text-slate-500 text-sm mt-1">Minutes</div>
-                </div>
-                <div class="countdown-box rounded-2xl border border-white/10 p-4 md:p-6">
-                    <div class="text-3xl md:text-5xl font-black text-indigo-400" id="seconds">28</div>
-                    <div class="text-slate-500 text-sm mt-1">Seconds</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
                 </div>
             </div>
-
-            <!-- Email Signup -->
-            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-12">
-                <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
-                <button type="submit" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all hover:scale-105">
-                    Notify Me
-                </button>
+            
+            <!-- Subscribe Form -->
+            <form class="coming-soon-form">
+                <div class="coming-soon-input-group">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">
+                        Notify Me <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+                <p class="coming-soon-disclaimer">
+                    We'll notify you when we launch. No spam, we promise.
+                </p>
             </form>
-
+            
             <!-- Social Links -->
-            <div class="flex gap-4 justify-center">
-                <a href="#" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-600 transition-all">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-600 transition-all">
-                    <i class="fab fa-linkedin-in text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-600 transition-all">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-600 transition-all">
-                    <i class="fab fa-facebook-f text-xl"></i>
-                </a>
+            <div class="coming-soon-social">
+                <p>Follow us for updates:</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
+            
+            <a href="index.html" class="coming-soon-back">
+                <i class="fas fa-arrow-left"></i> Back to Main Site
+            </a>
         </div>
-
-        <!-- Back Link -->
-        <a href="index.html" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 hover:text-white transition flex items-center gap-2">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
+        
+        <!-- Background Animation -->
+        <div class="coming-soon-bg">
+            <div class="coming-soon-shape shape-1"></div>
+            <div class="coming-soon-shape shape-2"></div>
+            <div class="coming-soon-shape shape-3"></div>
+        </div>
     </div>
 
-    <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const launchDate = new Date();
-            launchDate.setDate(launchDate.getDate() + 30);
-            
-            const now = new Date();
-            const diff = launchDate - now;
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    </script>
     <script src="js/main.js"></script>
+    <script>
+        // Set the countdown date (30 days from now)
+        const countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 30);
+        
+        // Initialize countdown
+        if (typeof CountdownTimer !== 'undefined') {
+            new CountdownTimer(countdownDate);
+        }
+    </script>
 </body>
-
 </html>
