@@ -4,571 +4,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Everest Consultancy</title>
-    <meta name="description"
-        content="Explore Everest Consultancy services: strategy, digital transformation, operating model design, AI, and execution support.">
+    <title>Our Services - Everest Consultancy</title>
+    <meta name="description" content="Explore Everest Consultancy's comprehensive range of consulting services.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        blue: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#020617',
-                        },
-                        gold: {
-                            50: '#fefce8',
-                            100: '#fef9c3',
-                            200: '#fef08a',
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                            700: '#a16207',
-                            800: '#854d0e',
-                            900: '#713f12',
-                            950: '#422006',
-                        }
+                        blue: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
+                        gold: { 50: '#fefce8', 100: '#fef9c3', 200: '#fef08a', 300: '#fde047', 400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207', 800: '#854d0e', 900: '#713f12', 950: '#422006' },
+                        violet: { 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9' }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Favicon -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <style>
+        @keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        @keyframes pulse-slow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .gradient-animate { background-size: 200% 200%; animation: gradient-shift 8s ease infinite; }
+        .service-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover { transform: translateY(-16px) scale(1.02); }
+        .service-card:hover .service-icon { transform: scale(1.1) rotate(5deg); }
+        .service-icon { transition: all 0.4s ease; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .accordion-content.open { max-height: 500px; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-item.open .accordion-icon { transform: rotate(180deg); }
+        .glow-purple { box-shadow: 0 0 60px rgba(139, 92, 246, 0.3); }
+        .glow-pink { box-shadow: 0 0 60px rgba(236, 72, 153, 0.3); }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-slate-950 text-white overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
+    <nav id="navbar" class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-white">Everest Consultancy</a>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold transition flex items-center">
-                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="index.html">Home Version 1</a>
-                                <a href="index2.html">Home Version 2</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="about.html" class="text-white hover:text-gold transition">About</a>
-                    <div class="nav-dropdown">
-                        <button class="text-gold font-semibold flex items-center">
-                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="services.html#strategy">Strategy Consulting</a>
-                                <a href="services.html#digital">Digital Transformation</a>
-                                <a href="services.html#operations">Operations Excellence</a>
-                                <a href="services.html#financial">Financial Advisory</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
-                    <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold transition flex items-center">
-                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="admin-dashboard.html">Admin Dashboard</a>
-                                <a href="user-dashboard.html">User Dashboard</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
-                </div>
-
-                <!-- Right side -->
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition">
-                        <i class="fas fa-globe"></i>
-                    </button>
-                    <div class="hidden md:flex items-center space-x-4">
-                        <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
-                        <a href="signup.html" class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
-                            <i class="fas fa-user-plus"></i>
-                        </a>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <span class="text-white font-bold text-xl">E</span>
                     </div>
-                    <div class="md:hidden flex items-center">
-                        <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
-                            <i class="fas fa-bars text-2xl"></i>
-                        </button>
+                    <span class="font-bold text-xl text-white">Everest</span>
+                </div>
+                <div class="hidden md:flex gap-8 items-center">
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold-400 transition flex items-center">Home <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="nav-dropdown-menu"><div><a href="index.html">Home Version 1</a><a href="index2.html">Home Version 2</a></div></div>
                     </div>
+                    <a href="about.html" class="text-white hover:text-gold-400 transition">About</a>
+                    <a href="services.html" class="text-gold-400 font-semibold">Services</a>
+                    <a href="industries.html" class="text-white hover:text-gold-400 transition">Industries</a>
+                    <a href="insights.html" class="text-white hover:text-gold-400 transition">Insights</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold-400 transition flex items-center">Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="nav-dropdown-menu"><div><a href="admin-dashboard.html">Admin Dashboard</a><a href="user-dashboard.html">User Dashboard</a></div></div>
+                    </div>
+                    <a href="contact.html" class="text-white hover:text-gold-400 transition">Contact</a>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-white/20 rounded-lg text-white/80 hover:bg-white/10 transition"><i class="fas fa-globe"></i></button>
+                    <a href="login.html" class="hidden md:inline px-4 py-2 text-white hover:text-gold-400 transition">Login</a>
+                    <a href="signup.html" class="hidden md:inline px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all">Sign Up</a>
+                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
         </div>
-
-        <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <div>
-                    <button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
-                        Home <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="home-dropdown" class="hidden pl-4">
-                        <a href="index.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 1</a>
-                        <a href="index2.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 2</a>
-                    </div>
-                </div>
-                <a href="about.html" class="block px-3 py-2 text-base font-medium hover:text-gold">About</a>
-                <a href="services.html" class="block px-3 py-2 text-base font-medium text-gold">Services</a>
-                <a href="industries.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Industries</a>
-                <a href="insights.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Insights</a>
-                <div>
-                    <button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
-                        Dashboard <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="dashboard-dropdown" class="hidden pl-4">
-                        <a href="admin-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">Admin Dashboard</a>
-                        <a href="user-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">User Dashboard</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Contact</a>
-                <div class="pt-4 border-t border-slate-700 mt-2">
-                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium hover:text-gold">Login</a>
-                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
-                </div>
+            <div class="px-4 pt-2 pb-4 space-y-2 bg-slate-900/95 backdrop-blur-lg border-t border-white/10">
+                <div><button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Home <i class="fas fa-chevron-down text-xs"></i></button><div id="home-dropdown" class="hidden pl-4"><a href="index.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Home Version 1</a><a href="index2.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Home Version 2</a></div></div>
+                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">About</a>
+                <a href="services.html" class="block px-3 py-2 text-gold-400 font-semibold">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Insights</a>
+                <div><button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Dashboard <i class="fas fa-chevron-down text-xs"></i></button><div id="dashboard-dropdown" class="hidden pl-4"><a href="admin-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Admin Dashboard</a><a href="user-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">User Dashboard</a></div></div>
+                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Contact</a>
+                <div class="pt-4 border-t border-white/10 space-y-2"><a href="login.html" class="block text-center px-4 py-2 text-gray-300">Login</a><a href="signup.html" class="block text-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold">Sign Up</a></div>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Hero -->
-        <section
-            class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white pt-28 md:pt-32 pb-20">
-            <div class="absolute inset-0 bg-blob opacity-30"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-10 items-center">
-                    <div class="space-y-6">
-                        <span class="text-sm uppercase tracking-widest text-blue-100">Services</span>
-                        <h1 class="text-4xl md:text-5xl font-bold leading-tight">End-to-end consulting to launch, scale,
-                            and modernize your business</h1>
-                        <p class="text-lg text-blue-50 max-w-3xl">From boardroom strategy to day-to-day execution, we
-                            build pragmatic roadmaps, deploy cross-functional squads, and stay until results are
-                            realized.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="contact.html" class="btn btn-white">Start a Project</a>
-                            <a href="user-dashboard.html" class="btn btn-secondary-light">View Client Dashboard</a>
-                        </div>
+        <!-- Hero Section -->
+        <section class="relative min-h-[80vh] flex items-center overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-violet-950/50 to-slate-950"></div>
+            <div class="absolute inset-0">
+                <div class="absolute top-40 left-20 w-[500px] h-[500px] rounded-full bg-violet-600/20 blur-[150px]"></div>
+                <div class="absolute bottom-20 right-20 w-[400px] h-[400px] rounded-full bg-fuchsia-600/20 blur-[120px]"></div>
+            </div>
+            <!-- Floating Elements -->
+            <div class="absolute top-1/4 right-1/4 w-3 h-3 rounded-full bg-violet-400 animate-pulse"></div>
+            <div class="absolute bottom-1/3 left-1/3 w-2 h-2 rounded-full bg-fuchsia-400 animate-pulse delay-300"></div>
+            <div class="absolute top-1/2 right-1/3 w-4 h-4 rounded-full bg-pink-400/50 animate-pulse delay-500"></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pt-40">
+                <div class="max-w-4xl">
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+                        <span class="w-2 h-2 rounded-full bg-violet-400 animate-pulse"></span>
+                        <span class="text-violet-300 text-sm font-medium">TRANSFORMATIVE SOLUTIONS</span>
                     </div>
-                    <div class="card p-8 glass-dark text-white">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Consulting team collaborating" class="w-full h-32 object-cover rounded-2xl mb-6 opacity-90">
-                        <h3 class="text-xl font-bold mb-4 text-white">How we deliver</h3>
-                        <ul class="space-y-3 text-blue-100">
-                            <li>✔ Strategy sprints with measurable value hypotheses.</li>
-                            <li>✔ Product and engineering squads ready in weeks.</li>
-                            <li>✔ Change management and capability building baked in.</li>
-                            <li>✔ Executive-ready reporting and weekly value tracking.</li>
-                        </ul>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-8">
+                        <span class="text-white">Services</span><br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 gradient-animate">Built for Impact</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mb-10">Comprehensive consulting solutions designed to unlock potential, drive innovation, and deliver measurable results.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold text-lg hover:shadow-2xl hover:shadow-violet-500/30 transition-all hover:scale-105">Explore Services</a>
+                        <a href="contact.html" class="px-8 py-4 rounded-2xl border border-white/20 text-white font-bold text-lg hover:bg-white/5 transition-all">Get Started</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Grid -->
-        <section class="py-20 bg-white">
+        <!-- Core Services Grid -->
+        <section id="services" class="py-32 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 scroll-fade-up">
-                    <span class="section-subtitle">CAPABILITIES</span>
-                    <h2 class="section-title">What We Deliver</h2>
-                    <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Integrated teams covering strategy, design,
-                        engineering, data, and change management so you get outcomes, not just slide decks.</p>
+                <div class="text-center mb-20">
+                    <span class="inline-block px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-semibold mb-6">CORE SERVICES</span>
+                    <h2 class="text-4xl md:text-6xl font-black text-white">What We Do Best</h2>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
-                            <i class="fas fa-chess-knight"></i>
+                    <!-- Service Card 1 -->
+                    <div class="service-card bg-gradient-to-br from-slate-900 to-slate-800 rounded-[32px] p-8 border border-white/5 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-violet-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-700 flex items-center justify-center mb-6 shadow-lg shadow-violet-500/30">
+                            <i class="fas fa-chess-queen text-2xl text-white"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Corporate & Growth Strategy</h3>
-                        <p class="text-gray-600">Market entry, portfolio strategy, pricing, and M&A value creation
-                            grounded in data.</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Strategy Consulting</h3>
+                        <p class="text-slate-400 mb-6">Data-driven strategic planning and market positioning to accelerate business growth and outpace competition.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-violet-400"></i> Market Entry Strategy</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-violet-400"></i> Competitive Analysis</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-violet-400"></i> Growth Planning</li>
+                        </ul>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-violet-400 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
-                            <i class="fas fa-microchip"></i>
+                    <!-- Service Card 2 -->
+                    <div class="service-card bg-gradient-to-br from-slate-900 to-slate-800 rounded-[32px] p-8 border border-white/5 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-fuchsia-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-fuchsia-700 flex items-center justify-center mb-6 shadow-lg shadow-fuchsia-500/30">
+                            <i class="fas fa-microchip text-2xl text-white"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Digital & AI Transformation</h3>
-                        <p class="text-gray-600">Cloud modernization, AI/ML accelerators, and digital products that
-                            scale reliably.</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Digital Transformation</h3>
+                        <p class="text-slate-400 mb-6">End-to-end digital solutions that modernize operations and create new value streams.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-fuchsia-400"></i> Cloud Migration</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-fuchsia-400"></i> Process Automation</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-fuchsia-400"></i> Data Analytics</li>
+                        </ul>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-fuchsia-400 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
-                            <i class="fas fa-cogs"></i>
+                    <!-- Service Card 3 -->
+                    <div class="service-card bg-gradient-to-br from-slate-900 to-slate-800 rounded-[32px] p-8 border border-white/5 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center mb-6 shadow-lg shadow-pink-500/30">
+                            <i class="fas fa-cogs text-2xl text-white"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Operating Model & Org Design</h3>
-                        <p class="text-gray-600">Agile operating models, governance redesign, and talent strategies for
-                            growth.</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Operations Excellence</h3>
+                        <p class="text-slate-400 mb-6">Optimize processes, reduce costs, and build resilient operations that scale.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-pink-400"></i> Supply Chain</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-pink-400"></i> Lean Operations</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-pink-400"></i> Quality Management</li>
+                        </ul>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-pink-400 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.4s">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
-                            <i class="fas fa-warehouse"></i>
+                    <!-- Service Card 4 -->
+                    <div class="service-card bg-gradient-to-br from-slate-900 to-slate-800 rounded-[32px] p-8 border border-white/5 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/30">
+                            <i class="fas fa-chart-line text-2xl text-white"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Operations & Supply Chain</h3>
-                        <p class="text-gray-600">Network optimization, automation, and resilience across critical supply
-                            chains.</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Financial Advisory</h3>
+                        <p class="text-slate-400 mb-6">Strategic financial guidance for M&A, capital optimization, and risk management.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-amber-400"></i> M&A Advisory</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-amber-400"></i> Due Diligence</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-amber-400"></i> Valuation</li>
+                        </ul>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-amber-400 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.5s">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
-                            <i class="fas fa-shield-alt"></i>
+                    <!-- Service Card 5 -->
+                    <div class="service-card bg-gradient-to-br from-slate-900 to-slate-800 rounded-[32px] p-8 border border-white/5 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
+                            <i class="fas fa-brain text-2xl text-white"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Risk, Cyber, & Compliance</h3>
-                        <p class="text-gray-600">Enterprise risk frameworks, cyber posture uplift, and regulatory
-                            readiness.</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">AI & Analytics</h3>
+                        <p class="text-slate-400 mb-6">Harness the power of AI and advanced analytics to make smarter decisions.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-cyan-400"></i> Predictive Analytics</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-cyan-400"></i> ML Implementation</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-cyan-400"></i> Data Governance</li>
+                        </ul>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-cyan-400 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.6s">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-900 animate-icon-bounce">
-                            <i class="fas fa-people-carry"></i>
+                    <!-- Service Card 6 -->
+                    <div class="service-card bg-gradient-to-br from-slate-900 to-slate-800 rounded-[32px] p-8 border border-white/5 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="service-icon w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/30">
+                            <i class="fas fa-leaf text-2xl text-white"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Change & Enablement</h3>
-                        <p class="text-gray-600">Adoption programs, leadership coaching, and learning journeys to
-                            sustain change.</p>
+                        <h3 class="text-2xl font-bold text-white mb-4">Sustainability</h3>
+                        <p class="text-slate-400 mb-6">Build sustainable business practices that create long-term value.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-emerald-400"></i> ESG Strategy</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-emerald-400"></i> Carbon Neutrality</li>
+                            <li class="flex items-center gap-3 text-sm text-slate-300"><i class="fas fa-check text-emerald-400"></i> Circular Economy</li>
+                        </ul>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-400 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Service Deep Dives -->
-        <section class="py-20 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-                <div id="strategy" class="grid lg:grid-cols-2 gap-10 scroll-fade-left">
-                    <div>
-                        <span class="section-subtitle text-left">Strategy Consulting</span>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Align leadership around bold, measurable bets</h2>
-                        <p class="text-gray-600 mb-6">We facilitate C-suite workshops, pressure-test investments with market data, and turn ambition into a sequenced execution roadmap. Every engagement ends with quantified value hypotheses and the dashboards to track them.</p>
-                        <p class="text-gray-600 mb-6">Our strategists embed with finance, product, and go-to-market leaders to translate vision into capital plans, organizational implications, and milestone cadences so execution teams stay perfectly aligned.</p>
-                        <ul class="space-y-3 text-gray-700">
-                            <li>• Growth strategy, portfolio prioritization, and customer value mapping</li>
-                            <li>• Scenario modeling, investment cases, and KPI architecture</li>
-                            <li>• Board-ready narratives, operating cadence, and PMO stand-up</li>
-                        </ul>
-                        <div class="grid sm:grid-cols-2 gap-4 mt-8">
-                            <div class="p-4 rounded-xl bg-white shadow-sm">
-                                <p class="text-3xl font-bold text-blue-900">15+</p>
-                                <p class="text-sm text-gray-500">Markets evaluated per strategic refresh</p>
-                            </div>
-                            <div class="p-4 rounded-xl bg-white shadow-sm">
-                                <p class="text-3xl font-bold text-blue-900">$2B</p>
-                                <p class="text-sm text-gray-500">Capital allocation influenced in the past year</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card p-8 bg-white">
-                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80" alt="Executive workshop session" class="w-full h-48 object-cover rounded-2xl mb-6" loading="lazy">
-                        <h3 class="text-xl font-semibold mb-4">What you get</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <p class="text-4xl font-bold text-blue-900">6-8 weeks</p>
-                                <p class="text-sm text-gray-500">Average strategy sprint duration</p>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill" style="width: 82%"></div>
-                            </div>
-                            <p class="text-gray-600">Decision-grade insights synthesized from customer, market, and internal performance data sets.</p>
-                        </div>
-                    </div>
+        <!-- Process Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-900/20 to-fuchsia-900/20"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="text-center mb-20">
+                    <span class="inline-block px-4 py-2 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-400 text-sm font-semibold mb-6">OUR PROCESS</span>
+                    <h2 class="text-4xl md:text-6xl font-black text-white">How We Work</h2>
                 </div>
-
-                <div id="digital" class="grid lg:grid-cols-2 gap-10 scroll-fade-right">
-                    <div class="card p-8 bg-white order-2 lg:order-1">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Engineers building digital products" class="w-full h-48 object-cover rounded-2xl mb-6" loading="lazy">
-                        <h3 class="text-xl font-semibold mb-4">Delivery blueprint</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-900 flex items-center justify-center">
-                                    <i class="fas fa-cloud"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">Cloud-native modernization</p>
-                                    <p class="text-sm text-gray-500">Landing zone setup, containerization, and DevSecOps pipelines.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-900 flex items-center justify-center">
-                                    <i class="fas fa-robot"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">AI accelerators</p>
-                                    <p class="text-sm text-gray-500">Use-case discovery through model deployment and tuning.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-900 flex items-center justify-center">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">Security & compliance</p>
-                                    <p class="text-sm text-gray-500">Zero-trust reference architectures mapped to regulatory needs.</p>
-                                </div>
-                            </div>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="relative">
+                        <div class="text-8xl font-black text-violet-500/10 absolute -top-8 -left-4">01</div>
+                        <div class="relative bg-slate-900/50 rounded-3xl p-8 border border-white/5 backdrop-blur-sm">
+                            <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center mb-4"><i class="fas fa-search text-violet-400"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Discovery</h3>
+                            <p class="text-slate-400 text-sm">Deep dive into your business to understand challenges and opportunities.</p>
                         </div>
                     </div>
-                    <div class="order-1 lg:order-2">
-                        <span class="section-subtitle text-left">Digital Transformation</span>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Modern platforms with adoption built-in</h2>
-                        <p class="text-gray-600 mb-6">We pair product strategists with engineers and change partners to deliver experiences that scale. From migration patterns to design systems, every squad comes ready with reusable accelerators.</p>
-                        <p class="text-gray-600 mb-6">Adoption is engineered in from day one—journey mapping, measurement frameworks, and enablement content travel with each release so employees and customers embrace the new experience immediately.</p>
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="p-4 rounded-xl bg-white shadow-sm">
-                                <p class="text-3xl font-bold text-blue-900">40%</p>
-                                <p class="text-sm text-gray-500">Average reduction in manual workflows</p>
-                            </div>
-                            <div class="p-4 rounded-xl bg-white shadow-sm">
-                                <p class="text-3xl font-bold text-blue-900">12 weeks</p>
-                                <p class="text-sm text-gray-500">Typical time to MVP delivery</p>
-                            </div>
-                        </div>
-                        <ul class="space-y-3 text-gray-700 mt-6">
-                            <li>• Experience design systems to keep multi-channel teams aligned</li>
-                            <li>• Data platform blueprints with cataloging, governance, and AI guardrails</li>
-                            <li>• Change playbooks covering communications, training, and success metrics</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="operations" class="grid lg:grid-cols-2 gap-10 scroll-fade-left">
-                    <div>
-                        <span class="section-subtitle text-left">Operations Excellence</span>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Design resilient supply chains and efficient cores</h2>
-                        <p class="text-gray-600 mb-6">We map current-state processes, instrument the data layer, and co-create the playbooks that keep teams on track long after launch. Expect joint war rooms, operational scorecards, and frontline coaching.</p>
-                        <p class="text-gray-600 mb-6">From factories to fulfillment centers, our operators implement automation, digital twins, and performance routines so leaders can anticipate issues, not just react to them.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <span class="text-4xl font-bold text-blue-900">-18%</span>
-                                <p class="text-gray-500">Average inventory and working capital savings unlocked.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="text-4xl font-bold text-blue-900">+25%</span>
-                                <p class="text-gray-500">Throughput uplift from automation and workflow redesign.</p>
-                            </div>
-                        </div>
-                        <ul class="space-y-3 text-gray-700 mt-6">
-                            <li>• Integrated business planning linking demand, supply, and finance</li>
-                            <li>• Smart maintenance programs powered by IoT telemetry</li>
-                            <li>• Lean coaching academies that upskill frontline leaders at scale</li>
-                        </ul>
-                    </div>
-                    <div class="card p-8 bg-white">
-                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Operations control room" class="w-full h-48 object-cover rounded-2xl mb-6" loading="lazy">
-                        <h3 class="text-xl font-semibold mb-4">Toolkits included</h3>
-                        <ul class="space-y-3 text-gray-700">
-                            <li>• Digital twin and scenario planning dashboards</li>
-                            <li>• Process mining diagnostics and automation backlog</li>
-                            <li>• Playbooks for control towers, demand sensing, and S&OP</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="financial" class="grid lg:grid-cols-2 gap-10 scroll-fade-right">
-                    <div class="card p-8 bg-white order-2 lg:order-1">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80" alt="Financial analysts reviewing data" class="w-full h-48 object-cover rounded-2xl mb-6" loading="lazy">
-                        <h3 class="text-xl font-semibold mb-4">Financial Advisory Toolkit</h3>
-                        <ul class="space-y-3 text-gray-700">
-                            <li>• Integrated financial models with driver-based sensitivity analysis</li>
-                            <li>• M&A diligence scorecards and synergy tracking dashboards</li>
-                            <li>• Treasury optimization and working-capital control towers</li>
-                        </ul>
-                        <div class="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                            <p class="text-sm text-gray-500">Engagement cadence</p>
-                            <p class="text-lg font-semibold text-gray-800">Week 2 baseline → Week 5 monetization roadmap → Week 10 execution governance</p>
+                    <div class="relative md:mt-8">
+                        <div class="text-8xl font-black text-fuchsia-500/10 absolute -top-8 -left-4">02</div>
+                        <div class="relative bg-slate-900/50 rounded-3xl p-8 border border-white/5 backdrop-blur-sm">
+                            <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center mb-4"><i class="fas fa-lightbulb text-fuchsia-400"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Strategy</h3>
+                            <p class="text-slate-400 text-sm">Develop tailored solutions aligned with your goals and vision.</p>
                         </div>
                     </div>
-                    <div class="order-1 lg:order-2">
-                        <span class="section-subtitle text-left">Financial Advisory</span>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Turn financial signals into action</h2>
-                        <p class="text-gray-600 mb-6">We blend corporate finance expertise with operator know-how. Whether preparing for a transaction, optimizing performance, or standing up governance, our teams provide live insight so leaders can move fast with confidence.</p>
-                        <p class="text-gray-600 mb-6">Executive teams get clear line-of-sight into value creation levers thanks to integrated reporting packs, scenario analysis, and rituals that keep finance, operations, and product leaders acting on the same signal.</p>
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="p-4 rounded-xl bg-white shadow-sm">
-                                <p class="text-3xl font-bold text-blue-900">$500M+</p>
-                                <p class="text-sm text-gray-500">Value unlocked via synergy tracking the past 24 months</p>
-                            </div>
-                            <div class="p-4 rounded-xl bg-white shadow-sm">
-                                <p class="text-3xl font-bold text-blue-900">2x</p>
-                                <p class="text-sm text-gray-500">Faster close cycles post-transformation</p>
-                            </div>
+                    <div class="relative">
+                        <div class="text-8xl font-black text-pink-500/10 absolute -top-8 -left-4">03</div>
+                        <div class="relative bg-slate-900/50 rounded-3xl p-8 border border-white/5 backdrop-blur-sm">
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center mb-4"><i class="fas fa-rocket text-pink-400"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Execute</h3>
+                            <p class="text-slate-400 text-sm">Implement solutions with precision and agility.</p>
                         </div>
-                        <ul class="space-y-3 text-gray-700 mt-6">
-                            <li>• IPO and transaction readiness programs with data-room support</li>
-                            <li>• Performance turnarounds anchored in zero-based budgeting</li>
-                            <li>• ESG and sustainability reporting integrated with core KPIs</li>
-                        </ul>
+                    </div>
+                    <div class="relative md:mt-8">
+                        <div class="text-8xl font-black text-amber-500/10 absolute -top-8 -left-4">04</div>
+                        <div class="relative bg-slate-900/50 rounded-3xl p-8 border border-white/5 backdrop-blur-sm">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center mb-4"><i class="fas fa-chart-pie text-amber-400"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-2">Optimize</h3>
+                            <p class="text-slate-400 text-sm">Continuously measure, learn, and improve results.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Approach -->
-        <section class="py-16 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 scroll-fade-up">
-                    <span class="section-subtitle">DELIVERY PLAYBOOK</span>
-                    <h2 class="section-title">How We Partner</h2>
+        <!-- FAQ Section -->
+        <section class="py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-sm font-semibold mb-6">FAQ</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-white">Common Questions</h2>
                 </div>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                        <p class="text-blue-900 font-bold text-xl mb-2">01</p>
-                        <h4 class="font-semibold mb-2">Diagnose</h4>
-                        <p class="text-gray-600 text-sm">Rapid discovery, stakeholder alignment, and value hypothesis.
-                        </p>
+                <div class="space-y-4">
+                    <div class="accordion-item bg-slate-900/50 rounded-2xl border border-white/5 overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-semibold text-white">How do you customize solutions for different industries?</span>
+                            <i class="fas fa-chevron-down accordion-icon text-violet-400"></i>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-slate-400">We combine deep industry expertise with our proven methodologies. Each engagement starts with a thorough assessment of your specific industry challenges, competitive landscape, and regulatory environment to deliver tailored solutions.</p>
+                        </div>
                     </div>
-                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                        <p class="text-blue-900 font-bold text-xl mb-2">02</p>
-                        <h4 class="font-semibold mb-2">Design</h4>
-                        <p class="text-gray-600 text-sm">Blueprint operating model, tech stack, and rollout plan.</p>
+                    <div class="accordion-item bg-slate-900/50 rounded-2xl border border-white/5 overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-semibold text-white">What is the typical engagement timeline?</span>
+                            <i class="fas fa-chevron-down accordion-icon text-fuchsia-400"></i>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-slate-400">Engagement timelines vary based on scope and complexity. Strategy projects typically run 8-12 weeks, while transformation initiatives can span 6-18 months. We always define clear milestones and deliverables upfront.</p>
+                        </div>
                     </div>
-                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                        <p class="text-blue-900 font-bold text-xl mb-2">03</p>
-                        <h4 class="font-semibold mb-2">Deliver</h4>
-                        <p class="text-gray-600 text-sm">Cross-functional squads execute with weekly outcomes.</p>
+                    <div class="accordion-item bg-slate-900/50 rounded-2xl border border-white/5 overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-semibold text-white">How do you measure success?</span>
+                            <i class="fas fa-chevron-down accordion-icon text-pink-400"></i>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-slate-400">We establish KPIs aligned with your business objectives at project inception. Our approach emphasizes measurable outcomes—whether it's revenue growth, cost reduction, efficiency gains, or market share improvement.</p>
+                        </div>
                     </div>
-                    <div class="card p-5 text-center scroll-fade-up hover-lift" style="animation-delay: 0.4s">
-                        <p class="text-blue-900 font-bold text-xl mb-2">04</p>
-                        <h4 class="font-semibold mb-2">Scale</h4>
-                        <p class="text-gray-600 text-sm">Capabilities transferred; governance and KPIs locked in.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Packages -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 scroll-fade-up">
-                    <span class="section-subtitle">ENGAGEMENT MODELS</span>
-                    <h2 class="section-title">Choose the Model That Fits</h2>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card p-8 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                        <p class="text-sm text-blue-900 font-semibold mb-2">ADVISORY</p>
-                        <h3 class="text-2xl font-bold mb-4">Executive Advisory</h3>
-                        <p class="text-gray-600 mb-6">C-suite guidance, strategic reviews, and targeted interventions.
-                        </p>
-                        <ul class="space-y-3 text-gray-700 mb-6">
-                            <li>• Quarterly strategy councils</li>
-                            <li>• KPI and value tracking</li>
-                            <li>• Deal and portfolio reviews</li>
-                        </ul>
-                        <a href="contact.html" class="btn btn-secondary w-full hover-lift">Schedule Intro</a>
-                    </div>
-                    <div class="card p-8 border-2 border-blue-900 scroll-fade-up hover-lift hover-shine" style="animation-delay: 0.2s">
-                        <p class="text-sm text-blue-900 font-semibold mb-2">SQUADS</p>
-                        <h3 class="text-2xl font-bold mb-4">Embedded Squads</h3>
-                        <p class="text-gray-600 mb-6">Cross-functional teams (strategy, design, engineering, data) for
-                            delivery.</p>
-                        <ul class="space-y-3 text-gray-700 mb-6">
-                            <li>• 2-3 month launch sprints</li>
-                            <li>• Weekly executive readouts</li>
-                            <li>• Shared OKRs and dashboards</li>
-                        </ul>
-                        <a href="contact.html" class="btn btn-primary w-full hover-lift">Launch a Squad</a>
-                    </div>
-                    <div class="card p-8 scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                        <p class="text-sm text-blue-900 font-semibold mb-2">TRANSFORMATION</p>
-                        <h3 class="text-2xl font-bold mb-4">Program Leadership</h3>
-                        <p class="text-gray-600 mb-6">End-to-end PMO, change management, and capability building.</p>
-                        <ul class="space-y-3 text-gray-700 mb-6">
-                            <li>• Multi-workstream oversight</li>
-                            <li>• Risk and dependency management</li>
-                            <li>• Embedded coaching and enablement</li>
-                        </ul>
-                        <a href="contact.html" class="btn btn-secondary w-full hover-lift">Design a Program</a>
+                    <div class="accordion-item bg-slate-900/50 rounded-2xl border border-white/5 overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-6 text-left">
+                            <span class="text-lg font-semibold text-white">Do you offer ongoing support after project completion?</span>
+                            <i class="fas fa-chevron-down accordion-icon text-amber-400"></i>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-slate-400">Absolutely. We offer various post-engagement support models including advisory retainers, implementation support, and capability building programs to ensure lasting impact and knowledge transfer.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-            <div
-                class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                <div>
-                    <h3 class="text-3xl font-bold mb-2">Ready to see impact in weeks?</h3>
-                    <p class="text-blue-100">We assemble teams fast, align on outcomes, and start delivering from sprint
-                        one.</p>
-                </div>
-                <div class="flex gap-3">
-                    <a href="contact.html" class="btn btn-white">Book a Call</a>
-                    <a href="user-dashboard.html" class="btn btn-secondary-light">Client Dashboard</a>
+        <!-- CTA Section -->
+        <section class="py-32">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative rounded-[48px] overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-violet-600 via-fuchsia-600 to-pink-600 gradient-animate"></div>
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48Y2lyY2xlIGN4PSIyIiBjeT0iMiIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9zdmc+')] opacity-30"></div>
+                    <div class="relative p-12 md:p-20 text-center">
+                        <h2 class="text-4xl md:text-6xl font-black text-white mb-6">Ready to Transform?</h2>
+                        <p class="text-white/80 text-xl max-w-2xl mx-auto mb-10">Let's discuss how our services can help you achieve your most ambitious goals.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="contact.html" class="px-10 py-5 rounded-2xl bg-white text-violet-700 font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all">Schedule Consultation</a>
+                            <a href="about.html" class="px-10 py-5 rounded-2xl border-2 border-white text-white font-bold text-lg hover:bg-white/10 transition-all">Learn About Us</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-gray-200 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
-            <div>
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-xl">E</span>
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center"><span class="text-white font-bold text-xl">E</span></div>
+                        <span class="font-bold text-xl text-white">Everest</span>
                     </div>
-                    <span class="font-bold text-xl text-white">Everest Consultancy</span>
+                    <p class="text-slate-500">Transforming businesses through innovation and strategic excellence.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-violet-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-violet-600 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-violet-600 transition"><i class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-300">Strategy, digital, and delivery partners for modern enterprises.</p>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Services</h4>
+                    <ul class="space-y-3 text-slate-500">
+                        <li><a href="services.html" class="hover:text-white transition">Strategy Consulting</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Digital Transformation</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Operations Excellence</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Financial Advisory</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Company</h4>
+                    <ul class="space-y-3 text-slate-500">
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="industries.html" class="hover:text-white transition">Industries</a></li>
+                        <li><a href="insights.html" class="hover:text-white transition">Insights</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Newsletter</h4>
+                    <p class="text-slate-500 mb-4">Get the latest insights delivered to your inbox.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500">
+                        <button class="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold hover:shadow-lg transition">Subscribe</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <h4 class="font-semibold mb-3">Company</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="about.html" class="hover:text-white">About</a></li>
-                    <li><a href="services.html" class="hover:text-white">Services</a></li>
-                    <li><a href="industries.html" class="hover:text-white">Industries</a></li>
-                    <li><a href="insights.html" class="hover:text-white">Insights</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-3">Resources</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="contact.html" class="hover:text-white">Contact</a></li>
-                    <li><a href="user-dashboard.html" class="hover:text-white">Client Dashboard</a></li>
-                    <li><a href="login.html" class="hover:text-white">Login</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-3">Newsletter</h4>
-                <p class="text-sm text-gray-400 mb-3">Monthly insights on strategy, technology, and delivery.</p>
-                <form class="space-y-2">
-                    <input type="email" placeholder="Email address" class="input">
-                    <button class="btn btn-primary w-full" type="submit">Subscribe</button>
-                </form>
-            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-slate-600 text-sm">© 2026 Everest Consultancy. All rights reserved.</div>
         </div>
-        <div class="mt-8 text-center text-xs text-gray-500">© 2025 Everest Consultancy. All rights reserved.</div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const content = button.nextElementSibling;
+            const isOpen = item.classList.contains('open');
+            
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.accordion-content').style.maxHeight = '0';
+            });
+            
+            if (!isOpen) {
+                item.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+    </script>
 </body>
 
 </html>

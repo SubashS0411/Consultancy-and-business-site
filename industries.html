@@ -5,334 +5,456 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industries - Everest Consultancy</title>
-    <meta name="description"
-        content="See how Everest Consultancy accelerates outcomes across technology, healthcare, finance, manufacturing, and more.">
+    <meta name="description" content="Deep industry expertise across technology, healthcare, finance, manufacturing, and more.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        blue: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#020617',
-                        },
-                        gold: {
-                            50: '#fefce8',
-                            100: '#fef9c3',
-                            200: '#fef08a',
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                            700: '#a16207',
-                            800: '#854d0e',
-                            900: '#713f12',
-                            950: '#422006',
-                        }
+                        blue: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
+                        gold: { 50: '#fefce8', 100: '#fef9c3', 200: '#fef08a', 300: '#fde047', 400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207', 800: '#854d0e', 900: '#713f12', 950: '#422006' },
+                        warm: { 50: '#fdf8f6', 100: '#f2e8e5', 200: '#eaddd7', 300: '#e0cec7', 400: '#d2bab0', 500: '#bfa094', 600: '#a18072', 700: '#977669', 800: '#846358', 900: '#43302b' }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <style>
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        @keyframes morph { 0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } 50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; } }
+        .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+        .morph { animation: morph 8s ease-in-out infinite; }
+        .industry-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .industry-card:hover { transform: translateY(-16px) rotateX(5deg); }
+        .glass-warm { background: rgba(253, 248, 246, 0.9); backdrop-filter: blur(20px); }
+        .diagonal-slice { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+        .diagonal-slice-reverse { clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
+        .hover-lift { transition: all 0.4s ease; }
+        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+        .tab-active { background: linear-gradient(135deg, #f97316, #ea580c); color: white; }
+        .counter { font-feature-settings: 'tnum' on, 'lnum' on; }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-warm-50 text-slate-800 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
+    <nav id="navbar" class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-white">Everest Consultancy</a>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold transition flex items-center">
-                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="index.html">Home Version 1</a>
-                                <a href="index2.html">Home Version 2</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="about.html" class="text-white hover:text-gold transition">About</a>
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold transition flex items-center">
-                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="services.html#strategy">Strategy Consulting</a>
-                                <a href="services.html#digital">Digital Transformation</a>
-                                <a href="services.html#operations">Operations Excellence</a>
-                                <a href="services.html#financial">Financial Advisory</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="industries.html" class="text-gold font-semibold">Industries</a>
-                    <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold transition flex items-center">
-                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="admin-dashboard.html">Admin Dashboard</a>
-                                <a href="user-dashboard.html">User Dashboard</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
-                </div>
-
-                <!-- Right side -->
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition">
-                        <i class="fas fa-globe"></i>
-                    </button>
-                    <div class="hidden md:flex items-center space-x-4">
-                        <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
-                        <a href="signup.html" class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
-                            <i class="fas fa-user-plus"></i>
-                        </a>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <span class="text-white font-bold text-xl">E</span>
                     </div>
-                    <div class="md:hidden flex items-center">
-                        <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
-                            <i class="fas fa-bars text-2xl"></i>
-                        </button>
+                    <span class="font-bold text-xl text-white">Everest</span>
+                </div>
+                <div class="hidden md:flex gap-8 items-center">
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold-400 transition flex items-center">Home <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="nav-dropdown-menu"><div><a href="index.html">Home Version 1</a><a href="index2.html">Home Version 2</a></div></div>
                     </div>
+                    <a href="about.html" class="text-white hover:text-gold-400 transition">About</a>
+                    <a href="services.html" class="text-white hover:text-gold-400 transition">Services</a>
+                    <a href="industries.html" class="text-gold-400 font-semibold">Industries</a>
+                    <a href="insights.html" class="text-white hover:text-gold-400 transition">Insights</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold-400 transition flex items-center">Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="nav-dropdown-menu"><div><a href="admin-dashboard.html">Admin Dashboard</a><a href="user-dashboard.html">User Dashboard</a></div></div>
+                    </div>
+                    <a href="contact.html" class="text-white hover:text-gold-400 transition">Contact</a>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-white/20 rounded-lg text-white/80 hover:bg-white/10 transition"><i class="fas fa-globe"></i></button>
+                    <a href="login.html" class="hidden md:inline px-4 py-2 text-white hover:text-gold-400 transition">Login</a>
+                    <a href="signup.html" class="hidden md:inline px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all">Sign Up</a>
+                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
         </div>
-
-        <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <div>
-                    <button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
-                        Home <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="home-dropdown" class="hidden pl-4">
-                        <a href="index.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 1</a>
-                        <a href="index2.html" class="block px-3 py-2 text-sm hover:text-gold">Home Version 2</a>
-                    </div>
-                </div>
-                <a href="about.html" class="block px-3 py-2 text-base font-medium hover:text-gold">About</a>
-                <a href="services.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Services</a>
-                <a href="industries.html" class="block px-3 py-2 text-base font-medium text-gold">Industries</a>
-                <a href="insights.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Insights</a>
-                <div>
-                    <button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-base font-medium hover:text-gold">
-                        Dashboard <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="dashboard-dropdown" class="hidden pl-4">
-                        <a href="admin-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">Admin Dashboard</a>
-                        <a href="user-dashboard.html" class="block px-3 py-2 text-sm hover:text-gold">User Dashboard</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="block px-3 py-2 text-base font-medium hover:text-gold">Contact</a>
-                <div class="pt-4 border-t border-slate-700 mt-2">
-                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium hover:text-gold">Login</a>
-                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
-                </div>
+            <div class="px-4 pt-2 pb-4 space-y-2 bg-slate-900/95 backdrop-blur-lg border-t border-white/10">
+                <div><button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Home <i class="fas fa-chevron-down text-xs"></i></button><div id="home-dropdown" class="hidden pl-4"><a href="index.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Home Version 1</a><a href="index2.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Home Version 2</a></div></div>
+                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">About</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-gold-400 font-semibold">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Insights</a>
+                <div><button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Dashboard <i class="fas fa-chevron-down text-xs"></i></button><div id="dashboard-dropdown" class="hidden pl-4"><a href="admin-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Admin Dashboard</a><a href="user-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">User Dashboard</a></div></div>
+                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Contact</a>
+                <div class="pt-4 border-t border-white/10 space-y-2"><a href="login.html" class="block text-center px-4 py-2 text-gray-300 hover:text-orange-400">Login</a><a href="signup.html" class="block text-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold">Sign Up</a></div>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Hero -->
-        <section
-            class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white pt-28 md:pt-32 pb-20">
-            <div class="absolute inset-0 bg-blob opacity-30"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-10 items-center">
-                    <div class="space-y-6 scroll-fade-left">
-                        <span class="text-sm uppercase tracking-widest text-blue-100">Industries</span>
-                        <h1 class="text-4xl md:text-5xl font-bold leading-tight">Sector-specific expertise with global
-                            execution</h1>
-                        <p class="text-lg text-blue-50 max-w-3xl">We pair industry specialists with cross-functional
-                            squads to deliver outcomes that respect the realities of each sector—regulation, risk, and
-                            pace.</p>
+        <!-- Hero - Magazine Style -->
+        <section class="relative min-h-screen flex items-center diagonal-slice bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900 overflow-hidden">
+            <div class="absolute inset-0">
+                <div class="absolute top-20 right-20 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[100px] morph"></div>
+                <div class="absolute bottom-20 left-20 w-[400px] h-[400px] bg-amber-500/15 rounded-full blur-[80px]"></div>
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.02\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pt-40">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8">
+                        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-orange-500/10 border border-orange-500/30">
+                            <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                            <span class="text-orange-300 text-sm font-medium tracking-wider uppercase">Sector Intelligence</span>
+                        </div>
+                        <h1 class="text-5xl md:text-7xl font-black text-white leading-[1.1]">
+                            Industry<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400">Mastery</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 max-w-lg leading-relaxed">Deep domain expertise combined with cutting-edge technology. We don't just consult—we transform entire ecosystems.</p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="contact.html" class="btn btn-white hover-lift">Talk to an Industry Lead</a>
-                            <a href="insights.html" class="btn btn-secondary hover-lift">View Case Insights</a>
+                            <a href="#industries" class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold text-lg flex items-center gap-3 hover:shadow-2xl hover:shadow-orange-500/30 transition-all">
+                                Explore Sectors <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+                            </a>
+                            <a href="contact.html" class="px-8 py-4 rounded-2xl bg-white text-slate-900 font-bold hover:bg-orange-100 hover:shadow-lg transition-all">
+                                Talk to Expert
+                            </a>
                         </div>
                     </div>
-                    <div class="card p-8 glass scroll-fade-right">
-                        <h3 class="text-xl font-bold mb-4 text-gray-900">Coverage at a glance</h3>
-                        <div class="grid grid-cols-2 gap-4 text-gray-700">
-                            <div class="scroll-fade-up" style="animation-delay: 0.1s">
-                                <p class="text-3xl font-bold text-blue-900"><span class="counter" data-count="12">0</span></p>
-                                <p class="text-sm">Core industries</p>
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-4">
+                                <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-6 hover-lift border border-white/10">
+                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4"><i class="fas fa-building text-2xl text-white"></i></div>
+                                    <h3 class="text-xl font-bold text-white">Financial Services</h3>
+                                    <p class="text-gray-400 text-sm mt-2">Banking, Insurance, FinTech</p>
+                                    <div class="mt-4 flex items-center text-orange-400 text-sm font-medium"><span>42+ Projects</span><i class="fas fa-arrow-right ml-2"></i></div>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-6 hover-lift border border-white/10">
+                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-4"><i class="fas fa-heartbeat text-2xl text-white"></i></div>
+                                    <h3 class="text-xl font-bold text-white">Healthcare</h3>
+                                    <p class="text-gray-400 text-sm mt-2">Hospitals, Pharma, MedTech</p>
+                                    <div class="mt-4 flex items-center text-orange-400 text-sm font-medium"><span>38+ Projects</span><i class="fas fa-arrow-right ml-2"></i></div>
+                                </div>
                             </div>
-                            <div class="scroll-fade-up" style="animation-delay: 0.2s">
-                                <p class="text-3xl font-bold text-blue-900"><span class="counter" data-count="35">0</span>+</p>
-                                <p class="text-sm">Country deployments</p>
-                            </div>
-                            <div class="scroll-fade-up" style="animation-delay: 0.3s">
-                                <p class="text-3xl font-bold text-blue-900"><span class="counter" data-count="200">0</span>+</p>
-                                <p class="text-sm">Specialists & SMEs</p>
-                            </div>
-                            <div class="scroll-fade-up" style="animation-delay: 0.4s">
-                                <p class="text-3xl font-bold text-blue-900">$<span class="counter" data-count="2">0</span>B</p>
-                                <p class="text-sm">Value delivered</p>
+                            <div class="space-y-4 mt-8">
+                                <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-6 hover-lift border border-white/10">
+                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4"><i class="fas fa-microchip text-2xl text-white"></i></div>
+                                    <h3 class="text-xl font-bold text-white">Technology</h3>
+                                    <p class="text-gray-400 text-sm mt-2">SaaS, AI/ML, Enterprise</p>
+                                    <div class="mt-4 flex items-center text-orange-400 text-sm font-medium"><span>67+ Projects</span><i class="fas fa-arrow-right ml-2"></i></div>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-6 hover-lift border border-white/10">
+                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-4"><i class="fas fa-industry text-2xl text-white"></i></div>
+                                    <h3 class="text-xl font-bold text-white">Manufacturing</h3>
+                                    <p class="text-gray-400 text-sm mt-2">Automotive, Aerospace, CPG</p>
+                                    <div class="mt-4 flex items-center text-orange-400 text-sm font-medium"><span>51+ Projects</span><i class="fas fa-arrow-right ml-2"></i></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-warm-50 to-transparent"></div>
         </section>
 
-        <!-- Industry Grid -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 scroll-fade-up">
-                    <span class="section-subtitle">SECTORS</span>
-                    <h2 class="section-title">Where We Create Impact</h2>
-                    <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Each sector team blends regulatory knowledge,
-                        product expertise, and delivery discipline to move fast without breaking rules.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Technology</h3>
-                        <p class="text-gray-600">Cloud-native scale, platform modernization, product growth, and
-                            AI-enabled services.</p>
-                    </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Financial Services</h3>
-                        <p class="text-gray-600">Digital banking, risk and compliance, core replacement, and customer
-                            experience.</p>
-                    </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Healthcare & Life Sciences</h3>
-                        <p class="text-gray-600">Patient journeys, payer-provider integration, data interoperability,
-                            and automation.</p>
-                    </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Manufacturing & Supply Chain</h3>
-                        <p class="text-gray-600">Smart factories, demand planning, resilience, and ESG-aligned
-                            operations.</p>
-                    </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Retail & Consumer</h3>
-                        <p class="text-gray-600">Omnichannel experience, personalization, and margin uplift through
-                            automation.</p>
-                    </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.8s">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Energy & Utilities</h3>
-                        <p class="text-gray-600">Grid modernization, asset performance, and transition to sustainable
-                            portfolios.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Case Highlights -->
-        <section class="py-16 bg-gray-50">
+        <!-- Industry Stats Strip -->
+        <section class="py-12 bg-warm-50 -mt-16 relative z-10">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 scroll-fade-up">
-                    <span class="section-subtitle">RESULTS</span>
-                    <h2 class="section-title">Representative Wins</h2>
+                <div class="bg-white rounded-3xl shadow-2xl shadow-slate-900/10 p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <p class="text-5xl font-black text-orange-500 counter">12+</p>
+                        <p class="text-slate-500 mt-1">Industry Verticals</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-5xl font-black text-slate-800 counter">500+</p>
+                        <p class="text-slate-500 mt-1">Transformations</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-5xl font-black text-amber-500 counter">$2.4B</p>
+                        <p class="text-slate-500 mt-1">Value Created</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-5xl font-black text-slate-800 counter">38+</p>
+                        <p class="text-slate-500 mt-1">Countries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Industries Section -->
+        <section id="industries" class="py-24 bg-warm-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-semibold mb-4">DEEP EXPERTISE</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900">Sectors We <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Transform</span></h2>
+                    <p class="text-slate-500 text-lg mt-4 max-w-2xl mx-auto">Each industry has unique challenges. Our specialized teams bring decades of domain expertise combined with innovative solutions.</p>
+                </div>
+
+                <!-- Industry Cards - Magazine Layout -->
+                <div class="space-y-8">
+                    <!-- Featured Industry -->
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[32px] overflow-hidden shadow-2xl">
+                        <div class="grid lg:grid-cols-2">
+                            <div class="p-12 lg:p-16 flex flex-col justify-center">
+                                <span class="text-orange-400 text-sm font-semibold tracking-widest uppercase mb-4">Featured Sector</span>
+                                <h3 class="text-4xl font-black text-white mb-4">Financial Services</h3>
+                                <p class="text-gray-300 text-lg mb-8">From legacy core modernization to AI-powered risk management, we help financial institutions navigate digital disruption while maintaining regulatory compliance.</p>
+                                <div class="grid grid-cols-3 gap-6 mb-8">
+                                    <div><p class="text-3xl font-bold text-orange-400">$890M+</p><p class="text-gray-400 text-sm">Cost Savings</p></div>
+                                    <div><p class="text-3xl font-bold text-white">42+</p><p class="text-gray-400 text-sm">Clients</p></div>
+                                    <div><p class="text-3xl font-bold text-white">99.9%</p><p class="text-gray-400 text-sm">Uptime</p></div>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-8">
+                                    <span class="px-4 py-2 rounded-full bg-white/10 text-white text-sm">Core Banking</span>
+                                    <span class="px-4 py-2 rounded-full bg-white/10 text-white text-sm">RegTech</span>
+                                    <span class="px-4 py-2 rounded-full bg-white/10 text-white text-sm">Digital Payments</span>
+                                    <span class="px-4 py-2 rounded-full bg-white/10 text-white text-sm">Wealth Management</span>
+                                </div>
+                                <a href="contact.html" class="inline-flex items-center gap-2 text-orange-400 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="relative h-80 lg:h-auto">
+                                <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800" alt="Financial Services" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Industry Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Healthcare -->
+                        <div class="industry-card bg-white rounded-3xl overflow-hidden shadow-lg group">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800" alt="Healthcare" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-semibold">Healthcare</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Healthcare & Life Sciences</h3>
+                                <p class="text-slate-500 mb-4">Patient experience, clinical operations, and digital health solutions that improve outcomes.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-emerald-600 font-semibold">38+ Projects</span>
+                                    <a href="contact.html" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition"><i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technology -->
+                        <div class="industry-card bg-white rounded-3xl overflow-hidden shadow-lg group">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Technology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="px-3 py-1 rounded-full bg-purple-500 text-white text-xs font-semibold">Technology</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Technology & Software</h3>
+                                <p class="text-slate-500 mb-4">Scale operations, accelerate product development, and optimize go-to-market strategies.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-purple-600 font-semibold">67+ Projects</span>
+                                    <a href="contact.html" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition"><i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manufacturing -->
+                        <div class="industry-card bg-white rounded-3xl overflow-hidden shadow-lg group">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800" alt="Manufacturing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-semibold">Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Manufacturing & Industrial</h3>
+                                <p class="text-slate-500 mb-4">Smart factories, supply chain optimization, and Industry 4.0 transformations.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-orange-600 font-semibold">51+ Projects</span>
+                                    <a href="contact.html" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition"><i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Energy -->
+                        <div class="industry-card bg-white rounded-3xl overflow-hidden shadow-lg group">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800" alt="Energy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="px-3 py-1 rounded-full bg-yellow-500 text-white text-xs font-semibold">Energy</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Energy & Utilities</h3>
+                                <p class="text-slate-500 mb-4">Grid modernization, renewable integration, and sustainable operations excellence.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-yellow-600 font-semibold">29+ Projects</span>
+                                    <a href="contact.html" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition"><i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Retail -->
+                        <div class="industry-card bg-white rounded-3xl overflow-hidden shadow-lg group">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" alt="Retail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="px-3 py-1 rounded-full bg-pink-500 text-white text-xs font-semibold">Retail</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Retail & Consumer</h3>
+                                <p class="text-slate-500 mb-4">Omnichannel excellence, personalization engines, and supply chain resilience.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-pink-600 font-semibold">45+ Projects</span>
+                                    <a href="contact.html" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition"><i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Telecom -->
+                        <div class="industry-card bg-white rounded-3xl overflow-hidden shadow-lg group">
+                            <div class="h-48 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Telecom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="px-3 py-1 rounded-full bg-blue-500 text-white text-xs font-semibold">Telecom</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Telecom & Media</h3>
+                                <p class="text-slate-500 mb-4">5G strategies, content monetization, and customer experience transformation.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-blue-600 font-semibold">33+ Projects</span>
+                                    <a href="contact.html" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition"><i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Preview -->
+        <section class="py-24 bg-slate-900 diagonal-slice-reverse">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                    <div>
+                        <span class="text-orange-400 text-sm font-semibold tracking-widest uppercase">Success Stories</span>
+                        <h2 class="text-4xl font-black text-white mt-2">Real Results, Real Impact</h2>
+                    </div>
+                    <a href="insights.html" class="inline-flex items-center gap-2 text-orange-400 font-semibold hover:gap-4 transition-all">View All Cases <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                        <p class="text-sm text-blue-900 font-semibold mb-2">FINANCIAL SERVICES</p>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Digital Core Launch</h3>
-                        <p class="text-gray-600">Stood up a new digital bank in 9 months; 1M customers onboarded with
-                            NPS 65.</p>
+                    <div class="group">
+                        <div class="bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-orange-500/50 transition-all h-full">
+                            <span class="inline-block px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold mb-4">Banking</span>
+                            <h3 class="text-xl font-bold text-white mb-3">Global Bank Digital Transformation</h3>
+                            <p class="text-gray-400 mb-6">Complete core banking modernization reducing transaction time by 80%.</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Cost Reduction</span><span class="text-white font-bold">$240M</span></div>
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Time to Market</span><span class="text-white font-bold">-65%</span></div>
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Customer NPS</span><span class="text-white font-bold">+42+ pts</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                        <p class="text-sm text-blue-900 font-semibold mb-2">MANUFACTURING</p>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Smart Factory Uplift</h3>
-                        <p class="text-gray-600">IoT retrofit and predictive maintenance reduced downtime by 27% across
-                            4 plants.</p>
+                    <div class="group">
+                        <div class="bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-orange-500/50 transition-all h-full">
+                            <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">Healthcare</span>
+                            <h3 class="text-xl font-bold text-white mb-3">Hospital Network Integration</h3>
+                            <p class="text-gray-400 mb-6">Unified patient records across 120+ facilities with AI-powered diagnostics.</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Patient Wait Time</span><span class="text-white font-bold">-45%</span></div>
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Diagnosis Accuracy</span><span class="text-white font-bold">+28%</span></div>
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Staff Efficiency</span><span class="text-white font-bold">+35%</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card p-6 scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                        <p class="text-sm text-blue-900 font-semibold mb-2">HEALTHCARE</p>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Care Journey Redesign</h3>
-                        <p class="text-gray-600">Digitized patient intake and triage, cutting wait times by 40% and
-                            boosting CSAT.</p>
+                    <div class="group">
+                        <div class="bg-white/5 backdrop-blur rounded-3xl p-8 border border-white/10 hover:border-orange-500/50 transition-all h-full">
+                            <span class="inline-block px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-semibold mb-4">Manufacturing</span>
+                            <h3 class="text-xl font-bold text-white mb-3">Smart Factory Implementation</h3>
+                            <p class="text-gray-400 mb-6">Industry 4.0 transformation with predictive maintenance and IoT integration.</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Downtime</span><span class="text-white font-bold">-73%</span></div>
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Quality Defects</span><span class="text-white font-bold">-58%</span></div>
+                                <div class="flex items-center justify-between"><span class="text-gray-500">Output</span><span class="text-white font-bold">+40%</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-            <div
-                class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 scroll-fade-up">
-                <div>
-                    <h3 class="text-3xl font-bold mb-2">Need a sector specialist on your next initiative?</h3>
-                    <p class="text-blue-100">We will assemble the right experts, validate the value case, and start
-                        within weeks.</p>
-                </div>
-                <div class="flex gap-3">
-                    <a href="contact.html" class="btn btn-white hover-lift">Book a Call</a>
-                    <a href="user-dashboard.html" class="btn btn-secondary hover-lift">Client Dashboard</a>
+        <!-- CTA Section -->
+        <section class="py-10 md:py-12 bg-warm-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative rounded-[40px] overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500"></div>
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+                    <div class="relative z-10 p-12 md:p-20 text-center">
+                        <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Ready to Transform Your Industry?</h2>
+                        <p class="text-white/90 text-xl max-w-2xl mx-auto mb-10">Let's discuss how our industry expertise can accelerate your business objectives. Get a free consultation with our sector specialists.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="contact.html" class="px-10 py-5 rounded-2xl bg-white text-slate-900 font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all">Schedule Consultation</a>
+                            <a href="insights.html" class="px-10 py-5 rounded-2xl border-2 border-white text-white font-bold text-lg hover:bg-white/10 transition-all">Download Industry Report</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-gray-200 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
-            <div>
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-xl">E</span>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center"><span class="text-white font-bold text-xl">E</span></div>
+                        <span class="font-bold text-xl text-white">Everest</span>
                     </div>
-                    <span class="font-bold text-xl text-white">Everest Consultancy</span>
+                    <p class="text-gray-400">Transforming industries through innovation, expertise, and unwavering commitment to excellence.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <p class="text-sm text-gray-300">Strategy, digital, and delivery partners for modern enterprises.</p>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Industries</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-400 transition">Financial Services</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Healthcare</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Technology</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Manufacturing</a></li>
+                        <li><a href="#" class="hover:text-orange-400 transition">Energy & Utilities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Company</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="about.html" class="hover:text-orange-400 transition">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-orange-400 transition">Services</a></li>
+                        <li><a href="insights.html" class="hover:text-orange-400 transition">Insights</a></li>
+                        <li><a href="contact.html" class="hover:text-orange-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Get Updates</h4>
+                    <p class="text-gray-400 mb-4">Industry insights and transformation trends delivered weekly.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500">
+                        <button class="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold hover:shadow-lg hover:shadow-orange-500/30 transition">Subscribe</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <h4 class="font-semibold mb-3">Company</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="about.html" class="hover:text-white">About</a></li>
-                    <li><a href="services.html" class="hover:text-white">Services</a></li>
-                    <li><a href="industries.html" class="hover:text-white">Industries</a></li>
-                    <li><a href="insights.html" class="hover:text-white">Insights</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-3">Resources</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="contact.html" class="hover:text-white">Contact</a></li>
-                    <li><a href="user-dashboard.html" class="hover:text-white">Client Dashboard</a></li>
-                    <li><a href="login.html" class="hover:text-white">Login</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-3">Newsletter</h4>
-                <p class="text-sm text-gray-400 mb-3">Monthly insights on strategy, technology, and delivery.</p>
-                <form class="space-y-2">
-                    <input type="email" placeholder="Email address" class="input">
-                    <button class="btn btn-primary w-full" type="submit">Subscribe</button>
-                </form>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
+                © 2026 Everest Consultancy. All rights reserved. | <a href="#" class="hover:text-orange-400">Privacy</a> | <a href="#" class="hover:text-orange-400">Terms</a>
             </div>
         </div>
-        <div class="mt-8 text-center text-xs text-gray-500">© 2025 Everest Consultancy. All rights reserved.</div>
     </footer>
 
     <script src="js/main.js"></script>

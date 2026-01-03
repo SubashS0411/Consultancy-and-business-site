@@ -61,16 +61,20 @@ class Navigation {
     if (!this.mobileMenuBtn || !this.mobileMenu) return;
 
     this.mobileMenuBtn.addEventListener('click', () => {
-      this.mobileMenu.classList.toggle('hidden');
-      this.mobileMenuBtn.setAttribute('aria-expanded', 
-        this.mobileMenuBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-      );
+      const isHidden = this.mobileMenu.classList.toggle('hidden');
+      const isOpen = !isHidden;
+
+      this.mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('mobile-menu-open', isOpen);
+      this.navbar?.classList.toggle('nav-open', isOpen);
     });
 
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         this.mobileMenu.classList.add('hidden');
         this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('mobile-menu-open');
+        this.navbar?.classList.remove('nav-open');
       });
     });
   }
@@ -577,6 +581,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.openModal = (id) => new Modal(id).open();
   window.closeModal = (id) => new Modal(id).close();
   window.showToast = (title, msg, type) => Toast.show(title, msg, type);
+
+  injectGlobalGallery();
 });
 
 // ============================================================================
@@ -903,4 +909,85 @@ function initScrollProgress() {
 
 // Initialize scroll progress
 initScrollProgress();
+
+// ============================================================================
+// GLOBAL IMAGE GALLERY INJECTION
+// ============================================================================
+
+function injectGlobalGallery() {
+  if (!document.body || document.body.dataset.galleryInjected === 'true') {
+    return;
+  }
+
+  if (document.querySelector('.global-gallery-section')) {
+    document.body.dataset.galleryInjected = 'true';
+    return;
+  }
+
+  const galleryItems = [
+    {
+      src: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80',
+      alt: 'Strategy workshop with sticky notes',
+      tag: 'Strategy Lab',
+      title: 'Immersive CX blueprinting'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80',
+      alt: 'Leaders reviewing analytics dashboard',
+      tag: 'Data Pulse',
+      title: 'Live performance cockpit'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1503428593586-e225b39bddfe?auto=format&fit=crop&w=900&q=80',
+      alt: 'Consultants collaborating with tablets',
+      tag: 'Collab Sprint',
+      title: 'Prototype to launch in 30 days'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80',
+      alt: 'Leaders presenting to executive board',
+      tag: 'Innovation Studio',
+      title: 'Human + AI decision theatre'
+    }
+  ];
+
+  const cardsMarkup = galleryItems.map((item) => `
+      <figure class="global-gallery-card">
+        <img src="${item.src}" alt="${item.alt}" loading="lazy">
+        <figcaption>
+          <span>${item.tag}</span>
+          <strong>${item.title}</strong>
+        </figcaption>
+      </figure>
+    `).join('');
+
+  const gallerySection = document.createElement('section');
+  gallerySection.className = 'global-gallery-section scroll-fade-up';
+  gallerySection.innerHTML = `
+    <div class="global-gallery-shell">
+      <div class="global-gallery-heading">
+        <span>Visual Stories</span>
+        <h2>Strategy In Motion</h2>
+        <p>Snapshots from workshops, immersion labs, and live deployments that illustrate how we translate bold ideas into tangible momentum.</p>
+        <div class="global-gallery-chip-row">
+          <span class="global-gallery-chip">Advisory</span>
+          <span class="global-gallery-chip">Transformation</span>
+          <span class="global-gallery-chip">Innovation</span>
+        </div>
+      </div>
+      <div class="global-gallery-grid">
+        ${cardsMarkup}
+      </div>
+    </div>
+  `;
+
+  const footer = document.querySelector('footer');
+  if (footer && footer.parentNode) {
+    footer.parentNode.insertBefore(gallerySection, footer);
+  } else {
+    document.body.appendChild(gallerySection);
+  }
+
+  document.body.dataset.galleryInjected = 'true';
+}
 

@@ -4,918 +4,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Everest Consultancy - Transform Your Business with Strategic Excellence</title>
-    <meta name="description"
-        content="Transform your business with Everest Consultancy's strategic solutions. Expert business consulting services for digital transformation, operations, and growth.">
-
-    <!-- Tailwind CSS via CDN -->
+    <title>Everest Consultancy - Transform Your Business</title>
+    <meta name="description" content="Transform your business with Everest Consultancy's strategic solutions.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        blue: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#020617',
-                        },
-                        gold: {
-                            50: '#fefce8',
-                            100: '#fef9c3',
-                            200: '#fef08a',
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                            700: '#a16207',
-                            800: '#854d0e',
-                            900: '#713f12',
-                            950: '#422006',
-                        }
+                        blue: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
+                        gold: { 50: '#fefce8', 100: '#fef9c3', 200: '#fef08a', 300: '#fde047', 400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207', 800: '#854d0e', 900: '#713f12', 950: '#422006' }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
-
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <style>
+        @keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes reveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes orbit { from { transform: rotate(0deg) translateX(150px) rotate(0deg); } to { transform: rotate(360deg) translateX(150px) rotate(-360deg); } }
+        .gradient-flow { background-size: 200% 200%; animation: gradient-flow 8s ease infinite; }
+        .float { animation: float 6s ease-in-out infinite; }
+        .reveal { animation: reveal 0.8s ease forwards; }
+        .orbit { animation: orbit 20s linear infinite; }
+        .glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); }
+        .text-gradient { background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
 </head>
 
-<body class="font-sans antialiased text-slate-800 home-page bg-ice">
+<body class="bg-slate-50 text-slate-800 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-default backdrop-blur-md transition-all duration-300" id="navbar">
+    <nav id="navbar" class="fixed top-0 w-full z-50 nav-default backdrop-blur-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-white">Everest Consultancy</a>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <div class="nav-dropdown">
-                        <button class="text-gold font-semibold flex items-center">
-                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="index.html">Home Version 1</a>
-                                <a href="index2.html">Home Version 2</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="about.html" class="text-white hover:text-gold transition">About</a>
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold transition flex items-center">
-                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="services.html#strategy">Strategy Consulting</a>
-                                <a href="services.html#digital">Digital Transformation</a>
-                                <a href="services.html#operations">Operations Excellence</a>
-                                <a href="services.html#financial">Financial Advisory</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="industries.html" class="text-white hover:text-gold transition">Industries</a>
-                    <a href="insights.html" class="text-white hover:text-gold transition">Insights</a>
-                    <div class="nav-dropdown">
-                        <button class="text-white hover:text-gold transition flex items-center">
-                            Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="nav-dropdown-menu">
-                            <div>
-                                <a href="admin-dashboard.html">Admin Dashboard</a>
-                                <a href="user-dashboard.html">User Dashboard</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="text-white hover:text-gold transition">Contact</a>
-                </div>
-
-                <!-- Right side -->
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
-                    <button id="lang-toggle"
-                        class="px-3 py-2 text-sm border border-slate-600 rounded text-gray-300 hover:text-white hover:border-gold transition"><i
-                            class="fas fa-globe"></i></button>
-                    <div class="hidden md:flex items-center space-x-4">
-                        <button class="text-gray-300 hover:text-white transition">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <a href="login.html" class="px-4 py-2 text-gray-300 hover:text-white transition">Login</a>
-                        <a href="signup.html"
-                            class="signup-btn bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-full hover:shadow-lg hover:scale-110 transition-all duration-300" title="Sign Up">
-                            <i class="fas fa-user-plus"></i>
-                        </a>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <span class="text-white font-bold text-xl">E</span>
                     </div>
-                    <div class="md:hidden flex items-center">
-                        <button type="button" id="mobile-menu-button" class="text-gray-300 hover:text-white">
-                            <i class="fas fa-bars text-2xl"></i>
-                        </button>
+                    <span class="font-bold text-xl text-white">Everest</span>
+                </div>
+                <div class="hidden md:flex gap-8 items-center">
+                    <div class="nav-dropdown">
+                        <button class="text-gold-400 font-semibold flex items-center">Home <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="nav-dropdown-menu"><div><a href="index.html" class="!bg-blue-600/20 !text-blue-400">Home Version 1</a><a href="index2.html">Home Version 2</a></div></div>
                     </div>
+                    <a href="about.html" class="text-white hover:text-gold-400 transition">About</a>
+                    <a href="services.html" class="text-white hover:text-gold-400 transition">Services</a>
+                    <a href="industries.html" class="text-white hover:text-gold-400 transition">Industries</a>
+                    <a href="insights.html" class="text-white hover:text-gold-400 transition">Insights</a>
+                    <div class="nav-dropdown">
+                        <button class="text-white hover:text-gold-400 transition flex items-center">Dashboard <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="nav-dropdown-menu"><div><a href="admin-dashboard.html">Admin Dashboard</a><a href="user-dashboard.html">User Dashboard</a></div></div>
+                    </div>
+                    <a href="contact.html" class="text-white hover:text-gold-400 transition">Contact</a>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <button id="lang-toggle" class="px-3 py-2 text-sm border border-white/20 rounded-lg text-white/80 hover:bg-white/10 transition"><i class="fas fa-globe"></i></button>
+                    <a href="login.html" class="hidden md:inline px-4 py-2 text-white hover:text-gold-400 transition">Login</a>
+                    <a href="signup.html" class="hidden md:inline px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all">Sign Up</a>
+                    <button type="button" id="mobile-menu-button" class="md:hidden text-2xl text-white"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
         </div>
-
         <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-900">
-                <div class="px-3 py-2">
-                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gold" onclick="toggleMobileDropdown('home-mobile-dropdown')">
-                        Home <i class="fas fa-chevron-down text-xs ml-1"></i>
-                    </button>
-                    <div class="hidden mt-2 pl-4 space-y-2" id="home-mobile-dropdown">
-                        <a href="index.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Home Version 1</a>
-                        <a href="index2.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Home Version 2</a>
-                    </div>
-                </div>
-                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">About</a>
-                <a href="services.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Services</a>
-                <a href="industries.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Industries</a>
-                <a href="insights.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Insights</a>
-                <div class="px-3 py-2">
-                    <button class="flex items-center justify-between w-full text-left text-base font-medium text-gray-300 hover:text-gold" onclick="toggleMobileDropdown('dashboard-mobile-dropdown')">
-                        Dashboard <i class="fas fa-chevron-down text-xs ml-1"></i>
-                    </button>
-                    <div class="hidden mt-2 pl-4 space-y-2" id="dashboard-mobile-dropdown">
-                        <a href="admin-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">Admin Dashboard</a>
-                        <a href="user-dashboard.html" class="block py-2 text-sm text-gray-300 hover:text-gold">User Dashboard</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-gold">Contact</a>
-                <div class="pt-4 border-t border-slate-700 mt-2">
-                    <a href="login.html" class="block w-full text-center px-4 py-2 font-medium text-gray-300 hover:text-gold">Login</a>
-                    <a href="contact.html" class="block w-full text-center mt-2 btn btn-primary text-white px-4 py-2 rounded-md hover:shadow-lg transition">Get Started</a>
-                </div>
+            <div class="px-4 pt-2 pb-4 space-y-2 bg-slate-900/95 backdrop-blur-lg border-t border-white/10">
+                <div><button onclick="toggleMobileDropdown('home-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gold-400 font-semibold">Home <i class="fas fa-chevron-down text-xs"></i></button><div id="home-dropdown" class="hidden pl-4"><a href="index.html" class="block px-3 py-2 text-sm text-blue-400">Home Version 1</a><a href="index2.html" class="block px-3 py-2 text-sm text-gray-300 hover:text-gold-400">Home Version 2</a></div></div>
+                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">About</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Services</a>
+                <a href="industries.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Industries</a>
+                <a href="insights.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Insights</a>
+                <div><button onclick="toggleMobileDropdown('dashboard-dropdown')" class="w-full flex justify-between items-center px-3 py-2 text-gray-300 hover:text-gold-400">Dashboard <i class="fas fa-chevron-down text-xs"></i></button><div id="dashboard-dropdown" class="hidden pl-4"><a href="admin-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">Admin Dashboard</a><a href="user-dashboard.html" class="block px-3 py-2 text-sm text-gray-400 hover:text-gold-400">User Dashboard</a></div></div>
+                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-gold-400">Contact</a>
+                <div class="pt-4 border-t border-white/10 space-y-2"><a href="login.html" class="block text-center px-4 py-2 text-gray-300">Login</a><a href="signup.html" class="block text-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold">Sign Up</a></div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative hero-premium text-white pt-32 pb-20 md:pt-40 md:pb-32" data-fade-in>
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920" alt="Business meeting"
-                class="w-full h-full object-cover">
-        </div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">Transform Your
-                        Business with Strategic Excellence</h1>
-                    <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto lg:mx-0">We help forward-thinking
-                        organizations navigate complex challenges and achieve sustainable growth through innovative
-                        consulting solutions.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="contact.html" class="btn btn-white animate-scale-in">Get Started</a>
-                        <a href="services.html" class="btn btn-white animate-scale-in text-blue-900"
-                            style="animation-delay: 0.1s;">Our Services</a>
-                    </div>
-                </div>
-                <div class="mt-12 lg:mt-0">
-                    <div class="glass rounded-xl p-6 shadow-xl animate-slide-in-right text-white">
-                        <h3 class="text-xl font-semibold mb-4 text-white">Schedule a Free Consultation</h3>
-                        <form class="space-y-4">
-                            <div>
-                                <input type="text" placeholder="Your Name"
-                                    class="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 placeholder-blue-100 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-700 input-underline">
-                            </div>
-                            <div>
-                                <input type="email" placeholder="Email Address"
-                                    class="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 placeholder-blue-100 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-700 input-underline">
-                            </div>
-                            <div>
-                                <input type="tel" placeholder="Phone Number"
-                                    class="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 placeholder-blue-100 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-700 input-underline">
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-white w-full">Book Free Session</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+    <main>
+        <!-- Hero Section - Premium Split Design -->
+        <section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+            <div class="absolute inset-0">
+                <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500/30 rounded-full blur-[100px]"></div>
+                <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Playbooks & Accelerators -->
-    <section class="py-20 bg-ice" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 scroll-fade-up">
-                <span class="tag-pill">Accelerators</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-ink mt-4">Ready-to-deploy playbooks that ship outcomes
-                    fast</h2>
-                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Battle-tested blueprints with templates, automation
-                    starters, and KPI packs so your team moves from alignment to action in weeks.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card p-6 h-full flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span
-                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 animate-icon-bounce"><i
-                                class="fas fa-rocket"></i></span>
-                        <h3 class="text-xl font-bold text-gray-900">AI MVP Sprint</h3>
-                    </div>
-                    <p class="text-gray-600 flex-1">4-week path to ship an AI-enabled feature with safety guardrails, UX
-                        patterns, and model ops defaults.</p>
-                    <ul class="text-sm text-gray-700 mt-4 space-y-2">
-                        <li>• UX flows, prompt kits, risk checklist</li>
-                        <li>• Data readiness and eval harness</li>
-                        <li>• Pilot success metrics in 30 days</li>
-                    </ul>
-                </div>
-                <div class="card p-6 h-full flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span
-                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 animate-icon-bounce"><i
-                                class="fas fa-sitemap"></i></span>
-                        <h3 class="text-xl font-bold text-gray-900">Operating Model Reset</h3>
-                    </div>
-                    <p class="text-gray-600 flex-1">Re-align teams, governance, and funding to product lines with a
-                        90-day rollout roadmap.</p>
-                    <ul class="text-sm text-gray-700 mt-4 space-y-2">
-                        <li>• RACI, rituals, and KPIs by portfolio</li>
-                        <li>• Capability map and talent plan</li>
-                        <li>• Change narrative and comms kit</li>
-                    </ul>
-                </div>
-                <div class="card p-6 h-full flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span
-                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 animate-icon-bounce"><i
-                                class="fas fa-warehouse"></i></span>
-                        <h3 class="text-xl font-bold text-gray-900">Supply Chain Command</h3>
-                    </div>
-                    <p class="text-gray-600 flex-1">Visibility and resilience toolkit: data spine, control tower
-                        dashboards, and playbooks for exceptions.</p>
-                    <ul class="text-sm text-gray-700 mt-4 space-y-2">
-                        <li>• Inventory heatmaps and ETA alerts</li>
-                        <li>• Scenario stress-tests with buffers</li>
-                        <li>• Savings/value tracker with OKRs</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest Insights -->
-    <section class="py-20 bg-white" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 scroll-fade-up">
-                <div>
-                    <span class="tag-pill">Insights</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-ink mt-3">Fresh thinking from the field</h2>
-                    <p class="text-gray-600 mt-3">Short, practical takes you can plug into planning, delivery, and
-                        steering forums.</p>
-                </div>
-                <a href="insights.html" class="btn btn-secondary hover-lift">View all insights</a>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <article class="card p-6 flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                    <p class="text-sm text-blue-900 font-semibold mb-2">DIGITAL • PLAYBOOK</p>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Designing AI copilots with guardrails</h3>
-                    <p class="text-gray-600 flex-1">Patterns for intent capture, escalation, and evaluation so copilots
-                        stay safe and useful.</p>
-                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center hover:text-gold transition">Read more
-                        <i class="fas fa-arrow-right ml-2"></i></a>
-                </article>
-                <article class="card p-6 flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                    <p class="text-sm text-blue-900 font-semibold mb-2">OPERATIONS • METRICS</p>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Cost-to-serve dashboard that sticks</h3>
-                    <p class="text-gray-600 flex-1">A lean KPI stack with leading indicators, variance bands, and play
-                        calls per exception.</p>
-                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center hover:text-gold transition">Read more
-                        <i class="fas fa-arrow-right ml-2"></i></a>
-                </article>
-                <article class="card p-6 flex flex-col scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                    <p class="text-sm text-blue-900 font-semibold mb-2">PEOPLE • CHANGE</p>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Change rooms: execs + squads</h3>
-                    <p class="text-gray-600 flex-1">A bi-weekly cadence that pairs leadership decisions with
-                        on-the-ground unblockers.</p>
-                    <a href="insights.html" class="mt-4 text-blue-900 font-semibold inline-flex items-center hover:text-gold transition">Read more
-                        <i class="fas fa-arrow-right ml-2"></i></a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Indicators -->
-    <section class="py-12 bg-sand" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-6 scroll-fade-up" style="animation-delay: 0.1s">
-                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-count="15">0</span>+
-                    </div>
-                    <p class="text-gray-600">Years Experience</p>
-                </div>
-                <div class="p-6 scroll-fade-up" style="animation-delay: 0.2s">
-                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-count="500">0</span>+
-                    </div>
-                    <p class="text-gray-600">Clients Served</p>
-                </div>
-                <div class="p-6 scroll-fade-up" style="animation-delay: 0.3s">
-                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter"
-                            data-count="1000">0</span>+</div>
-                    <p class="text-gray-600">Projects Completed</p>
-                </div>
-                <div class="p-6 scroll-fade-up" style="animation-delay: 0.4s">
-                    <div class="text-4xl font-bold text-blue-900 mb-2"><span class="counter" data-count="98">0</span>%
-                    </div>
-                    <p class="text-gray-600">Success Rate</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Services -->
-    <section class="py-20 bg-ice" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-fade-up">
-                <span class="text-blue-900 font-semibold text-lg">OUR SERVICES</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Comprehensive Business Solutions</h2>
-                <div class="w-20 h-1 bg-blue-900 mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="card stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800"
-                            alt="Strategy Consulting"
-                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 animate-icon-bounce">
-                            <i class="fas fa-chess-king text-blue-900 text-xl"></i>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pt-40">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8 reveal">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20">
+                            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                            <span class="text-white/80 text-sm">Trusted by 500+ Companies</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Strategy Consulting</h3>
-                        <p class="text-gray-600 mb-4">Develop winning strategies that drive sustainable growth and
-                            competitive advantage in today's dynamic business landscape.</p>
-                        <a href="services.html#strategy"
-                            class="text-blue-900 font-medium inline-flex items-center group">
-                            Learn More
-                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="card stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800"
-                            alt="Digital Transformation"
-                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 animate-icon-bounce">
-                            <i class="fas fa-laptop-code text-blue-900 text-xl"></i>
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1]">
+                            Elevate Your <br><span class="text-gradient">Business Vision</span>
+                        </h1>
+                        <p class="text-xl text-blue-100/80 max-w-lg">We partner with ambitious organizations to unlock growth, drive innovation, and build sustainable competitive advantage.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="contact.html" class="group px-8 py-4 rounded-2xl bg-white text-slate-900 font-bold text-lg flex items-center gap-3 hover:shadow-2xl hover:shadow-white/20 transition-all">
+                                Get Started <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                            <a href="services.html" class="cta-button px-8 py-4 rounded-2xl border border-white/30 text-white font-semibold hover:bg-white/10 transition flex items-center gap-3">
+                                <i class="fas fa-play-circle"></i> Our Services
+                            </a>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Digital Transformation</h3>
-                        <p class="text-gray-600 mb-4">Leverage cutting-edge technologies to transform your business
-                            operations and deliver exceptional customer experiences.</p>
-                        <a href="services.html#digital"
-                            class="text-blue-900 font-medium inline-flex items-center group">
-                            Learn More
-                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="card stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
-                            alt="Operations Excellence"
-                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 animate-icon-bounce">
-                            <i class="fas fa-cogs text-blue-900 text-xl"></i>
+                        <div class="flex items-center gap-6 pt-4">
+                            <div class="flex -space-x-3">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white flex items-center justify-center text-white font-bold">A</div>
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white flex items-center justify-center text-white font-bold">B</div>
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white flex items-center justify-center text-white font-bold">C</div>
+                                <div class="w-12 h-12 rounded-full bg-slate-700 border-2 border-white flex items-center justify-center text-white text-sm">+50</div>
+                            </div>
+                            <div class="text-white/80 text-sm"><span class="text-white font-semibold">4.9/5</span> from 200+ reviews</div>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Operations Excellence</h3>
-                        <p class="text-gray-600 mb-4">Optimize your operations, reduce costs, and enhance efficiency
-                            through our proven methodologies and industry expertise.</p>
-                        <a href="services.html#operations"
-                            class="text-blue-900 font-medium inline-flex items-center group">
-                            Learn More
-                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
                     </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12 scroll-fade-up">
-                <a href="services.html"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 transition-colors duration-300 hover-lift">
-                    View All Services
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="py-20 bg-ink text-white" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-                <div class="mb-12 lg:mb-0 scroll-fade-left">
-                    <span class="text-blue-100 font-semibold text-lg">WHY CHOOSE US</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">Your Trusted Partner for Business
-                        Success</h2>
-                    <p class="text-blue-100/90 mb-8 text-lg">With over 15 years of experience, we've helped businesses
-                        of all sizes achieve their strategic objectives and drive sustainable growth.</p>
-
-                    <div class="space-y-6">
-                        <div class="flex scroll-fade-up" style="animation-delay: 0.1s">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900 animate-icon-bounce">
-                                    <i class="fas fa-users text-xl"></i>
+                    <div class="relative">
+                        <div class="relative z-10 float">
+                            <div class="glass rounded-3xl p-8 space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-white font-bold text-xl">Growth Metrics</h3>
+                                    <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs">Live</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white/5 rounded-2xl p-4">
+                                        <p class="text-3xl font-black text-white">$2.4B</p>
+                                        <p class="text-blue-200/60 text-sm">Value Created</p>
+                                    </div>
+                                    <div class="bg-white/5 rounded-2xl p-4">
+                                        <p class="text-3xl font-black text-white">98%</p>
+                                        <p class="text-blue-200/60 text-sm">Success Rate</p>
+                                    </div>
+                                    <div class="bg-white/5 rounded-2xl p-4">
+                                        <p class="text-3xl font-black text-white">500+</p>
+                                        <p class="text-blue-200/60 text-sm">Projects</p>
+                                    </div>
+                                    <div class="bg-white/5 rounded-2xl p-4">
+                                        <p class="text-3xl font-black text-white">38+</p>
+                                        <p class="text-blue-200/60 text-sm">Countries</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 p-4 bg-white/5 rounded-2xl">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center"><i class="fas fa-chart-line text-blue-400 text-xl"></i></div>
+                                    <div class="flex-grow">
+                                        <p class="text-white font-semibold">Revenue Growth</p>
+                                        <p class="text-blue-200/60 text-sm">Average client increase</p>
+                                    </div>
+                                    <span class="text-2xl font-bold text-green-400">+127%</span>
                                 </div>
                             </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-white">Expert Team</h3>
-                                <p class="mt-1 text-blue-100">Our consultants bring deep industry expertise and a track
-                                    record of delivering exceptional results.</p>
-                            </div>
                         </div>
+                        <div class="absolute -top-10 -right-10 w-32 h-32 glass rounded-2xl flex items-center justify-center orbit" style="animation-delay: 0s;">
+                            <i class="fas fa-lightbulb text-4xl text-yellow-400"></i>
+                        </div>
+                        <div class="absolute -bottom-5 -left-5 w-24 h-24 glass rounded-2xl flex items-center justify-center orbit" style="animation-delay: -10s;">
+                            <i class="fas fa-rocket text-3xl text-purple-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="flex scroll-fade-up" style="animation-delay: 0.2s">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900 animate-icon-bounce">
-                                    <i class="fas fa-project-diagram text-xl"></i>
+        <!-- Services Section -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold mb-4">OUR EXPERTISE</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900">Services That <span class="text-gradient">Drive Results</span></h2>
+                    <p class="text-slate-500 text-lg mt-4 max-w-2xl mx-auto">Comprehensive consulting solutions tailored to your unique business challenges</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-hover bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-8 text-white">
+                        <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-6"><i class="fas fa-chess text-3xl"></i></div>
+                        <h3 class="text-2xl font-bold mb-3">Strategy Consulting</h3>
+                        <p class="text-blue-100/80 mb-6">Define winning strategies that position your organization for long-term success and market leadership.</p>
+                        <a href="services.html" class="inline-flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-8 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center mb-6"><i class="fas fa-microchip text-3xl text-purple-600"></i></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Digital Transformation</h3>
+                        <p class="text-slate-500 mb-6">Modernize operations with cutting-edge technology solutions that drive efficiency and innovation.</p>
+                        <a href="services.html" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-8 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-6"><i class="fas fa-cogs text-3xl text-green-600"></i></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Operations Excellence</h3>
+                        <p class="text-slate-500 mb-6">Optimize processes, reduce costs, and improve quality across your entire value chain.</p>
+                        <a href="services.html" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-8 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-amber-100 flex items-center justify-center mb-6"><i class="fas fa-chart-pie text-3xl text-amber-600"></i></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Financial Advisory</h3>
+                        <p class="text-slate-500 mb-6">Navigate complex financial decisions with expert guidance on M&A, restructuring, and capital strategy.</p>
+                        <a href="services.html" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-8 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-rose-100 flex items-center justify-center mb-6"><i class="fas fa-brain text-3xl text-rose-600"></i></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">AI & Analytics</h3>
+                        <p class="text-slate-500 mb-6">Harness the power of data and artificial intelligence to make smarter, faster decisions.</p>
+                        <a href="services.html" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 text-white">
+                        <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-6"><i class="fas fa-users text-3xl"></i></div>
+                        <h3 class="text-2xl font-bold mb-3">Change Management</h3>
+                        <p class="text-slate-300 mb-6">Guide your organization through transformation with people-centered change strategies.</p>
+                        <a href="services.html" class="inline-flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold mb-4">WHY EVEREST</span>
+                        <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6">Partnership Built on <span class="text-gradient">Excellence</span></h2>
+                        <p class="text-slate-500 text-lg mb-8">We don't just advise—we roll up our sleeves and work alongside you to deliver measurable results.</p>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-white"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-slate-900">Deep Industry Expertise</h4>
+                                    <p class="text-slate-500">Our consultants bring decades of hands-on experience across 12+ industries.</p>
                                 </div>
                             </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-white">Proven Methodology</h3>
-                                <p class="mt-1 text-blue-100">We follow a structured approach that ensures consistent,
-                                    measurable results for our clients.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex scroll-fade-up" style="animation-delay: 0.3s">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-900 animate-icon-bounce">
-                                    <i class="fas fa-chart-line text-xl"></i>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-600 flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-white"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-slate-900">Proven Methodologies</h4>
+                                    <p class="text-slate-500">Proprietary frameworks refined through 500+ successful engagements.</p>
                                 </div>
                             </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-semibold text-white">Results-Driven</h3>
-                                <p class="mt-1 text-blue-100">We focus on delivering tangible business outcomes and
-                                    measurable ROI for every engagement.</p>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-white"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-slate-900">Measurable Impact</h4>
+                                    <p class="text-slate-500">We tie our success to yours with outcome-based performance metrics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Team collaboration" class="relative rounded-3xl shadow-2xl">
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center"><i class="fas fa-trophy text-2xl text-green-600"></i></div>
+                                <div>
+                                    <p class="text-3xl font-black text-slate-900">98%</p>
+                                    <p class="text-slate-500 text-sm">Client Satisfaction</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="relative scroll-fade-right">
-                    <div class="relative z-10 rounded-xl overflow-hidden shadow-xl hover-lift">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000"
-                            alt="Our team in action" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                            <h3 class="text-2xl font-bold mb-2">Our Team in Action</h3>
-                            <p class="text-blue-100">Collaborating to deliver exceptional results for our clients</p>
+        <!-- Testimonials Section -->
+        <section class="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-semibold mb-4">CLIENT STORIES</span>
+                    <h2 class="text-4xl md:text-5xl font-black">What Our Clients Say</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass rounded-3xl p-8">
+                        <div class="flex items-center gap-1 mb-4"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></div>
+                        <p class="text-blue-100/90 mb-6">"Everest transformed our operations and helped us achieve a 40% cost reduction while improving service quality. Outstanding partnership."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center font-bold">JM</div>
+                            <div><p class="font-semibold">James Mitchell</p><p class="text-blue-200/60 text-sm">CEO, TechCorp Global</p></div>
                         </div>
                     </div>
-
-                    <div class="absolute -bottom-6 -right-6 bg-blue-900 text-white p-6 rounded-xl shadow-lg z-0 w-3/4 hover-lift">
-                        <div class="flex items-center">
-                            <div class="text-4xl font-bold mr-4"><span class="counter" data-count="15">0</span>+</div>
-                            <div class="text-sm">Years of <br>Experience</div>
+                    <div class="glass rounded-3xl p-8">
+                        <div class="flex items-center gap-1 mb-4"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></div>
+                        <p class="text-blue-100/90 mb-6">"Their strategic insights helped us enter 3 new markets successfully. The ROI on our engagement exceeded 300%."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center font-bold">SK</div>
+                            <div><p class="font-semibold">Sarah Kim</p><p class="text-blue-200/60 text-sm">COO, InnovateFin</p></div>
+                        </div>
+                    </div>
+                    <div class="glass rounded-3xl p-8">
+                        <div class="flex items-center gap-1 mb-4"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></div>
+                        <p class="text-blue-100/90 mb-6">"The digital transformation program delivered by Everest positioned us as an industry leader. Truly exceptional work."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center font-bold">RD</div>
+                            <div><p class="font-semibold">Robert Davis</p><p class="text-blue-200/60 text-sm">CTO, RetailMax</p></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Case Studies -->
-    <section class="py-20 bg-white" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-fade-up">
-                <span class="text-blue-900 font-semibold text-lg">CASE STUDIES</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Success Stories</h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Discover how we've helped businesses overcome challenges
-                    and achieve remarkable results.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Case Study 1 -->
-                <div class="card group stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.1s">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600" alt="Case Study 1"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-2">
-                            <span
-                                class="inline-block px-3 py-1 text-xs font-semibold text-blue-900 bg-blue-100 rounded-full">Finance</span>
-                            <span class="ml-2 text-sm text-gray-500">3 min read</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition">Financial
-                            Services Transformation</h3>
-                        <p class="text-gray-600 mb-4">Helped a leading bank streamline operations and improve customer
-                            experience through digital transformation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium text-blue-900">Read Case Study</span>
-                            <i
-                                class="fas fa-arrow-right text-blue-900 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case Study 2 -->
-                <div class="card group stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.2s">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600" alt="Case Study 2"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-2">
-                            <span
-                                class="inline-block px-3 py-1 text-xs font-semibold text-green-900 bg-green-100 rounded-full">Technology</span>
-                            <span class="ml-2 text-sm text-gray-500">4 min read</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition">Cloud
-                            Migration Success</h3>
-                        <p class="text-gray-600 mb-4">Enabled a tech company to seamlessly migrate their infrastructure
-                            to the cloud with zero downtime.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium text-blue-900">Read Case Study</span>
-                            <i
-                                class="fas fa-arrow-right text-blue-900 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case Study 3 -->
-                <div class="card group stagger-item animate-fade-in scroll-fade-up hover-lift" style="animation-delay: 0.3s">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600" alt="Case Study 3"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-2">
-                            <span
-                                class="inline-block px-3 py-1 text-xs font-semibold text-purple-900 bg-purple-100 rounded-full">Healthcare</span>
-                            <span class="ml-2 text-sm text-gray-500">5 min read</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition">Healthcare
-                            Process Optimization</h3>
-                        <p class="text-gray-600 mb-4">Reduced patient wait times by 40% through process reengineering
-                            and technology implementation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium text-blue-900">Read Case Study</span>
-                            <i
-                                class="fas fa-arrow-right text-blue-900 group-hover:translate-x-1 transition-transform"></i>
+        <!-- CTA Section -->
+        <section class="py-24 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative rounded-[40px] overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 gradient-flow"></div>
+                    <div class="relative z-10 p-12 md:p-20 text-center text-white">
+                        <h2 class="text-4xl md:text-5xl font-black mb-6">Ready to Transform?</h2>
+                        <p class="text-white/90 text-xl max-w-2xl mx-auto mb-10">Let's discuss how we can help you achieve your business objectives. Our team responds within 24 hours.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="contact.html" class="px-10 py-5 rounded-2xl bg-white text-slate-900 font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all">Schedule Consultation</a>
+                            <a href="services.html" class="px-10 py-5 rounded-2xl border-2 border-white text-white font-bold text-lg hover:bg-white/10 transition-all">Explore Services</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="text-center mt-12">
-                <a href="#"
-                    class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300">
-                    View All Case Studies
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 bg-ice" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-blue-900 font-semibold text-lg">TESTIMONIALS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">What Our Clients Say</h2>
-                <div class="w-20 h-1 bg-blue-900 mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 text-xl">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"Everest Consultancy transformed our business operations and helped
-                        us achieve a 200% ROI within the first year. Their strategic insights were invaluable."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150"
-                            alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover">
-                        <div class="ml-4">
-                            <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
-                            <p class="text-sm text-gray-600">CEO, TechSolutions Inc.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 text-xl">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"The team at Everest Consultancy delivered exceptional results on our digital
-                        transformation project. Their expertise and professionalism were outstanding."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150" alt="Michael Chen"
-                            class="w-12 h-12 rounded-full object-cover">
-                        <div class="ml-4">
-                            <h4 class="font-semibold text-gray-900">Michael Chen</h4>
-                            <p class="text-sm text-gray-600">COO, Global Retail Corp</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 text-xl">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"Working with Everest Consultancy was a game-changer for our organization.
-                        Their strategic guidance helped us navigate a complex market expansion successfully."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150"
-                            alt="Emily Rodriguez" class="w-12 h-12 rounded-full object-cover">
-                        <div class="ml-4">
-                            <h4 class="font-semibold text-gray-900">Emily Rodriguez</h4>
-                            <p class="text-sm text-gray-600">Director, HealthPlus</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries -->
-    <section class="py-20 bg-white" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-blue-900 font-semibold text-lg">INDUSTRIES</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Industries We Serve</h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We bring deep industry expertise to help organizations
-                    across various sectors achieve their business goals.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <!-- Industry 1 -->
-                <div class="group text-center p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300">
-                    <div
-                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                        <i class="fas fa-building text-blue-900 text-2xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Financial Services</h3>
-                    <p class="text-sm text-gray-600">Banking, Insurance, Wealth Management</p>
-                </div>
-
-                <!-- Industry 2 -->
-                <div class="group text-center p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300">
-                    <div
-                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                        <i class="fas fa-heartbeat text-blue-900 text-2xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Healthcare</h3>
-                    <p class="text-sm text-gray-600">Hospitals, Pharma, Medical Devices</p>
-                </div>
-
-                <!-- Industry 3 -->
-                <div class="group text-center p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300">
-                    <div
-                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                        <i class="fas fa-laptop-code text-blue-900 text-2xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Technology</h3>
-                    <p class="text-sm text-gray-600">Software, Hardware, IT Services</p>
-                </div>
-
-                <!-- Industry 4 -->
-                <div class="group text-center p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300">
-                    <div
-                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                        <i class="fas fa-industry text-blue-900 text-2xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Manufacturing</h3>
-                    <p class="text-sm text-gray-600">Industrial, Automotive, Consumer Goods</p>
-                </div>
-
-                <!-- Industry 5 -->
-                <div class="group text-center p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300">
-                    <div
-                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                        <i class="fas fa-shopping-cart text-blue-900 text-2xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Retail & E-commerce</h3>
-                    <p class="text-sm text-gray-600">Brick & Mortar, Online Retail</p>
-                </div>
-
-                <!-- Industry 6 -->
-                <div class="group text-center p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300">
-                    <div
-                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-                        <i class="fas fa-bolt text-blue-900 text-2xl"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-2">Energy & Utilities</h3>
-                    <p class="text-sm text-gray-600">Oil & Gas, Renewable Energy, Utilities</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Logos -->
-    <section class="py-12 bg-sand" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h3 class="text-lg font-medium text-gray-600">TRUSTED BY LEADING ORGANIZATIONS</h3>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 items-center">
-                <div class="flex justify-center">
-                    <div class="client-logo-pill">NorthPeak</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="client-logo-pill">SummitLabs</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="client-logo-pill">BeaconCore</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="client-logo-pill">AtlasGrid</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="client-logo-pill">LumenEdge</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="client-logo-pill">VertexOne</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-br from-[#0b1224] via-[#1a3570] to-[#0b1224] text-white" data-fade-in>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">Schedule a free consultation with our experts to
-                discuss how we can help you achieve your business goals.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="contact.html"
-                    class="bg-white text-blue-900 px-8 py-4 rounded-md text-lg font-semibold hover:bg-blue-50 transition duration-300 text-center">Get
-                    Started</a>
-                <a href="tel:+1234567890"
-                    class="bg-white text-blue-900 px-8 py-4 rounded-md text-lg font-semibold border-2 border-transparent hover:bg-blue-50 transition duration-300 text-center">
-                    <i class="fas fa-phone-alt mr-2"></i> (123) 456-7890
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <footer class="bg-slate-900 text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                <!-- Column 1: About -->
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                            <span class="text-white font-bold text-xl">E</span>
-                        </div>
-                        <span class="text-xl font-bold">Everest Consultancy</span>
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center"><span class="text-white font-bold text-xl">E</span></div>
+                        <span class="font-bold text-xl">Everest</span>
                     </div>
-                    <p class="text-white mb-6">Helping businesses achieve sustainable growth through innovative
-                        consulting solutions and strategic expertise.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-gold transition">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-gold transition">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-gold transition">
-                            <i class="fab fa-facebook-f text-xl"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-gold transition">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
+                    <p class="text-slate-400">Transforming businesses through innovation, expertise, and strategic excellence.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
-
-                <!-- Column 2: Services -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Services</h4>
-                    <ul class="space-y-3">
-                        <li><a href="services.html#strategy" class="text-white hover:text-gold transition">Strategy
-                                Consulting</a></li>
-                        <li><a href="services.html#digital" class="text-white hover:text-gold transition">Digital
-                                Transformation</a></li>
-                        <li><a href="services.html#operations" class="text-white hover:text-gold transition">Operations
-                                Excellence</a></li>
-                        <li><a href="services.html#financial" class="text-white hover:text-gold transition">Financial
-                                Advisory</a></li>
-                        <li><a href="services.html#risk" class="text-white hover:text-gold transition">Risk
-                                Management</a></li>
-                        <li><a href="services.html#change" class="text-white hover:text-gold transition">Change
-                                Management</a></li>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-3 text-slate-400">
+                        <li><a href="services.html" class="hover:text-white transition">Strategy Consulting</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Digital Transformation</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Operations Excellence</a></li>
+                        <li><a href="services.html" class="hover:text-white transition">Financial Advisory</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 3: Company -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Company</h4>
-                    <ul class="space-y-3">
-                        <li><a href="about.html" class="text-white hover:text-gold transition">About Us</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">Our Team</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">Careers</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">Case Studies</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">Partners</a></li>
-                        <li><a href="contact.html" class="text-white hover:text-gold transition">Contact Us</a></li>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-3 text-slate-400">
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="industries.html" class="hover:text-white transition">Industries</a></li>
+                        <li><a href="insights.html" class="hover:text-white transition">Insights</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 4: Resources & Contact -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Resources</h4>
-                    <ul class="space-y-3 mb-6">
-                        <li><a href="#" class="text-white hover:text-gold transition">Blog & Insights</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">Whitepapers</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">Webinars</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">FAQ</a></li>
-                        <li><a href="#" class="text-white hover:text-gold transition">Support</a></li>
-                    </ul>
-
-                    <h4 class="text-lg font-semibold mb-4 mt-8">Subscribe to Our Newsletter</h4>
-                    <div class="flex">
-                        <input type="email" placeholder="Your email address"
-                            class="px-4 py-2 w-full rounded-l-md text-gray-900 focus:outline-none">
-                        <button class="bg-blue-900 hover:bg-blue-800 px-4 py-2 rounded-r-md transition">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
+                    <h4 class="font-bold mb-4">Newsletter</h4>
+                    <p class="text-slate-400 mb-4">Get the latest insights delivered to your inbox.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+                        <button class="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:shadow-lg transition">Subscribe</button>
+                    </form>
                 </div>
             </div>
-
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">© 2024 Everest Consultancy. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Sitemap</a>
-                </div>
+            <div class="border-t border-white/10 pt-8 text-center text-slate-500 text-sm">
+                © 2026 Everest Consultancy. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top"
-        class="fixed bottom-8 right-8 bg-blue-900 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-xl opacity-0 invisible transition-all duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
 
