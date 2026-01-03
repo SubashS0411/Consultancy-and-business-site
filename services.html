@@ -9,18 +9,55 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
-        /* Services Page - Unique Orange/Amber Accent Theme */
-        .page-hero { background: linear-gradient(135deg, #0c1222 0%, #2a1a0a 50%, #0c1222 100%); }
-        .page-hero-badge { background: rgba(249, 115, 22, 0.2); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.3); }
-        .highlight { background: linear-gradient(135deg, #f97316, #fb923c); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .text-gradient { background: linear-gradient(135deg, #f97316, #fb923c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        /* Services Page - Unique Orange/Amber Theme with Pattern */
+        .page-hero { 
+            background: linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #ea580c 100%); 
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--white), transparent);
+            z-index: 1;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        .page-hero-badge { background: rgba(255, 237, 213, 0.3); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+        .highlight { background: linear-gradient(135deg, #fbbf24, #fcd34d); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .text-gradient { background: linear-gradient(135deg, #f97316, #fbbf24); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .section-badge { background: rgba(249, 115, 22, 0.1); color: #f97316; }
-        .service-card:hover { border-color: rgba(249, 115, 22, 0.5); box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15); }
-        .service-icon { background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(251, 146, 60, 0.1)); color: #f97316; }
-        .cta-section { background: linear-gradient(135deg, #2a1a0a, #0c1222); }
+        .service-card { border-top: 4px solid transparent; transition: all 0.4s ease; }
+        .service-card:hover { border-top-color: #f97316; box-shadow: 0 25px 50px rgba(249, 115, 22, 0.15); transform: translateY(-8px); }
+        .service-card-icon { background: linear-gradient(135deg, #f97316, #fb923c) !important; }
+        .btn-primary { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .btn-primary:hover { background: linear-gradient(135deg, #ea580c, #c2410c); }
+        .cta-section { background: linear-gradient(135deg, #7c2d12, #431407); }
+        /* Service Steps */
+        .service-step-number { 
+            background: linear-gradient(135deg, #f97316, #fbbf24); 
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
     </style>
 </head>
-<body>
+<body class="page-services">
     <!-- Navigation -->
     <nav class="navbar dark">
         <div class="container nav-container">

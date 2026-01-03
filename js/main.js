@@ -82,8 +82,15 @@ class Navigation {
     setupMobileMenu() {
         if (this.mobileToggle && this.mobileMenu) {
             this.mobileToggle.addEventListener('click', () => {
-                this.mobileMenu.classList.add('open');
-                document.body.style.overflow = 'hidden';
+                // Toggle menu open/close
+                const isOpen = this.mobileMenu.classList.contains('open');
+                if (isOpen) {
+                    this.mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                } else {
+                    this.mobileMenu.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                }
             });
         }
 
@@ -102,6 +109,24 @@ class Navigation {
                     document.body.style.overflow = '';
                 }
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (this.mobileMenu && this.mobileMenu.classList.contains('open')) {
+                if (!this.mobileMenu.contains(e.target) && !this.mobileToggle.contains(e.target)) {
+                    this.mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.mobileMenu && this.mobileMenu.classList.contains('open')) {
+                this.mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            }
         });
     }
 

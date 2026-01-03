@@ -12,7 +12,109 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="dashboard-layout">
+    <!-- Navigation -->
+    <nav class="navbar dark">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">E</div>
+                <span>Everest</span>
+            </a>
+            
+            <div class="nav-menu">
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-trigger">
+                        Home <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="index.html">Home Version 1</a>
+                            <a href="index2.html">Home Version 2</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="industries.html" class="nav-link">Industries</a>
+                <a href="insights.html" class="nav-link">Insights</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle text direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <div class="nav-dropdown dashboard-dropdown">
+                    <button class="nav-link nav-dropdown-trigger dashboard-trigger active">
+                        <i class="fas fa-th-large"></i> <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="user-dashboard.html" class="active"><i class="fas fa-user"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown auth-dropdown">
+                    <button class="nav-link nav-dropdown-trigger auth-trigger">
+                        <i class="fas fa-user-circle"></i> <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                            <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-btn nav-btn-primary hidden-mobile">Get Started</a>
+                <button class="mobile-menu-toggle" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-links">
+            <button class="mobile-dropdown-btn">
+                Home <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <a href="index.html">Home Version 1</a>
+                <a href="index2.html">Home Version 2</a>
+            </div>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <a href="industries.html" class="mobile-nav-link">Industries</a>
+            <a href="insights.html" class="mobile-nav-link">Insights</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <button class="mobile-dropdown-btn active">
+                <i class="fas fa-th-large"></i> Dashboard <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <a href="user-dashboard.html" class="active"><i class="fas fa-user"></i> User Dashboard</a>
+                <a href="admin-dashboard.html"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+            </div>
+            <button class="mobile-dropdown-btn">
+                <i class="fas fa-user-circle"></i> Account <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+            <button class="mobile-rtl-toggle" id="mobileRtlToggle">
+                <i class="fas fa-globe"></i> Toggle RTL/LTR
+            </button>
+        </div>
+        <div class="mobile-nav-actions">
+            <a href="contact.html" class="nav-btn nav-btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <div class="dashboard-layout dashboard-with-navbar">
         <!-- Sidebar -->
         <aside class="dashboard-sidebar">
             <div class="sidebar-header">
@@ -172,48 +274,72 @@
                     </div>
                 </div>
                 
-                <!-- Charts Section for User -->
+                <!-- Charts Section for User - Premium Design -->
                 <div class="dashboard-charts">
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Project Progress Timeline</h2>
+                            <h2 class="card-title"><i class="fas fa-chart-area"></i> Project Progress Timeline</h2>
+                            <div class="live-indicator">
+                                <span class="live-dot"></span>
+                                <span>Updated Now</span>
+                            </div>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-stats-row">
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value">2</div>
+                                <div class="chart-stat-label">Active Projects</div>
+                            </div>
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value" style="color:#10b981;">85%</div>
+                                <div class="chart-stat-label">Avg Progress</div>
+                            </div>
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value">Week 6</div>
+                                <div class="chart-stat-label">Current Phase</div>
+                            </div>
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value">On Track</div>
+                                <div class="chart-stat-label">Status</div>
+                            </div>
+                        </div>
+                        <div class="chart-container chart-container-premium">
                             <canvas id="userProgressChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Engagement Summary</h2>
+                            <h2 class="card-title"><i class="fas fa-tasks"></i> Engagement Summary</h2>
                         </div>
-                        <div class="chart-container chart-container-doughnut">
+                        <div class="chart-container chart-container-doughnut" style="height: 200px;">
                             <canvas id="userEngagementChart"></canvas>
                         </div>
-                        <div class="chart-legend">
-                            <div class="legend-item"><span class="legend-color" style="background:#0d9488;"></span> Completed</div>
-                            <div class="legend-item"><span class="legend-color" style="background:#f97316;"></span> In Progress</div>
-                            <div class="legend-item"><span class="legend-color" style="background:#94a3b8;"></span> Pending</div>
+                        <div class="chart-legend" style="background: var(--gray-50); margin: 0 -1.5rem -1.5rem; padding: 1.25rem 1.5rem; border-radius: 0 0 var(--radius-xl) var(--radius-xl);">
+                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #0d9488, #14b8a6);"></span> Completed (45%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #f97316, #fb923c);"></span> In Progress (35%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #94a3b8, #cbd5e1);"></span> Pending (20%)</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Additional User Charts -->
                 <div class="dashboard-charts">
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Weekly Activity</h2>
+                            <h2 class="card-title"><i class="fas fa-calendar-week"></i> Weekly Activity</h2>
+                            <span style="background: rgba(124,58,237,0.1); color: #7c3aed; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">43h Total</span>
                         </div>
-                        <div class="chart-container chart-container-radar">
+                        <div class="chart-container chart-container-radar" style="height: 280px;">
                             <canvas id="weeklyActivityChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Task Distribution</h2>
+                            <h2 class="card-title"><i class="fas fa-list-check"></i> Task Distribution</h2>
+                            <span style="background: rgba(6,182,212,0.1); color: #06b6d4; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">59h Logged</span>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-container chart-container-premium">
                             <canvas id="taskDistributionChart"></canvas>
                         </div>
                     </div>
@@ -221,20 +347,22 @@
                 
                 <!-- Third Row User Charts -->
                 <div class="dashboard-charts">
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Investment Overview</h2>
+                            <h2 class="card-title"><i class="fas fa-chart-line"></i> Investment Overview</h2>
+                            <span style="background: rgba(16,185,129,0.1); color: #10b981; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">+60% ROI</span>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-container chart-container-premium">
                             <canvas id="investmentChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Satisfaction Score</h2>
+                            <h2 class="card-title"><i class="fas fa-heart"></i> Satisfaction Score</h2>
+                            <span style="background: rgba(249,115,22,0.1); color: #f97316; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Excellent</span>
                         </div>
-                        <div class="chart-container chart-container-gauge">
+                        <div class="chart-container chart-container-gauge" style="height: 200px;">
                             <canvas id="satisfactionGaugeChart"></canvas>
                         </div>
                         <div class="gauge-label">
@@ -542,6 +670,164 @@
                         legend: {
                             display: false
                         }
+                    }
+                }
+            });
+
+            // Weekly Activity - Radar Chart
+            const weeklyCtx = document.getElementById('weeklyActivityChart').getContext('2d');
+            new Chart(weeklyCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Hours Invested',
+                        data: [6, 8, 7, 9, 8, 3, 2],
+                        backgroundColor: 'rgba(13, 148, 136, 0.2)',
+                        borderColor: '#0d9488',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#0d9488',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5
+                    }, {
+                        label: 'Meetings',
+                        data: [2, 4, 3, 5, 4, 1, 0],
+                        backgroundColor: 'rgba(124, 58, 237, 0.15)',
+                        borderColor: '#7c3aed',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#7c3aed',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, padding: 12 } }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 10,
+                            ticks: { stepSize: 2, font: { size: 10 } },
+                            grid: { color: 'rgba(0,0,0,0.08)' },
+                            pointLabels: { font: { size: 11, weight: '500' } }
+                        }
+                    }
+                }
+            });
+
+            // Task Distribution - Horizontal Bar
+            const taskCtx = document.getElementById('taskDistributionChart').getContext('2d');
+            new Chart(taskCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Research', 'Meetings', 'Reviews', 'Strategy', 'Documentation'],
+                    datasets: [{
+                        label: 'Hours',
+                        data: [18, 12, 8, 15, 6],
+                        backgroundColor: [
+                            'rgba(13, 148, 136, 0.85)',
+                            'rgba(124, 58, 237, 0.85)',
+                            'rgba(249, 115, 22, 0.85)',
+                            'rgba(6, 182, 212, 0.85)',
+                            'rgba(16, 185, 129, 0.85)'
+                        ],
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        y: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Investment Overview - Stacked Area
+            const investCtx = document.getElementById('investmentChart').getContext('2d');
+            const investGradient1 = investCtx.createLinearGradient(0, 0, 0, 200);
+            investGradient1.addColorStop(0, 'rgba(13, 148, 136, 0.4)');
+            investGradient1.addColorStop(1, 'rgba(13, 148, 136, 0)');
+            const investGradient2 = investCtx.createLinearGradient(0, 0, 0, 200);
+            investGradient2.addColorStop(0, 'rgba(249, 115, 22, 0.4)');
+            investGradient2.addColorStop(1, 'rgba(249, 115, 22, 0)');
+
+            new Chart(investCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [{
+                        label: 'Consulting Investment ($K)',
+                        data: [45, 52, 68, 75],
+                        borderColor: '#0d9488',
+                        backgroundColor: investGradient1,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#0d9488',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }, {
+                        label: 'ROI Realized ($K)',
+                        data: [25, 48, 85, 120],
+                        borderColor: '#f97316',
+                        backgroundColor: investGradient2,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#f97316',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top', labels: { usePointStyle: true, padding: 15 } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+
+            // Satisfaction Gauge - Doughnut as Gauge
+            const gaugeCtx = document.getElementById('satisfactionGaugeChart').getContext('2d');
+            new Chart(gaugeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Score', 'Remaining'],
+                    datasets: [{
+                        data: [96, 4],
+                        backgroundColor: [
+                            '#0d9488',
+                            'rgba(0,0,0,0.08)'
+                        ],
+                        borderWidth: 0,
+                        circumference: 270,
+                        rotation: 225
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '80%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
                     }
                 }
             });

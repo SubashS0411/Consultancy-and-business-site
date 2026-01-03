@@ -9,19 +9,51 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
-        /* About Page - Unique Purple Accent Theme */
-        .page-hero { background: linear-gradient(135deg, #0c1222 0%, #1a1a3e 50%, #0c1222 100%); }
-        .page-hero-badge { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
-        .highlight { background: linear-gradient(135deg, #8b5cf6, #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .text-gradient { background: linear-gradient(135deg, #8b5cf6, #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .section-badge { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        /* About Page - Unique Purple/Violet Theme */
+        .page-hero { 
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); 
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+            animation: aboutPulse 8s ease-in-out infinite;
+        }
+        @keyframes aboutPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+            50% { transform: scale(1.2) rotate(10deg); opacity: 0.5; }
+        }
+        .page-hero-badge { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .highlight { background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .text-gradient { background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .section-badge { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
         .about-image-wrapper::before { background: rgba(139, 92, 246, 0.1); }
-        .value-card:hover { border-color: rgba(139, 92, 246, 0.5); }
-        .team-card:hover .team-social a { background: #8b5cf6; }
-        .cta-section { background: linear-gradient(135deg, #1a1a3e, #0c1222); }
+        .value-card { border-left: 4px solid #7c3aed; }
+        .value-card:hover { border-color: #a855f7; box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); }
+        .team-card:hover .team-social a { background: #7c3aed; }
+        .cta-section { background: linear-gradient(135deg, #312e81, #1e1b4b); }
+        .btn-primary { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+        .btn-primary:hover { background: linear-gradient(135deg, #6d28d9, #9333ea); }
+        .stat-value { color: #a855f7 !important; }
+        /* Floating shapes */
+        .about-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.1);
+            pointer-events: none;
+        }
+        .about-shape-1 { width: 300px; height: 300px; top: 10%; left: -150px; animation: float 15s ease-in-out infinite; }
+        .about-shape-2 { width: 200px; height: 200px; bottom: 20%; right: -100px; animation: float 12s ease-in-out infinite reverse; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
     </style>
 </head>
-<body>
+<body class="page-about">
     <!-- Navigation -->
     <nav class="navbar dark">
         <div class="container nav-container">

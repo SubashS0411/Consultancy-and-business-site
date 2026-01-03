@@ -12,7 +12,109 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="dashboard-layout">
+    <!-- Navigation -->
+    <nav class="navbar dark">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">E</div>
+                <span>Everest</span>
+            </a>
+            
+            <div class="nav-menu">
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-trigger">
+                        Home <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="index.html">Home Version 1</a>
+                            <a href="index2.html">Home Version 2</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="industries.html" class="nav-link">Industries</a>
+                <a href="insights.html" class="nav-link">Insights</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle text direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <div class="nav-dropdown dashboard-dropdown">
+                    <button class="nav-link nav-dropdown-trigger dashboard-trigger active">
+                        <i class="fas fa-th-large"></i> <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="user-dashboard.html"><i class="fas fa-user"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="active"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown auth-dropdown">
+                    <button class="nav-link nav-dropdown-trigger auth-trigger">
+                        <i class="fas fa-user-circle"></i> <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                            <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-btn nav-btn-primary hidden-mobile">Get Started</a>
+                <button class="mobile-menu-toggle" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-links">
+            <button class="mobile-dropdown-btn">
+                Home <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <a href="index.html">Home Version 1</a>
+                <a href="index2.html">Home Version 2</a>
+            </div>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="services.html" class="mobile-nav-link">Services</a>
+            <a href="industries.html" class="mobile-nav-link">Industries</a>
+            <a href="insights.html" class="mobile-nav-link">Insights</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <button class="mobile-dropdown-btn active">
+                <i class="fas fa-th-large"></i> Dashboard <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <a href="user-dashboard.html"><i class="fas fa-user"></i> User Dashboard</a>
+                <a href="admin-dashboard.html" class="active"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+            </div>
+            <button class="mobile-dropdown-btn">
+                <i class="fas fa-user-circle"></i> Account <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-dropdown-content">
+                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+            <button class="mobile-rtl-toggle" id="mobileRtlToggle">
+                <i class="fas fa-globe"></i> Toggle RTL/LTR
+            </button>
+        </div>
+        <div class="mobile-nav-actions">
+            <a href="contact.html" class="nav-btn nav-btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <div class="dashboard-layout dashboard-with-navbar">
         <!-- Sidebar -->
         <aside class="dashboard-sidebar">
             <div class="sidebar-header">
@@ -179,58 +281,76 @@
                     </div>
                 </div>
                 
-                <!-- Charts Section -->
+                <!-- Charts Section - Premium Design -->
                 <div class="dashboard-charts">
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Revenue Overview</h2>
-                            <div class="chart-period-selector">
-                                <button class="period-btn active">Monthly</button>
-                                <button class="period-btn">Quarterly</button>
-                                <button class="period-btn">Yearly</button>
+                            <h2 class="card-title"><i class="fas fa-chart-line"></i> Revenue Overview</h2>
+                            <div class="live-indicator">
+                                <span class="live-dot"></span>
+                                <span>Live Data</span>
                             </div>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-stats-row">
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value">$4.8M</div>
+                                <div class="chart-stat-label">Total Revenue</div>
+                            </div>
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value" style="color:#10b981;">+24%</div>
+                                <div class="chart-stat-label">Growth</div>
+                            </div>
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value">$420K</div>
+                                <div class="chart-stat-label">This Month</div>
+                            </div>
+                            <div class="chart-stat-item">
+                                <div class="chart-stat-value">$580K</div>
+                                <div class="chart-stat-label">Target</div>
+                            </div>
+                        </div>
+                        <div class="chart-container chart-container-premium">
                             <canvas id="revenueChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Project Distribution</h2>
+                            <h2 class="card-title"><i class="fas fa-pie-chart"></i> Project Distribution</h2>
                         </div>
-                        <div class="chart-container chart-container-doughnut">
+                        <div class="chart-container chart-container-doughnut" style="height: 220px;">
                             <canvas id="projectsChart"></canvas>
                         </div>
-                        <div class="chart-legend">
-                            <div class="legend-item"><span class="legend-color" style="background:#0d9488;"></span> Strategy</div>
-                            <div class="legend-item"><span class="legend-color" style="background:#7c3aed;"></span> Digital</div>
-                            <div class="legend-item"><span class="legend-color" style="background:#f97316;"></span> Operations</div>
-                            <div class="legend-item"><span class="legend-color" style="background:#06b6d4;"></span> Finance</div>
+                        <div class="chart-legend" style="background: var(--gray-50); margin: 0 -1.5rem -1.5rem; padding: 1.25rem 1.5rem; border-radius: 0 0 var(--radius-xl) var(--radius-xl);">
+                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #0d9488, #14b8a6);"></span> Strategy (35%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #7c3aed, #a855f7);"></span> Digital (28%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #f97316, #fb923c);"></span> Operations (22%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);"></span> Finance (15%)</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Additional Charts Row -->
                 <div class="dashboard-charts">
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Team Performance</h2>
+                            <h2 class="card-title"><i class="fas fa-users"></i> Team Performance</h2>
                             <div class="chart-period-selector">
                                 <button class="period-btn active">This Month</button>
                                 <button class="period-btn">Last Month</button>
                             </div>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-container chart-container-premium">
                             <canvas id="teamPerformanceChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Client Acquisition</h2>
+                            <h2 class="card-title"><i class="fas fa-user-plus"></i> Client Acquisition</h2>
+                            <span style="background: rgba(16,185,129,0.1); color: #10b981; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">+68 New</span>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-container chart-container-premium">
                             <canvas id="clientAcquisitionChart"></canvas>
                         </div>
                     </div>
@@ -238,20 +358,21 @@
                 
                 <!-- Third Row of Charts -->
                 <div class="dashboard-charts">
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Regional Performance</h2>
+                            <h2 class="card-title"><i class="fas fa-globe"></i> Regional Performance</h2>
                         </div>
-                        <div class="chart-container chart-container-polar">
+                        <div class="chart-container chart-container-polar" style="height: 300px;">
                             <canvas id="regionalChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="dashboard-card chart-card" data-animate>
+                    <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
-                            <h2 class="card-title">Monthly Targets</h2>
+                            <h2 class="card-title"><i class="fas fa-bullseye"></i> Monthly Targets</h2>
+                            <span style="background: rgba(249,115,22,0.1); color: #f97316; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">87% Avg</span>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-container chart-container-premium">
                             <canvas id="targetsChart"></canvas>
                         </div>
                     </div>
