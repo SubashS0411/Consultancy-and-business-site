@@ -613,11 +613,26 @@ class StatsCounter {
         const step = target / (duration / 16);
         let current = 0;
 
+        // Check if element already has a sup element (to preserve existing + or % signs)
+        const existingSup = element.nextElementSibling;
+        const hasSup = existingSup && existingSup.tagName === 'SUP';
+
         const timer = setInterval(() => {
             current += step;
             if (current >= target) {
                 current = target;
                 clearInterval(timer);
+                
+                // Add + icon after animation completes if not already present
+                if (!hasSup && element.parentElement) {
+                    const supElement = element.parentElement.querySelector('sup');
+                    if (supElement) {
+                        // Enhance existing sup styling
+                        supElement.style.fontSize = '0.5em';
+                        supElement.style.marginLeft = '2px';
+                        supElement.style.fontWeight = '700';
+                    }
+                }
             }
             element.textContent = Math.floor(current).toLocaleString();
         }, 16);

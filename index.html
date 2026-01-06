@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Everest Consultancy - Transform Your Business</title>
-    <meta name="description" content="Transform your business with Everest Consultancy's strategic solutions. Expert consulting services for growth, innovation, and operational excellence.">
+    <meta name="description"
+        content="Transform your business with Everest Consultancy's strategic solutions. Expert consulting services for growth, innovation, and operational excellence.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <!-- Chart.js for impressive data visualizations -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar dark">
@@ -19,7 +22,7 @@
                 <div class="nav-logo-icon">E</div>
                 <span>Everest</span>
             </a>
-            
+
             <div class="nav-menu">
                 <div class="nav-dropdown">
                     <button class="nav-link nav-dropdown-trigger active">
@@ -38,12 +41,12 @@
                 <a href="insights.html" class="nav-link">Insights</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
-            
+
             <div class="nav-actions">
-                <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle text direction">
+                <button class="rtl-toggle hidden-mobile" id="rtlToggle" aria-label="Toggle text direction">
                     <i class="fas fa-globe"></i>
                 </button>
-                <div class="nav-dropdown dashboard-dropdown">
+                <div class="nav-dropdown dashboard-dropdown hidden-mobile">
                     <button class="nav-link nav-dropdown-trigger dashboard-trigger">
                         <i class="fas fa-th-large"></i> <i class="fas fa-chevron-down"></i>
                     </button>
@@ -54,18 +57,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="nav-dropdown auth-dropdown">
-                    <button class="nav-link nav-dropdown-trigger auth-trigger">
-                        <i class="fas fa-user-circle"></i> <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="nav-dropdown-menu">
-                        <div class="nav-dropdown-content">
-                            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-                            <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-btn nav-btn-primary hidden-mobile">Get Started</a>
+                <a href="login.html" class="nav-btn nav-btn-outline hidden-mobile">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="signup.html" class="nav-btn nav-btn-primary hidden-mobile">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
                 <button class="mobile-menu-toggle" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -98,20 +95,17 @@
                 <a href="user-dashboard.html"><i class="fas fa-user"></i> User Dashboard</a>
                 <a href="admin-dashboard.html"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
             </div>
-            <button class="mobile-dropdown-btn">
-                <i class="fas fa-user-circle"></i> Account <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="mobile-dropdown-content">
-                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
-            </div>
+            <a href="login.html" class="mobile-nav-link">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="signup.html" class="mobile-nav-link">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </a>
             <button class="mobile-rtl-toggle" id="mobileRtlToggle">
                 <i class="fas fa-globe"></i> Toggle RTL/LTR
             </button>
         </div>
-        <div class="mobile-nav-actions">
-            <a href="contact.html" class="nav-btn nav-btn-primary">Get Started</a>
-        </div>
+
     </div>
 
     <main>
@@ -123,14 +117,15 @@
                     <div class="hero-text">
                         <div class="hero-badge">
                             <span class="hero-badge-dot"></span>
-                            Trusted by <span class="stat-number">500<sup>+</sup></span> Companies Worldwide
+                            <span>Trusted by <strong style="color: var(--accent); margin: 0 0.25rem;">500+</strong>
+                                Companies Worldwide</span>
                         </div>
                         <h1 class="hero-title">
                             Elevate Your<br>
                             <span class="highlight">Business Vision</span>
                         </h1>
                         <p class="hero-description">
-                            We partner with ambitious organizations to unlock growth, drive innovation, 
+                            We partner with ambitious organizations to unlock growth, drive innovation,
                             and build sustainable competitive advantage in today's dynamic market.
                         </p>
                         <div class="hero-actions">
@@ -143,7 +138,8 @@
                         </div>
                     </div>
                     <div class="hero-image" data-animate>
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business team collaborating">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Business team collaborating">
                         <div class="hero-image-badge">
                             <span class="hero-image-badge-icon"><i class="fas fa-trophy"></i></span>
                             <span>Award Winning<br>Consultancy 2025</span>
@@ -187,7 +183,7 @@
                         Real results backed by data. See how we've transformed businesses worldwide.
                     </p>
                 </div>
-                
+
                 <div class="home-charts-grid">
                     <!-- Growth Chart -->
                     <div class="home-chart-card" data-animate>
@@ -199,7 +195,7 @@
                             <canvas id="growthChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <!-- Industry Distribution -->
                     <div class="home-chart-card" data-animate>
                         <div class="chart-header">
@@ -210,13 +206,20 @@
                             <canvas id="industryChart"></canvas>
                         </div>
                         <div class="home-chart-legend">
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #0d9488, #14b8a6);"></span> Technology</div>
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #7c3aed, #a855f7);"></span> Finance</div>
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #f97316, #fb923c);"></span> Healthcare</div>
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);"></span> Manufacturing</div>
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #0d9488, #14b8a6);"></span> Technology
+                            </div>
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #7c3aed, #a855f7);"></span> Finance</div>
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #f97316, #fb923c);"></span> Healthcare
+                            </div>
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #06b6d4, #22d3ee);"></span> Manufacturing
+                            </div>
                         </div>
                     </div>
-                    
+
                     <!-- Global Reach Radar -->
                     <div class="home-chart-card" data-animate>
                         <div class="chart-header">
@@ -227,7 +230,7 @@
                             <canvas id="capabilitiesChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <!-- Client Satisfaction -->
                     <div class="home-chart-card" data-animate>
                         <div class="chart-header">
@@ -252,7 +255,7 @@
                         Comprehensive consulting solutions tailored to your unique business challenges
                     </p>
                 </div>
-                
+
                 <div class="grid-3">
                     <div class="service-card" data-animate>
                         <div class="service-card-icon">
@@ -260,26 +263,28 @@
                         </div>
                         <h3 class="service-card-title">Strategy Consulting</h3>
                         <p class="service-card-text">
-                            Define winning strategies that position your organization for long-term success and market leadership.
+                            Define winning strategies that position your organization for long-term success and market
+                            leadership.
                         </p>
                         <a href="services.html" class="service-card-link">
                             Learn More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div class="service-card" data-animate>
                         <div class="service-card-icon" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">
                             <i class="fas fa-microchip"></i>
                         </div>
                         <h3 class="service-card-title">Digital Transformation</h3>
                         <p class="service-card-text">
-                            Modernize operations with cutting-edge technology solutions that drive efficiency and innovation.
+                            Modernize operations with cutting-edge technology solutions that drive efficiency and
+                            innovation.
                         </p>
                         <a href="services.html" class="service-card-link">
                             Learn More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div class="service-card" data-animate>
                         <div class="service-card-icon" style="background: linear-gradient(135deg, #059669, #10b981);">
                             <i class="fas fa-cogs"></i>
@@ -292,7 +297,7 @@
                             Learn More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div class="service-card" data-animate>
                         <div class="service-card-icon" style="background: linear-gradient(135deg, #dc2626, #f43f5e);">
                             <i class="fas fa-chart-pie"></i>
@@ -305,7 +310,7 @@
                             Learn More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div class="service-card" data-animate>
                         <div class="service-card-icon" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">
                             <i class="fas fa-users"></i>
@@ -318,7 +323,7 @@
                             Learn More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div class="service-card" data-animate>
                         <div class="service-card-icon" style="background: linear-gradient(135deg, #ea580c, #f97316);">
                             <i class="fas fa-rocket"></i>
@@ -341,11 +346,13 @@
                 <div class="grid-2" style="align-items: center; gap: 4rem;">
                     <div data-animate>
                         <span class="section-badge">About Us</span>
-                        <h2 class="section-title" style="text-align: left;">Why Choose <span class="text-gradient">Everest Consultancy</span></h2>
+                        <h2 class="section-title" style="text-align: left;">Why Choose <span
+                                class="text-gradient">Everest Consultancy</span></h2>
                         <p class="section-description" style="text-align: left; margin-bottom: 2rem;">
-                            With decades of combined experience and a passion for excellence, we deliver measurable results that transform businesses.
+                            With decades of combined experience and a passion for excellence, we deliver measurable
+                            results that transform businesses.
                         </p>
-                        
+
                         <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem;">
                             <div class="feature-card">
                                 <div class="feature-icon">
@@ -359,7 +366,8 @@
                                     <i class="fas fa-globe"></i>
                                 </div>
                                 <h4 class="feature-title">Global Expertise</h4>
-                                <p class="feature-text">Operating in <strong>38<sup>+</sup></strong> countries worldwide</p>
+                                <p class="feature-text">Operating in <strong>38<sup>+</sup></strong> countries worldwide
+                                </p>
                             </div>
                             <div class="feature-card">
                                 <div class="feature-icon">
@@ -376,15 +384,16 @@
                                 <p class="feature-text"><strong>98<sup>%</sup></strong> client satisfaction rate</p>
                             </div>
                         </div>
-                        
+
                         <a href="about.html" class="btn btn-primary">
                             Learn More About Us <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div data-animate style="position: relative;">
                         <div class="about-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team meeting" class="about-image">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Team meeting" class="about-image">
                             <div class="about-stats-card">
                                 <div class="about-stat">
                                     <div class="about-stat-value">$2.4B</div>
@@ -408,26 +417,30 @@
                     <span class="section-badge">Our Work</span>
                     <h2 class="section-title">Featured <span class="text-gradient">Case Studies</span></h2>
                     <p class="section-description">
-                        Discover how we've helped leading companies transform their operations and achieve remarkable results
+                        Discover how we've helped leading companies transform their operations and achieve remarkable
+                        results
                     </p>
                 </div>
-                
+
                 <div class="portfolio-grid">
                     <div class="portfolio-card portfolio-card-large" data-animate>
                         <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Digital Transformation Project">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+                                alt="Digital Transformation Project">
                         </div>
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Digital Transformation</span>
                             <h3 class="portfolio-title">Global Finance Corp</h3>
-                            <p class="portfolio-text">Complete digital overhaul resulting in <strong>150<sup>%</sup></strong> efficiency improvement</p>
+                            <p class="portfolio-text">Complete digital overhaul resulting in
+                                <strong>150<sup>%</sup></strong> efficiency improvement</p>
                             <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-card" data-animate>
                         <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" alt="Strategy Project">
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80"
+                                alt="Strategy Project">
                         </div>
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Strategy</span>
@@ -436,10 +449,11 @@
                             <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-card" data-animate>
                         <div class="portfolio-image">
-                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80" alt="Operations Project">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80"
+                                alt="Operations Project">
                         </div>
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Operations</span>
@@ -462,7 +476,7 @@
                         Don't just take our word for it — hear from the leaders we've helped transform their businesses
                     </p>
                 </div>
-                
+
                 <div class="grid-3">
                     <div class="testimonial-card" data-animate>
                         <div class="testimonial-stars">
@@ -473,11 +487,13 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-content">
-                            "Everest Consultancy transformed our business strategy. Their insights helped us achieve 40% revenue growth in just one year."
+                            "Everest Consultancy transformed our business strategy. Their insights helped us achieve 40%
+                            revenue growth in just one year."
                         </p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="John Davidson">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                                    alt="John Davidson">
                             </div>
                             <div>
                                 <div class="testimonial-name">John Davidson</div>
@@ -485,7 +501,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-card" data-animate>
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i>
@@ -495,11 +511,13 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-content">
-                            "The digital transformation project exceeded our expectations. Our operational efficiency improved by 60%."
+                            "The digital transformation project exceeded our expectations. Our operational efficiency
+                            improved by 60%."
                         </p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Sarah Mitchell">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                                    alt="Sarah Mitchell">
                             </div>
                             <div>
                                 <div class="testimonial-name">Sarah Mitchell</div>
@@ -507,7 +525,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-card" data-animate>
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i>
@@ -517,11 +535,13 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-content">
-                            "Working with Everest was a game-changer. Their team's expertise and dedication are unmatched in the industry."
+                            "Working with Everest was a game-changer. Their team's expertise and dedication are
+                            unmatched in the industry."
                         </p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="Michael Roberts">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+                                    alt="Michael Roberts">
                             </div>
                             <div>
                                 <div class="testimonial-name">Michael Roberts</div>
@@ -568,7 +588,7 @@
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Company</h4>
                     <div class="footer-links">
@@ -579,7 +599,7 @@
                         <a href="contact.html">Contact</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <div class="footer-links">
@@ -590,7 +610,7 @@
                         <a href="services.html">Human Capital</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Contact</h4>
                     <div class="footer-links">
@@ -601,7 +621,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p class="footer-copyright">© 2026 Everest Consultancy. All rights reserved.</p>
                 <div class="footer-legal">
@@ -615,13 +635,13 @@
     <script src="js/main.js"></script>
     <script>
         // Initialize Home Page Charts
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Growth Chart - Area chart showing business growth
             const growthCtx = document.getElementById('growthChart').getContext('2d');
             const growthGradient = growthCtx.createLinearGradient(0, 0, 0, 250);
             growthGradient.addColorStop(0, 'rgba(13, 148, 136, 0.4)');
             growthGradient.addColorStop(1, 'rgba(13, 148, 136, 0)');
-            
+
             new Chart(growthCtx, {
                 type: 'line',
                 data: {
@@ -674,7 +694,7 @@
                     datasets: [{
                         data: [28, 22, 18, 12, 8, 5, 4, 3],
                         backgroundColor: [
-                            '#0d9488', '#7c3aed', '#f97316', '#06b6d4', 
+                            '#0d9488', '#7c3aed', '#f97316', '#06b6d4',
                             '#10b981', '#f43f5e', '#8b5cf6', '#94a3b8'
                         ],
                         borderWidth: 0,
@@ -768,13 +788,13 @@
                         legend: { display: false }
                     },
                     scales: {
-                        x: { 
-                            beginAtZero: true, 
-                            max: 100, 
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
                             grid: { color: 'rgba(0,0,0,0.05)' },
-                            ticks: { callback: function(value) { return value + '%'; }, font: { family: "'DM Sans', sans-serif" } }
+                            ticks: { callback: function (value) { return value + '%'; }, font: { family: "'DM Sans', sans-serif" } }
                         },
-                        y: { 
+                        y: {
                             grid: { display: false },
                             ticks: { font: { family: "'DM Sans', sans-serif", weight: '500' } }
                         }
@@ -784,4 +804,5 @@
         });
     </script>
 </body>
+
 </html>

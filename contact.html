@@ -6,6 +6,8 @@
     <title>Contact Us - Everest Consultancy</title>
     <meta name="description" content="Get in touch with Everest Consultancy. Contact us to discuss your business challenges and how our consulting services can help drive your success.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
@@ -59,6 +61,47 @@
             0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
             50% { transform: translateY(-30px) rotate(15deg); opacity: 0.6; }
         }
+        /* Interactive Map Styling */
+        .contact-map {
+            height: 450px;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        #contactMap {
+            height: 100%;
+            width: 100%;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .leaflet-popup-content {
+            margin: 1rem;
+            font-family: var(--font-body);
+        }
+        .map-popup-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #f43f5e;
+            margin-bottom: 0.5rem;
+        }
+        .map-popup-address {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+        .map-popup-phone {
+            font-size: 0.875rem;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        @media (max-width: 767px) {
+            .contact-map {
+                height: 350px;
+            }
+        }
     </style>
 </head>
 <body class="page-contact">
@@ -104,18 +147,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="nav-dropdown auth-dropdown">
-                    <button class="nav-link nav-dropdown-trigger auth-trigger">
-                        <i class="fas fa-user-circle"></i> <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="nav-dropdown-menu">
-                        <div class="nav-dropdown-content">
-                            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-                            <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-btn nav-btn-primary hidden-mobile">Get Started</a>
+                <a href="login.html" class="nav-btn nav-btn-outline hidden-mobile">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="signup.html" class="nav-btn nav-btn-primary hidden-mobile">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
                 <button class="mobile-menu-toggle" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -148,19 +185,15 @@
                 <a href="user-dashboard.html"><i class="fas fa-user"></i> User Dashboard</a>
                 <a href="admin-dashboard.html"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
             </div>
-            <button class="mobile-dropdown-btn">
-                <i class="fas fa-user-circle"></i> Account <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="mobile-dropdown-content">
-                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
-            </div>
+            <a href="login.html" class="mobile-nav-link">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="signup.html" class="mobile-nav-link">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </a>
             <button class="mobile-rtl-toggle" id="mobileRtlToggle">
                 <i class="fas fa-globe"></i> Toggle RTL/LTR
             </button>
-        </div>
-        <div class="mobile-nav-actions">
-            <a href="contact.html" class="nav-btn nav-btn-primary">Get Started</a>
         </div>
     </div>
 
@@ -306,12 +339,9 @@
                             </div>
                         </div>
                         
-                        <!-- Map Placeholder -->
+                        <!-- Interactive Map -->
                         <div class="contact-map">
-                            <div class="map-placeholder">
-                                <i class="fas fa-map-marked-alt"></i>
-                                <p>Interactive Map</p>
-                            </div>
+                            <div id="contactMap"></div>
                         </div>
                     </div>
                 </div>
@@ -448,6 +478,116 @@
         </div>
     </footer>
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="js/main.js"></script>
+    <script>
+        // Initialize Interactive Map
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if map container exists
+            const mapContainer = document.getElementById('contactMap');
+            if (!mapContainer) return;
+
+            // Initialize map centered on New York (main office)
+            const map = L.map('contactMap', {
+                center: [40.7128, -74.0060],
+                zoom: 3,
+                scrollWheelZoom: false,
+                zoomControl: true
+            });
+
+            // Add tile layer with custom styling
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Custom icon for markers
+            const customIcon = L.divIcon({
+                className: 'custom-marker',
+                html: '<div style="background: linear-gradient(135deg, #f43f5e, #e11d48); width: 32px; height: 32px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 4px 12px rgba(244, 63, 94, 0.4); border: 3px solid white;"><div style="width: 12px; height: 12px; background: white; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div></div>',
+                iconSize: [32, 32],
+                iconAnchor: [16, 32],
+                popupAnchor: [0, -32]
+            });
+
+            // Office locations
+            const offices = [
+                {
+                    name: 'New York',
+                    coords: [40.7128, -74.0060],
+                    address: '123 Business Ave, Suite 100<br>New York, NY 10001',
+                    phone: '+1 (234) 567-890',
+                    type: 'Headquarters'
+                },
+                {
+                    name: 'London',
+                    coords: [51.5074, -0.1278],
+                    address: '45 Canary Wharf<br>London E14 5AB, UK',
+                    phone: '+44 20 1234 5678',
+                    type: 'Regional Office'
+                },
+                {
+                    name: 'Singapore',
+                    coords: [1.2894, 103.8500],
+                    address: '1 Marina Boulevard<br>Singapore 018989',
+                    phone: '+65 6789 0123',
+                    type: 'Regional Office'
+                },
+                {
+                    name: 'Dubai',
+                    coords: [25.2048, 55.2708],
+                    address: 'DIFC, Gate Village 8<br>Dubai, UAE',
+                    phone: '+971 4 123 4567',
+                    type: 'Regional Office'
+                }
+            ];
+
+            // Add markers for each office
+            offices.forEach(office => {
+                const marker = L.marker(office.coords, { icon: customIcon }).addTo(map);
+                
+                const popupContent = `
+                    <div class="map-popup">
+                        <div class="map-popup-title">
+                            <i class="fas fa-building"></i> ${office.name}
+                        </div>
+                        <div style="font-size: 0.75rem; color: #f43f5e; font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase;">
+                            ${office.type}
+                        </div>
+                        <div class="map-popup-address">
+                            <i class="fas fa-location-dot" style="color: #f43f5e; margin-right: 0.25rem;"></i>
+                            ${office.address}
+                        </div>
+                        <div class="map-popup-phone">
+                            <i class="fas fa-phone" style="color: #f43f5e; margin-right: 0.25rem;"></i>
+                            <a href="tel:${office.phone.replace(/\s/g, '')}" style="color: #0f172a; text-decoration: none;">${office.phone}</a>
+                        </div>
+                    </div>
+                `;
+                
+                marker.bindPopup(popupContent, {
+                    maxWidth: 300,
+                    className: 'custom-popup'
+                });
+            });
+
+            // Fit bounds to show all markers
+            const group = L.featureGroup(offices.map(office => L.marker(office.coords)));
+            map.fitBounds(group.getBounds().pad(0.1));
+
+            // Enable scroll zoom on click
+            map.on('click', function() {
+                if (!map.scrollWheelZoom.enabled()) {
+                    map.scrollWheelZoom.enable();
+                }
+            });
+
+            // Disable scroll zoom when mouse leaves map
+            mapContainer.addEventListener('mouseleave', function() {
+                map.scrollWheelZoom.disable();
+            });
+        });
+    </script>
 </body>
 </html>
