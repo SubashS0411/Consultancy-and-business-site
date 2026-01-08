@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Everest Consultancy</title>
-    <meta name="description" content="Learn about Everest Consultancy's mission, values, and leadership team. Discover why we're trusted by 500+ companies worldwide.">
+    <meta name="description"
+        content="Learn about Everest Consultancy's mission, values, and leadership team. Discover why we're trusted by 500+ companies worldwide.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
         /* About Page - Unique Purple/Violet Theme */
-        .page-hero { 
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); 
+        .page-hero {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
             position: relative;
             overflow: hidden;
         }
+
         .page-hero::before {
             content: '';
             position: absolute;
@@ -25,22 +28,79 @@
             background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
             animation: aboutPulse 8s ease-in-out infinite;
         }
+
         @keyframes aboutPulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-            50% { transform: scale(1.2) rotate(10deg); opacity: 0.5; }
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(10deg);
+                opacity: 0.5;
+            }
         }
-        .page-hero-badge { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); }
-        .highlight { background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .text-gradient { background: linear-gradient(135deg, #a855f7, #c084fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .section-badge { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
-        .about-image-wrapper::before { background: rgba(139, 92, 246, 0.1); }
-        .value-card { border-left: 4px solid #7c3aed; }
-        .value-card:hover { border-color: #a855f7; box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); }
-        .team-card:hover .team-social a { background: #7c3aed; }
-        .cta-section { background: linear-gradient(135deg, #312e81, #1e1b4b); }
-        .btn-primary { background: linear-gradient(135deg, #7c3aed, #a855f7); }
-        .btn-primary:hover { background: linear-gradient(135deg, #6d28d9, #9333ea); }
-        .stat-value { color: #a855f7 !important; }
+
+        .page-hero-badge {
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-badge {
+            background: rgba(124, 58, 237, 0.1);
+            color: #7c3aed;
+        }
+
+        .about-image-wrapper::before {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .value-card {
+            border-left: 4px solid #7c3aed;
+        }
+
+        .value-card:hover {
+            border-color: #a855f7;
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
+        }
+
+        .team-card:hover .team-social a {
+            background: #7c3aed;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #312e81, #1e1b4b);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #6d28d9, #9333ea);
+        }
+
+        .stat-value {
+            color: #a855f7 !important;
+        }
+
         /* Floating shapes */
         .about-shape {
             position: absolute;
@@ -48,11 +108,37 @@
             background: rgba(139, 92, 246, 0.1);
             pointer-events: none;
         }
-        .about-shape-1 { width: 300px; height: 300px; top: 10%; left: -150px; animation: float 15s ease-in-out infinite; }
-        .about-shape-2 { width: 200px; height: 200px; bottom: 20%; right: -100px; animation: float 12s ease-in-out infinite reverse; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+
+        .about-shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -150px;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .about-shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            right: -100px;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
     </style>
 </head>
+
 <body class="page-about">
     <!-- Navigation -->
     <nav class="navbar dark">
@@ -61,7 +147,7 @@
                 <div class="nav-logo-icon">E</div>
                 <span>Everest</span>
             </a>
-            
+
             <div class="nav-menu">
                 <div class="nav-dropdown">
                     <button class="nav-link nav-dropdown-trigger">
@@ -80,12 +166,12 @@
                 <a href="insights.html" class="nav-link">Insights</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
-            
+
             <div class="nav-actions">
-                <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle text direction">
+                <button class="rtl-toggle hidden-mobile" id="rtlToggle" aria-label="Toggle text direction">
                     <i class="fas fa-globe"></i>
                 </button>
-                <div class="nav-dropdown dashboard-dropdown">
+                <div class="nav-dropdown dashboard-dropdown hidden-mobile">
                     <button class="nav-link nav-dropdown-trigger dashboard-trigger">
                         <i class="fas fa-th-large"></i> <i class="fas fa-chevron-down"></i>
                     </button>
@@ -159,7 +245,8 @@
                         </p>
                     </div>
                     <div class="page-hero-image" data-animate>
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Our team collaboration">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+                            alt="Our team collaboration">
                         <div class="page-hero-image-accent">
                             <span class="accent-number">15+</span>
                             <span class="accent-text">Years Experience</span>
@@ -179,10 +266,14 @@
                             Shaping the Future of <span class="text-gradient">Business Excellence</span>
                         </h2>
                         <p class="section-description" style="text-align: left; margin-bottom: 1.5rem;">
-                            Founded in 2010, Everest Consultancy has grown from a boutique advisory firm to a global leader in business transformation. We believe that every organization has untapped potential waiting to be unlocked.
+                            Founded in 2010, Everest Consultancy has grown from a boutique advisory firm to a global
+                            leader in business transformation. We believe that every organization has untapped potential
+                            waiting to be unlocked.
                         </p>
                         <p class="section-description" style="text-align: left; margin-bottom: 2rem;">
-                            Our team of 150+ experts brings diverse perspectives and deep industry knowledge to every engagement, ensuring solutions that are not only innovative but also practical and sustainable.
+                            Our team of 150+ experts brings diverse perspectives and deep industry knowledge to every
+                            engagement, ensuring solutions that are not only innovative but also practical and
+                            sustainable.
                         </p>
                         <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
                             <div>
@@ -199,10 +290,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div data-animate>
                         <div class="about-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern office workspace" class="about-image">
+                            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Modern office workspace" class="about-image">
                         </div>
                     </div>
                 </div>
@@ -213,23 +305,27 @@
         <section class="section-padding" style="background: var(--secondary);">
             <div class="container">
                 <div class="grid-2" style="gap: 2rem;">
-                    <div class="card" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 2.5rem;">
+                    <div class="card"
+                        style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 2.5rem;">
                         <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">
                             <i class="fas fa-bullseye" style="color: var(--accent); margin-right: 0.5rem;"></i>
                             Our Mission
                         </h3>
                         <p style="opacity: 0.9; line-height: 1.8;">
-                            To empower organizations worldwide with transformative strategies and innovative solutions that drive sustainable growth and create lasting value.
+                            To empower organizations worldwide with transformative strategies and innovative solutions
+                            that drive sustainable growth and create lasting value.
                         </p>
                     </div>
-                    
-                    <div class="card" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 2.5rem;">
+
+                    <div class="card"
+                        style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 2.5rem;">
                         <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">
                             <i class="fas fa-eye" style="color: var(--primary-light); margin-right: 0.5rem;"></i>
                             Our Vision
                         </h3>
                         <p style="opacity: 0.9; line-height: 1.8;">
-                            To be the world's most trusted partner for business transformation, recognized for our commitment to excellence, innovation, and measurable results.
+                            To be the world's most trusted partner for business transformation, recognized for our
+                            commitment to excellence, innovation, and measurable results.
                         </p>
                     </div>
                 </div>
@@ -246,38 +342,42 @@
                         These core values shape everything we do and define who we are as a company
                     </p>
                 </div>
-                
+
                 <div class="grid-4">
                     <div class="feature-card" data-animate>
                         <div class="feature-icon">
                             <i class="fas fa-gem"></i>
                         </div>
                         <h4 class="feature-title">Excellence</h4>
-                        <p class="feature-text">We strive for excellence in everything we do, delivering exceptional results that exceed expectations.</p>
+                        <p class="feature-text">We strive for excellence in everything we do, delivering exceptional
+                            results that exceed expectations.</p>
                     </div>
-                    
+
                     <div class="feature-card" data-animate>
                         <div class="feature-icon" style="background: rgba(124, 58, 237, 0.1); color: #7c3aed;">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h4 class="feature-title">Integrity</h4>
-                        <p class="feature-text">We act with honesty and transparency, building trust through ethical business practices.</p>
+                        <p class="feature-text">We act with honesty and transparency, building trust through ethical
+                            business practices.</p>
                     </div>
-                    
+
                     <div class="feature-card" data-animate>
                         <div class="feature-icon" style="background: rgba(5, 150, 105, 0.1); color: #059669;">
                             <i class="fas fa-lightbulb"></i>
                         </div>
                         <h4 class="feature-title">Innovation</h4>
-                        <p class="feature-text">We embrace creativity and forward-thinking to develop cutting-edge solutions.</p>
+                        <p class="feature-text">We embrace creativity and forward-thinking to develop cutting-edge
+                            solutions.</p>
                     </div>
-                    
+
                     <div class="feature-card" data-animate>
                         <div class="feature-icon" style="background: rgba(220, 38, 38, 0.1); color: #dc2626;">
                             <i class="fas fa-handshake"></i>
                         </div>
                         <h4 class="feature-title">Partnership</h4>
-                        <p class="feature-text">We believe in true collaboration, working alongside our clients as trusted partners.</p>
+                        <p class="feature-text">We believe in true collaboration, working alongside our clients as
+                            trusted partners.</p>
                     </div>
                 </div>
             </div>
@@ -293,11 +393,12 @@
                         Experienced professionals dedicated to your success
                     </p>
                 </div>
-                
+
                 <div class="grid-4">
                     <div class="team-card" data-animate>
                         <div class="team-card-image">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="James Carter - CEO">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+                                alt="James Carter - CEO">
                         </div>
                         <div class="team-card-content">
                             <h4 class="team-card-name">James Carter</h4>
@@ -308,10 +409,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="team-card" data-animate>
                         <div class="team-card-image">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Emily Martinez - CSO">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+                                alt="Emily Martinez - CSO">
                         </div>
                         <div class="team-card-content">
                             <h4 class="team-card-name">Emily Martinez</h4>
@@ -322,10 +424,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="team-card" data-animate>
                         <div class="team-card-image">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="David Kim - CTO">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
+                                alt="David Kim - CTO">
                         </div>
                         <div class="team-card-content">
                             <h4 class="team-card-name">David Kim</h4>
@@ -336,10 +439,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="team-card" data-animate>
                         <div class="team-card-image">
-                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Sarah Wilson - COO">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+                                alt="Sarah Wilson - COO">
                         </div>
                         <div class="team-card-content">
                             <h4 class="team-card-name">Sarah Wilson</h4>
@@ -361,28 +465,32 @@
                     <span class="section-badge">Our Journey</span>
                     <h2 class="section-title">Key <span class="text-gradient">Milestones</span></h2>
                 </div>
-                
+
                 <div class="process-grid">
                     <div class="process-step" data-animate>
                         <div class="process-number">2010</div>
                         <h4 class="process-title">Founded</h4>
-                        <p class="process-text">Everest Consultancy was founded with a vision to transform businesses</p>
+                        <p class="process-text">Everest Consultancy was founded with a vision to transform businesses
+                        </p>
                     </div>
-                    
+
                     <div class="process-step" data-animate>
-                        <div class="process-number" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">2015</div>
+                        <div class="process-number" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">2015
+                        </div>
                         <h4 class="process-title">Global Expansion</h4>
                         <p class="process-text">Expanded operations to 15 countries across 3 continents</p>
                     </div>
-                    
+
                     <div class="process-step" data-animate>
-                        <div class="process-number" style="background: linear-gradient(135deg, #059669, #10b981);">2020</div>
+                        <div class="process-number" style="background: linear-gradient(135deg, #059669, #10b981);">2020
+                        </div>
                         <h4 class="process-title">Digital Leadership</h4>
                         <p class="process-text">Launched digital transformation practice serving 200+ clients</p>
                     </div>
-                    
+
                     <div class="process-step" data-animate>
-                        <div class="process-number" style="background: linear-gradient(135deg, #dc2626, #f43f5e);">2025</div>
+                        <div class="process-number" style="background: linear-gradient(135deg, #dc2626, #f43f5e);">2025
+                        </div>
                         <h4 class="process-title">Industry Leader</h4>
                         <p class="process-text">Recognized as top consultancy with 500+ successful projects</p>
                     </div>
@@ -425,7 +533,7 @@
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Company</h4>
                     <div class="footer-links">
@@ -436,7 +544,7 @@
                         <a href="contact.html">Contact</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <div class="footer-links">
@@ -447,7 +555,7 @@
                         <a href="services.html">Human Capital</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Contact</h4>
                     <div class="footer-links">
@@ -458,7 +566,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p class="footer-copyright">© 2026 Everest Consultancy. All rights reserved.</p>
                 <div class="footer-legal">
@@ -471,4 +579,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

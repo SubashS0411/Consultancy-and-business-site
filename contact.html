@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Everest Consultancy</title>
-    <meta name="description" content="Get in touch with Everest Consultancy. Contact us to discuss your business challenges and how our consulting services can help drive your success.">
+    <meta name="description"
+        content="Get in touch with Everest Consultancy. Contact us to discuss your business challenges and how our consulting services can help drive your success.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
         /* Contact Page - Unique Rose/Pink Theme with Glow Effect */
-        .page-hero { 
-            background: linear-gradient(135deg, #4c0519 0%, #be123c 50%, #e11d48 100%); 
+        .page-hero {
+            background: linear-gradient(135deg, #4c0519 0%, #be123c 50%, #e11d48 100%);
             position: relative;
             overflow: hidden;
         }
+
         .page-hero::before {
             content: '';
             position: absolute;
@@ -28,21 +32,76 @@
             background: radial-gradient(circle, rgba(251, 113, 133, 0.4) 0%, transparent 70%);
             animation: contactGlow 5s ease-in-out infinite;
         }
+
         @keyframes contactGlow {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.3); }
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.3);
+            }
         }
-        .page-hero-badge { background: rgba(253, 164, 175, 0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
-        .highlight { background: linear-gradient(135deg, #fb7185, #fda4af); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .text-gradient { background: linear-gradient(135deg, #f43f5e, #fb7185); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .section-badge { background: rgba(244, 63, 94, 0.1); color: #f43f5e; }
-        .contact-card { border-top: 3px solid transparent; transition: all 0.4s ease; }
-        .contact-card:hover { border-top-color: #f43f5e; box-shadow: 0 25px 50px rgba(244, 63, 94, 0.15); }
-        .contact-icon { background: linear-gradient(135deg, #f43f5e, #fb7185) !important; color: white !important; }
-        .form-input:focus { border-color: #f43f5e; box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.15); }
-        .btn-primary { background: linear-gradient(135deg, #f43f5e, #e11d48); }
-        .btn-primary:hover { background: linear-gradient(135deg, #e11d48, #be123c); }
-        .cta-section { background: linear-gradient(135deg, #4c0519, #1c0616); }
+
+        .page-hero-badge {
+            background: rgba(253, 164, 175, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fb7185, #fda4af);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #f43f5e, #fb7185);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-badge {
+            background: rgba(244, 63, 94, 0.1);
+            color: #f43f5e;
+        }
+
+        .contact-card {
+            border-top: 3px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            border-top-color: #f43f5e;
+            box-shadow: 0 25px 50px rgba(244, 63, 94, 0.15);
+        }
+
+        .contact-icon {
+            background: linear-gradient(135deg, #f43f5e, #fb7185) !important;
+            color: white !important;
+        }
+
+        .form-input:focus {
+            border-color: #f43f5e;
+            box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f43f5e, #e11d48);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #e11d48, #be123c);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #4c0519, #1c0616);
+        }
+
         /* Contact form special styling */
         .contact-form-wrapper {
             background: linear-gradient(135deg, rgba(244, 63, 94, 0.05), rgba(251, 113, 133, 0.02));
@@ -50,6 +109,7 @@
             border-radius: 1.5rem;
             padding: 2.5rem;
         }
+
         /* Floating hearts animation */
         .floating-heart {
             position: absolute;
@@ -57,10 +117,21 @@
             color: rgba(251, 113, 133, 0.3);
             animation: heartFloat 8s ease-in-out infinite;
         }
+
         @keyframes heartFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
-            50% { transform: translateY(-30px) rotate(15deg); opacity: 0.6; }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(15deg);
+                opacity: 0.6;
+            }
         }
+
         /* Interactive Map Styling */
         .contact-map {
             height: 450px;
@@ -69,34 +140,41 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-top: 2rem;
         }
+
         #contactMap {
             height: 100%;
             width: 100%;
         }
+
         .leaflet-popup-content-wrapper {
             border-radius: 0.75rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
+
         .leaflet-popup-content {
             margin: 1rem;
             font-family: var(--font-body);
         }
+
         .map-popup-title {
             font-size: 1.125rem;
             font-weight: 700;
             color: #f43f5e;
             margin-bottom: 0.5rem;
         }
+
         .map-popup-address {
             font-size: 0.875rem;
             color: #64748b;
             margin-bottom: 0.25rem;
         }
+
         .map-popup-phone {
             font-size: 0.875rem;
             color: #0f172a;
             font-weight: 600;
         }
+
         @media (max-width: 767px) {
             .contact-map {
                 height: 350px;
@@ -104,6 +182,7 @@
         }
     </style>
 </head>
+
 <body class="page-contact">
     <!-- Navigation -->
     <nav class="navbar dark">
@@ -112,7 +191,7 @@
                 <div class="nav-logo-icon">E</div>
                 <span>Everest</span>
             </a>
-            
+
             <div class="nav-menu">
                 <div class="nav-dropdown">
                     <button class="nav-link nav-dropdown-trigger">
@@ -131,12 +210,12 @@
                 <a href="insights.html" class="nav-link">Insights</a>
                 <a href="contact.html" class="nav-link active">Contact</a>
             </div>
-            
+
             <div class="nav-actions">
-                <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle text direction">
+                <button class="rtl-toggle hidden-mobile" id="rtlToggle" aria-label="Toggle text direction">
                     <i class="fas fa-globe"></i>
                 </button>
-                <div class="nav-dropdown dashboard-dropdown">
+                <div class="nav-dropdown dashboard-dropdown hidden-mobile">
                     <button class="nav-link nav-dropdown-trigger dashboard-trigger">
                         <i class="fas fa-th-large"></i> <i class="fas fa-chevron-down"></i>
                     </button>
@@ -210,7 +289,8 @@
                         </p>
                     </div>
                     <div class="page-hero-image" data-animate>
-                        <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=800&q=80" alt="Contact our team">
+                        <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=800&q=80"
+                            alt="Contact our team">
                         <div class="page-hero-image-accent">
                             <span class="accent-number">24h</span>
                             <span class="accent-text">Response Time</span>
@@ -227,35 +307,44 @@
                     <!-- Contact Form -->
                     <div class="contact-form-section" data-animate>
                         <h2 class="contact-form-title">Send Us a Message</h2>
-                        <p class="contact-form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
-                        
+                        <p class="contact-form-subtitle">Fill out the form below and we'll get back to you within 24
+                            hours.</p>
+
                         <form class="contact-form" id="contactForm">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label class="form-label" for="firstName">First Name <span class="required">*</span></label>
-                                    <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required>
+                                    <label class="form-label" for="firstName">First Name <span
+                                            class="required">*</span></label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input"
+                                        placeholder="John" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="lastName">Last Name <span class="required">*</span></label>
-                                    <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required>
+                                    <label class="form-label" for="lastName">Last Name <span
+                                            class="required">*</span></label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input"
+                                        placeholder="Doe" required>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
-                                <label class="form-label" for="email">Email Address <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" class="form-input" placeholder="john@company.com" required>
+                                <label class="form-label" for="email">Email Address <span
+                                        class="required">*</span></label>
+                                <input type="email" id="email" name="email" class="form-input"
+                                    placeholder="john@company.com" required>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label" for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (234) 567-890">
+                                <input type="tel" id="phone" name="phone" class="form-input"
+                                    placeholder="+1 (234) 567-890">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label" for="company">Company</label>
-                                <input type="text" id="company" name="company" class="form-input" placeholder="Your Company Name">
+                                <input type="text" id="company" name="company" class="form-input"
+                                    placeholder="Your Company Name">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label" for="service">Service Interest</label>
                                 <select id="service" name="service" class="form-input">
@@ -268,24 +357,25 @@
                                     <option value="other">Other</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label" for="message">Message <span class="required">*</span></label>
-                                <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell us about your project or inquiry..." required></textarea>
+                                <textarea id="message" name="message" class="form-input form-textarea"
+                                    placeholder="Tell us about your project or inquiry..." required></textarea>
                             </div>
-                            
+
                             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
                                 Send Message <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
                     </div>
-                    
+
                     <!-- Contact Info -->
                     <div class="contact-info-section" data-animate>
                         <div class="contact-info-card">
                             <h3 class="contact-info-title">Contact Information</h3>
                             <p class="contact-info-text">Reach out to us through any of the following channels.</p>
-                            
+
                             <div class="contact-info-items">
                                 <div class="contact-info-item">
                                     <div class="contact-info-icon">
@@ -296,7 +386,7 @@
                                         <a href="mailto:hello@everest.com">hello@everest.com</a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="contact-info-item">
                                     <div class="contact-info-icon">
                                         <i class="fas fa-phone"></i>
@@ -306,7 +396,7 @@
                                         <a href="tel:+1234567890">+1 (234) 567-890</a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="contact-info-item">
                                     <div class="contact-info-icon">
                                         <i class="fas fa-location-dot"></i>
@@ -316,7 +406,7 @@
                                         <p>123 Business Ave, Suite 100<br>New York, NY 10001</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="contact-info-item">
                                     <div class="contact-info-icon">
                                         <i class="fas fa-clock"></i>
@@ -327,7 +417,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="contact-social">
                                 <h4>Follow Us</h4>
                                 <div class="contact-social-links">
@@ -338,7 +428,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Interactive Map -->
                         <div class="contact-map">
                             <div id="contactMap"></div>
@@ -358,7 +448,7 @@
                         With offices in major business hubs, we're always close to our clients.
                     </p>
                 </div>
-                
+
                 <div class="grid-4" style="margin-top: 3rem;">
                     <div class="office-card" data-animate>
                         <div class="office-icon">
@@ -368,7 +458,7 @@
                         <p class="office-address">123 Business Ave, Suite 100<br>New York, NY 10001</p>
                         <p class="office-phone">+1 (234) 567-890</p>
                     </div>
-                    
+
                     <div class="office-card" data-animate>
                         <div class="office-icon">
                             <i class="fas fa-city"></i>
@@ -377,7 +467,7 @@
                         <p class="office-address">45 Canary Wharf<br>London E14 5AB, UK</p>
                         <p class="office-phone">+44 20 1234 5678</p>
                     </div>
-                    
+
                     <div class="office-card" data-animate>
                         <div class="office-icon">
                             <i class="fas fa-city"></i>
@@ -386,7 +476,7 @@
                         <p class="office-address">1 Marina Boulevard<br>Singapore 018989</p>
                         <p class="office-phone">+65 6789 0123</p>
                     </div>
-                    
+
                     <div class="office-card" data-animate>
                         <div class="office-icon">
                             <i class="fas fa-city"></i>
@@ -434,7 +524,7 @@
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Company</h4>
                     <div class="footer-links">
@@ -445,7 +535,7 @@
                         <a href="contact.html">Contact</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <div class="footer-links">
@@ -456,7 +546,7 @@
                         <a href="services.html">Human Capital</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Contact</h4>
                     <div class="footer-links">
@@ -467,7 +557,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p class="footer-copyright">© 2026 Everest Consultancy. All rights reserved.</p>
                 <div class="footer-legal">
@@ -479,11 +569,12 @@
     </footer>
 
     <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="js/main.js"></script>
     <script>
         // Initialize Interactive Map
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Check if map container exists
             const mapContainer = document.getElementById('contactMap');
             if (!mapContainer) return;
@@ -546,7 +637,7 @@
             // Add markers for each office
             offices.forEach(office => {
                 const marker = L.marker(office.coords, { icon: customIcon }).addTo(map);
-                
+
                 const popupContent = `
                     <div class="map-popup">
                         <div class="map-popup-title">
@@ -565,7 +656,7 @@
                         </div>
                     </div>
                 `;
-                
+
                 marker.bindPopup(popupContent, {
                     maxWidth: 300,
                     className: 'custom-popup'
@@ -577,17 +668,18 @@
             map.fitBounds(group.getBounds().pad(0.1));
 
             // Enable scroll zoom on click
-            map.on('click', function() {
+            map.on('click', function () {
                 if (!map.scrollWheelZoom.enabled()) {
                     map.scrollWheelZoom.enable();
                 }
             });
 
             // Disable scroll zoom when mouse leaves map
-            mapContainer.addEventListener('mouseleave', function() {
+            mapContainer.addEventListener('mouseleave', function () {
                 map.scrollWheelZoom.disable();
             });
         });
     </script>
 </body>
+
 </html>

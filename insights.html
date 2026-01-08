@@ -1,47 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insights - Everest Consultancy</title>
-    <meta name="description" content="Latest insights, articles, and thought leadership from Everest Consultancy. Stay informed on business trends, digital transformation, and strategic innovation.">
+    <meta name="description"
+        content="Latest insights, articles, and thought leadership from Everest Consultancy. Stay informed on business trends, digital transformation, and strategic innovation.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <style>
         /* Insights Page - Unique Emerald/Green Theme with Magazine Layout */
-        .page-hero { 
-            background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%); 
+        .page-hero {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
             position: relative;
             overflow: hidden;
         }
+
         .page-hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.03) 10px,
-                rgba(255,255,255,0.03) 20px
-            );
+            background: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255, 255, 255, 0.03) 10px,
+                    rgba(255, 255, 255, 0.03) 20px);
         }
-        .page-hero-badge { background: rgba(110, 231, 183, 0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
-        .highlight { background: linear-gradient(135deg, #34d399, #6ee7b7); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .text-gradient { background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .section-badge { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-        .insight-card { border-left: 4px solid transparent; transition: all 0.4s ease; }
-        .insight-card:hover { border-left-color: #10b981; box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15); transform: translateX(5px); }
-        .insight-tag { background: rgba(16, 185, 129, 0.15); color: #10b981; }
-        .insight-featured { border: 2px solid rgba(16, 185, 129, 0.3); }
-        .insight-featured:hover { border-color: #10b981; }
-        .btn-primary { background: linear-gradient(135deg, #10b981, #059669); }
-        .btn-primary:hover { background: linear-gradient(135deg, #059669, #047857); }
-        .cta-section { background: linear-gradient(135deg, #064e3b, #022c22); }
-        .newsletter-form button { background: linear-gradient(135deg, #10b981, #059669); }
-        .newsletter-form button:hover { background: linear-gradient(135deg, #059669, #047857); }
-        .insight-filter.active { background: #10b981; color: white; }
+
+        .page-hero-badge {
+            background: rgba(110, 231, 183, 0.2);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #34d399, #6ee7b7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .insight-card {
+            border-left: 4px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .insight-card:hover {
+            border-left-color: #10b981;
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15);
+            transform: translateX(5px);
+        }
+
+        .insight-tag {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+        }
+
+        .insight-featured {
+            border: 2px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .insight-featured:hover {
+            border-color: #10b981;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #064e3b, #022c22);
+        }
+
+        .newsletter-form button {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .newsletter-form button:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+
+        .insight-filter.active {
+            background: #10b981;
+            color: white;
+        }
+
         /* Reading progress bar */
         .reading-indicator {
             height: 3px;
@@ -52,9 +113,13 @@
             width: 0;
             transition: width 0.3s ease;
         }
-        .insight-card:hover .reading-indicator { width: 100%; }
+
+        .insight-card:hover .reading-indicator {
+            width: 100%;
+        }
     </style>
 </head>
+
 <body class="page-insights">
     <!-- Navigation -->
     <nav class="navbar dark">
@@ -63,7 +128,7 @@
                 <div class="nav-logo-icon">E</div>
                 <span>Everest</span>
             </a>
-            
+
             <div class="nav-menu">
                 <div class="nav-dropdown">
                     <button class="nav-link nav-dropdown-trigger">
@@ -82,12 +147,12 @@
                 <a href="insights.html" class="nav-link active">Insights</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
-            
+
             <div class="nav-actions">
-                <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle text direction">
+                <button class="rtl-toggle hidden-mobile" id="rtlToggle" aria-label="Toggle text direction">
                     <i class="fas fa-globe"></i>
                 </button>
-                <div class="nav-dropdown dashboard-dropdown">
+                <div class="nav-dropdown dashboard-dropdown hidden-mobile">
                     <button class="nav-link nav-dropdown-trigger dashboard-trigger">
                         <i class="fas fa-th-large"></i> <i class="fas fa-chevron-down"></i>
                     </button>
@@ -155,13 +220,15 @@
                 <div class="page-hero-grid">
                     <div class="page-hero-content">
                         <div class="page-hero-badge" data-animate>Knowledge Hub</div>
-                        <h1 class="page-hero-title" data-animate>Insights & <span class="highlight">Perspectives</span></h1>
+                        <h1 class="page-hero-title" data-animate>Insights & <span class="highlight">Perspectives</span>
+                        </h1>
                         <p class="page-hero-subtitle" data-animate>
                             Thought leadership and expert analysis on the trends shaping business today
                         </p>
                     </div>
                     <div class="page-hero-image" data-animate>
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Business insights and analysis">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                            alt="Business insights and analysis">
                         <div class="page-hero-image-accent">
                             <span class="accent-number">200+</span>
                             <span class="accent-text">Articles Published</span>
@@ -179,7 +246,9 @@
                         <span class="insight-tag">Featured</span>
                         <h2 class="insight-featured-title">The Future of Work: Navigating Hybrid Models in 2026</h2>
                         <p class="insight-featured-excerpt">
-                            As organizations continue to evolve their workplace strategies, we explore the key factors driving success in hybrid work environments and how leaders can build cultures that thrive across physical and digital spaces.
+                            As organizations continue to evolve their workplace strategies, we explore the key factors
+                            driving success in hybrid work environments and how leaders can build cultures that thrive
+                            across physical and digital spaces.
                         </p>
                         <div class="insight-meta">
                             <span><i class="fas fa-calendar-alt"></i> January 15, 2026</span>
@@ -190,7 +259,8 @@
                         </a>
                     </div>
                     <div class="insight-featured-image">
-                        <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=800&q=80" alt="Future of work">
+                        <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=800&q=80"
+                            alt="Future of work">
                     </div>
                 </div>
             </div>
@@ -216,7 +286,8 @@
                 <div class="grid-3">
                     <article class="insight-card insight-card-premium" data-animate>
                         <div class="insight-card-image">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="AI in Enterprise">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80"
+                                alt="AI in Enterprise">
                         </div>
                         <div class="insight-card-content">
                             <span class="insight-tag">Digital</span>
@@ -236,7 +307,8 @@
 
                     <article class="insight-card insight-card-premium" data-animate>
                         <div class="insight-card-image">
-                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80" alt="Sustainability">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80"
+                                alt="Sustainability">
                         </div>
                         <div class="insight-card-content">
                             <span class="insight-tag">Sustainability</span>
@@ -256,7 +328,8 @@
 
                     <article class="insight-card insight-card-premium" data-animate>
                         <div class="insight-card-image">
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Leadership">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+                                alt="Leadership">
                         </div>
                         <div class="insight-card-content">
                             <span class="insight-tag">Leadership</span>
@@ -276,7 +349,8 @@
 
                     <article class="insight-card insight-card-premium" data-animate>
                         <div class="insight-card-image">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Market Strategy">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
+                                alt="Market Strategy">
                         </div>
                         <div class="insight-card-content">
                             <span class="insight-tag">Strategy</span>
@@ -296,7 +370,8 @@
 
                     <article class="insight-card insight-card-premium" data-animate>
                         <div class="insight-card-image">
-                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Cloud Migration">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80"
+                                alt="Cloud Migration">
                         </div>
                         <div class="insight-card-content">
                             <span class="insight-tag">Digital</span>
@@ -316,7 +391,8 @@
 
                     <article class="insight-card insight-card-premium" data-animate>
                         <div class="insight-card-image">
-                            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80" alt="Innovation">
+                            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80"
+                                alt="Innovation">
                         </div>
                         <div class="insight-card-content">
                             <span class="insight-tag">Innovation</span>
@@ -351,7 +427,8 @@
                     <div class="newsletter-content">
                         <h2 class="newsletter-title">Stay Ahead of the Curve</h2>
                         <p class="newsletter-text">
-                            Get our latest insights delivered to your inbox. No spam, just valuable perspectives on business transformation.
+                            Get our latest insights delivered to your inbox. No spam, just valuable perspectives on
+                            business transformation.
                         </p>
                     </div>
                     <form class="newsletter-form">
@@ -404,7 +481,7 @@
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Company</h4>
                     <div class="footer-links">
@@ -415,7 +492,7 @@
                         <a href="contact.html">Contact</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <div class="footer-links">
@@ -426,7 +503,7 @@
                         <a href="services.html">Human Capital</a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="footer-heading">Contact</h4>
                     <div class="footer-links">
@@ -437,7 +514,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p class="footer-copyright">© 2026 Everest Consultancy. All rights reserved.</p>
                 <div class="footer-legal">
@@ -450,4 +527,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

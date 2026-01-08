@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Everest Consultancy</title>
-    <meta name="description" content="Admin dashboard for Everest Consultancy. Manage clients, projects, team members, and analytics.">
+    <meta name="description"
+        content="Admin dashboard for Everest Consultancy. Manage clients, projects, team members, and analytics.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <!-- Chart.js for graphs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar dark">
@@ -19,7 +22,7 @@
                 <div class="nav-logo-icon">E</div>
                 <span>Everest</span>
             </a>
-            
+
             <div class="nav-menu">
                 <div class="nav-dropdown">
                     <button class="nav-link nav-dropdown-trigger">
@@ -38,19 +41,20 @@
                 <a href="insights.html" class="nav-link">Insights</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
-            
+
             <div class="nav-actions">
-                <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle text direction">
+                <button class="rtl-toggle hidden-mobile" id="rtlToggle" aria-label="Toggle text direction">
                     <i class="fas fa-globe"></i>
                 </button>
-                <div class="nav-dropdown dashboard-dropdown">
+                <div class="nav-dropdown dashboard-dropdown hidden-mobile">
                     <button class="nav-link nav-dropdown-trigger dashboard-trigger active">
                         <i class="fas fa-th-large"></i> <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="nav-dropdown-menu">
                         <div class="nav-dropdown-content">
                             <a href="user-dashboard.html"><i class="fas fa-user"></i> User Dashboard</a>
-                            <a href="admin-dashboard.html" class="active"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+                            <a href="admin-dashboard.html" class="active"><i class="fas fa-user-shield"></i> Admin
+                                Dashboard</a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +120,7 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <div class="sidebar-section">
                     <h4 class="sidebar-section-title">Main</h4>
@@ -137,7 +141,7 @@
                         <span>Team</span>
                     </a>
                 </div>
-                
+
                 <div class="sidebar-section">
                     <h4 class="sidebar-section-title">Management</h4>
                     <a href="#" class="sidebar-link">
@@ -153,7 +157,7 @@
                         <span>Reports</span>
                     </a>
                 </div>
-                
+
                 <div class="sidebar-section">
                     <h4 class="sidebar-section-title">Settings</h4>
                     <a href="#" class="sidebar-link">
@@ -166,7 +170,7 @@
                     </a>
                 </div>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <a href="login.html" class="sidebar-link">
                     <i class="fas fa-sign-out-alt"></i>
@@ -174,7 +178,7 @@
                 </a>
             </div>
         </aside>
-        
+
         <!-- Main Content -->
         <main class="dashboard-main">
             <!-- Top Bar -->
@@ -182,12 +186,12 @@
                 <button class="sidebar-toggle" aria-label="Toggle sidebar">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
                 <div class="header-search">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search clients, projects...">
                 </div>
-                
+
                 <div class="header-actions">
                     <button class="header-action-btn" aria-label="Notifications">
                         <i class="fas fa-bell"></i>
@@ -203,7 +207,7 @@
                     </div>
                 </div>
             </header>
-            
+
             <!-- Dashboard Content -->
             <div class="dashboard-content">
                 <div class="dashboard-welcome" data-animate>
@@ -215,7 +219,7 @@
                         <i class="fas fa-plus"></i> New Project
                     </a>
                 </div>
-                
+
                 <!-- Stats Grid -->
                 <div class="dashboard-stats" data-animate>
                     <div class="dashboard-stat-card">
@@ -230,7 +234,7 @@
                             </span>
                         </div>
                     </div>
-                    
+
                     <div class="dashboard-stat-card">
                         <div class="stat-card-icon green">
                             <i class="fas fa-folder-open"></i>
@@ -243,7 +247,7 @@
                             </span>
                         </div>
                     </div>
-                    
+
                     <div class="dashboard-stat-card">
                         <div class="stat-card-icon purple">
                             <i class="fas fa-dollar-sign"></i>
@@ -256,7 +260,7 @@
                             </span>
                         </div>
                     </div>
-                    
+
                     <div class="dashboard-stat-card">
                         <div class="stat-card-icon orange">
                             <i class="fas fa-user-tie"></i>
@@ -270,7 +274,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Charts Section - Premium Design -->
                 <div class="dashboard-charts">
                     <div class="dashboard-card chart-card chart-card-premium" data-animate>
@@ -303,7 +307,7 @@
                             <canvas id="revenueChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
                             <h2 class="card-title"><i class="fas fa-pie-chart"></i> Project Distribution</h2>
@@ -311,15 +315,24 @@
                         <div class="chart-container chart-container-doughnut" style="height: 220px;">
                             <canvas id="projectsChart"></canvas>
                         </div>
-                        <div class="chart-legend" style="background: var(--gray-50); margin: 0 -1.5rem -1.5rem; padding: 1.25rem 1.5rem; border-radius: 0 0 var(--radius-xl) var(--radius-xl);">
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #0d9488, #14b8a6);"></span> Strategy (35%)</div>
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #7c3aed, #a855f7);"></span> Digital (28%)</div>
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #f97316, #fb923c);"></span> Operations (22%)</div>
-                            <div class="legend-item"><span class="legend-color" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);"></span> Finance (15%)</div>
+                        <div class="chart-legend"
+                            style="background: var(--gray-50); margin: 0 -1.5rem -1.5rem; padding: 1.25rem 1.5rem; border-radius: 0 0 var(--radius-xl) var(--radius-xl);">
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #0d9488, #14b8a6);"></span> Strategy
+                                (35%)</div>
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #7c3aed, #a855f7);"></span> Digital (28%)
+                            </div>
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #f97316, #fb923c);"></span> Operations
+                                (22%)</div>
+                            <div class="legend-item"><span class="legend-color"
+                                    style="background: linear-gradient(135deg, #06b6d4, #22d3ee);"></span> Finance (15%)
+                            </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Additional Charts Row -->
                 <div class="dashboard-charts">
                     <div class="dashboard-card chart-card chart-card-premium" data-animate>
@@ -334,18 +347,20 @@
                             <canvas id="teamPerformanceChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
                             <h2 class="card-title"><i class="fas fa-user-plus"></i> Client Acquisition</h2>
-                            <span style="background: rgba(16,185,129,0.1); color: #10b981; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">+68 New</span>
+                            <span
+                                style="background: rgba(16,185,129,0.1); color: #10b981; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">+68
+                                New</span>
                         </div>
                         <div class="chart-container chart-container-premium">
                             <canvas id="clientAcquisitionChart"></canvas>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Third Row of Charts -->
                 <div class="dashboard-charts">
                     <div class="dashboard-card chart-card chart-card-premium" data-animate>
@@ -356,18 +371,20 @@
                             <canvas id="regionalChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="dashboard-card chart-card chart-card-premium" data-animate>
                         <div class="card-header">
                             <h2 class="card-title"><i class="fas fa-bullseye"></i> Monthly Targets</h2>
-                            <span style="background: rgba(249,115,22,0.1); color: #f97316; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">87% Avg</span>
+                            <span
+                                style="background: rgba(249,115,22,0.1); color: #f97316; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">87%
+                                Avg</span>
                         </div>
                         <div class="chart-container chart-container-premium">
                             <canvas id="targetsChart"></canvas>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Main Dashboard Grid -->
                 <div class="dashboard-grid">
                     <!-- Recent Projects -->
@@ -431,7 +448,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Team Activity -->
                     <div class="dashboard-card" data-animate>
                         <div class="card-header">
@@ -477,7 +494,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Upcoming Tasks -->
                 <div class="dashboard-card" data-animate>
                     <div class="card-header">
@@ -629,7 +646,7 @@
         const clientGradient2 = clientCtx.createLinearGradient(0, 0, 0, 200);
         clientGradient2.addColorStop(0, 'rgba(6, 182, 212, 0.5)');
         clientGradient2.addColorStop(1, 'rgba(6, 182, 212, 0)');
-        
+
         new Chart(clientCtx, {
             type: 'line',
             data: {
@@ -725,11 +742,11 @@
                     legend: { display: false }
                 },
                 scales: {
-                    x: { 
-                        beginAtZero: true, 
+                    x: {
+                        beginAtZero: true,
                         max: 100,
                         grid: { color: 'rgba(0,0,0,0.05)' },
-                        ticks: { callback: function(value) { return value + '%'; } }
+                        ticks: { callback: function (value) { return value + '%'; } }
                     },
                     y: { grid: { display: false } }
                 }
@@ -737,4 +754,5 @@
         });
     </script>
 </body>
+
 </html>
