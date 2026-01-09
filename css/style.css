@@ -8578,3 +8578,231 @@ html {
         display: none !important;
     }
 }
+
+/* === FIX: Footer Visibility === */
+.footer-bottom p,
+.footer-copyright,
+.footer-legal,
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.footer-legal a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+/* ============================================================================
+   RTL DASHBOARD LAYOUT
+   ============================================================================ */
+@media (min-width: 1024px) {
+    [dir="rtl"] .dashboard-sidebar {
+        left: auto;
+        right: 0;
+        border-right: none;
+        border-left: 1px solid var(--gray-200);
+        transform: translate(0);
+    }
+
+    [dir="rtl"] .dashboard-main {
+        margin-left: 0;
+        margin-right: 280px;
+    }
+}
+
+/* Mobile RTL */
+@media (max-width: 1023px) {
+    [dir="rtl"] .dashboard-sidebar {
+        left: auto;
+        right: 0;
+        transform: translateX(100%);
+    }
+
+    [dir="rtl"] .dashboard-sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+/* Fix Mobile Sidebar Alignment */
+@media (max-width: 1023px) {
+    .dashboard-sidebar {
+        top: 0 !important;
+        bottom: auto !important;
+        height: 100dvh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+}
+
+/* Sidebar Close Button Styling */
+.sidebar-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 50;
+    transition: all 0.3s ease;
+}
+
+.sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+@media (min-width: 1024px) {
+    .sidebar-close {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   FORM INPUT ICONS & PASSWORD TOGGLE FIX
+   ============================================================================ */
+/* Input Icon Wrapper */
+.input-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Left Icon positioning */
+.input-icon-wrapper>i:first-child {
+    position: absolute;
+    left: 1rem;
+    color: var(--gray-400);
+    z-index: 10;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.input-icon-wrapper:focus-within>i:first-child {
+    color: var(--primary);
+}
+
+/* Adjust Input Padding to make room for icons */
+.input-icon-wrapper .form-input {
+    padding-left: 2.75rem !important;
+    /* Space for left icon */
+    padding-right: 2.75rem !important;
+    /* Space for eye icon */
+    width: 100%;
+}
+
+/* Password Toggle Eye Icon */
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}
+
+/* Fix Sidebar Toggle Button Location - MOBILE ONLY */
+@media (max-width: 1023px) {
+    .dashboard-header .sidebar-toggle {
+        position: static !important;
+        transform: none !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin-right: 1rem;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: inherit;
+    }
+}
+
+/* Hide Toggle on Desktop */
+@media (min-width: 1024px) {
+    .dashboard-header .sidebar-toggle {
+        display: none !important;
+    }
+}
+
+/* EXTENSION: Force Header Alignment & Toggle Left */
+.dashboard-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 1rem !important;
+}
+
+/* Force Toggle to Left */
+.dashboard-header .sidebar-toggle {
+    order: -1 !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+/* Ensure Close Button is prominent */
+.sidebar-close {
+    z-index: 100 !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* EXTENSION: Unify Dashboard Header Buttons */
+.dashboard-header .sidebar-toggle,
+.dashboard-header .header-action-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--gray-600) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.dashboard-header .sidebar-toggle:hover,
+.dashboard-header .header-action-btn:hover {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: var(--primary) !important;
+}
+
+/* Specific adjustment for Toggle Position */
+.dashboard-header .sidebar-toggle {
+    margin-right: auto !important;
+    /* Keep left push */
+}
+
+/* Ensure icons inside are decent size */
+.dashboard-header button i {
+    font-size: 1.25rem !important;
+}

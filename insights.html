@@ -217,18 +217,28 @@
         <!-- Page Hero -->
         <section class="page-hero page-hero-with-image">
             <div class="container">
-                <div class="page-hero-grid">
+                <div class="page-hero-grid" style="grid-template-columns: 1.5fr 1fr;">
                     <div class="page-hero-content">
-                        <div class="page-hero-badge" data-animate>Knowledge Hub</div>
+                        <div class="flex gap-3 mb-4">
+                            <div class="page-hero-badge" data-animate>Knowledge Hub</div>
+                            <div class="page-hero-badge"
+                                style="background: rgba(251, 191, 36, 0.2); border-color: rgba(251, 191, 36, 0.4); color: #fbbf24;"
+                                data-animate>
+                                <i class="fas fa-fire mr-1"></i> Trending Topics
+                            </div>
+                        </div>
                         <h1 class="page-hero-title" data-animate>Insights & <span class="highlight">Perspectives</span>
                         </h1>
                         <p class="page-hero-subtitle" data-animate>
-                            Thought leadership and expert analysis on the trends shaping business today
+                            Thought leadership and expert analysis on the trends shaping business today. Explore our
+                            latest research, whitepapers, and case studies.
                         </p>
                     </div>
-                    <div class="page-hero-image" data-animate>
+                    <div class="page-hero-image" data-animate
+                        style="max-height: 400px; display: flex; align-items: center; justify-content: center;">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
-                            alt="Business insights and analysis">
+                            alt="Business insights and analysis"
+                            style="height: 100%; width: auto; object-fit: cover; border-radius: 1rem;">
                         <div class="page-hero-image-accent">
                             <span class="accent-number">200+</span>
                             <span class="accent-text">Articles Published</span>

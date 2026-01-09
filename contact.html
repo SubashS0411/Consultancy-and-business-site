@@ -175,10 +175,37 @@
             font-weight: 600;
         }
 
-        @media (max-width: 767px) {
-            .contact-map {
-                height: 350px;
-            }
+        .contact-map {
+            height: 350px;
+        }
+        }
+
+        /* FORCE TEXT VISIBILITY ON CONTACT CARD */
+        .contact-info-title,
+        .contact-info-text {
+            text-align: center !important;
+        }
+
+        .contact-info-text {
+            margin-bottom: 2rem !important;
+        }
+
+        .contact-info-card,
+        .contact-info-title,
+        .contact-info-text,
+        .contact-info-item h4,
+        .contact-social h4 {
+            color: #ffffff !important;
+        }
+
+        .contact-info-item p,
+        .contact-info-item a {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .contact-info-item a:hover {
+            color: #ffffff !important;
+            text-decoration: underline;
         }
     </style>
 </head>

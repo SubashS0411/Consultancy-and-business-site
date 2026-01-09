@@ -33,7 +33,7 @@ class RTLToggle {
     toggle() {
         const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
         const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-        
+
         document.documentElement.setAttribute('dir', newDir);
         localStorage.setItem('textDirection', newDir);
     }
@@ -43,7 +43,7 @@ class RTLToggle {
 function toggleRTL() {
     const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
     const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-    
+
     document.documentElement.setAttribute('dir', newDir);
     localStorage.setItem('textDirection', newDir);
 }
@@ -58,7 +58,7 @@ class Navigation {
         this.mobileToggle = document.querySelector('.mobile-menu-toggle');
         this.mobileMenu = document.querySelector('.mobile-menu');
         this.mobileClose = document.querySelector('.mobile-menu-close');
-        
+
         this.init();
     }
 
@@ -71,7 +71,7 @@ class Navigation {
 
     handleScroll() {
         if (!this.navbar) return;
-        
+
         if (window.scrollY > 50) {
             this.navbar.classList.add('scrolled');
         } else {
@@ -136,7 +136,7 @@ class Navigation {
             btn.addEventListener('click', () => {
                 const content = btn.nextElementSibling;
                 const isOpen = content.classList.contains('open');
-                
+
                 // Close all dropdowns
                 document.querySelectorAll('.mobile-dropdown-content').forEach(c => {
                     c.classList.remove('open');
@@ -144,7 +144,7 @@ class Navigation {
                 document.querySelectorAll('.mobile-dropdown-btn').forEach(b => {
                     b.classList.remove('active');
                 });
-                
+
                 // Open clicked dropdown
                 if (!isOpen) {
                     content.classList.add('open');
@@ -207,13 +207,13 @@ class FAQAccordion {
     init() {
         this.items.forEach(item => {
             const question = item.querySelector('.faq-question');
-            
+
             question?.addEventListener('click', () => {
                 const isOpen = item.classList.contains('open');
-                
+
                 // Close all items
                 this.items.forEach(i => i.classList.remove('open'));
-                
+
                 // Open clicked item
                 if (!isOpen) {
                     item.classList.add('open');
@@ -236,7 +236,7 @@ class FormValidation {
     init() {
         this.forms.forEach(form => {
             form.addEventListener('submit', (e) => this.handleSubmit(e, form));
-            
+
             // Real-time validation
             form.querySelectorAll('input, textarea, select').forEach(field => {
                 field.addEventListener('blur', () => this.validateField(field));
@@ -247,7 +247,7 @@ class FormValidation {
 
     handleSubmit(e, form) {
         let isValid = true;
-        
+
         form.querySelectorAll('[required]').forEach(field => {
             if (!this.validateField(field)) {
                 isValid = false;
@@ -316,22 +316,22 @@ class FormValidation {
 
     showError(field, message) {
         this.clearError(field);
-        
+
         field.classList.add('error');
         field.style.borderColor = '#ef4444';
-        
+
         const errorEl = document.createElement('span');
         errorEl.className = 'form-error';
         errorEl.style.cssText = 'color: #ef4444; font-size: 0.875rem; margin-top: 0.25rem; display: block;';
         errorEl.textContent = message;
-        
+
         field.parentNode.appendChild(errorEl);
     }
 
     clearError(field) {
         field.classList.remove('error');
         field.style.borderColor = '';
-        
+
         const errorEl = field.parentNode.querySelector('.form-error');
         if (errorEl) {
             errorEl.remove();
@@ -352,7 +352,7 @@ class CountdownTimer {
             minutes: document.getElementById('countdown-minutes'),
             seconds: document.getElementById('countdown-seconds')
         };
-        
+
         if (this.elements.days) {
             this.init();
         }
@@ -394,8 +394,9 @@ class DashboardSidebar {
     constructor() {
         this.sidebar = document.querySelector('.dashboard-sidebar');
         this.toggle = document.querySelector('.sidebar-toggle');
+        this.closeBtn = document.querySelector('.sidebar-close'); // Select close button
         this.overlay = null;
-        
+
         if (this.sidebar && this.toggle) {
             this.init();
         }
@@ -416,6 +417,11 @@ class DashboardSidebar {
 
         this.toggle.addEventListener('click', () => this.toggleSidebar());
         this.overlay.addEventListener('click', () => this.closeSidebar());
+
+        // Fix: Add event listener for close button
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.closeSidebar());
+        }
 
         // Close on escape
         document.addEventListener('keydown', (e) => {
@@ -451,11 +457,11 @@ class SmoothScroll {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 const href = anchor.getAttribute('href');
-                
+
                 if (href === '#') return;
-                
+
                 const target = document.querySelector(href);
-                
+
                 if (target) {
                     e.preventDefault();
                     target.scrollIntoView({
@@ -482,7 +488,7 @@ class PasswordToggle {
             toggle.addEventListener('click', () => {
                 const input = toggle.previousElementSibling;
                 const icon = toggle.querySelector('i');
-                
+
                 if (input && input.type === 'password') {
                     input.type = 'text';
                     if (icon) {
@@ -509,17 +515,17 @@ class TestimonialSlider {
     constructor(container) {
         this.container = document.querySelector(container);
         if (!this.container) return;
-        
+
         this.slides = this.container.querySelectorAll('.testimonial-slide');
         this.currentIndex = 0;
         this.autoplayInterval = null;
-        
+
         this.init();
     }
 
     init() {
         if (this.slides.length <= 1) return;
-        
+
         this.createControls();
         this.showSlide(0);
         this.startAutoplay();
@@ -529,7 +535,7 @@ class TestimonialSlider {
         const controls = document.createElement('div');
         controls.className = 'testimonial-controls';
         controls.style.cssText = 'display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;';
-        
+
         this.slides.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.className = 'testimonial-dot';
@@ -545,7 +551,7 @@ class TestimonialSlider {
             dot.addEventListener('click', () => this.showSlide(i));
             controls.appendChild(dot);
         });
-        
+
         this.container.appendChild(controls);
         this.dots = controls.querySelectorAll('.testimonial-dot');
     }
@@ -554,11 +560,11 @@ class TestimonialSlider {
         this.slides.forEach((slide, i) => {
             slide.style.display = i === index ? 'block' : 'none';
         });
-        
+
         this.dots?.forEach((dot, i) => {
             dot.style.background = i === index ? 'var(--primary)' : 'var(--gray-300)';
         });
-        
+
         this.currentIndex = index;
     }
 
@@ -569,11 +575,11 @@ class TestimonialSlider {
 
     startAutoplay() {
         this.autoplayInterval = setInterval(() => this.nextSlide(), 5000);
-        
+
         this.container.addEventListener('mouseenter', () => {
             clearInterval(this.autoplayInterval);
         });
-        
+
         this.container.addEventListener('mouseleave', () => {
             this.startAutoplay();
         });
@@ -588,7 +594,7 @@ class StatsCounter {
     constructor() {
         this.stats = document.querySelectorAll('[data-count]');
         this.observed = new Set();
-        
+
         if (this.stats.length) {
             this.init();
         }
@@ -622,7 +628,7 @@ class StatsCounter {
             if (current >= target) {
                 current = target;
                 clearInterval(timer);
-                
+
                 // Add + icon after animation completes if not already present
                 if (!hasSup && element.parentElement) {
                     const supElement = element.parentElement.querySelector('sup');
@@ -649,20 +655,20 @@ document.addEventListener('DOMContentLoaded', () => {
     new ScrollAnimations();
     new SmoothScroll();
     new RTLToggle();
-    
+
     // Page-specific
     new FAQAccordion();
     new FormValidation();
     new PasswordToggle();
     new DashboardSidebar();
     new StatsCounter();
-    
+
     // Countdown for coming soon page (set your launch date)
     new CountdownTimer('2026-06-01');
-    
+
     // Testimonial slider
     new TestimonialSlider('.testimonial-slider');
-    
+
     console.log('Everest Consultancy - All systems initialized');
 });
 
@@ -686,7 +692,7 @@ function debounce(func, wait = 250) {
 // Throttle function
 function throttle(func, limit = 250) {
     let inThrottle;
-    return function(...args) {
+    return function (...args) {
         if (!inThrottle) {
             func.apply(this, args);
             inThrottle = true;
